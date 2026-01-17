@@ -14,15 +14,15 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "precommit": "lint-staged",
-    "cs-check": "prettier -l \"{src, docs}/**/*.(ts?(x)|md|css)\"",
-    "cs-format": "prettier \"{src, docs}/**/*.(ts?(x)|md|css)\" --write"
+    "cs-check": "biome check src docs",
+    "cs-format": "biome check --write src docs"
   },
   "lint-staged": {
     "src/**/*.(ts?(x)|css)": [
-      "prettier --write"
+      "biome check --write"
     ],
     "docs/**/*.md": [
-      "prettier --write"
+      "biome check --write"
     ]
   },
   "dependencies": {

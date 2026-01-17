@@ -4,9 +4,9 @@
   "description": "A set of snapshot tests to be used for testing RJSF theme.",
   "scripts": {
     "build": "tsc -b .",
-    "cs-check": "prettier -l \"src/**/*.[jt]s?(x)\"",
-    "cs-format": "prettier \"src/**/*.[jt]s?(x)\" --write",
-    "lint": "eslint src",
+    "cs-check": "biome check src",
+    "cs-format": "biome check --write src",
+    "lint": "biome lint src",
     "precommit": "lint-staged",
     "publish-to-npm": "npm run build && npm publish",
     "test": "echo 'OK'",
@@ -14,7 +14,7 @@
   },
   "lint-staged": {
     "src/**/*.[jt]s?(x)": [
-      "eslint --fix"
+      "biome check --write"
     ]
   },
   "main": "lib/index.js",
@@ -35,9 +35,9 @@
     "react": ">=18"
   },
   "devDependencies": {
-    "@rjsf/core": "^6.2.0",
-    "@rjsf/utils": "^6.2.0",
-    "@rjsf/validator-ajv8": "^6.2.0"
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
+    "@rjsf/validator-ajv8": "*"
   },
   "repository": {
     "type": "git",

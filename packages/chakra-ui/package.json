@@ -44,9 +44,9 @@
     "build:esm": "esbuild ./src/index.ts --bundle --outfile=dist/chakra-ui.esm.js --sourcemap --packages=external --format=esm",
     "build:umd": "rollup dist/chakra-ui.esm.js --format=umd --file=dist/chakra-ui.umd.js --name=@rjsf/chakra-ui",
     "build": "npm run build:ts && npm run build:cjs && npm run build:esm && npm run build:umd",
-    "cs-check": "prettier -l \"{src,test}/**/*.ts?(x)\"",
-    "cs-format": "prettier \"{src,test}/**/*.ts?(x)\" --write",
-    "lint": "eslint src test",
+    "cs-check": "biome check src test",
+    "cs-format": "biome check --write src test",
+    "lint": "biome lint src test",
     "precommit": "lint-staged",
     "test": "jest",
     "test:update": "jest --u",
@@ -55,7 +55,7 @@
   },
   "lint-staged": {
     "{src,test}/**/*.ts?(x)": [
-      "eslint --fix"
+      "biome check --write"
     ]
   },
   "engineStrict": false,
@@ -87,15 +87,12 @@
   "devDependencies": {
     "@chakra-ui/cli": "^3.28.0",
     "@chakra-ui/react": "^3.28.0",
-    "@emotion/eslint-plugin": "^11.12.0",
     "@emotion/jest": "^11.13.0",
-    "@emotion/react": "^11.14.0",
-    "@rjsf/core": "^6.2.0",
-    "@rjsf/snapshot-tests": "^6.2.0",
-    "@rjsf/utils": "^6.2.0",
-    "@rjsf/validator-ajv8": "^6.2.0",
-    "chakra-react-select": "^6.1.0",
-    "eslint": "^8.57.1"
+    "@rjsf/core": "*",
+    "@rjsf/snapshot-tests": "*",
+    "@rjsf/utils": "*",
+    "@rjsf/validator-ajv8": "*",
+    "chakra-react-select": "^6.1.0"
   },
   "dependencies": {
     "lucide-react": "^0.548.0",

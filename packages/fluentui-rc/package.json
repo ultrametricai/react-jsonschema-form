@@ -8,9 +8,9 @@
     "build:esm": "esbuild ./src/index.ts --bundle --outfile=dist/index.esm.js --sourcemap --packages=external --format=esm",
     "build:umd": "rollup dist/index.esm.js --format=umd --file=dist/core.umd.js --name=JSONSchemaForm",
     "build": "npm run build:ts && npm run build:cjs && npm run build:esm && npm run build:umd",
-    "cs-check": "prettier -l \"{src,test,testSnap}/**/*.[jt]s?(x)\"",
-    "cs-format": "prettier \"{src,test,testSnap}/**/*.[jt]s?(x)\" --write",
-    "lint": "eslint src test",
+    "cs-check": "biome check src test",
+    "cs-format": "biome check --write src test",
+    "lint": "biome lint src test",
     "precommit": "lint-staged",
     "publish-to-npm": "npm run build && npm publish",
     "test": "jest",
@@ -21,7 +21,7 @@
   },
   "lint-staged": {
     "{src,test}/**/*.[jt]s?(x)": [
-      "eslint --fix"
+      "biome check --write"
     ]
   },
   "main": "dist/index.js",
@@ -76,11 +76,10 @@
     "@fluentui/react-components": "^9.72.4",
     "@fluentui/react-icons": "^2.0.313",
     "@fluentui/react-migration-v0-v9": "^9.6.12",
-    "@rjsf/core": "^6.2.0",
-    "@rjsf/snapshot-tests": "^6.2.0",
-    "@rjsf/utils": "^6.2.0",
-    "@rjsf/validator-ajv8": "^6.2.0",
-    "eslint": "^8.57.1"
+    "@rjsf/core": "*",
+    "@rjsf/snapshot-tests": "*",
+    "@rjsf/utils": "*",
+    "@rjsf/validator-ajv8": "*"
   },
   "directories": {
     "test": "test"

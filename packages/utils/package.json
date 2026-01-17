@@ -49,16 +49,16 @@
     "build:esm": "esbuild ./src/index.ts --bundle --outfile=dist/utils.esm.js --sourcemap --packages=external --format=esm",
     "build:umd": "rollup dist/utils.esm.js --format=umd --file=dist/utils.umd.js --name=@rjsf/utils",
     "build": "npm run build:ts && npm run build:cjs && npm run build:esm && npm run build:umd",
-    "cs-check": "prettier -l \"{src,test}/**/*.ts?(x)\"",
-    "cs-format": "prettier \"{src,test}/**/*.ts?(x)\" --write",
-    "lint": "eslint src test",
+    "cs-check": "biome check src test",
+    "cs-format": "biome check --write src test",
+    "lint": "biome lint src test",
     "precommit": "lint-staged",
     "test": "jest",
     "test:debug": "node --inspect-brk ../../node_modules/.bin/jest"
   },
   "lint-staged": {
     "{src,test}/**/*.ts?(x)": [
-      "eslint --fix"
+      "biome check --write"
     ]
   },
   "peerDependencies": {
@@ -72,12 +72,7 @@
     "lodash-es": "^4.17.21",
     "react-is": "^18.3.1"
   },
-  "devDependencies": {
-    "@types/json-schema": "^7.0.15",
-    "@types/react-is": "^18.3.1",
-    "deep-freeze-es6": "^4.0.1",
-    "eslint": "^8.57.1"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

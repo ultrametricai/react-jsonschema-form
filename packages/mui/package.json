@@ -44,16 +44,16 @@
     "build:esm": "esbuild ./src/index.ts --bundle --outfile=dist/mui.esm.js --sourcemap --packages=external --format=esm",
     "build:umd": "rollup dist/mui.esm.js --format=umd --file=dist/mui.umd.js --name=@rjsf/mui",
     "build": "npm run build:ts && npm run build:cjs && npm run build:esm && npm run build:umd",
-    "cs-check": "prettier -l \"{src,test}/**/*.ts?(x)\"",
-    "cs-format": "prettier \"{src,test}/**/*.ts?(x)\" --write",
-    "lint": "eslint src test",
+    "cs-check": "biome check src test",
+    "cs-format": "biome check --write src test",
+    "lint": "biome lint src test",
     "precommit": "lint-staged",
     "test": "jest",
     "test:update": "jest --u"
   },
   "lint-staged": {
     "{src,test}/**/*.ts?(x)": [
-      "eslint --fix"
+      "biome check --write"
     ]
   },
   "engines": {
@@ -70,15 +70,12 @@
   },
   "devDependencies": {
     "@emotion/jest": "^11.13.0",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
-    "@rjsf/core": "^6.2.0",
-    "@rjsf/snapshot-tests": "^6.2.0",
-    "@rjsf/utils": "^6.2.0",
-    "@rjsf/validator-ajv8": "^6.2.0",
-    "eslint": "^8.57.1"
+    "@rjsf/core": "*",
+    "@rjsf/snapshot-tests": "*",
+    "@rjsf/utils": "*",
+    "@rjsf/validator-ajv8": "*"
   },
   "publishConfig": {
     "access": "public"
