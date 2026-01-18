@@ -1,0 +1,4482 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`nameGenerator bracketNameGenerator nested object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-object"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-title-field"
+                    id="root_person__title"
+                  >
+                    <h5
+                      class="rjsf-title-heading"
+                    >
+                      person
+                    </h5>
+                    <hr
+                      class="rjsf-title-separator"
+                      role="separator"
+                    />
+                  </div>
+                  <div
+                    class="rjsf-object-properties"
+                  >
+                    <div
+                      class="rjsf-object-property "
+                    >
+                      <div
+                        class="rjsf-object-property-content"
+                      >
+                        <div
+                          class="rjsf-field rjsf-field-string"
+                        >
+                          <div
+                            class="rjsf-field-wrapper"
+                          >
+                            <label
+                              class="rjsf-label "
+                              for="root_person_name"
+                            >
+                              name
+                            </label>
+                            <div
+                              class="rjsf-base-input-wrapper"
+                            >
+                              <input
+                                aria-describedby="root_person_name__error root_person_name__description root_person_name__help"
+                                aria-invalid="false"
+                                class="rjsf-input  "
+                                data-rac=""
+                                id="root_person_name"
+                                name="root[person][name]"
+                                placeholder=""
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rjsf-object-property "
+                    >
+                      <div
+                        class="rjsf-object-property-content"
+                      >
+                        <div
+                          class="rjsf-field rjsf-field-object"
+                        >
+                          <div
+                            class="rjsf-field-wrapper"
+                          >
+                            <div
+                              class="rjsf-title-field"
+                              id="root_person_address__title"
+                            >
+                              <h5
+                                class="rjsf-title-heading"
+                              >
+                                address
+                              </h5>
+                              <hr
+                                class="rjsf-title-separator"
+                                role="separator"
+                              />
+                            </div>
+                            <div
+                              class="rjsf-object-properties"
+                            >
+                              <div
+                                class="rjsf-object-property "
+                              >
+                                <div
+                                  class="rjsf-object-property-content"
+                                >
+                                  <div
+                                    class="rjsf-field rjsf-field-string"
+                                  >
+                                    <div
+                                      class="rjsf-field-wrapper"
+                                    >
+                                      <label
+                                        class="rjsf-label "
+                                        for="root_person_address_street"
+                                      >
+                                        street
+                                      </label>
+                                      <div
+                                        class="rjsf-base-input-wrapper"
+                                      >
+                                        <input
+                                          aria-describedby="root_person_address_street__error root_person_address_street__description root_person_address_street__help"
+                                          aria-invalid="false"
+                                          class="rjsf-input  "
+                                          data-rac=""
+                                          id="root_person_address_street"
+                                          name="root[person][address][street]"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-object-property "
+                              >
+                                <div
+                                  class="rjsf-object-property-content"
+                                >
+                                  <div
+                                    class="rjsf-field rjsf-field-string"
+                                  >
+                                    <div
+                                      class="rjsf-field-wrapper"
+                                    >
+                                      <label
+                                        class="rjsf-label "
+                                        for="root_person_address_city"
+                                      >
+                                        city
+                                      </label>
+                                      <div
+                                        class="rjsf-base-input-wrapper"
+                                      >
+                                        <input
+                                          aria-describedby="root_person_address_city__error root_person_address_city__description root_person_address_city__help"
+                                          aria-invalid="false"
+                                          class="rjsf-input  "
+                                          data-rac=""
+                                          id="root_person_address_city"
+                                          name="root[person][address][city]"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-object-property "
+                              >
+                                <div
+                                  class="rjsf-object-property-content"
+                                >
+                                  <div
+                                    class="rjsf-field rjsf-field-string"
+                                  >
+                                    <div
+                                      class="rjsf-field-wrapper"
+                                    >
+                                      <label
+                                        class="rjsf-label "
+                                        for="root_person_address_country"
+                                      >
+                                        country
+                                      </label>
+                                      <div
+                                        class="rjsf-base-input-wrapper"
+                                      >
+                                        <input
+                                          aria-describedby="root_person_address_country__error root_person_address_country__description root_person_address_country__help"
+                                          aria-invalid="false"
+                                          class="rjsf-input  "
+                                          data-rac=""
+                                          id="root_person_address_country"
+                                          name="root[person][address][country]"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2s:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator bracketNameGenerator object with additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_name"
+                  >
+                    name
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_name__error root_name__description root_name__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_name"
+                      name="root[name]"
+                      placeholder=""
+                      type="text"
+                      value="John"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_customField-key"
+                    >
+                      customField Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_customField-key"
+                      name="root_customField-key"
+                      type="text"
+                      value="customField"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_customField"
+                    >
+                      customField
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_customField__error root_customField__description root_customField__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_customField"
+                        name="root[customField]"
+                        placeholder=""
+                        type="text"
+                        value="customValue"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r2u:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r30:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r32:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_name"
+                  >
+                    name
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_name__error root_name__description root_name__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_name"
+                      name="root[name]"
+                      placeholder=""
+                      type="text"
+                      value="Alice"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_age"
+                  >
+                    age
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_age__error root_age__description root_age__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_age"
+                      name="root[age]"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value="30"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-boolean"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    aria-describedby="root_active__error root_active__description root_active__help"
+                    class="rjsf-checkbox-widget "
+                  >
+                    <div
+                      class="rjsf-checkbox-wrapper"
+                    >
+                      <label
+                        class="rjsf-checkbox "
+                        data-rac=""
+                        data-react-aria-pressable="true"
+                        data-selected="true"
+                      >
+                        <span
+                          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+                        >
+                          <input
+                            checked=""
+                            data-react-aria-pressable="true"
+                            id="root_active"
+                            name="root[active]"
+                            tabindex="0"
+                            title=""
+                            type="checkbox"
+                          />
+                        </span>
+                        active
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-array"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-array-field"
+                  >
+                    <div
+                      class="rjsf-array-field-inner"
+                    >
+                      <div
+                        class="rjsf-array-field-content"
+                      >
+                        <div
+                          class="rjsf-title-field"
+                          id="root_tags__title"
+                        >
+                          <h5
+                            class="rjsf-title-heading"
+                          >
+                            tags
+                          </h5>
+                          <hr
+                            class="rjsf-title-separator"
+                            role="separator"
+                          />
+                        </div>
+                        <div
+                          class="rjsf-array-item-list"
+                        >
+                          <div
+                            class="rjsf-array-item"
+                          >
+                            <div
+                              class="rjsf-array-item-inner"
+                            >
+                              <div
+                                class="rjsf-array-item-content"
+                              >
+                                <div
+                                  class="rjsf-field rjsf-field-string"
+                                >
+                                  <div
+                                    class="rjsf-field-wrapper"
+                                  >
+                                    <label
+                                      class="rjsf-label "
+                                      for="root_tags_0"
+                                    >
+                                      tags-1
+                                      <span
+                                        class="rjsf-required"
+                                      >
+                                        *
+                                      </span>
+                                    </label>
+                                    <div
+                                      class="rjsf-base-input-wrapper"
+                                    >
+                                      <input
+                                        aria-describedby="root_tags_0__error root_tags_0__description root_tags_0__help"
+                                        aria-invalid="false"
+                                        class="rjsf-input  "
+                                        data-rac=""
+                                        id="root_tags_0"
+                                        name="root[tags][0]"
+                                        placeholder=""
+                                        required=""
+                                        type="text"
+                                        value="developer"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-array-item-buttons"
+                              >
+                                <div
+                                  class="rjsf-array-item-buttons-inner"
+                                  style="margin-top: 22px;"
+                                >
+                                  <button
+                                    aria-label="Move up"
+                                    class="rjsf-icon-button rjsf-array-item-move-up"
+                                    data-disabled="true"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    disabled=""
+                                    id="react-aria-:r34:"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▲
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Move down"
+                                    class="rjsf-icon-button rjsf-array-item-move-down"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r36:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▼
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Remove"
+                                    class="rjsf-icon-button rjsf-remove-button rjsf-array-item-remove"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r38:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ✕
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rjsf-array-item"
+                          >
+                            <div
+                              class="rjsf-array-item-inner"
+                            >
+                              <div
+                                class="rjsf-array-item-content"
+                              >
+                                <div
+                                  class="rjsf-field rjsf-field-string"
+                                >
+                                  <div
+                                    class="rjsf-field-wrapper"
+                                  >
+                                    <label
+                                      class="rjsf-label "
+                                      for="root_tags_1"
+                                    >
+                                      tags-2
+                                      <span
+                                        class="rjsf-required"
+                                      >
+                                        *
+                                      </span>
+                                    </label>
+                                    <div
+                                      class="rjsf-base-input-wrapper"
+                                    >
+                                      <input
+                                        aria-describedby="root_tags_1__error root_tags_1__description root_tags_1__help"
+                                        aria-invalid="false"
+                                        class="rjsf-input  "
+                                        data-rac=""
+                                        id="root_tags_1"
+                                        name="root[tags][1]"
+                                        placeholder=""
+                                        required=""
+                                        type="text"
+                                        value="designer"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-array-item-buttons"
+                              >
+                                <div
+                                  class="rjsf-array-item-buttons-inner"
+                                  style="margin-top: 22px;"
+                                >
+                                  <button
+                                    aria-label="Move up"
+                                    class="rjsf-icon-button rjsf-array-item-move-up"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r3a:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▲
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Move down"
+                                    class="rjsf-icon-button rjsf-array-item-move-down"
+                                    data-disabled="true"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    disabled=""
+                                    id="react-aria-:r3c:"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▼
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Remove"
+                                    class="rjsf-icon-button rjsf-remove-button rjsf-array-item-remove"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r3e:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ✕
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rjsf-array-item-add-wrapper"
+                          >
+                            <div
+                              class="rjsf-add-button-wrapper"
+                            >
+                              <button
+                                class="rjsf-button rjsf-add-button rjsf-array-item-add"
+                                data-rac=""
+                                data-react-aria-pressable="true"
+                                id="react-aria-:r3g:"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  +
+                                </span>
+                                 Add Item
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r3i:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator bracketNameGenerator simple object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_firstName"
+                  >
+                    firstName
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_firstName__error root_firstName__description root_firstName__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_firstName"
+                      name="root[firstName]"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_lastName"
+                  >
+                    lastName
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_lastName__error root_lastName__description root_lastName__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_lastName"
+                      name="root[lastName]"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_age"
+                  >
+                    age
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_age__error root_age__description root_age__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_age"
+                      name="root[age]"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2q:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator dotNotationNameGenerator nested object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-object"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-title-field"
+                    id="root_person__title"
+                  >
+                    <h5
+                      class="rjsf-title-heading"
+                    >
+                      person
+                    </h5>
+                    <hr
+                      class="rjsf-title-separator"
+                      role="separator"
+                    />
+                  </div>
+                  <div
+                    class="rjsf-object-properties"
+                  >
+                    <div
+                      class="rjsf-object-property "
+                    >
+                      <div
+                        class="rjsf-object-property-content"
+                      >
+                        <div
+                          class="rjsf-field rjsf-field-string"
+                        >
+                          <div
+                            class="rjsf-field-wrapper"
+                          >
+                            <label
+                              class="rjsf-label "
+                              for="root_person_name"
+                            >
+                              name
+                            </label>
+                            <div
+                              class="rjsf-base-input-wrapper"
+                            >
+                              <input
+                                aria-describedby="root_person_name__error root_person_name__description root_person_name__help"
+                                aria-invalid="false"
+                                class="rjsf-input  "
+                                data-rac=""
+                                id="root_person_name"
+                                name="root.person.name"
+                                placeholder=""
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="rjsf-object-property "
+                    >
+                      <div
+                        class="rjsf-object-property-content"
+                      >
+                        <div
+                          class="rjsf-field rjsf-field-object"
+                        >
+                          <div
+                            class="rjsf-field-wrapper"
+                          >
+                            <div
+                              class="rjsf-title-field"
+                              id="root_person_address__title"
+                            >
+                              <h5
+                                class="rjsf-title-heading"
+                              >
+                                address
+                              </h5>
+                              <hr
+                                class="rjsf-title-separator"
+                                role="separator"
+                              />
+                            </div>
+                            <div
+                              class="rjsf-object-properties"
+                            >
+                              <div
+                                class="rjsf-object-property "
+                              >
+                                <div
+                                  class="rjsf-object-property-content"
+                                >
+                                  <div
+                                    class="rjsf-field rjsf-field-string"
+                                  >
+                                    <div
+                                      class="rjsf-field-wrapper"
+                                    >
+                                      <label
+                                        class="rjsf-label "
+                                        for="root_person_address_street"
+                                      >
+                                        street
+                                      </label>
+                                      <div
+                                        class="rjsf-base-input-wrapper"
+                                      >
+                                        <input
+                                          aria-describedby="root_person_address_street__error root_person_address_street__description root_person_address_street__help"
+                                          aria-invalid="false"
+                                          class="rjsf-input  "
+                                          data-rac=""
+                                          id="root_person_address_street"
+                                          name="root.person.address.street"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-object-property "
+                              >
+                                <div
+                                  class="rjsf-object-property-content"
+                                >
+                                  <div
+                                    class="rjsf-field rjsf-field-string"
+                                  >
+                                    <div
+                                      class="rjsf-field-wrapper"
+                                    >
+                                      <label
+                                        class="rjsf-label "
+                                        for="root_person_address_city"
+                                      >
+                                        city
+                                      </label>
+                                      <div
+                                        class="rjsf-base-input-wrapper"
+                                      >
+                                        <input
+                                          aria-describedby="root_person_address_city__error root_person_address_city__description root_person_address_city__help"
+                                          aria-invalid="false"
+                                          class="rjsf-input  "
+                                          data-rac=""
+                                          id="root_person_address_city"
+                                          name="root.person.address.city"
+                                          placeholder=""
+                                          type="text"
+                                          value=""
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r3m:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_name"
+                  >
+                    name
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_name__error root_name__description root_name__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_name"
+                      name="root.name"
+                      placeholder=""
+                      type="text"
+                      value="Test"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_count"
+                  >
+                    count
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_count__error root_count__description root_count__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_count"
+                      name="root.count"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value="5"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-array"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-array-field"
+                  >
+                    <div
+                      class="rjsf-array-field-inner"
+                    >
+                      <div
+                        class="rjsf-array-field-content"
+                      >
+                        <div
+                          class="rjsf-title-field"
+                          id="root_items__title"
+                        >
+                          <h5
+                            class="rjsf-title-heading"
+                          >
+                            items
+                          </h5>
+                          <hr
+                            class="rjsf-title-separator"
+                            role="separator"
+                          />
+                        </div>
+                        <div
+                          class="rjsf-array-item-list"
+                        >
+                          <div
+                            class="rjsf-array-item"
+                          >
+                            <div
+                              class="rjsf-array-item-inner"
+                            >
+                              <div
+                                class="rjsf-array-item-content"
+                              >
+                                <div
+                                  class="rjsf-field rjsf-field-string"
+                                >
+                                  <div
+                                    class="rjsf-field-wrapper"
+                                  >
+                                    <label
+                                      class="rjsf-label "
+                                      for="root_items_0"
+                                    >
+                                      items-1
+                                      <span
+                                        class="rjsf-required"
+                                      >
+                                        *
+                                      </span>
+                                    </label>
+                                    <div
+                                      class="rjsf-base-input-wrapper"
+                                    >
+                                      <input
+                                        aria-describedby="root_items_0__error root_items_0__description root_items_0__help"
+                                        aria-invalid="false"
+                                        class="rjsf-input  "
+                                        data-rac=""
+                                        id="root_items_0"
+                                        name="root.items.0"
+                                        placeholder=""
+                                        required=""
+                                        type="text"
+                                        value="a"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-array-item-buttons"
+                              >
+                                <div
+                                  class="rjsf-array-item-buttons-inner"
+                                  style="margin-top: 22px;"
+                                >
+                                  <button
+                                    aria-label="Move up"
+                                    class="rjsf-icon-button rjsf-array-item-move-up"
+                                    data-disabled="true"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    disabled=""
+                                    id="react-aria-:r3o:"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▲
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Move down"
+                                    class="rjsf-icon-button rjsf-array-item-move-down"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r3q:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▼
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Remove"
+                                    class="rjsf-icon-button rjsf-remove-button rjsf-array-item-remove"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r3s:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ✕
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rjsf-array-item"
+                          >
+                            <div
+                              class="rjsf-array-item-inner"
+                            >
+                              <div
+                                class="rjsf-array-item-content"
+                              >
+                                <div
+                                  class="rjsf-field rjsf-field-string"
+                                >
+                                  <div
+                                    class="rjsf-field-wrapper"
+                                  >
+                                    <label
+                                      class="rjsf-label "
+                                      for="root_items_1"
+                                    >
+                                      items-2
+                                      <span
+                                        class="rjsf-required"
+                                      >
+                                        *
+                                      </span>
+                                    </label>
+                                    <div
+                                      class="rjsf-base-input-wrapper"
+                                    >
+                                      <input
+                                        aria-describedby="root_items_1__error root_items_1__description root_items_1__help"
+                                        aria-invalid="false"
+                                        class="rjsf-input  "
+                                        data-rac=""
+                                        id="root_items_1"
+                                        name="root.items.1"
+                                        placeholder=""
+                                        required=""
+                                        type="text"
+                                        value="b"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="rjsf-array-item-buttons"
+                              >
+                                <div
+                                  class="rjsf-array-item-buttons-inner"
+                                  style="margin-top: 22px;"
+                                >
+                                  <button
+                                    aria-label="Move up"
+                                    class="rjsf-icon-button rjsf-array-item-move-up"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r3u:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▲
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Move down"
+                                    class="rjsf-icon-button rjsf-array-item-move-down"
+                                    data-disabled="true"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    disabled=""
+                                    id="react-aria-:r40:"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ▼
+                                    </span>
+                                  </button>
+                                  <button
+                                    aria-label="Remove"
+                                    class="rjsf-icon-button rjsf-remove-button rjsf-array-item-remove"
+                                    data-rac=""
+                                    data-react-aria-pressable="true"
+                                    id="react-aria-:r42:"
+                                    tabindex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                    >
+                                      ✕
+                                    </span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="rjsf-array-item-add-wrapper"
+                          >
+                            <div
+                              class="rjsf-add-button-wrapper"
+                            >
+                              <button
+                                class="rjsf-button rjsf-add-button rjsf-array-item-add"
+                                data-rac=""
+                                data-react-aria-pressable="true"
+                                id="react-aria-:r44:"
+                                tabindex="0"
+                                type="button"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                >
+                                  +
+                                </span>
+                                 Add Item
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r46:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`nameGenerator dotNotationNameGenerator simple object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_firstName"
+                  >
+                    firstName
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_firstName__error root_firstName__description root_firstName__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_firstName"
+                      name="root.firstName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_lastName"
+                  >
+                    lastName
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_lastName__error root_lastName__description root_lastName__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_lastName"
+                      name="root.lastName"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_age"
+                  >
+                    age
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_age__error root_age__description root_age__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_age"
+                      name="root.age"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r3k:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r2:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r4:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r6:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields additionalProperties, array type 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-array"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-array-field"
+                    >
+                      <div
+                        class="rjsf-array-field-inner"
+                      >
+                        <div
+                          class="rjsf-array-field-content"
+                        >
+                          <div
+                            class="rjsf-title-field"
+                            id="root_foo__title"
+                          >
+                            <h5
+                              class="rjsf-title-heading"
+                            >
+                              foo
+                            </h5>
+                            <hr
+                              class="rjsf-title-separator"
+                              role="separator"
+                            />
+                          </div>
+                          <div
+                            class="rjsf-array-item-list"
+                          >
+                            <div
+                              class="rjsf-array-item-add-wrapper"
+                            >
+                              <div
+                                class="rjsf-add-button-wrapper"
+                              >
+                                <button
+                                  class="rjsf-button rjsf-add-button rjsf-array-item-add"
+                                  data-rac=""
+                                  data-react-aria-pressable="true"
+                                  id="react-aria-:rq:"
+                                  tabindex="0"
+                                  type="button"
+                                >
+                                  <span
+                                    aria-hidden="true"
+                                  >
+                                    +
+                                  </span>
+                                   Add Item
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:rs:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:ru:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r10:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields additionalProperties, description 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                    <span
+                      class="rjsf-additional-property-spacer"
+                    >
+                       
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                    <span
+                      class="rjsf-description "
+                    >
+                      <div>
+                        <div
+                          class="rjsf-description-field"
+                          id="root_foo__description"
+                        >
+                          item description
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:re:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:rg:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:ri:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields additionalProperties, label off 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r8:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:ra:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:rc:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields additionalProperties, object type 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-object"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-title-field"
+                      id="root_foo__title"
+                    >
+                      <h5
+                        class="rjsf-title-heading"
+                      >
+                        foo
+                      </h5>
+                      <hr
+                        class="rjsf-title-separator"
+                        role="separator"
+                      />
+                    </div>
+                    <div
+                      class="rjsf-object-properties"
+                    >
+                      <div
+                        class="rjsf-object-property "
+                      >
+                        <div
+                          class="rjsf-object-property-content"
+                        >
+                          <div
+                            class="rjsf-field rjsf-field-string"
+                          >
+                            <div
+                              class="rjsf-field-wrapper"
+                            >
+                              <label
+                                class="rjsf-label "
+                                for="root_foo_foo"
+                              >
+                                foo
+                              </label>
+                              <div
+                                class="rjsf-base-input-wrapper"
+                              >
+                                <input
+                                  aria-describedby="root_foo_foo__error root_foo_foo__description root_foo_foo__help"
+                                  aria-invalid="false"
+                                  class="rjsf-input  "
+                                  data-rac=""
+                                  id="root_foo_foo"
+                                  name="root_foo_foo"
+                                  placeholder=""
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:rk:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:rm:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:ro:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_a"
+                  >
+                    A
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_a__error root_a__description root_a__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_a"
+                      name="root_a"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_b"
+                  >
+                    B
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_b__error root_b__description root_b__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_b"
+                      name="root_b"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r0:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields show add button and fields if additionalProperties is true and not an object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_additionalProperty-key"
+                    >
+                      additionalProperty Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_additionalProperty-key"
+                      name="root_additionalProperty-key"
+                      type="text"
+                      value="additionalProperty"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_additionalProperty"
+                    >
+                      additionalProperty
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_additionalProperty__error root_additionalProperty__description root_additionalProperty__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_additionalProperty"
+                        name="root_additionalProperty"
+                        placeholder=""
+                        type="text"
+                        value="should appear"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r12:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r14:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r16:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            Test field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a test description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r1a:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r1c:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r1e:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description from both additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            My Field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a fancier description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r26:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r28:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2a:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description from both object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            My Field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a fancier description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_a"
+                  >
+                    My Item A
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_a__error root_a__description root_a__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_a"
+                      name="root_a"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_a__description"
+                      >
+                        a fancier item A description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_b"
+                  >
+                    My Item B
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_b__error root_b__description root_b__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_b"
+                      name="root_b"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_b__description"
+                      >
+                        a fancier item B description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r24:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description from uiSchema additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            My Field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a fancier description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_foo-key"
+                    >
+                      foo Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_foo"
+                    >
+                      foo
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r1o:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r1q:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r1s:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description from uiSchema object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            My Field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a fancier description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_a"
+                  >
+                    My Item A
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_a__error root_a__description root_a__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_a"
+                      name="root_a"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_a__description"
+                      >
+                        a fancier item A description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_b"
+                  >
+                    My Item B
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_b__error root_b__description root_b__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_b"
+                      name="root_b"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_b__description"
+                      >
+                        a fancier item B description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r1m:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description from uiSchema show add button and fields if additionalProperties is true and not an object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            My Field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a fancier description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_additionalProperty-key"
+                    >
+                      additionalProperty Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_additionalProperty-key"
+                      name="root_additionalProperty-key"
+                      type="text"
+                      value="additionalProperty"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_additionalProperty"
+                    >
+                      additionalProperty
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_additionalProperty__error root_additionalProperty__description root_additionalProperty__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_additionalProperty"
+                        name="root_additionalProperty"
+                        placeholder=""
+                        type="text"
+                        value="should appear"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r1u:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r20:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r22:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            Test field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a test description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_a"
+                  >
+                    A
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_a__error root_a__description root_a__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_a"
+                      name="root_a"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_a__description"
+                      >
+                        A description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <label
+                    class="rjsf-label "
+                    for="root_b"
+                  >
+                    B
+                  </label>
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_b__error root_b__description root_b__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_b"
+                      name="root_b"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                  <span
+                    class="rjsf-description "
+                  >
+                    <div>
+                      <div
+                        class="rjsf-description-field"
+                        id="root_b__description"
+                      >
+                        B description
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r18:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description show add button and fields if additionalProperties is true and not an object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-title-field"
+          id="root__title"
+        >
+          <h5
+            class="rjsf-title-heading"
+          >
+            Test field
+          </h5>
+          <hr
+            class="rjsf-title-separator"
+            role="separator"
+          />
+        </div>
+        <div>
+          <div
+            class="rjsf-description-field"
+            id="root__description"
+          >
+            a test description
+          </div>
+        </div>
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <label
+                      class="rjsf-additional-property-label"
+                      for="root_additionalProperty-key"
+                    >
+                      additionalProperty Key
+                    </label>
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_additionalProperty-key"
+                      name="root_additionalProperty-key"
+                      type="text"
+                      value="additionalProperty"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <label
+                      class="rjsf-label "
+                      for="root_additionalProperty"
+                    >
+                      additionalProperty
+                    </label>
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_additionalProperty__error root_additionalProperty__description root_additionalProperty__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_additionalProperty"
+                        name="root_additionalProperty"
+                        placeholder=""
+                        type="text"
+                        value="should appear"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r1g:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r1i:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r1k:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description with global label off additionalProperties 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_foo-key"
+                      name="root_foo-key"
+                      type="text"
+                      value="foo"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_foo__error root_foo__description root_foo__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_foo"
+                        name="root_foo"
+                        placeholder=""
+                        type="text"
+                        value="foo"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r2e:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r2g:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2i:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description with global label off object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_a__error root_a__description root_a__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_a"
+                      name="root_a"
+                      placeholder=""
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-field rjsf-field-number"
+              >
+                <div
+                  class="rjsf-field-wrapper"
+                >
+                  <div
+                    class="rjsf-base-input-wrapper"
+                  >
+                    <input
+                      aria-describedby="root_b__error root_b__description root_b__help"
+                      aria-invalid="false"
+                      class="rjsf-input  "
+                      data-rac=""
+                      id="root_b"
+                      name="root_b"
+                      placeholder=""
+                      step="any"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2c:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;
+
+exports[`object fields with title and description with global label off show add button and fields if additionalProperties is true and not an object 1`] = `
+<DocumentFragment>
+  <form
+    class="rjsf"
+  >
+    <div
+      class="rjsf-field rjsf-field-object"
+    >
+      <div
+        class="rjsf-field-wrapper"
+      >
+        <div
+          class="rjsf-object-properties"
+        >
+          <div
+            class="rjsf-object-property "
+          >
+            <div
+              class="rjsf-object-property-content"
+            >
+              <div
+                class="rjsf-additional-property rjsf-field rjsf-field-string"
+              >
+                <div
+                  class="rjsf-additional-property-key"
+                >
+                  <div
+                    class="rjsf-additional-property-key-wrapper"
+                  >
+                    <input
+                      class="rjsf-input"
+                      data-rac=""
+                      id="root_additionalProperty-key"
+                      name="root_additionalProperty-key"
+                      type="text"
+                      value="additionalProperty"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-value"
+                >
+                  <div
+                    class="rjsf-field-wrapper"
+                  >
+                    <div
+                      class="rjsf-base-input-wrapper"
+                    >
+                      <input
+                        aria-describedby="root_additionalProperty__error root_additionalProperty__description root_additionalProperty__help"
+                        aria-invalid="false"
+                        class="rjsf-input  "
+                        data-rac=""
+                        id="root_additionalProperty"
+                        name="root_additionalProperty"
+                        placeholder=""
+                        type="text"
+                        value="should appear"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="rjsf-additional-property-remove"
+                >
+                  <button
+                    aria-label="Remove"
+                    class="rjsf-icon-button rjsf-remove-button rjsf-object-property-remove"
+                    data-rac=""
+                    data-react-aria-pressable="true"
+                    id="react-aria-:r2k:"
+                    tabindex="0"
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      ✕
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <hr
+                class="rjsf-separator"
+                role="separator"
+              />
+            </div>
+          </div>
+          <div
+            class="rjsf-object-property-expand-wrapper"
+          >
+            <div
+              class="rjsf-add-button-wrapper"
+            >
+              <button
+                class="rjsf-button rjsf-add-button rjsf-object-property-expand"
+                data-rac=""
+                data-react-aria-pressable="true"
+                id="react-aria-:r2m:"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  +
+                </span>
+                 Add Item
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="rjsf-submit-button-wrapper"
+    >
+      <button
+        class="rjsf-button rjsf-submit-button "
+        data-rac=""
+        data-react-aria-pressable="true"
+        id="react-aria-:r2o:"
+        tabindex="0"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</DocumentFragment>
+`;

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CheckboxesWidget inline 1`] = `
+<DocumentFragment>
+  <div
+    aria-describedby="_id__error _id__description _id__help"
+    class="rjsf-checkboxes-widget rjsf-checkboxes-inline"
+    data-rac=""
+    id="react-aria-:r5:"
+    role="group"
+  >
+    <div
+      class="rjsf-checkbox-item"
+    >
+      <label
+        class="rjsf-checkbox "
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-required="true"
+      >
+        <span
+          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            data-react-aria-pressable="true"
+            disabled=""
+            id="_id-0"
+            name="_id"
+            required=""
+            type="checkbox"
+          />
+        </span>
+        A
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`CheckboxesWidget simple 1`] = `
+<DocumentFragment>
+  <div
+    aria-describedby="_id__error _id__description _id__help"
+    class="rjsf-checkboxes-widget "
+    data-rac=""
+    id="react-aria-:r0:"
+    role="group"
+  >
+    <div
+      class="rjsf-checkbox-item"
+    >
+      <label
+        class="rjsf-checkbox "
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-required="true"
+      >
+        <span
+          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        >
+          <input
+            data-react-aria-pressable="true"
+            disabled=""
+            id="_id-0"
+            name="_id"
+            required=""
+            type="checkbox"
+          />
+        </span>
+        A
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -10,7 +10,7 @@ import { getDefaultRegistry } from "@rjsf/core";
 import validator from "@rjsf/validator-ajv8";
 
 import Templates from "../../src/Templates";
-import BaseInputTemplate from "../../src/BaseInputTemplate";
+import BaseInputTemplate from "../../src/BaseInputTemplate/BaseInputTemplate";
 
 export const mockSchema: RJSFSchema = {
   type: "array",
