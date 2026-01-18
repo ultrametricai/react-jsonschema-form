@@ -6290,9 +6290,6 @@ exports[`Complex grid renders person and address and employment in a complex gri
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
 
@@ -12633,9 +12630,6 @@ exports[`Complex grid renders person and address and employment in a complex gri
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
 
@@ -16762,9 +16756,6 @@ exports[`Complex grid renders person and address and employment in a complex gri
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
 
@@ -23058,9 +23049,6 @@ exports[`Complex grid renders person and address and employment in a complex gri
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
 
@@ -26655,9 +26643,6 @@ exports[`Three even column grid renders person and address in three columns, no 
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
 
@@ -30252,8 +30237,5 @@ exports[`Two even column grid renders person and address in two columns, no empl
       </button>
     </div>
   </form>
-  <span
-    hidden=""
-  />
 </DocumentFragment>
 `;
