@@ -5,15 +5,6 @@
       "dependsOn": ["^build"],
       "cache": true
     },
-    "cs-check": {
-      "cache": true
-    },
-    "cs-format": {
-      "cache": true
-    },
-    "lint": {
-      "cache": true
-    },
     "test": {
       "cache": true
     },
