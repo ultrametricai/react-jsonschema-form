@@ -67,6 +67,7 @@ export default function RangeWidget<
         onChange={_onChange}
         {...uiProps}
         aria-describedby={ariaDescribedByIds(id)}
+        aria-label={label || id}
         className="rjsf-slider"
       >
         <SliderTrack className="rjsf-slider-track">

@@ -1688,6 +1688,7 @@ exports[`nameGenerator bracketNameGenerator fixed array 1`] = `
                                   style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
                                 >
                                   <input
+                                    aria-label="root_2"
                                     checked=""
                                     data-react-aria-pressable="true"
                                     id="root_2"

@@ -4,6 +4,7 @@ exports[`CheckboxesWidget inline 1`] = `
 <DocumentFragment>
   <div
     aria-describedby="_id__error _id__description _id__help"
+    aria-label="Some simple label"
     class="rjsf-checkboxes-widget rjsf-checkboxes-inline"
     data-rac=""
     id="react-aria-:r5:"
@@ -42,6 +43,7 @@ exports[`CheckboxesWidget simple 1`] = `
 <DocumentFragment>
   <div
     aria-describedby="_id__error _id__description _id__help"
+    aria-label="Some simple label"
     class="rjsf-checkboxes-widget "
     data-rac=""
     id="react-aria-:r0:"

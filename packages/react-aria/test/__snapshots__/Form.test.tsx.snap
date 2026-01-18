@@ -794,6 +794,7 @@ exports[`nameGenerator bracketNameGenerator checkboxes field 1`] = `
                   </label>
                   <div
                     aria-describedby="root_choices__error root_choices__description root_choices__help"
+                    aria-label="choices"
                     class="rjsf-checkboxes-widget "
                     data-rac=""
                     id="react-aria-:rc0:"
@@ -1182,6 +1183,7 @@ exports[`nameGenerator bracketNameGenerator radio field 1`] = `
                   >
                     <div
                       aria-describedby="root_option__error root_option__description root_option__help"
+                      aria-label="option"
                       aria-orientation="vertical"
                       class="rjsf-radio-group  "
                       data-orientation="vertical"
@@ -1310,7 +1312,8 @@ exports[`nameGenerator bracketNameGenerator select field with enum 1`] = `
                         aria-describedby="root_color__error root_color__description root_color__help"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="react-aria-:rbj:"
+                        aria-label="color"
+                        aria-labelledby="react-aria-:rbj: root_color"
                         class="rjsf-select-button"
                         data-rac=""
                         data-react-aria-pressable="true"
@@ -2672,7 +2675,8 @@ exports[`nameGenerator dotNotationNameGenerator select field with enum 1`] = `
                         aria-describedby="root_color__error root_color__description root_color__help"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="react-aria-:rdk:"
+                        aria-label="color"
+                        aria-labelledby="react-aria-:rdk: root_color"
                         class="rjsf-select-button"
                         data-rac=""
                         data-react-aria-pressable="true"
@@ -2934,6 +2938,7 @@ exports[`single fields checkbox field 1`] = `
                 style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
               >
                 <input
+                  aria-label="root"
                   data-react-aria-pressable="true"
                   id="root"
                   name="root"
@@ -3252,6 +3257,7 @@ exports[`single fields checkboxes field 1`] = `
         </label>
         <div
           aria-describedby="root__error root__description root__help"
+          aria-label="An enum list rendered as checkboxes"
           class="rjsf-checkboxes-widget "
           data-rac=""
           id="react-aria-:r55:"
@@ -3389,6 +3395,7 @@ exports[`single fields checkboxes widget with custom options and labels 1`] = `
         </label>
         <div
           aria-describedby="root__error root__description root__help"
+          aria-label="Checkbox Group"
           class="rjsf-checkboxes-widget rjsf-checkboxes-inline"
           data-rac=""
           id="react-aria-:r3b:"
@@ -3521,6 +3528,7 @@ exports[`single fields checkboxes widget with required field 1`] = `
         </label>
         <div
           aria-describedby="root__error root__description root__help"
+          aria-label="Required Checkbox Group"
           class="rjsf-checkboxes-widget "
           data-rac=""
           id="react-aria-:r3i:"
@@ -5189,7 +5197,8 @@ exports[`single fields optional data controls does not show optional controls wh
                             aria-describedby="root_optionalObjectWithOneofs__oneof_select__error root_optionalObjectWithOneofs__oneof_select__description root_optionalObjectWithOneofs__oneof_select__help"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="react-aria-:r71:"
+                            aria-label="optionalObjectWithOneofs"
+                            aria-labelledby="react-aria-:r71: root_optionalObjectWithOneofs__oneof_select"
                             class="rjsf-select-button"
                             data-rac=""
                             data-react-aria-pressable="true"
@@ -5352,7 +5361,8 @@ exports[`single fields optional data controls does not show optional controls wh
                             aria-describedby="root_optionalArrayWithAnyofs__anyof_select__error root_optionalArrayWithAnyofs__anyof_select__description root_optionalArrayWithAnyofs__anyof_select__help"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="react-aria-:r7b:"
+                            aria-label="optionalArrayWithAnyofs"
+                            aria-labelledby="react-aria-:r7b: root_optionalArrayWithAnyofs__anyof_select"
                             class="rjsf-select-button"
                             data-rac=""
                             data-react-aria-pressable="true"
@@ -6200,7 +6210,8 @@ exports[`single fields optional data controls does not show optional controls wh
                             aria-describedby="root_optionalObjectWithOneofs__oneof_select__error root_optionalObjectWithOneofs__oneof_select__description root_optionalObjectWithOneofs__oneof_select__help"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="react-aria-:r97:"
+                            aria-label="optionalObjectWithOneofs"
+                            aria-labelledby="react-aria-:r97: root_optionalObjectWithOneofs__oneof_select"
                             class="rjsf-select-button"
                             data-disabled="true"
                             data-rac=""
@@ -6365,7 +6376,8 @@ exports[`single fields optional data controls does not show optional controls wh
                             aria-describedby="root_optionalArrayWithAnyofs__anyof_select__error root_optionalArrayWithAnyofs__anyof_select__description root_optionalArrayWithAnyofs__anyof_select__help"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-labelledby="react-aria-:r9h:"
+                            aria-label="optionalArrayWithAnyofs"
+                            aria-labelledby="react-aria-:r9h: root_optionalArrayWithAnyofs__anyof_select"
                             class="rjsf-select-button"
                             data-disabled="true"
                             data-rac=""
@@ -9258,6 +9270,7 @@ exports[`single fields radio field 1`] = `
         >
           <div
             aria-describedby="root__error root__description root__help"
+            aria-label="root"
             aria-orientation="vertical"
             class="rjsf-radio-group  "
             data-orientation="vertical"
@@ -9357,6 +9370,7 @@ exports[`single fields radio widget with description in schema and FieldTemplate
         >
           <div
             aria-describedby="root__error root__description root__help"
+            aria-label="test"
             aria-orientation="vertical"
             class="rjsf-radio-group  "
             data-orientation="vertical"
@@ -9545,7 +9559,8 @@ exports[`single fields select field 1`] = `
               aria-describedby="root__error root__description root__help"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="react-aria-:r1l:"
+              aria-label="root"
+              aria-labelledby="react-aria-:r1l: root"
               class="rjsf-select-button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -9766,6 +9781,7 @@ exports[`single fields select field multiple choice enumDisabled using checkboxe
         />
         <div
           aria-describedby="root__error root__description root__help"
+          aria-label="root"
           class="rjsf-checkboxes-widget "
           data-rac=""
           id="react-aria-:r34:"
@@ -10040,7 +10056,8 @@ exports[`single fields select field single choice enumDisabled 1`] = `
               aria-describedby="root__error root__description root__help"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="react-aria-:r25:"
+              aria-label="root"
+              aria-labelledby="react-aria-:r25: root"
               class="rjsf-select-button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -10131,6 +10148,7 @@ exports[`single fields select field single choice enumDisabled using radio widge
         >
           <div
             aria-describedby="root__error root__description root__help"
+            aria-label="root"
             aria-orientation="vertical"
             class="rjsf-radio-group  "
             data-orientation="vertical"
@@ -10229,6 +10247,7 @@ exports[`single fields select field single choice form disabled using radio widg
           <div
             aria-describedby="root__error root__description root__help"
             aria-disabled="true"
+            aria-label="root"
             aria-orientation="vertical"
             class="rjsf-radio-group  "
             data-disabled="true"
@@ -10336,7 +10355,8 @@ exports[`single fields select field single choice formData 1`] = `
               aria-describedby="root__error root__description root__help"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="react-aria-:r40:"
+              aria-label="root"
+              aria-labelledby="react-aria-:r40: root"
               class="rjsf-select-button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -10427,6 +10447,7 @@ exports[`single fields select field single choice uiSchema disabled using radio 
           <div
             aria-describedby="root__error root__description root__help"
             aria-disabled="true"
+            aria-label="root"
             aria-orientation="vertical"
             class="rjsf-radio-group  "
             data-disabled="true"
@@ -10536,7 +10557,8 @@ exports[`single fields select widget with description in schema and FieldTemplat
               aria-describedby="root__error root__description root__help"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="react-aria-:r50:"
+              aria-label="test"
+              aria-labelledby="react-aria-:r50: root"
               class="rjsf-select-button"
               data-rac=""
               data-react-aria-pressable="true"
@@ -10638,6 +10660,7 @@ exports[`single fields slider field 1`] = `
           class="rjsf-range-widget"
         >
           <div
+            aria-label="root"
             class="rjsf-slider"
             data-orientation="horizontal"
             data-rac=""
@@ -10664,7 +10687,7 @@ exports[`single fields slider field 1`] = `
                     aria-labelledby="root"
                     aria-orientation="horizontal"
                     aria-valuetext="75"
-                    id="react-aria-:r5l:-0"
+                    id="root-0"
                     max="100"
                     min="42"
                     step="1"

@@ -28,6 +28,7 @@ export default function SelectWidget<
 >({
   id,
   options,
+  label,
   required,
   disabled,
   readonly,
@@ -136,6 +137,7 @@ export default function SelectWidget<
         onFocus={_onFocus}
         onBlur={_onBlur}
         aria-describedby={ariaDescribedByIds(id)}
+        aria-label={label || id}
         className={`rjsf-select ${hasError ? "rjsf-select-error" : ""} ${className || ""}`}
       >
         <Button className="rjsf-select-button">

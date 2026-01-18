@@ -21,6 +21,7 @@ export default function RadioWidget<
 >({
   id,
   options,
+  label,
   value,
   required,
   disabled,
@@ -49,6 +50,7 @@ export default function RadioWidget<
         onBlur={_onBlur as any}
         onFocus={_onFocus as any}
         aria-describedby={ariaDescribedByIds(id)}
+        aria-label={label || id}
         orientation={inline ? "horizontal" : "vertical"}
         className={`rjsf-radio-group ${inline ? "rjsf-radio-inline" : ""} ${className || ""}`}
       >

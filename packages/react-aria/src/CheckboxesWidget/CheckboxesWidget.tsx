@@ -29,6 +29,7 @@ export default function CheckboxesWidget<
   autofocus,
   readonly,
   required,
+  label,
   onChange,
   onBlur,
   onFocus,
@@ -44,6 +45,7 @@ export default function CheckboxesWidget<
     <CheckboxGroup
       className={`rjsf-checkboxes-widget ${inline ? "rjsf-checkboxes-inline" : ""}`}
       aria-describedby={ariaDescribedByIds(id)}
+      aria-label={label || id}
     >
       {Array.isArray(enumOptions) &&
         enumOptions.map((option, index: number) => {

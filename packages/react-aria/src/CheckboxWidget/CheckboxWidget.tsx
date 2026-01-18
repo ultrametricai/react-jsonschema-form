@@ -81,6 +81,7 @@ export default function CheckboxWidget<
           onBlur={_onBlur}
           onFocus={_onFocus}
           className={`rjsf-checkbox ${className || ""}`}
+          aria-label={hideLabel || !label ? label || id : undefined}
         >
           {labelValue(label, hideLabel || !label)}
         </Checkbox>

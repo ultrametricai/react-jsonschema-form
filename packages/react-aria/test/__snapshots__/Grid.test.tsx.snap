@@ -223,6 +223,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   </label>
                   <div
                     aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                    aria-label="Race"
                     class="rjsf-checkboxes-widget "
                     data-rac=""
                     id="react-aria-:r23:"
@@ -534,7 +535,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                                   aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-labelledby="react-aria-:r2f:"
+                                  aria-label="State"
+                                  aria-labelledby="react-aria-:r2f: root_person_address_state"
                                   class="rjsf-select-button"
                                   data-rac=""
                                   data-react-aria-pressable="true"
@@ -921,6 +923,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   >
                     <div
                       aria-describedby="root_employment__error root_employment__description root_employment__help"
+                      aria-label="Employment"
                       aria-orientation="horizontal"
                       class="rjsf-radio-group rjsf-radio-inline "
                       data-orientation="horizontal"
@@ -1151,7 +1154,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                         aria-describedby="root_employment_location_state__error root_employment_location_state__description root_employment_location_state__help"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="react-aria-:r2v:"
+                        aria-label="State"
+                        aria-labelledby="react-aria-:r2v: root_employment_location_state"
                         class="rjsf-select-button"
                         data-rac=""
                         data-react-aria-pressable="true"
@@ -1721,6 +1725,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   </label>
                   <div
                     aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                    aria-label="Race"
                     class="rjsf-checkboxes-widget "
                     data-rac=""
                     id="react-aria-:r34:"
@@ -2032,7 +2037,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                                   aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-labelledby="react-aria-:r3g:"
+                                  aria-label="State"
+                                  aria-labelledby="react-aria-:r3g: root_person_address_state"
                                   class="rjsf-select-button"
                                   data-rac=""
                                   data-react-aria-pressable="true"
@@ -2419,6 +2425,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   >
                     <div
                       aria-describedby="root_employment__error root_employment__description root_employment__help"
+                      aria-label="Employment"
                       aria-orientation="horizontal"
                       class="rjsf-radio-group rjsf-radio-inline "
                       data-orientation="horizontal"
@@ -2682,7 +2689,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                         aria-describedby="root_employment_location_state__error root_employment_location_state__description root_employment_location_state__help"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="react-aria-:r40:"
+                        aria-label="State"
+                        aria-labelledby="react-aria-:r40: root_employment_location_state"
                         class="rjsf-select-button"
                         data-rac=""
                         data-react-aria-pressable="true"
@@ -3252,6 +3260,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   </label>
                   <div
                     aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                    aria-label="Race"
                     class="rjsf-checkboxes-widget "
                     data-rac=""
                     id="react-aria-:r45:"
@@ -3563,7 +3572,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                                   aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-labelledby="react-aria-:r4h:"
+                                  aria-label="State"
+                                  aria-labelledby="react-aria-:r4h: root_person_address_state"
                                   class="rjsf-select-button"
                                   data-rac=""
                                   data-react-aria-pressable="true"
@@ -3950,6 +3960,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   >
                     <div
                       aria-describedby="root_employment__error root_employment__description root_employment__help"
+                      aria-label="Employment"
                       aria-orientation="horizontal"
                       class="rjsf-radio-group rjsf-radio-inline "
                       data-orientation="horizontal"
@@ -4316,6 +4327,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   </label>
                   <div
                     aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                    aria-label="Race"
                     class="rjsf-checkboxes-widget "
                     data-rac=""
                     id="react-aria-:r12:"
@@ -4627,7 +4639,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                                   aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-labelledby="react-aria-:r1e:"
+                                  aria-label="State"
+                                  aria-labelledby="react-aria-:r1e: root_person_address_state"
                                   class="rjsf-select-button"
                                   data-rac=""
                                   data-react-aria-pressable="true"
@@ -5014,6 +5027,7 @@ exports[`Complex grid renders person and address and employment in a complex gri
                   >
                     <div
                       aria-describedby="root_employment__error root_employment__description root_employment__help"
+                      aria-label="Employment"
                       aria-orientation="horizontal"
                       class="rjsf-radio-group rjsf-radio-inline "
                       data-orientation="horizontal"
@@ -5244,7 +5258,8 @@ exports[`Complex grid renders person and address and employment in a complex gri
                         aria-describedby="root_employment_location_state__error root_employment_location_state__description root_employment_location_state__help"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-labelledby="react-aria-:r1u:"
+                        aria-label="State"
+                        aria-labelledby="react-aria-:r1u: root_employment_location_state"
                         class="rjsf-select-button"
                         data-rac=""
                         data-react-aria-pressable="true"
@@ -5803,6 +5818,7 @@ exports[`Three even column grid renders person and address in three columns, no 
                 </label>
                 <div
                   aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                  aria-label="Race"
                   class="rjsf-checkboxes-widget "
                   data-rac=""
                   id="react-aria-:rh:"
@@ -6095,7 +6111,8 @@ exports[`Three even column grid renders person and address in three columns, no 
                       aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-labelledby="react-aria-:rt:"
+                      aria-label="State"
+                      aria-labelledby="react-aria-:rt: root_person_address_state"
                       class="rjsf-select-button"
                       data-rac=""
                       data-react-aria-pressable="true"
@@ -6656,6 +6673,7 @@ exports[`Two even column grid renders person and address in two columns, no empl
                 </label>
                 <div
                   aria-describedby="root_person_race__error root_person_race__description root_person_race__help"
+                  aria-label="Race"
                   class="rjsf-checkboxes-widget "
                   data-rac=""
                   id="react-aria-:r0:"
@@ -6948,7 +6966,8 @@ exports[`Two even column grid renders person and address in two columns, no empl
                       aria-describedby="root_person_address_state__error root_person_address_state__description root_person_address_state__help"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-labelledby="react-aria-:rc:"
+                      aria-label="State"
+                      aria-labelledby="react-aria-:rc: root_person_address_state"
                       class="rjsf-select-button"
                       data-rac=""
                       data-react-aria-pressable="true"
