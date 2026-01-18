@@ -1,6 +1,6 @@
 // Mock the ArrayFieldItemButtonsTemplate component
 jest.mock('../src/templates/ArrayFieldItemButtonsTemplate/ArrayFieldItemButtonsTemplate', () => {
-  return function MockArrayFieldItemButtonsTemplate(props) {
+  return function MockArrayFieldItemButtonsTemplate(_props) {
     return <div data-testid='mock-buttons'>Mock Buttons</div>;
   };
 });
