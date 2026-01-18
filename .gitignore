@@ -147,3 +147,4 @@ out/
 .nx/workspace-data
 
 .claude/settings.local.json
+CLAUDE.local.md

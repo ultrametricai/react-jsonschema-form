@@ -1,4 +1,4 @@
-# Files
+# File Tree
 
 babel.config.json
 jest.config.json

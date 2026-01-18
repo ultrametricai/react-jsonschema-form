@@ -277,6 +277,8 @@ export default function DemoFrame(props: DemoFrameProps) {
         )}
       </FrameContextConsumer>
     ) : null;
+  } else if (theme === "react-aria") {
+    body = ready ? children : null;
   }
 
   return (

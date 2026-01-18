@@ -1,15 +1,6 @@
-/* React Aria Default Theme - Combined CSS from react-spectrum starters/docs */
-/* Source: https://github.com/adobe/react-spectrum/tree/main/starters/docs/src */
 html {
   color-scheme: dark light;
   font-family: system-ui;
-}
-
-:root, :host {
-  color-scheme: dark light;
-  font-family: system-ui;
-  line-height: 1.5;
-  background: var(--background-color);
 }
 
 .tree {
@@ -517,483 +508,18 @@ input {
   top: 50%;
   left: 50%;
 }
-
-
-.my-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0 0 0 / .5);
-
-  &[data-entering] {
-    animation: fade 5000ms;
-  }
-
-  &[data-exiting] {
-    animation: fade 5000ms reverse ease-in;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-
-.my-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 250px;
-  background: seashell;
-  outline: none;
-  padding: 30px;
-  border-left: 1px solid var(--spectrum-global-color-gray-400);
-  box-shadow: -8px 0 20px rgba(0 0 0 / 0.1);
-
-  &[data-entering] {
-    animation: slide 5000ms;
-  }
-
-  &[data-exiting] {
-    animation: slide 5000ms reverse ease-in;
-  }
-}
-
-@keyframes blur {
-  from {
-    background: rgba(45 0 0 / 0);
-    backdrop-filter: blur(0);
-  }
-
-  to {
-    background: rgba(45 0 0 / .3);
-    backdrop-filter: blur(10px);
-  }
-}
-
-@keyframes slide {
-  from {
-    transform: translateX(100%);
-  }
-
-  to {
-    transform: translateX(0);
-  }
-}
-
-:global(.react-aria-ListBox) {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  max-width: 100%;
-  padding: 4px;
-  overflow: auto;
-  outline: none;
-
-  &[data-orientation=horizontal] {
-    flex-direction: row;
-  }
-
-  :global(.react-aria-MenuItem),
-  :global(.react-aria-ListBoxItem) {
-    position: relative;
-    margin: 0;
-    padding: 4px;
-    border-radius: 6px;
-    outline: none;
-    cursor: default;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    img {
-      object-fit: cover;
-      width: 150px;
-      height: 150px;
-      margin-bottom: 4px;
-      border-radius: 4px;
-      transition: box-shadow 200ms;
-    }
-
-    &[data-hovered] {
-      img {
-        box-shadow: 0 0 8px rgb(from slateblue r g b / 0.5);
-      }
-    }
-
-    &[data-focus-visible] {
-      box-shadow: inset 0 0 0 2px slateblue;
-    }
-
-    &[aria-selected=true] {
-      background: none;
-      color: inherit;
-
-      img {
-        box-shadow: 0 0 12px rgb(from slateblue r g b / 0.8);
-      }
-
-      &:after {
-        content: '✓';
-        content: '✓' / '';
-        alt: ' ';
-        position: absolute;
-        top: 8px;
-        right: 8px;
-        background: slateblue;
-        border: 2px solid white;
-        color: white;
-        width: 22px;
-        height: 22px;
-        border-radius: 22px;
-        box-sizing: border-box;
-        font-size: 14px;
-        line-height: 1em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 8px rgb(0 0 0 / .5);
-      }
-
-      &[data-focus-visible] {
-        box-shadow: inset 0 0 0 2px var(--highlight-background);
-      }
-    }
-
-    &[data-dragging] {
-      opacity: 0.6;
-    }
-
-    [slot=label] {
-      font-weight: bold;
-    }
-
-    [slot=description] {
-      font-size: small;
-    }
-  }
-}
-
-:global(.react-aria-ListBox)[data-layout=grid] {
-  flex-wrap: wrap;
-  flex-direction: row;
-  max-width: 400px;
-}
-
-:global(.react-aria-ListBox)[data-layout=grid][data-orientation=horizontal] {
-  display: flex;
-  flex-direction: column;
-  max-height: 150px;
-  max-width: 100vw;
-  width: 800px;
-
-  :global(.react-aria-ListBoxItem) {
-    display: grid;
-    grid-template-areas: "image ."
-                         "image title"
-                         "image description"
-                         "image .";
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto auto 1fr;
-    column-gap: 8px;
-    width: 250px;
-    margin: 2px 0;
-
-    img {
-      width: 50px;
-      height: 50px;
-      grid-area: image;
-      margin-bottom: 0;
-    }
-
-    [slot=label] {
-      grid-area: title;
-    }
-
-    [slot=description] {
-      grid-area: description;
-    }
-  }
-}
-
-:global(.react-aria-DropIndicator)[data-drop-target] {
-  outline: 1px solid slateblue;
-}
-
-:global(.react-aria-Table) {
-  border-collapse: collapse;
-
-  &[data-drop-target] {
-    outline: 2px solid purple;
-    outline-offset: -2px;
-    background: rgb(from purple r g b / 20%);
-  }
-}
-
-:global(.react-aria-Cell) {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-:global(.react-aria-ColumnResizer) {
-  width: 15px;
-  background-color: grey;
-  height: 30px;
-  touch-action: none;
-  flex: 0 0 auto;
-  box-sizing: border-box;
-  border: 5px;
-  border-style: none solid;
-  border-color: transparent;
-  background-clip: content-box;
-
-  &[data-resizable-direction=both] {
-    cursor: ew-resize;
-  }
-
-  &[data-resizable-direction=left] {
-    cursor: e-resize;
-  }
-
-  &[data-resizable-direction=right] {
-    cursor: w-resize;
-  }
-}
-
-:global(.react-aria-ColumnResizer)[data-focus-visible] {
-  background-color: orange;
-}
-
-:global(.react-aria-ColumnResizer)[data-resizing] {
-  border-color: orange;
-  background-color: transparent;
-}
-
-:global(.react-aria-Toolbar) {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  &[data-orientation=vertical] {
-    flex-direction: column;
-  }
-  &[data-orientation=horizontal] {
-    flex-direction: row;
-  }
-}
-
-:global(.react-aria-Checkbox) {
-  --label-color: var(--spectrum-alias-text-color);
-  --deselected-color: gray;
-  --deselected-color-pressed: dimgray;
-  --selected-color: darkslateblue;
-  --selected-color-pressed: slateblue;
-  --checkmark-color: white;
-  --invalid-color: var(--spectrum-global-color-red-600);
-  --invalid-color-pressed: var(--spectrum-global-color-red-700);
-
-  display: flex;
-  align-items: center;
-  gap: 0.571rem;
-  font-size: 1.143rem;
-  color: var(--label-color);
-
-  :global(.checkbox) {
-    width: 1.143rem;
-    height: 1.143rem;
-    border: 2px solid var(--deselected-color);
-    border-radius: 4px;
-    transition: all 200ms;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  & svg {
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: var(--checkmark-color);
-    stroke-width: 3px;
-    stroke-dasharray: 22px;
-    stroke-dashoffset: 66;
-    transition: all 200ms;
-  }
-
-  &[data-pressed] :global(.checkbox) {
-    border-color: var(--deselected-color-pressed);
-  }
-
-  &[data-selected],
-  &[data-indeterminate] {
-    :global(.checkbox) {
-      border-color: var(--selected-color);
-      background: var(--selected-color);
-    }
-
-    &[data-pressed] :global(.checkbox) {
-      border-color: var(--selected-color-pressed);
-      background: var(--selected-color-pressed);
-    }
-
-    & svg {
-      stroke-dashoffset: 44;
-    }
-  }
-
-  &[data-invalid] {
-    :global(.checkbox) {
-      border-color: var(--invalid-color);
-    }
-
-    &[data-pressed] :global(.checkbox) {
-      border-color: var(--invalid-color-pressed);
-    }
-
-    &[data-selected],
-    &[data-indeterminate] {
-      :global(.checkbox) {
-        background: var(--invalid-color);
-      }
-
-      &[data-pressed] :global(.checkbox) {
-        background: var(--invalid-color-pressed);
-      }
-    }
-  }
-
-  &[data-indeterminate] {
-    & svg {
-      stroke: none;
-      fill: var(--checkmark-color);
-    }
-  }
-
-  &[data-focus-visible] :global(.checkbox) {
-    box-shadow: 0 0 0 2px var(--spectrum-alias-background-color-default), 0 0 0 4px var(--selected-color);
-  }
-
-  &[data-disabled] {
-    opacity: 0.4;
-  }
-}
-
-:global(.react-aria-Meter),
-:global(.react-aria-ProgressBar) {
-  --fill-color: forestgreen;
-
-  display: grid;
-  grid-template-areas: "label value"
-                       "bar bar";
-  grid-template-columns: 1fr auto;
-  gap: 4px;
-  width: 250px;
-  color: var(--text-color);
-
-  :global(.value) {
-    grid-area: value;
-  }
-
-  :global(.bar) {
-    grid-area: bar;
-    box-shadow: inset 0px 0px 0px 1px var(--spectrum-global-color-gray-400);
-    height: 10px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  :global(.fill) {
-    background: var(--fill-color);
-    height: 100%;
-  }
-}
-
-:global(.react-aria-Disclosure) {
-  :global(.react-aria-Button[slot=trigger]) {
-    background-color: transparent;
-    border: none;
-  }
-  :global(.react-aria-Header) {
-    display: flex;
-    align-items: center
-  }
-}
-
-.popover-base,
-.tooltip-base {
-  transform-origin: var(--trigger-anchor-point);
-
-  :global(.react-aria-OverlayArrow) {
-    &[data-placement=bottom] svg {
-      transform: rotate(180deg);
-    }
-
-    &[data-placement=left] svg {
-      transform: rotate(-90deg);
-    }
-
-    &[data-placement=right] svg {
-      transform: rotate(90deg);
-    }
-  }
-}
-
-.popover,
-.tooltip {
-  composes: popover-base transition;
-}
-
-.transition {
-  transition: scale 300ms, opacity 300ms;
-
-  &[data-entering],
-  &[data-exiting] {
-    opacity: 0;
-    scale: 0.85;
-  }
-}
-
-.animation {
-  animation: enter 300ms;
-  &[data-exiting] {
-    animation: exit 300ms;
-  }
-}
-
-.animation-delayed {
-  &[data-entering] {
-    animation: enter 300ms;
-  }
-
-  &[data-exiting] {
-    animation: exit 300ms;
-  }
-}
-
-
-@keyframes enter {
-  from {
-    opacity: 0;
-    scale: 0.85;
-  }
-}
-
-@keyframes exit {
-  to {
-    opacity: 0;
-    scale: 0.85;
-  }
-}
-
-/* ========== theme.css ========== */
+/**
+ * React Aria Components Stylesheet
+ *
+ * Auto-generated from Adobe react-spectrum starters/docs/src
+ * https://github.com/adobe/react-spectrum/tree/main/starters/docs/src
+ *
+ * Generated: 2026-01-18T06:04:04.022Z
+ */
+
+/* ===== theme.css ===== */
 /* colors */
-:root, :host {
+:root {
   /* Change this variable to set the theme color for all components. */
   /* You can use the below presets, or choose a custom color. */
   --tint: var(--indigo);
@@ -1050,7 +576,7 @@ input {
 }
 
 /* light mode colors */
-:root, :host {
+:root {
   --background-color: #f8f8f8;
   --gray-50: #ffffff;
 
@@ -1098,7 +624,7 @@ input {
 
 /* dark mode colors */
 @media (prefers-color-scheme: dark) {
-  :root, :host {
+  :root {
     --background-color: #1b1b1b;
     --gray-50: oklch(22% 0 0);
 
@@ -1128,7 +654,7 @@ input {
 }
 
 /* Semantic colors */
-:root, :host {
+:root {
   --focus-ring-color: var(--tint-1000);
   --text-color: var(--gray-1200);
   --text-color-hover: var(--gray-1300);
@@ -1156,7 +682,7 @@ input {
 
 /* Windows high contrast mode overrides */
 @media (forced-colors: active) {
-  :root, :host {
+  :root {
     --background-color: Canvas;
     --focus-ring-color: Highlight;
     --text-color: ButtonText;
@@ -1185,15 +711,15 @@ input {
 }
 
 /* typography and spacing scale */
-:root, :host {
-  --font-size: 14px; /* 14px */
-  --font-size-sm: 12px; /* 12px */
-  --font-size-lg: 16px; /* 16px */
+:root {
+  --font-size: 0.875rem; /* 14px */
+  --font-size-sm: 0.75rem; /* 12px */
+  --font-size-lg: 1rem; /* 16px */
   --radius: 8px;
   --radius-sm: 6px;
   --radius-lg: 10px;
   --radius-xl: 16px;
-  --spacing: 4px; /* 4px */
+  --spacing: 0.25rem; /* 4px */
   --spacing-1: var(--spacing);
   --spacing-2: calc(2 * var(--spacing));
   --spacing-3: calc(3 * var(--spacing));
@@ -1208,16 +734,16 @@ input {
 
 /* Scale up hit targets on high resolution mobile devices. */
 @media (min-resolution: 200dpi) {
-  :root, :host {
-    --spacing: 5px;
-    --font-size: 17px; /* 17px */
-    --font-size-sm: 15px; /* 15px */
-    --font-size-lg: 20px; /* 20px */
+  :root {
+    --spacing: calc(0.25rem * 1.25);
+    --font-size: 1.0625rem; /* 17px */
+    --font-size-sm: 0.9375rem; /* 15px */
+    --font-size-lg: 1.25rem; /* 20px */
   }
 }
 
 
-/* ========== utilities.css ========== */
+/* ===== utilities.css ===== */
 @layer utilities {
   /* utility that creates a button-like element, which can be optionally selected */
   .button-base {
@@ -1499,9 +1025,7 @@ input {
 }
 
 
-/* ========== Breadcrumbs.css ========== */
-
-
+/* ===== Breadcrumbs.css ===== */
 .react-aria-Breadcrumbs {
   display: flex;
   align-items: center;
@@ -1550,10 +1074,7 @@ input {
 }
 
 
-/* ========== Button.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Button.css ===== */
 .react-aria-Button {
   border: none;
   border-radius: var(--radius);
@@ -1603,10 +1124,7 @@ input {
 }
 
 
-/* ========== Calendar.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Calendar.css ===== */
 .react-aria-Calendar {
   width: calc(var(--spacing-9) * 7);
   max-width: 100%;
@@ -1683,10 +1201,7 @@ input {
 }
 
 
-/* ========== Checkbox.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Checkbox.css ===== */
 .react-aria-Checkbox {
   --checkmark-color: var(--highlight-foreground);
 
@@ -1746,9 +1261,7 @@ input {
 }
 
 
-/* ========== CheckboxGroup.css ========== */
-
-
+/* ===== CheckboxGroup.css ===== */
 .react-aria-CheckboxGroup {
   display: flex;
   flex-direction: column;
@@ -1769,7 +1282,7 @@ input {
 }
 
 
-/* ========== ColorArea.css ========== */
+/* ===== ColorArea.css ===== */
 
 .react-aria-ColorArea {
   width: 100%;
@@ -1786,19 +1299,14 @@ input {
 }
 
 
-/* ========== ColorField.css ========== */
-
-@import "./TextField.css";
-
+/* ===== ColorField.css ===== */
 .react-aria-ColorField {
   display: flex;
   flex-direction: column;
 }
 
 
-/* ========== ColorPicker.css ========== */
-
-
+/* ===== ColorPicker.css ===== */
 .color-picker {
   background: none;
   border: none;
@@ -1830,7 +1338,7 @@ input {
 }
 
 
-/* ========== ColorSlider.css ========== */
+/* ===== ColorSlider.css ===== */
 .react-aria-ColorSlider {
   display: grid;
   grid-template-areas: "label output"
@@ -1894,9 +1402,7 @@ input {
 }
 
 
-/* ========== ColorSwatch.css ========== */
-
-
+/* ===== ColorSwatch.css ===== */
 .react-aria-ColorSwatch {
   width: var(--spacing-8);
   height: var(--spacing-8);
@@ -1905,9 +1411,7 @@ input {
 }
 
 
-/* ========== ColorSwatchPicker.css ========== */
-
-
+/* ===== ColorSwatchPicker.css ===== */
 .react-aria-ColorSwatchPicker {
   display: flex;
   gap: 8px;
@@ -1949,9 +1453,7 @@ input {
 }
 
 
-/* ========== ColorThumb.css ========== */
-
-
+/* ===== ColorThumb.css ===== */
 .react-aria-ColorThumb {
   border: 2px solid white;
   box-shadow: 0 0 0 1px black, inset 0 0 0 1px black;
@@ -1972,7 +1474,7 @@ input {
 }
 
 
-/* ========== ColorWheel.css ========== */
+/* ===== ColorWheel.css ===== */
 .react-aria-ColorWheel {
   &[data-disabled] {
     .react-aria-ColorWheelTrack {
@@ -1982,10 +1484,7 @@ input {
 }
 
 
-/* ========== ComboBox.css ========== */
-
-@import "./TextField.css";
-
+/* ===== ComboBox.css ===== */
 .react-aria-ComboBox {
   color: var(--text-color);
   width: calc(var(--spacing) * 50);
@@ -2009,9 +1508,7 @@ input {
 }
 
 
-/* ========== CommandPalette.css ========== */
-
-
+/* ===== CommandPalette.css ===== */
 .command-palette-dialog {
   width: min(90vw, 500px);
   height: min(90vh, 356px);
@@ -2032,15 +1529,12 @@ input {
 }
 
 
-/* ========== Content.css ========== */
+/* ===== Content.css ===== */
 .react-aria-Heading {
   margin: 0;
 }
 
-/* ========== DateField.css ========== */
-
-@import "./utilities.css";
-
+/* ===== DateField.css ===== */
 .react-aria-DateField {
   display: flex;
   flex-direction: column;
@@ -2112,9 +1606,7 @@ input {
 }
 
 
-/* ========== DatePicker.css ========== */
-
-
+/* ===== DatePicker.css ===== */
 .react-aria-DatePicker {
   max-width: 100%;
 
@@ -2136,10 +1628,7 @@ input {
 }
 
 
-/* ========== DateRangePicker.css ========== */
-
-@import "./utilities.css";
-
+/* ===== DateRangePicker.css ===== */
 .react-aria-DateRangePicker {
   color: var(--text-color);
   max-width: 100%;
@@ -2210,9 +1699,7 @@ input {
 }
 
 
-/* ========== Dialog.css ========== */
-
-
+/* ===== Dialog.css ===== */
 .react-aria-Dialog {
   outline: none;
   max-height: inherit;
@@ -2227,9 +1714,7 @@ input {
 }
 
 
-/* ========== Disclosure.css ========== */
-
-
+/* ===== Disclosure.css ===== */
 .react-aria-Disclosure {
   width: calc(var(--spacing) * 50);
 
@@ -2304,17 +1789,13 @@ input {
 }
 
 
-/* ========== DisclosureGroup.css ========== */
-
-
+/* ===== DisclosureGroup.css ===== */
 .react-aria-DisclosureGroup {
   width: 200px;
 }
 
 
-/* ========== DropZone.css ========== */
-
-
+/* ===== DropZone.css ===== */
 .react-aria-DropZone {
   color: var(--text-color);
   background: var(--overlay-background);
@@ -2348,9 +1829,7 @@ input {
 }
 
 
-/* ========== Form.css ========== */
-
-
+/* ===== Form.css ===== */
 .react-aria-Form {
   display: flex;
   flex-direction: column;
@@ -2457,9 +1936,7 @@ input {
   }
 }
 
-/* ========== GridList.css ========== */
-
-
+/* ===== GridList.css ===== */
 .react-aria-GridList {
   justify-content: center;
   gap: var(--spacing-4);
@@ -2743,10 +2220,7 @@ input {
 }
 
 
-/* ========== InputGroup.css ========== */
-
-@import "./utilities.css";
-
+/* ===== InputGroup.css ===== */
 .input-group {
   .react-aria-Group {
     display: flex;
@@ -2794,9 +2268,7 @@ input {
 }
 
 
-/* ========== Link.css ========== */
-
-
+/* ===== Link.css ===== */
 .react-aria-Link {
   color: var(--link-color);
   font-size: var(--font-size);
@@ -2828,9 +2300,7 @@ input {
 }
 
 
-/* ========== ListBox.css ========== */
-
-
+/* ===== ListBox.css ===== */
 .react-aria-ListBox {
   max-height: inherit;
   overflow: auto;
@@ -3182,9 +2652,7 @@ input {
 }
 
 
-/* ========== Menu.css ========== */
-
-
+/* ===== Menu.css ===== */
 .react-aria-Menu {
   min-height: 0;
   max-height: inherit;
@@ -3374,10 +2842,7 @@ input {
 }
 
 
-/* ========== Meter.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Meter.css ===== */
 .react-aria-Meter {
   display: grid;
   grid-template-areas: "label value"
@@ -3415,9 +2880,7 @@ input {
 }
 
 
-/* ========== Modal.css ========== */
-
-
+/* ===== Modal.css ===== */
 .react-aria-ModalOverlay {
   position: absolute;
   top: 0;
@@ -3482,10 +2945,7 @@ input {
 }
 
 
-/* ========== NumberField.css ========== */
-
-@import "./TextField.css";
-
+/* ===== NumberField.css ===== */
 .react-aria-NumberField {
   color: var(--text-color);
 
@@ -3554,9 +3014,7 @@ input {
 }
 
 
-/* ========== Popover.css ========== */
-
-
+/* ===== Popover.css ===== */
 .react-aria-Popover {
   --background-color: var(--overlay-background);
 
@@ -3635,10 +3093,7 @@ input {
 }
 
 
-/* ========== ProgressBar.css ========== */
-
-@import "./utilities.css";
-
+/* ===== ProgressBar.css ===== */
 .react-aria-ProgressBar {
   display: grid;
   grid-template-areas: "label value"
@@ -3731,10 +3186,7 @@ input {
   }
 }
 
-/* ========== RadioGroup.css ========== */
-
-@import "./utilities.css";
-
+/* ===== RadioGroup.css ===== */
 .react-aria-RadioGroup {
   display: flex;
   flex-direction: column;
@@ -3802,9 +3254,7 @@ input {
 }
 
 
-/* ========== RangeCalendar.css ========== */
-
-
+/* ===== RangeCalendar.css ===== */
 .react-aria-RangeCalendar {
   width: calc(var(--spacing-9) * 7);
   max-width: 100%;
@@ -3915,10 +3365,7 @@ input {
 }
 
 
-/* ========== SearchField.css ========== */
-
-@import "./TextField.css";
-
+/* ===== SearchField.css ===== */
 .react-aria-SearchField {
   display: grid;
   grid-template-areas: "label label label"
@@ -3992,10 +3439,7 @@ input {
 }
 
 
-/* ========== SegmentedControl.css ========== */
-
-@import "./utilities.css";
-
+/* ===== SegmentedControl.css ===== */
 .segmented-control {
   display: flex;
   width: fit-content;
@@ -4053,9 +3497,7 @@ input {
 }
 
 
-/* ========== Select.css ========== */
-
-
+/* ===== Select.css ===== */
 .react-aria-Select {
   color: var(--text-color);
   position: relative;
@@ -4096,15 +3538,13 @@ input {
   }
 }
 
-.react-aria-Popover[data-trigger=Select] {
+.select-popover[data-trigger=Select] {
   width: var(--trigger-width);
   padding: 0;
 }
 
 
-/* ========== Separator.css ========== */
-
-
+/* ===== Separator.css ===== */
 .react-aria-Separator {
   background-color: var(--gray-500);
   border-style: none;
@@ -4120,7 +3560,7 @@ input {
 }
 
 
-/* ========== Sheet.css ========== */
+/* ===== Sheet.css ===== */
 .sheet-overlay {
   position: absolute;
   top: 0;
@@ -4188,10 +3628,7 @@ input {
 }
 
 
-/* ========== Slider.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Slider.css ===== */
 .react-aria-Slider {
   display: grid;
   grid-template-areas: "label output"
@@ -4339,10 +3776,7 @@ input {
 }
 
 
-/* ========== Switch.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Switch.css ===== */
 .react-aria-Switch {
   display: flex;
   /* This is needed so the HiddenInput is positioned correctly */
@@ -4416,10 +3850,7 @@ input {
 }
 
 
-/* ========== Table.css ========== */
-
-@import "./utilities.css";
-
+/* ===== Table.css ===== */
 .react-aria-Table {
   border: 0.5px solid var(--border-color);
   border-radius: var(--radius);
@@ -4753,9 +4184,7 @@ input {
 }
 
 
-/* ========== Tabs.css ========== */
-
-
+/* ===== Tabs.css ===== */
 .react-aria-Tabs {
   display: flex;
   gap: var(--spacing-2);
@@ -4900,10 +4329,7 @@ input {
 }
 
 
-/* ========== TagGroup.css ========== */
-
-@import "./utilities.css";
-
+/* ===== TagGroup.css ===== */
 .react-aria-TagGroup {
   display: flex;
   flex-direction: column;
@@ -5012,10 +4438,7 @@ input {
 }
 
 
-/* ========== TextField.css ========== */
-
-@import "./utilities.css";
-
+/* ===== TextField.css ===== */
 .react-aria-TextField {
   display: flex;
   flex-direction: column;
@@ -5058,18 +4481,14 @@ input {
 }
 
 
-/* ========== TimeField.css ========== */
-
-
+/* ===== TimeField.css ===== */
 .react-aria-TimeField {
   display: flex;
   flex-direction: column;
 }
 
 
-/* ========== Toast.css ========== */
-
-
+/* ===== Toast.css ===== */
 .react-aria-ToastRegion {
   position: fixed;
   bottom: var(--spacing-4);
@@ -5176,10 +4595,7 @@ input {
 }
 
 
-/* ========== ToggleButton.css ========== */
-
-@import "./utilities.css";
-
+/* ===== ToggleButton.css ===== */
 .react-aria-ToggleButton {
   border: none;
   forced-color-adjust: none;
@@ -5222,9 +4638,7 @@ input {
 }
 
 
-/* ========== ToggleButtonGroup.css ========== */
-
-
+/* ===== ToggleButtonGroup.css ===== */
 .react-aria-ToggleButtonGroup {
   display: flex;
 
@@ -5292,9 +4706,7 @@ input {
 }
 
 
-/* ========== Toolbar.css ========== */
-
-
+/* ===== Toolbar.css ===== */
 .react-aria-Toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -5324,9 +4736,7 @@ input {
 }
 
 
-/* ========== Tooltip.css ========== */
-
-
+/* ===== Tooltip.css ===== */
 .react-aria-Tooltip {
   box-shadow: 0 8px 20px rgba(0 0 0 / 0.1);
   border-radius: var(--radius);
@@ -5383,9 +4793,7 @@ input {
 }
 
 
-/* ========== Tree.css ========== */
-
-
+/* ===== Tree.css ===== */
 .react-aria-Tree {
   display: flex;
   flex-direction: column;
