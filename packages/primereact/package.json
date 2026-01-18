@@ -59,7 +59,7 @@
     "@rjsf/utils": "^6.2.x",
     "primeicons": ">=6.0.0",
     "primereact": ">=8.0.0",
-    "react": ">=18"
+    "react": "~18"
   },
   "devDependencies": {
     "@rjsf/core": "*",
