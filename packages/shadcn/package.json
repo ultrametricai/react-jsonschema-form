@@ -70,9 +70,7 @@
     "@rjsf/core": "*",
     "@rjsf/snapshot-tests": "*",
     "@rjsf/utils": "*",
-    "@rjsf/validator-ajv8": "*",
-    "@tailwindcss/cli": "^4.1.16",
-    "tailwindcss": "^4.1.18"
+    "@rjsf/validator-ajv8": "*"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.3",

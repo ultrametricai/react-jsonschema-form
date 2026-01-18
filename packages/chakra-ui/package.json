@@ -81,7 +81,6 @@
   "devDependencies": {
     "@chakra-ui/cli": "^3.28.0",
     "@chakra-ui/react": "^3.28.0",
-    "@emotion/jest": "^11.13.0",
     "@rjsf/core": "*",
     "@rjsf/snapshot-tests": "*",
     "@rjsf/utils": "*",

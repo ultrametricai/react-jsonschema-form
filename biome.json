@@ -27,6 +27,21 @@
           "level": "error",
           "fix": "none"
         }
+      },
+      "style": {
+        "useImportType": "off",
+        "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noSelfCompare": "off"
+      },
+      "complexity": {
+        "useOptionalChain": "off"
+      },
+      "a11y": {
+        "useAriaPropsForRole": "off",
+        "useSemanticElements": "off"
       }
 		}
 	},

@@ -80,8 +80,7 @@
     "@rjsf/utils": "^6.2.x"
   },
   "devDependencies": {
-    "@rjsf/utils": "*",
-    "ajv-i18n": "^4.2.0"
+    "@rjsf/utils": "*"
   },
   "publishConfig": {
     "access": "public"

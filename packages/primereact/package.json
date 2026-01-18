@@ -66,7 +66,6 @@
     "@rjsf/snapshot-tests": "*",
     "@rjsf/utils": "*",
     "@rjsf/validator-ajv8": "*",
-    "@rollup/plugin-replace": "^6.0.3",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7"
