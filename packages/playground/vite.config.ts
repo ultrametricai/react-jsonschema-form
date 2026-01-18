@@ -22,6 +22,7 @@ export default defineConfig({
       "@rjsf/mantine": path.resolve(__dirname, "../mantine/src"),
       "@rjsf/mui": path.resolve(__dirname, "../mui/src"),
       "@rjsf/primereact": path.resolve(__dirname, "../primereact/src"),
+      "@rjsf/react-aria": path.resolve(__dirname, "../react-aria/src"),
       "@rjsf/react-bootstrap": path.resolve(
         __dirname,
         "../react-bootstrap/src",

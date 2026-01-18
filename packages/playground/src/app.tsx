@@ -8,6 +8,7 @@ import { Theme as MantineTheme } from "@rjsf/mantine";
 import { Theme as shadcnTheme } from "@rjsf/shadcn";
 import { Theme as DaisyUITheme } from "@rjsf/daisyui";
 import { Theme as PrimeReactTheme } from "@rjsf/primereact";
+import { Theme as ReactAriaTheme } from "@rjsf/react-aria";
 import v8Validator, { customizeValidator } from "@rjsf/validator-ajv8";
 import Ajv2019 from "ajv/dist/2019.js";
 import Ajv2020 from "ajv/dist/2020.js";
@@ -391,6 +392,10 @@ const themes: PlaygroundProps["themes"] = {
           "//cdn.jsdelivr.net/npm/primereact@10.9.2/resources/themes/viva-light/theme.css",
       },
     },
+  },
+  "react-aria": {
+    stylesheet: "",
+    theme: ReactAriaTheme,
   },
   "react-bootstrap": {
     stylesheet:

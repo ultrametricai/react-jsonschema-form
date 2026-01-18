@@ -44,6 +44,7 @@
     "@rjsf/mantine": "^6.2.0",
     "@rjsf/mui": "^6.2.0",
     "@rjsf/primereact": "^6.2.0",
+    "@rjsf/react-aria": "^6.2.0",
     "@rjsf/react-bootstrap": "^6.2.0",
     "@rjsf/semantic-ui": "^6.2.0",
     "@rjsf/shadcn": "^6.2.0",
