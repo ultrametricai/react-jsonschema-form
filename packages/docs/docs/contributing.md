@@ -18,10 +18,6 @@ Whenever you make changes to source code, stop the running playground and return
 Thanks to `nx` caching, this should only rebuild what is necessary.
 After the build is complete, return to the root of the `playground` and restart the server via `npm start`.
 
-### First time step
-
-If this is the first time you have cloned the repo, run the `npm run prepare` script that will set up `husky` to provide a git precommit hook that will format and lint any code you have added to a PR.
-
 ### Optional development process
 
 With the large number of packages, sometimes running `npm run build` or `npm start` from the root directory will overwhelm an underpowered computer.
@@ -51,10 +47,8 @@ When building in environments with limited memory, such as Netlify, it's recomme
 
 ## Coding style
 
-All the JavaScript/Typescript code in this project conforms to the [prettier](https://github.com/prettier/prettier) coding style.
-Code is automatically prettified upon commit using precommit hooks, assuming you followed the `First time step` above.
-
-You can also run `npm cs-format` within any package directory you are changing.
+All the JavaScript/Typescript code in this project conforms to the [Biome](https://biomejs.dev/) coding style.
+You can run `npm run cs-format` within any package directory you are changing to format your code.
 
 ## Documentation
 

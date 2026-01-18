@@ -1,3 +1,5 @@
 *.snap
 package-lock.json
 *.svg
+*.md
+**/docs/**

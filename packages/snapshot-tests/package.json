@@ -7,15 +7,9 @@
     "cs-check": "biome check src",
     "cs-format": "biome check --write src",
     "lint": "biome lint src",
-    "precommit": "lint-staged",
     "publish-to-npm": "npm run build && npm publish",
     "test": "echo 'OK'",
     "test-coverage": "echo 'OK'"
-  },
-  "lint-staged": {
-    "src/**/*.[jt]s?(x)": [
-      "biome check --write"
-    ]
   },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

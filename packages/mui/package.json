@@ -47,14 +47,8 @@
     "cs-check": "biome check src test",
     "cs-format": "biome check --write src test",
     "lint": "biome lint src test",
-    "precommit": "lint-staged",
     "test": "jest",
     "test:update": "jest --u"
-  },
-  "lint-staged": {
-    "{src,test}/**/*.ts?(x)": [
-      "biome check --write"
-    ]
   },
   "engines": {
     "node": ">=20"

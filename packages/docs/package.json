@@ -13,17 +13,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "precommit": "lint-staged",
     "cs-check": "biome check src docs",
     "cs-format": "biome check --write src docs"
-  },
-  "lint-staged": {
-    "src/**/*.(ts?(x)|css)": [
-      "biome check --write"
-    ],
-    "docs/**/*.md": [
-      "biome check --write"
-    ]
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.1",

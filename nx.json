@@ -23,9 +23,6 @@
     "test:watch": {
       "cache": true
     },
-    "precommit": {
-      "cache": true
-    },
     "publish-to-npm": {
       "cache": true
     },

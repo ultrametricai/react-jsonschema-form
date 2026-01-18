@@ -12,18 +12,12 @@
     "cs-check": "biome check src test",
     "cs-format": "biome check --write src test",
     "lint": "biome lint src test",
-    "precommit": "lint-staged",
     "publish-to-npm": "npm run build && npm publish",
     "test": "jest",
     "test:debug": "node --inspect-brk ../../node_modules/.bin/jest",
     "test:update": "jest --u",
     "test:watch": "jest --watch",
     "test-coverage": "jest --coverage"
-  },
-  "lint-staged": {
-    "{src,test}/**/*.[jt]s?(x)": [
-      "biome check --write"
-    ]
   },
   "main": "dist/index.js",
   "module": "lib/index.js",
