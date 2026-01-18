@@ -28,6 +28,7 @@ function UiField(props: FieldProps) {
   const lonFieldPathId: FieldPathId = { [ID_KEY]: lonKey, path: [lonKey] };
 
   const fieldTemplateProps: Omit<FieldTemplateProps, 'label' | 'id' | 'children'> = {
+    fieldPathId,
     registry,
     schema,
     uiSchema,

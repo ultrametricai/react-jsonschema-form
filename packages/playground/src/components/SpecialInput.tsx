@@ -10,7 +10,7 @@ export default function SpecialInput({ onChange, formData }: PropsWithChildren<F
 
   const handleOnChange = useCallback(
     ({ target: { value } }: ChangeEvent<HTMLInputElement>) => {
-      onChange(value);
+      onChange(value, []);
       setText(value);
     },
     [onChange, setText],
