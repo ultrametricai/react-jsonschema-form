@@ -1,11 +1,23 @@
-import { Card, Text, makeStyles, shorthands, tokens } from '@fluentui/react-components';
-import { ErrorListProps, FormContextType, RJSFSchema, StrictRJSFSchema, TranslatableString } from '@rjsf/utils';
+import {
+  Card,
+  Text,
+  makeStyles,
+  shorthands,
+  tokens,
+} from "@fluentui/react-components";
+import {
+  ErrorListProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  TranslatableString,
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
   errorCard: {
     backgroundColor: tokens.colorStatusDangerBackground1,
     marginBottom: tokens.spacingVerticalL,
-    '&::after': {
+    "&::after": {
       ...shorthands.borderColor(tokens.colorStatusDangerBorder1),
     },
   },
@@ -19,15 +31,16 @@ const useStyles = makeStyles({
  *
  * @param props - The `ErrorListProps` for this component
  */
-export default function ErrorList<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
-  errors,
-  registry,
-}: ErrorListProps<T, S, F>) {
+export default function ErrorList<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({ errors, registry }: ErrorListProps<T, S, F>) {
   const { translateString } = registry;
   const classes = useStyles();
   return (
-    <Card appearance='outline' className={classes.errorCard}>
-      <Text as='h6' size={400} className={classes.errorTitle}>
+    <Card appearance="outline" className={classes.errorCard}>
+      <Text as="h6" size={400} className={classes.errorTitle}>
         {translateString(TranslatableString.ErrorsLabel)}
       </Text>
       <ul>

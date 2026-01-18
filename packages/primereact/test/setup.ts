@@ -4,8 +4,8 @@ const originalCreateElement = document.createElement.bind(document);
 beforeAll(() => {
   document.createElement = (tagName: string) => {
     const element = originalCreateElement(tagName);
-    if (tagName === 'style') {
-      Object.defineProperty(element, 'textContent', {
+    if (tagName === "style") {
+      Object.defineProperty(element, "textContent", {
         set() {
           // Block style content
         },

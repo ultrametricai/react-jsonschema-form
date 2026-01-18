@@ -7,18 +7,30 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { RadioButton, RadioButtonChangeEvent } from 'primereact/radiobutton';
+} from "@rjsf/utils";
+import { RadioButton, RadioButtonChangeEvent } from "primereact/radiobutton";
 
 /** The `RadioWidget` is a widget for rendering a radio group.
  *  It is typically used with a string property constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
-  const { id, htmlName, value, disabled, readonly, onChange, onBlur, onFocus, options } = props;
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
+  const {
+    id,
+    htmlName,
+    value,
+    disabled,
+    readonly,
+    onChange,
+    onBlur,
+    onFocus,
+    options,
+  } = props;
   const primeProps = (options.prime || {}) as object;
   const { enumOptions, enumDisabled, emptyValue } = options;
 
@@ -30,13 +42,15 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const _onFocus = () => onFocus(id, value);
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
+    <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
       {Array.isArray(enumOptions) &&
         enumOptions.map((option, index) => {
           const checked = enumOptionsIsSelected<S>(option.value, value);
-          const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+          const itemDisabled =
+            Array.isArray(enumDisabled) &&
+            enumDisabled.indexOf(option.value) !== -1;
           return (
-            <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+            <div key={index} style={{ display: "flex", alignItems: "center" }}>
               <RadioButton
                 inputId={optionId(id, index)}
                 name={htmlName || id}
@@ -49,7 +63,10 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
                 disabled={disabled || itemDisabled || readonly}
                 aria-describedby={ariaDescribedByIds(id)}
               />
-              <label htmlFor={optionId(id, index)} style={{ marginLeft: '8px' }}>
+              <label
+                htmlFor={optionId(id, index)}
+                style={{ marginLeft: "8px" }}
+              >
                 {option.label}
               </label>
             </div>

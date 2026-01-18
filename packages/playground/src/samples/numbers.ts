@@ -1,37 +1,37 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const numbers: Sample = {
   schema: {
-    type: 'object',
-    title: 'Number fields & widgets',
+    type: "object",
+    title: "Number fields & widgets",
     properties: {
       number: {
-        title: 'Number',
-        type: 'number',
+        title: "Number",
+        type: "number",
       },
       integer: {
-        title: 'Integer',
-        type: 'integer',
+        title: "Integer",
+        type: "integer",
       },
       numberEnum: {
-        type: 'number',
-        title: 'Number enum',
+        type: "number",
+        title: "Number enum",
         enum: [1, 2, 3],
       },
       numberEnumRadio: {
-        type: 'number',
-        title: 'Number enum',
+        type: "number",
+        title: "Number enum",
         enum: [1, 2, 3],
       },
       integerRange: {
-        title: 'Integer range',
-        type: 'integer',
+        title: "Integer range",
+        type: "integer",
         minimum: -50,
         maximum: 50,
       },
       integerRangeSteps: {
-        title: 'Integer range (by 10)',
-        type: 'integer',
+        title: "Integer range (by 10)",
+        type: "integer",
         minimum: 50,
         maximum: 100,
         multipleOf: 10,
@@ -40,19 +40,19 @@ const numbers: Sample = {
   },
   uiSchema: {
     integer: {
-      'ui:widget': 'updown',
+      "ui:widget": "updown",
     },
     numberEnumRadio: {
-      'ui:widget': 'radio',
-      'ui:options': {
+      "ui:widget": "radio",
+      "ui:options": {
         inline: true,
       },
     },
     integerRange: {
-      'ui:widget': 'range',
+      "ui:widget": "range",
     },
     integerRangeSteps: {
-      'ui:widget': 'range',
+      "ui:widget": "range",
     },
   },
   formData: {

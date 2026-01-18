@@ -1,4 +1,4 @@
-import { UI_WIDGET_KEY } from '../constants';
+import { UI_WIDGET_KEY } from "../constants";
 import {
   Experimental_CustomMergeAllOf,
   FormContextType,
@@ -6,8 +6,8 @@ import {
   StrictRJSFSchema,
   UiSchema,
   ValidatorType,
-} from '../types';
-import retrieveSchema from './retrieveSchema';
+} from "../types";
+import retrieveSchema from "./retrieveSchema";
 
 /** Checks to see if the `schema` and `uiSchema` combination represents an array of files
  *
@@ -18,14 +18,18 @@ import retrieveSchema from './retrieveSchema';
  * @param [experimental_customMergeAllOf] - Optional function that allows for custom merging of `allOf` schemas
  * @returns - True if schema/uiSchema contains an array of files, otherwise false
  */
-export default function isFilesArray<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
+export default function isFilesArray<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
   validator: ValidatorType<T, S, F>,
   schema: S,
   uiSchema: UiSchema<T, S, F> = {},
   rootSchema?: S,
   experimental_customMergeAllOf?: Experimental_CustomMergeAllOf<S>,
 ) {
-  if (uiSchema[UI_WIDGET_KEY] === 'files') {
+  if (uiSchema[UI_WIDGET_KEY] === "files") {
     return true;
   }
   if (schema.items) {
@@ -36,7 +40,7 @@ export default function isFilesArray<T = any, S extends StrictRJSFSchema = RJSFS
       undefined,
       experimental_customMergeAllOf,
     );
-    return itemsSchema.type === 'string' && itemsSchema.format === 'data-url';
+    return itemsSchema.type === "string" && itemsSchema.format === "data-url";
   }
   return false;
 }

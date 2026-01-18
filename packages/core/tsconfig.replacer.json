@@ -3,13 +3,8 @@
     "module": "commonjs",
     "target": "es2017",
     "outDir": "./",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "files": [
-    "../../tsc-alias-replacer/lodashReplacer.ts"
-  ],
-  "exclude": [
-    "./src",
-    "./test"
-  ]
+  "files": ["../../tsc-alias-replacer/lodashReplacer.ts"],
+  "exclude": ["./src", "./test"]
 }

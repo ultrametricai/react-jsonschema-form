@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback } from 'react';
+import { FocusEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   enumOptionsValueForIndex,
@@ -9,10 +9,10 @@ import {
   WidgetProps,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { Checkbox, Flex, Input } from '@mantine/core';
+} from "@rjsf/utils";
+import { Checkbox, Flex, Input } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `CheckboxesWidget` is a widget for rendering checkbox groups.
  *  It is typically used to represent an array of enums.
@@ -47,7 +47,9 @@ export default function CheckboxesWidget<
   const handleChange = useCallback(
     (nextValue: any) => {
       if (!disabled && !readonly && onChange) {
-        onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
+        onChange(
+          enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue),
+        );
       }
     },
     [onChange, disabled, readonly, enumOptions, emptyValue],
@@ -56,7 +58,10 @@ export default function CheckboxesWidget<
   const handleBlur = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onBlur) {
-        onBlur(id, enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue));
+        onBlur(
+          id,
+          enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue),
+        );
       }
     },
     [onBlur, id, enumOptions, emptyValue],
@@ -65,13 +70,20 @@ export default function CheckboxesWidget<
   const handleFocus = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
-        onFocus(id, enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue));
+        onFocus(
+          id,
+          enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue),
+        );
       }
     },
     [onFocus, id, enumOptions, emptyValue],
   );
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, true) as string[];
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    true,
+  ) as string[];
 
   return Array.isArray(enumOptions) && enumOptions.length > 0 ? (
     <>
@@ -86,12 +98,19 @@ export default function CheckboxesWidget<
         onChange={handleChange}
         required={required}
         readOnly={disabled || readonly}
-        error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+        error={
+          rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+        }
         aria-describedby={ariaDescribedByIds(id)}
         {...themeProps}
       >
         {Array.isArray(enumOptions) ? (
-          <Flex mt='xs' direction={inline ? 'row' : 'column'} gap='xs' wrap='wrap'>
+          <Flex
+            mt="xs"
+            direction={inline ? "row" : "column"}
+            gap="xs"
+            wrap="wrap"
+          >
             {enumOptions.map((option, i) => (
               <Checkbox
                 key={i}
@@ -99,7 +118,10 @@ export default function CheckboxesWidget<
                 name={htmlName || id}
                 value={String(i)}
                 label={option.label}
-                disabled={Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1}
+                disabled={
+                  Array.isArray(enumDisabled) &&
+                  enumDisabled.indexOf(option.value) !== -1
+                }
                 autoFocus={i === 0 && autofocus}
                 onBlur={handleBlur}
                 onFocus={handleFocus}

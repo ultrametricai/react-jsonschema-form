@@ -1,5 +1,5 @@
-import { FocusEvent } from 'react';
-import { Dropdown } from 'primereact/dropdown';
+import { FocusEvent } from "react";
+import { Dropdown } from "primereact/dropdown";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -8,23 +8,33 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { MultiSelect } from 'primereact/multiselect';
+} from "@rjsf/utils";
+import { MultiSelect } from "primereact/multiselect";
 
 /** The `SelectWidget` is a widget for rendering dropdowns.
  *  It is typically used with string properties constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function SelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const { multiple = false } = props;
 
-  return multiple ? <MultiSelectWidget {...props} /> : <SingleSelectWidget {...props} />;
+  return multiple ? (
+    <MultiSelectWidget {...props} />
+  ) : (
+    <SingleSelectWidget {...props} />
+  );
 }
 
-function SingleSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+function SingleSelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   schema,
   id,
   htmlName,
@@ -52,17 +62,39 @@ function SingleSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
   const { enumOptions, enumDisabled, emptyValue: optEmptyVal } = options;
   const primeProps = (options.prime || {}) as object;
 
-  multiple = typeof multiple === 'undefined' ? false : multiple;
+  multiple = typeof multiple === "undefined" ? false : multiple;
 
-  const emptyValue = multiple ? [] : '';
-  const isEmpty = typeof value === 'undefined' || (multiple && value.length < 1) || (!multiple && value === emptyValue);
+  const emptyValue = multiple ? [] : "";
+  const isEmpty =
+    typeof value === "undefined" ||
+    (multiple && value.length < 1) ||
+    (!multiple && value === emptyValue);
 
-  const _onChange = (e: { value: any }) => onChange(enumOptionsValueForIndex<S>(e.value, enumOptions, optEmptyVal));
+  const _onChange = (e: { value: any }) =>
+    onChange(enumOptionsValueForIndex<S>(e.value, enumOptions, optEmptyVal));
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, optEmptyVal));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        optEmptyVal,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, optEmptyVal));
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, multiple);
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        optEmptyVal,
+      ),
+    );
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    multiple,
+  );
   const { ...dropdownRemainingProps } = dropdownProps;
 
   return (
@@ -70,11 +102,16 @@ function SingleSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
       id={id}
       name={htmlName || id}
       {...primeProps}
-      value={!isEmpty && typeof selectedIndexes !== 'undefined' ? selectedIndexes : emptyValue}
+      value={
+        !isEmpty && typeof selectedIndexes !== "undefined"
+          ? selectedIndexes
+          : emptyValue
+      }
       options={(enumOptions ?? []).map(({ value, label }, i: number) => ({
         label,
         value: String(i),
-        disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
+        disabled:
+          Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
       }))}
       onChange={_onChange}
       onBlur={_onBlur}
@@ -88,7 +125,11 @@ function SingleSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
   );
 }
 
-function MultiSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+function MultiSelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   htmlName,
   options,
@@ -105,26 +146,53 @@ function MultiSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F e
   const { enumOptions, enumDisabled, emptyValue: optEmptyVal } = options;
   const primeProps = (options.prime || {}) as object;
 
-  const emptyValue = multiple ? [] : '';
-  const isEmpty = typeof value === 'undefined' || (multiple && value.length < 1) || (!multiple && value === emptyValue);
+  const emptyValue = multiple ? [] : "";
+  const isEmpty =
+    typeof value === "undefined" ||
+    (multiple && value.length < 1) ||
+    (!multiple && value === emptyValue);
 
-  const _onChange = (e: { value: any }) => onChange(enumOptionsValueForIndex<S>(e.value, enumOptions, optEmptyVal));
+  const _onChange = (e: { value: any }) =>
+    onChange(enumOptionsValueForIndex<S>(e.value, enumOptions, optEmptyVal));
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, optEmptyVal));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        optEmptyVal,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, optEmptyVal));
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, multiple);
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        optEmptyVal,
+      ),
+    );
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    multiple,
+  );
 
   return (
     <MultiSelect
       id={id}
       name={htmlName || id}
       {...primeProps}
-      value={!isEmpty && typeof selectedIndexes !== 'undefined' ? selectedIndexes : emptyValue}
+      value={
+        !isEmpty && typeof selectedIndexes !== "undefined"
+          ? selectedIndexes
+          : emptyValue
+      }
       options={(enumOptions ?? []).map(({ value, label }, i: number) => ({
         label,
         value: String(i),
-        disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
+        disabled:
+          Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
       }))}
       onChange={_onChange}
       onBlur={_onBlur}
@@ -132,9 +200,9 @@ function MultiSelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F e
       placeholder={placeholder}
       disabled={disabled || readonly}
       autoFocus={autofocus}
-      display={options.display === 'chip' ? 'chip' : 'comma'}
+      display={options.display === "chip" ? "chip" : "comma"}
       aria-describedby={ariaDescribedByIds(id)}
-      pt={{ root: { style: { position: 'relative' } } }}
+      pt={{ root: { style: { position: "relative" } } }}
     />
   );
 }

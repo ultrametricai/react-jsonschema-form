@@ -6,7 +6,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldTemplate` component is the template used to render all items in an array.
  *
@@ -33,16 +33,18 @@ export default function ArrayFieldTemplate<
     title,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldDescriptionTemplate = getTemplate<'ArrayFieldDescriptionTemplate', T, S, F>(
-    'ArrayFieldDescriptionTemplate',
-    registry,
-    uiOptions,
-  );
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldDescriptionTemplate = getTemplate<
+    "ArrayFieldDescriptionTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldDescriptionTemplate", registry, uiOptions);
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   // Button templates are not overridden in the uiSchema
   const showOptionalDataControlInTitle = !readonly && !disabled;
   const {
@@ -57,7 +59,9 @@ export default function ArrayFieldTemplate<
         schema={schema}
         uiSchema={uiSchema}
         registry={registry}
-        optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+        optionalDataControl={
+          showOptionalDataControlInTitle ? optionalDataControl : undefined
+        }
       />
       <ArrayFieldDescriptionTemplate
         fieldPathId={fieldPathId}
@@ -67,11 +71,11 @@ export default function ArrayFieldTemplate<
         registry={registry}
       />
       {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
-      <div className='row array-item-list'>{items}</div>
+      <div className="row array-item-list">{items}</div>
       {canAdd && (
         <AddButton
-          id={buttonId(fieldPathId, 'add')}
-          className='rjsf-array-item-add'
+          id={buttonId(fieldPathId, "add")}
+          className="rjsf-array-item-add"
           onClick={onAddClick}
           disabled={disabled || readonly}
           uiSchema={uiSchema}

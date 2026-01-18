@@ -5,8 +5,8 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { Grid, Title } from '@mantine/core';
+} from "@rjsf/utils";
+import { Grid, Title } from "@mantine/core";
 
 /** The `ArrayFieldTitleTemplate` component renders a `TitleFieldTemplate` with an `id` derived from
  * the `fieldPathId`.
@@ -26,15 +26,15 @@ export default function ArrayFieldTitleTemplate<
     return null;
   }
   let heading = title ? (
-    <Title id={titleId(fieldPathId)} order={4} fw='normal'>
+    <Title id={titleId(fieldPathId)} order={4} fw="normal">
       {title}
     </Title>
   ) : null;
   if (optionalDataControl) {
     heading = (
       <Grid>
-        <Grid.Col span='auto'>{heading}</Grid.Col>
-        <Grid.Col span='content'>{optionalDataControl}</Grid.Col>
+        <Grid.Col span="auto">{heading}</Grid.Col>
+        <Grid.Col span="content">{optionalDataControl}</Grid.Col>
       </Grid>
     );
   }

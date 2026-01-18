@@ -1,6 +1,6 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 import {
   buttonId,
@@ -13,7 +13,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   titleId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 export default function ObjectFieldTemplate<
   T = any,
@@ -35,12 +35,17 @@ export default function ObjectFieldTemplate<
   registry,
 }: ObjectFieldTemplateProps<T, S, F>) {
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -56,7 +61,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -68,21 +75,25 @@ export default function ObjectFieldTemplate<
           registry={registry}
         />
       )}
-      <Container fluid className='p-0'>
+      <Container fluid className="p-0">
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {properties.map((element: any, index: number) => (
-          <Row key={index} style={{ marginBottom: '10px' }} className={element.hidden ? 'd-none' : undefined}>
+          <Row
+            key={index}
+            style={{ marginBottom: "10px" }}
+            className={element.hidden ? "d-none" : undefined}
+          >
             <Col xs={12}> {element.content}</Col>
           </Row>
         ))}
         {canExpand(schema, uiSchema, formData) ? (
           <Row>
-            <Col xs={{ offset: 11, span: 1 }} className='py-0.5'>
+            <Col xs={{ offset: 11, span: 1 }} className="py-0.5">
               <AddButton
-                id={buttonId(fieldPathId, 'add')}
+                id={buttonId(fieldPathId, "add")}
                 onClick={onAddProperty}
                 disabled={disabled || readonly}
-                className='rjsf-object-property-expand'
+                className="rjsf-object-property-expand"
                 uiSchema={uiSchema}
                 registry={registry}
               />

@@ -1,10 +1,14 @@
-import { ArrayFieldTemplateProps, FieldTemplateProps, RJSFSchema } from '@rjsf/utils';
+import {
+  ArrayFieldTemplateProps,
+  FieldTemplateProps,
+  RJSFSchema,
+} from "@rjsf/utils";
 
-import { createFormComponent } from './testUtils';
+import { createFormComponent } from "./testUtils";
 
-const schema: RJSFSchema = { type: 'string' };
+const schema: RJSFSchema = { type: "string" };
 
-const formContext = { foo: 'bar' };
+const formContext = { foo: "bar" };
 
 const fooId = `#${formContext.foo}`;
 
@@ -15,11 +19,11 @@ function CustomComponent(props: any) {
   return <div id={formContext.foo} />;
 }
 
-describe('FormContext', () => {
-  it('should be passed to custom field', () => {
+describe("FormContext", () => {
+  it("should be passed to custom field", () => {
     const { node } = createFormComponent({
       schema: schema,
-      uiSchema: { 'ui:field': 'custom' },
+      uiSchema: { "ui:field": "custom" },
       fields: { custom: CustomComponent },
       formContext,
     });
@@ -27,10 +31,10 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to custom widget', () => {
+  it("should be passed to custom widget", () => {
     const { node } = createFormComponent({
-      schema: { type: 'string' },
-      uiSchema: { 'ui:widget': 'custom' },
+      schema: { type: "string" },
+      uiSchema: { "ui:widget": "custom" },
       widgets: { custom: CustomComponent },
       formContext,
     });
@@ -38,17 +42,19 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to TemplateField', () => {
-    function CustomTemplateField({ registry: { formContext } }: FieldTemplateProps) {
+  it("should be passed to TemplateField", () => {
+    function CustomTemplateField({
+      registry: { formContext },
+    }: FieldTemplateProps) {
       return <div id={formContext.foo} />;
     }
 
     const { node } = createFormComponent({
       schema: {
-        type: 'object',
+        type: "object",
         properties: {
           prop: {
-            type: 'string',
+            type: "string",
           },
         },
       },
@@ -59,16 +65,18 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to ArrayTemplateField', () => {
-    function CustomArrayTemplateField({ registry: { formContext } }: ArrayFieldTemplateProps) {
+  it("should be passed to ArrayTemplateField", () => {
+    function CustomArrayTemplateField({
+      registry: { formContext },
+    }: ArrayFieldTemplateProps) {
       return <div id={formContext.foo} />;
     }
 
     const { node } = createFormComponent({
       schema: {
-        type: 'array',
+        type: "array",
         items: {
-          type: 'string',
+          type: "string",
         },
       },
       templates: { ArrayFieldTemplate: CustomArrayTemplateField },
@@ -78,16 +86,16 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to custom TitleFieldTemplate', () => {
+  it("should be passed to custom TitleFieldTemplate", () => {
     const templates = { TitleFieldTemplate: CustomComponent };
 
     const { node } = createFormComponent({
       schema: {
-        type: 'object',
-        title: 'A title',
+        type: "object",
+        title: "A title",
         properties: {
           prop: {
-            type: 'string',
+            type: "string",
           },
         },
       },
@@ -98,11 +106,11 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to custom DescriptionFieldTemplate', () => {
+  it("should be passed to custom DescriptionFieldTemplate", () => {
     const templates = { DescriptionFieldTemplate: CustomComponent };
 
     const { node } = createFormComponent({
-      schema: { type: 'string', description: 'A description' },
+      schema: { type: "string", description: "A description" },
       templates,
       formContext,
     });
@@ -110,17 +118,17 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to multiselect', () => {
+  it("should be passed to multiselect", () => {
     const widgets = { SelectWidget: CustomComponent };
     const { node } = createFormComponent({
       schema: {
-        type: 'array',
+        type: "array",
         items: {
-          type: 'string',
+          type: "string",
           oneOf: [
             {
-              const: 'foo',
-              title: 'bar',
+              const: "foo",
+              title: "bar",
             },
           ],
         },
@@ -133,14 +141,14 @@ describe('FormContext', () => {
     expect(node.querySelector(fooId)).toBeInTheDocument();
   });
 
-  it('should be passed to files array', () => {
+  it("should be passed to files array", () => {
     const widgets = { FileWidget: CustomComponent };
     const { node } = createFormComponent({
       schema: {
-        type: 'array',
+        type: "array",
         items: {
-          type: 'string',
-          format: 'data-url',
+          type: "string",
+          format: "data-url",
         },
       },
       widgets,

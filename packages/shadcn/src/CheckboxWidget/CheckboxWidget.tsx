@@ -8,9 +8,9 @@ import {
   schemaRequiresTrueValue,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Checkbox } from '../components/ui/checkbox';
-import { Label } from '../components/ui/label';
+} from "@rjsf/utils";
+import { Checkbox } from "../components/ui/checkbox";
+import { Label } from "../components/ui/label";
 
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
@@ -44,11 +44,12 @@ export default function CheckboxWidget<
   // the "required" attribute if the field value must be "true", due to the
   // "const" or "enum" keywords
   const required = schemaRequiresTrueValue<S>(schema);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
   const _onChange = (checked: boolean) => onChange(checked);
   const _onBlur = () => onBlur(id, value);
@@ -57,7 +58,7 @@ export default function CheckboxWidget<
   const description = options.description || schema.description;
   return (
     <div
-      className={`relative ${disabled || readonly ? 'cursor-not-allowed opacity-50' : ''}`}
+      className={`relative ${disabled || readonly ? "cursor-not-allowed opacity-50" : ""}`}
       aria-describedby={ariaDescribedByIds(id)}
     >
       {!hideLabel && description && (
@@ -69,11 +70,11 @@ export default function CheckboxWidget<
           registry={registry}
         />
       )}
-      <div className='flex items-center gap-2 my-2'>
+      <div className="flex items-center gap-2 my-2">
         <Checkbox
           id={id}
           name={htmlName || id}
-          checked={typeof value === 'undefined' ? false : Boolean(value)}
+          checked={typeof value === "undefined" ? false : Boolean(value)}
           required={required}
           disabled={disabled || readonly}
           autoFocus={autofocus}
@@ -82,7 +83,7 @@ export default function CheckboxWidget<
           onFocus={_onFocus}
           className={className}
         />
-        <Label className='leading-tight' htmlFor={id}>
+        <Label className="leading-tight" htmlFor={id}>
           {labelValue(label, hideLabel || !label)}
         </Label>
       </div>

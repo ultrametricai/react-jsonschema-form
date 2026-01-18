@@ -1,37 +1,37 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const patternProperties: Sample = {
   schema: {
-    title: 'A customizable registration form',
-    description: 'A simple form with pattern properties example.',
-    type: 'object',
-    required: ['firstName', 'lastName'],
+    title: "A customizable registration form",
+    description: "A simple form with pattern properties example.",
+    type: "object",
+    required: ["firstName", "lastName"],
     properties: {
       firstName: {
-        type: 'string',
-        title: 'First name',
+        type: "string",
+        title: "First name",
       },
       lastName: {
-        type: 'string',
-        title: 'Last name',
+        type: "string",
+        title: "Last name",
       },
     },
     patternProperties: {
-      '^[a-z][a-zA-Z]+$': {
-        type: 'string',
+      "^[a-z][a-zA-Z]+$": {
+        type: "string",
       },
     },
   },
   uiSchema: {
     firstName: {
-      'ui:autofocus': true,
-      'ui:emptyValue': '',
+      "ui:autofocus": true,
+      "ui:emptyValue": "",
     },
   },
   formData: {
-    firstName: 'Chuck',
-    lastName: 'Norris',
-    assKickCount: 'infinity',
+    firstName: "Chuck",
+    lastName: "Norris",
+    assKickCount: "infinity",
   },
 };
 

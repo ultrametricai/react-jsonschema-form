@@ -1,8 +1,19 @@
-import { makeStyles, tokens } from '@fluentui/react-components';
-import { errorId, FieldErrorProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import { makeStyles, tokens } from "@fluentui/react-components";
+import {
+  errorId,
+  FieldErrorProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
-  list: { marginTop: 0, marginBottom: 0, paddingLeft: 0, listStyleType: 'none' },
+  list: {
+    marginTop: 0,
+    marginBottom: 0,
+    paddingLeft: 0,
+    listStyleType: "none",
+  },
   listItem: {
     paddingLeft: tokens.spacingHorizontalL,
     paddingTop: tokens.spacingVerticalXS,

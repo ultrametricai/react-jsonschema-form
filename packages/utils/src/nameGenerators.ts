@@ -1,4 +1,4 @@
-import { NameGeneratorFunction, FieldPathList } from './types';
+import { NameGeneratorFunction, FieldPathList } from "./types";
 
 /**
  * Generates bracketed names
@@ -19,7 +19,7 @@ export const bracketNameGenerator: NameGeneratorFunction = (
       return `${idPrefix}[${String(pathUnit)}]`;
     }
     return `${acc}[${String(pathUnit)}]`;
-  }, '');
+  }, "");
 
   // For multi-value fields, append [] to allow multiple values with the same name
   return isMultiValue ? `${baseName}[]` : baseName;
@@ -39,5 +39,5 @@ export const dotNotationNameGenerator: NameGeneratorFunction = (
     return idPrefix;
   }
 
-  return `${idPrefix}.${path.map(String).join('.')}`;
+  return `${idPrefix}.${path.map(String).join(".")}`;
 };

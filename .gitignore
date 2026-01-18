@@ -145,3 +145,5 @@ out/
 
 .nx/cache
 .nx/workspace-data
+
+.claude/settings.local.json

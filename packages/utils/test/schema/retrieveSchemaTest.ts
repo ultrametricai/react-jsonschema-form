@@ -1,6 +1,12 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
-import { ADDITIONAL_PROPERTY_FLAG, createSchemaUtils, PROPERTIES_KEY, retrieveSchema, RJSFSchema } from '../../src';
+import {
+  ADDITIONAL_PROPERTY_FLAG,
+  createSchemaUtils,
+  PROPERTIES_KEY,
+  retrieveSchema,
+  RJSFSchema,
+} from "../../src";
 import {
   getAllPermutationsOfXxxOf,
   resolveAnyOrOneOfSchemas,
@@ -9,7 +15,7 @@ import {
   stubExistingAdditionalProperties,
   withDependentProperties,
   withExactlyOneSubschema,
-} from '../../src/schema/retrieveSchema';
+} from "../../src/schema/retrieveSchema";
 import {
   PROPERTY_DEPENDENCIES,
   RECURSIVE_REF,
@@ -22,14 +28,14 @@ import {
   SCHEMA_WITH_ONEOF_NESTED_DEPENDENCIES,
   SCHEMA_WITH_SINGLE_CONDITION,
   SUPER_SCHEMA,
-} from '../testUtils/testData';
-import { TestValidatorType } from './types';
+} from "../testUtils/testData";
+import { TestValidatorType } from "./types";
 
 export default function retrieveSchemaTest(testValidator: TestValidatorType) {
-  describe('retrieveSchema()', () => {
+  describe("retrieveSchema()", () => {
     let consoleWarnSpy: jest.SpyInstance;
     beforeAll(() => {
-      consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation(); // mock this to avoid actually warning in the tests
+      consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation(); // mock this to avoid actually warning in the tests
     });
     afterAll(() => {
       consoleWarnSpy.mockRestore();
@@ -38,36 +44,38 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
       consoleWarnSpy.mockClear();
       testValidator.reset?.();
     });
-    it('returns empty object when schema is not an object', () => {
+    it("returns empty object when schema is not an object", () => {
       expect(retrieveSchema(testValidator, [] as RJSFSchema)).toEqual({});
     });
-    it('should `resolve` a schema which contains definitions', () => {
-      const schema: RJSFSchema = { $ref: '#/definitions/address' };
+    it("should `resolve` a schema which contains definitions", () => {
+      const schema: RJSFSchema = { $ref: "#/definitions/address" };
       const address: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
-          street_address: { type: 'string' },
-          city: { type: 'string' },
-          state: { type: 'string' },
+          street_address: { type: "string" },
+          city: { type: "string" },
+          state: { type: "string" },
         },
-        required: ['street_address', 'city', 'state'],
+        required: ["street_address", "city", "state"],
       };
       const rootSchema: RJSFSchema = { definitions: { address } };
 
-      expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual(address);
+      expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual(
+        address,
+      );
     });
-    it('should `resolve` a schema which contains definitions not in `#/definitions`', () => {
+    it("should `resolve` a schema which contains definitions not in `#/definitions`", () => {
       const address: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
-          street_address: { type: 'string' },
-          city: { type: 'string' },
-          state: { type: 'string' },
+          street_address: { type: "string" },
+          city: { type: "string" },
+          state: { type: "string" },
         },
-        required: ['street_address', 'city', 'state'],
+        required: ["street_address", "city", "state"],
       };
       const schema: RJSFSchema = {
-        $ref: '#/definitions/address',
+        $ref: "#/definitions/address",
         definitions: { address },
       };
 
@@ -76,62 +84,70 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         ...address,
       });
     });
-    it('should give an error when JSON pointer is not in a URI encoded format', () => {
+    it("should give an error when JSON pointer is not in a URI encoded format", () => {
       const address: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
-          street_address: { type: 'string' },
-          city: { type: 'string' },
-          state: { type: 'string' },
+          street_address: { type: "string" },
+          city: { type: "string" },
+          state: { type: "string" },
         },
-        required: ['street_address', 'city', 'state'],
+        required: ["street_address", "city", "state"],
       };
       const schema: RJSFSchema = {
-        $ref: '/definitions/schemas/address',
+        $ref: "/definitions/schemas/address",
         definitions: { address },
       };
 
-      expect(() => retrieveSchema(testValidator, schema, schema)).toThrow('Could not find a definition');
+      expect(() => retrieveSchema(testValidator, schema, schema)).toThrow(
+        "Could not find a definition",
+      );
     });
-    it('should give an error when JSON pointer does not point to anything', () => {
+    it("should give an error when JSON pointer does not point to anything", () => {
       const schema: RJSFSchema = {
-        $ref: '#/definitions/schemas/address',
+        $ref: "#/definitions/schemas/address",
         definitions: { schemas: {} },
       };
 
-      expect(() => retrieveSchema(testValidator, schema, schema)).toThrow('Could not find a definition');
+      expect(() => retrieveSchema(testValidator, schema, schema)).toThrow(
+        "Could not find a definition",
+      );
     });
-    it('should `resolve` escaped JSON Pointers', () => {
-      const schema: RJSFSchema = { $ref: '#/definitions/a~0complex~1name' };
-      const address: RJSFSchema = { type: 'string' };
+    it("should `resolve` escaped JSON Pointers", () => {
+      const schema: RJSFSchema = { $ref: "#/definitions/a~0complex~1name" };
+      const address: RJSFSchema = { type: "string" };
       const rootSchema: RJSFSchema = {
-        definitions: { 'a~complex/name': address },
+        definitions: { "a~complex/name": address },
       };
 
-      expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual(address);
+      expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual(
+        address,
+      );
     });
-    it('should `resolve` and stub out a schema which contains an `additionalProperties` with a definition', () => {
+    it("should `resolve` and stub out a schema which contains an `additionalProperties` with a definition", () => {
       const schema: RJSFSchema = {
-        type: 'object',
+        type: "object",
         additionalProperties: {
-          $ref: '#/definitions/address',
+          $ref: "#/definitions/address",
         },
       };
 
       const address: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
-          street_address: { type: 'string' },
-          city: { type: 'string' },
-          state: { type: 'string' },
+          street_address: { type: "string" },
+          city: { type: "string" },
+          state: { type: "string" },
         },
-        required: ['street_address', 'city', 'state'],
+        required: ["street_address", "city", "state"],
       };
 
       const rootSchema: RJSFSchema = { definitions: { address } };
       const formData = { newKey: {} };
 
-      expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
+      expect(
+        retrieveSchema(testValidator, schema, rootSchema, formData),
+      ).toEqual({
         ...schema,
         properties: {
           newKey: {
@@ -141,22 +157,24 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         },
       });
     });
-    it('should `resolve` and stub out a schema which contains an `additionalProperties` with a type and definition', () => {
+    it("should `resolve` and stub out a schema which contains an `additionalProperties` with a type and definition", () => {
       const schema: RJSFSchema = {
-        type: 'string',
+        type: "string",
         additionalProperties: {
-          $ref: '#/definitions/number',
+          $ref: "#/definitions/number",
         },
       };
 
       const number: RJSFSchema = {
-        type: 'number',
+        type: "number",
       };
 
       const rootSchema: RJSFSchema = { definitions: { number } };
       const formData = { newKey: {} };
 
-      expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
+      expect(
+        retrieveSchema(testValidator, schema, rootSchema, formData),
+      ).toEqual({
         ...schema,
         properties: {
           newKey: {
@@ -166,20 +184,20 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         },
       });
     });
-    it('should `resolve` and stub out a schema which contains an `additionalProperties` with oneOf', () => {
+    it("should `resolve` and stub out a schema which contains an `additionalProperties` with oneOf", () => {
       const oneOf: RJSFSchema[] = [
         {
-          type: 'string',
+          type: "string",
         },
         {
-          type: 'number',
+          type: "number",
         },
       ];
       const schema: RJSFSchema = {
         additionalProperties: {
           oneOf,
         },
-        type: 'object',
+        type: "object",
       };
 
       const formData = { newKey: {} };
@@ -187,27 +205,27 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         ...schema,
         properties: {
           newKey: {
-            type: 'object',
+            type: "object",
             oneOf,
             [ADDITIONAL_PROPERTY_FLAG]: true,
           },
         },
       });
     });
-    it('should `resolve` and stub out a schema which contains an `additionalProperties` with anyOf', () => {
+    it("should `resolve` and stub out a schema which contains an `additionalProperties` with anyOf", () => {
       const anyOf: RJSFSchema[] = [
         {
-          type: 'string',
+          type: "string",
         },
         {
-          type: 'number',
+          type: "number",
         },
       ];
       const schema: RJSFSchema = {
         additionalProperties: {
           anyOf,
         },
-        type: 'object',
+        type: "object",
       };
 
       const formData = { newKey: {} };
@@ -215,19 +233,19 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         ...schema,
         properties: {
           newKey: {
-            type: 'object',
+            type: "object",
             anyOf,
             [ADDITIONAL_PROPERTY_FLAG]: true,
           },
         },
       });
     });
-    it('should handle null formData for schema which contains additionalProperties', () => {
+    it("should handle null formData for schema which contains additionalProperties", () => {
       const schema: RJSFSchema = {
         additionalProperties: {
-          type: 'string',
+          type: "string",
         },
-        type: 'object',
+        type: "object",
       };
 
       const formData = null;
@@ -236,72 +254,76 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         properties: {},
       });
     });
-    it('should prioritize local definitions over foreign ones', () => {
+    it("should prioritize local definitions over foreign ones", () => {
       const schema: RJSFSchema = {
-        $ref: '#/definitions/address',
-        title: 'foo',
+        $ref: "#/definitions/address",
+        title: "foo",
       };
       const address: RJSFSchema = {
-        type: 'string',
-        title: 'bar',
+        type: "string",
+        title: "bar",
       };
       const rootSchema: RJSFSchema = { definitions: { address } };
 
       expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual({
         ...address,
-        title: 'foo',
+        title: "foo",
       });
     });
-    it('recursive ref should resolve once', () => {
-      const result = retrieveSchema(testValidator, RECURSIVE_REF, RECURSIVE_REF);
-      expect(result).toEqual({
-        definitions: RECURSIVE_REF.definitions,
-        ...(RECURSIVE_REF.definitions!['@enum'] as RJSFSchema),
-      });
-    });
-    it('recursive allof ref should resolve once', () => {
+    it("recursive ref should resolve once", () => {
       const result = retrieveSchema(
         testValidator,
-        get(RECURSIVE_REF_ALLOF, [PROPERTIES_KEY, 'value', 'items']),
+        RECURSIVE_REF,
+        RECURSIVE_REF,
+      );
+      expect(result).toEqual({
+        definitions: RECURSIVE_REF.definitions,
+        ...(RECURSIVE_REF.definitions!["@enum"] as RJSFSchema),
+      });
+    });
+    it("recursive allof ref should resolve once", () => {
+      const result = retrieveSchema(
+        testValidator,
+        get(RECURSIVE_REF_ALLOF, [PROPERTIES_KEY, "value", "items"]),
         RECURSIVE_REF_ALLOF,
       );
       expect(result).toEqual({
-        ...(RECURSIVE_REF_ALLOF.definitions!['@enum'] as RJSFSchema),
+        ...(RECURSIVE_REF_ALLOF.definitions!["@enum"] as RJSFSchema),
       });
     });
-    it('should `resolve` refs inside of a properties key with bad property', () => {
+    it("should `resolve` refs inside of a properties key with bad property", () => {
       const schema: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
-          firstName: 'some mame' as unknown as RJSFSchema,
+          firstName: "some mame" as unknown as RJSFSchema,
         },
       };
       const rootSchema: RJSFSchema = {
-        type: 'object',
+        type: "object",
       };
       expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual(schema);
     });
-    it('should `resolve` refs inside of a properties key', () => {
+    it("should `resolve` refs inside of a properties key", () => {
       const entity: RJSFSchema = {
-        type: 'string',
-        title: 'Entity',
+        type: "string",
+        title: "Entity",
       };
       const schema: RJSFSchema = {
-        type: 'object',
+        type: "object",
         properties: {
           entity: {
-            $ref: '#/definitions/entity',
+            $ref: "#/definitions/entity",
           },
         },
       };
       const rootSchema: RJSFSchema = {
-        type: 'object',
+        type: "object",
         definitions: {
           entity,
         },
       };
       expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual({
-        type: 'object',
+        type: "object",
         properties: {
           entity: {
             ...entity,
@@ -309,93 +331,102 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         },
       });
     });
-    it('should `resolve` refs inside of an items key', () => {
+    it("should `resolve` refs inside of an items key", () => {
       const entity: RJSFSchema = {
-        type: 'string',
-        title: 'Entity',
+        type: "string",
+        title: "Entity",
       };
       const schema: RJSFSchema = {
-        type: 'array',
+        type: "array",
         items: {
-          $ref: '#/definitions/entity',
+          $ref: "#/definitions/entity",
         },
       };
       const rootSchema: RJSFSchema = {
-        type: 'object',
+        type: "object",
         definitions: {
           entity,
         },
       };
       expect(retrieveSchema(testValidator, schema, rootSchema)).toEqual({
-        type: 'array',
+        type: "array",
         items: {
           ...entity,
         },
       });
     });
-    it('should `resolve` a bundled draft 2020-12 JSON Schema', () => {
+    it("should `resolve` a bundled draft 2020-12 JSON Schema", () => {
       const definitions: RJSFSchema = {
-        'https://jsonschema.dev/schemas/mixins/integer': {
-          $schema: 'https://json-schema.org/draft/2020-12/schema',
-          $id: 'https://jsonschema.dev/schemas/mixins/integer',
-          type: 'integer',
+        "https://jsonschema.dev/schemas/mixins/integer": {
+          $schema: "https://json-schema.org/draft/2020-12/schema",
+          $id: "https://jsonschema.dev/schemas/mixins/integer",
+          type: "integer",
         },
-        'https://jsonschema.dev/schemas/mixins/non-negative-integer': {
-          $schema: 'https://json-schema.org/draft/2020-12/schema',
-          $id: 'https://jsonschema.dev/schemas/mixins/non-negative-integer',
-          $ref: 'integer',
+        "https://jsonschema.dev/schemas/mixins/non-negative-integer": {
+          $schema: "https://json-schema.org/draft/2020-12/schema",
+          $id: "https://jsonschema.dev/schemas/mixins/non-negative-integer",
+          $ref: "integer",
           minimum: 0,
         },
       };
       const schema: RJSFSchema = {
-        $id: 'https://jsonschema.dev/schemas/examples/non-negative-integer-bundle',
-        $schema: 'https://json-schema.org/draft/2020-12/schema',
+        $id: "https://jsonschema.dev/schemas/examples/non-negative-integer-bundle",
+        $schema: "https://json-schema.org/draft/2020-12/schema",
         $defs: definitions,
-        $ref: 'https://jsonschema.dev/schemas/mixins/non-negative-integer',
+        $ref: "https://jsonschema.dev/schemas/mixins/non-negative-integer",
       };
       expect(retrieveSchema(testValidator, schema, schema)).toEqual({
-        $id: 'https://jsonschema.dev/schemas/examples/non-negative-integer-bundle',
-        $schema: 'https://json-schema.org/draft/2020-12/schema',
+        $id: "https://jsonschema.dev/schemas/examples/non-negative-integer-bundle",
+        $schema: "https://json-schema.org/draft/2020-12/schema",
         $defs: definitions,
         minimum: 0,
-        type: 'integer',
+        type: "integer",
       });
     });
-    describe('property dependencies', () => {
-      describe('false condition', () => {
-        it('should not add required properties', () => {
+    describe("property dependencies", () => {
+      describe("false condition", () => {
+        it("should not add required properties", () => {
           const rootSchema: RJSFSchema = { definitions: {} };
           const formData = {};
-          expect(retrieveSchema(testValidator, PROPERTY_DEPENDENCIES, rootSchema, formData)).toEqual({
-            type: 'object',
+          expect(
+            retrieveSchema(
+              testValidator,
+              PROPERTY_DEPENDENCIES,
+              rootSchema,
+              formData,
+            ),
+          ).toEqual({
+            type: "object",
             properties: {
-              a: { type: 'string' },
-              b: { type: 'integer' },
+              a: { type: "string" },
+              b: { type: "integer" },
             },
-            required: ['a'],
+            required: ["a"],
           });
         });
       });
 
-      describe('true condition', () => {
-        describe('when required is not defined', () => {
-          it('should define required properties', () => {
+      describe("true condition", () => {
+        describe("when required is not defined", () => {
+          it("should define required properties", () => {
             const schema: RJSFSchema = {
               ...PROPERTY_DEPENDENCIES,
               required: undefined,
             };
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
-              required: ['b'],
+              required: ["b"],
             });
           });
-          it('should not define required properties, when the dependency is a boolean', () => {
+          it("should not define required properties, when the dependency is a boolean", () => {
             const schema: RJSFSchema = {
               ...PROPERTY_DEPENDENCIES,
               required: undefined,
@@ -404,113 +435,145 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               },
             };
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
             });
           });
         });
 
-        describe('when required is defined', () => {
-          it('should concat required properties', () => {
+        describe("when required is defined", () => {
+          it("should concat required properties", () => {
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, PROPERTY_DEPENDENCIES, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(
+                testValidator,
+                PROPERTY_DEPENDENCIES,
+                rootSchema,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
-              required: ['a', 'b'],
+              required: ["a", "b"],
             });
           });
         });
       });
     });
-    describe('schema dependencies', () => {
-      describe('conditional', () => {
-        describe('false condition', () => {
-          it('should not modify properties', () => {
+    describe("schema dependencies", () => {
+      describe("conditional", () => {
+        describe("false condition", () => {
+          it("should not modify properties", () => {
             const rootSchema: RJSFSchema = { definitions: {} };
             const formData = {};
-            expect(retrieveSchema(testValidator, SCHEMA_DEPENDENCIES, rootSchema, formData)).toEqual({
-              type: 'object',
+            expect(
+              retrieveSchema(
+                testValidator,
+                SCHEMA_DEPENDENCIES,
+                rootSchema,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
+                a: { type: "string" },
               },
             });
           });
         });
 
-        describe('true condition', () => {
-          it('should add properties', () => {
+        describe("true condition", () => {
+          it("should add properties", () => {
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, SCHEMA_DEPENDENCIES, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(
+                testValidator,
+                SCHEMA_DEPENDENCIES,
+                rootSchema,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
             });
           });
-          it('should concat required properties', () => {
+          it("should concat required properties", () => {
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, SCHEMA_AND_REQUIRED_DEPENDENCIES, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(
+                testValidator,
+                SCHEMA_AND_REQUIRED_DEPENDENCIES,
+                rootSchema,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
-              required: ['a', 'b'],
+              required: ["a", "b"],
             });
           });
-          it('should not concat enum properties, but should concat `required` properties', () => {
+          it("should not concat enum properties, but should concat `required` properties", () => {
             const schema: RJSFSchema = {
-              type: 'object',
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['FOO', 'BAR', 'BAZ'] },
-                b: { type: 'string', enum: ['GREEN', 'BLUE', 'RED'] },
+                a: { type: "string", enum: ["FOO", "BAR", "BAZ"] },
+                b: { type: "string", enum: ["GREEN", "BLUE", "RED"] },
               },
-              required: ['a'],
+              required: ["a"],
               dependencies: {
                 a: {
                   properties: {
-                    a: { enum: ['FOO'] },
-                    b: { enum: ['BLUE'] },
+                    a: { enum: ["FOO"] },
+                    b: { enum: ["BLUE"] },
                   },
-                  required: ['a', 'b'],
+                  required: ["a", "b"],
                 },
               },
             };
             const rootSchema: RJSFSchema = { definitions: {} };
-            const formData = { a: 'FOO' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "FOO" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['FOO'] },
-                b: { type: 'string', enum: ['BLUE'] },
+                a: { type: "string", enum: ["FOO"] },
+                b: { type: "string", enum: ["BLUE"] },
               },
-              required: ['a', 'b'],
+              required: ["a", "b"],
             });
           });
         });
 
-        describe('with $ref in dependency', () => {
-          it('should retrieve referenced schema', () => {
+        describe("with $ref in dependency", () => {
+          it("should retrieve referenced schema", () => {
             const schema: RJSFSchema = {
-              type: 'object',
+              type: "object",
               properties: {
-                a: { type: 'string' },
+                a: { type: "string" },
               },
               dependencies: {
                 a: {
-                  $ref: '#/definitions/needsB',
+                  $ref: "#/definitions/needsB",
                 },
               },
             };
@@ -518,24 +581,26 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               definitions: {
                 needsB: {
                   properties: {
-                    b: { type: 'integer' },
+                    b: { type: "integer" },
                   },
                 },
               },
             };
-            const formData = { a: '1' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "1" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
-                b: { type: 'integer' },
+                a: { type: "string" },
+                b: { type: "integer" },
               },
             });
           });
         });
 
-        describe('with $ref in oneOf', () => {
-          it('should retrieve referenced schemas', () => {
+        describe("with $ref in oneOf", () => {
+          it("should retrieve referenced schemas", () => {
             // Mock isValid so that withExactlyOneSubschema works as expected
             testValidator.setReturnValues({
               isValid: [
@@ -544,13 +609,16 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               ],
             });
             const schema: RJSFSchema = {
-              type: 'object',
+              type: "object",
               properties: {
-                a: { enum: ['typeA', 'typeB'] },
+                a: { enum: ["typeA", "typeB"] },
               },
               dependencies: {
                 a: {
-                  oneOf: [{ $ref: '#/definitions/needsA' }, { $ref: '#/definitions/needsB' }],
+                  oneOf: [
+                    { $ref: "#/definitions/needsA" },
+                    { $ref: "#/definitions/needsB" },
+                  ],
                 },
               },
             };
@@ -558,52 +626,61 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               definitions: {
                 needsA: {
                   properties: {
-                    a: { enum: ['typeA'] },
-                    b: { type: 'number' },
+                    a: { enum: ["typeA"] },
+                    b: { type: "number" },
                   },
                 },
                 needsB: {
                   properties: {
-                    a: { enum: ['typeB'] },
-                    c: { type: 'boolean' },
+                    a: { enum: ["typeB"] },
+                    c: { type: "boolean" },
                   },
                 },
               },
             };
-            const formData = { a: 'typeB' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "typeB" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { enum: ['typeA', 'typeB'] },
-                c: { type: 'boolean' },
+                a: { enum: ["typeA", "typeB"] },
+                c: { type: "boolean" },
               },
             });
           });
         });
       });
 
-      describe('dynamic', () => {
-        describe('false condition', () => {
-          it('should not modify properties', () => {
+      describe("dynamic", () => {
+        describe("false condition", () => {
+          it("should not modify properties", () => {
             const schema: RJSFSchema = {
               ...SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
               properties: {
-                a: { type: 'string' },
+                a: { type: "string" },
               },
               definitions: undefined,
             };
             const formData = {};
-            expect(retrieveSchema(testValidator, schema, SCHEMA_AND_ONEOF_REF_DEPENDENCIES, formData)).toEqual({
-              type: 'object',
+            expect(
+              retrieveSchema(
+                testValidator,
+                schema,
+                SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string' },
+                a: { type: "string" },
               },
             });
           });
         });
 
-        describe('true condition', () => {
-          it('should add `first` properties given `first` data', () => {
+        describe("true condition", () => {
+          it("should add `first` properties given `first` data", () => {
             // Mock isValid so that withExactlyOneSubschema works as expected
             testValidator.setReturnValues({
               isValid: [
@@ -615,17 +692,24 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               ...SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
               definitions: undefined,
             };
-            const formData = { a: 'int' };
-            expect(retrieveSchema(testValidator, schema, SCHEMA_AND_ONEOF_REF_DEPENDENCIES, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "int" };
+            expect(
+              retrieveSchema(
+                testValidator,
+                schema,
+                SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['int', 'bool'] },
-                b: { type: 'integer' },
+                a: { type: "string", enum: ["int", "bool"] },
+                b: { type: "integer" },
               },
             });
           });
 
-          it('should add `second` properties given `second` data', () => {
+          it("should add `second` properties given `second` data", () => {
             // Mock isValid so that withExactlyOneSubschema works as expected
             testValidator.setReturnValues({
               isValid: [
@@ -637,17 +721,24 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               ...SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
               definitions: undefined,
             };
-            const formData = { a: 'bool' };
-            expect(retrieveSchema(testValidator, schema, SCHEMA_AND_ONEOF_REF_DEPENDENCIES, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "bool" };
+            expect(
+              retrieveSchema(
+                testValidator,
+                schema,
+                SCHEMA_AND_ONEOF_REF_DEPENDENCIES,
+                formData,
+              ),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['int', 'bool'] },
-                b: { type: 'boolean' },
+                a: { type: "string", enum: ["int", "bool"] },
+                b: { type: "boolean" },
               },
             });
           });
 
-          describe('showing/hiding nested dependencies', () => {
+          describe("showing/hiding nested dependencies", () => {
             let schema: RJSFSchema;
             let rootSchema: RJSFSchema;
             beforeAll(() => {
@@ -655,7 +746,7 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               rootSchema = { definitions: {} };
             });
 
-            it('should not include nested dependencies that should be hidden', () => {
+            it("should not include nested dependencies that should be hidden", () => {
               // Mock isValid so that withExactlyOneSubschema works as expected
               testValidator.setReturnValues({
                 isValid: [
@@ -667,14 +758,16 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               });
               const formData = {
                 employee_accounts: false,
-                update_absences: 'BOTH',
+                update_absences: "BOTH",
               };
-              expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-                type: 'object',
+              expect(
+                retrieveSchema(testValidator, schema, rootSchema, formData),
+              ).toEqual({
+                type: "object",
                 properties: {
                   employee_accounts: {
-                    type: 'boolean',
-                    title: 'Employee Accounts',
+                    type: "boolean",
+                    title: "Employee Accounts",
                   },
                 },
               });
@@ -683,7 +776,7 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               );
             });
 
-            it('should include nested dependencies that should not be hidden', () => {
+            it("should include nested dependencies that should not be hidden", () => {
               // Mock isValid so that withExactlyOneSubschema works as expected
               testValidator.setReturnValues({
                 isValid: [
@@ -695,26 +788,28 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               });
               const formData = {
                 employee_accounts: true,
-                update_absences: 'BOTH',
+                update_absences: "BOTH",
               };
-              expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-                type: 'object',
+              expect(
+                retrieveSchema(testValidator, schema, rootSchema, formData),
+              ).toEqual({
+                type: "object",
                 properties: {
                   employee_accounts: {
-                    type: 'boolean',
-                    title: 'Employee Accounts',
+                    type: "boolean",
+                    title: "Employee Accounts",
                   },
                   permitted_extension: {
-                    title: 'Permitted Extension',
-                    type: 'integer',
+                    title: "Permitted Extension",
+                    type: "integer",
                   },
                   update_absences: {
-                    title: 'Update Absences',
-                    type: 'string',
+                    title: "Update Absences",
+                    type: "string",
                     oneOf: [
                       {
-                        title: 'Both',
-                        const: 'BOTH',
+                        title: "Both",
+                        const: "BOTH",
                       },
                     ],
                   },
@@ -724,8 +819,8 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           });
         });
 
-        describe('with $ref in dependency', () => {
-          it('should retrieve the referenced schema', () => {
+        describe("with $ref in dependency", () => {
+          it("should retrieve the referenced schema", () => {
             // Mock isValid so that withExactlyOneSubschema works as expected
             testValidator.setReturnValues({
               isValid: [
@@ -734,13 +829,13 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               ],
             });
             const schema: RJSFSchema = {
-              type: 'object',
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['int', 'bool'] },
+                a: { type: "string", enum: ["int", "bool"] },
               },
               dependencies: {
                 a: {
-                  $ref: '#/definitions/typedInput',
+                  $ref: "#/definitions/typedInput",
                 },
               },
             };
@@ -750,52 +845,56 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
                   oneOf: [
                     {
                       properties: {
-                        a: { enum: ['int'] },
-                        b: { type: 'integer' },
+                        a: { enum: ["int"] },
+                        b: { type: "integer" },
                       },
                     },
                     {
                       properties: {
-                        a: { enum: ['bool'] },
-                        b: { type: 'boolean' },
+                        a: { enum: ["bool"] },
+                        b: { type: "boolean" },
                       },
                     },
                   ],
                 },
               },
             };
-            const formData = { a: 'bool' };
-            expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-              type: 'object',
+            const formData = { a: "bool" };
+            expect(
+              retrieveSchema(testValidator, schema, rootSchema, formData),
+            ).toEqual({
+              type: "object",
               properties: {
-                a: { type: 'string', enum: ['int', 'bool'] },
-                b: { type: 'boolean' },
+                a: { type: "string", enum: ["int", "bool"] },
+                b: { type: "boolean" },
               },
             });
           });
         });
       });
     });
-    describe('allOf', () => {
-      it('should merge types', () => {
+    describe("allOf", () => {
+      it("should merge types", () => {
         const schema: RJSFSchema = {
-          allOf: [{ type: ['string', 'number', 'null'] }, { type: 'string' }],
+          allOf: [{ type: ["string", "number", "null"] }, { type: "string" }],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'string',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "string",
         });
       });
-      it('should not merge `allOf.contains` schemas', () => {
+      it("should not merge `allOf.contains` schemas", () => {
         // https://github.com/rjsf-team/react-jsonschema-form/issues/2923#issuecomment-1946034240
         const schema: RJSFSchema = {
-          type: 'array',
+          type: "array",
           items: {
-            type: 'object',
+            type: "object",
             properties: {
               a: {
-                type: 'string',
+                type: "string",
               },
             },
           },
@@ -805,20 +904,20 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
             },
             {
               contains: {
-                type: 'object',
+                type: "object",
                 properties: {
                   a: {
-                    pattern: '1',
+                    pattern: "1",
                   },
                 },
               },
             },
             {
               contains: {
-                type: 'object',
+                type: "object",
                 properties: {
                   a: {
-                    pattern: '2',
+                    pattern: "2",
                   },
                 },
               },
@@ -827,13 +926,15 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'array',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "array",
           items: {
-            type: 'object',
+            type: "object",
             properties: {
               a: {
-                type: 'string',
+                type: "string",
               },
             },
           },
@@ -841,20 +942,20 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           allOf: [
             {
               contains: {
-                type: 'object',
+                type: "object",
                 properties: {
                   a: {
-                    pattern: '1',
+                    pattern: "1",
                   },
                 },
               },
             },
             {
               contains: {
-                type: 'object',
+                type: "object",
                 properties: {
                   a: {
-                    pattern: '2',
+                    pattern: "2",
                   },
                 },
               },
@@ -862,83 +963,94 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ],
         });
       });
-      it('should not merge incompatible types', () => {
+      it("should not merge incompatible types", () => {
         const schema: RJSFSchema = {
-          allOf: [{ type: 'string' }, { type: 'boolean' }],
+          allOf: [{ type: "string" }, { type: "boolean" }],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({});
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({});
         expect(consoleWarnSpy).toHaveBeenCalledWith(
           expect.stringMatching(/could not merge subschemas in allOf/),
           expect.any(Error),
         );
       });
-      it('should return allOf and top level schemas when expand all', () => {
+      it("should return allOf and top level schemas when expand all", () => {
         const schema: RJSFSchema = {
-          properties: { test: { type: 'string' } },
-          allOf: [{ type: 'string' }, { type: 'boolean' }],
+          properties: { test: { type: "string" } },
+          allOf: [{ type: "string" }, { type: "boolean" }],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
         const { allOf, ...restOfSchema } = schema;
-        expect(retrieveSchemaInternal(testValidator, schema, rootSchema, formData, true)).toEqual([
-          ...allOf!,
-          restOfSchema,
-        ]);
+        expect(
+          retrieveSchemaInternal(
+            testValidator,
+            schema,
+            rootSchema,
+            formData,
+            true,
+          ),
+        ).toEqual([...allOf!, restOfSchema]);
       });
-      it('should merge types with $ref in them', () => {
+      it("should merge types with $ref in them", () => {
         const schema: RJSFSchema = {
-          allOf: [{ $ref: '#/definitions/1' }, { $ref: '#/definitions/2' }],
+          allOf: [{ $ref: "#/definitions/1" }, { $ref: "#/definitions/2" }],
         };
         const rootSchema: RJSFSchema = {
           definitions: {
-            '1': { type: 'string' },
-            '2': { minLength: 5 },
+            "1": { type: "string" },
+            "2": { minLength: 5 },
           },
         };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'string',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "string",
           minLength: 5,
         });
       });
-      it('should properly merge schemas with nested allOf`s', () => {
+      it("should properly merge schemas with nested allOf`s", () => {
         const schema: RJSFSchema = {
           allOf: [
             {
-              type: 'string',
+              type: "string",
               allOf: [{ minLength: 2 }, { maxLength: 5 }],
             },
             {
-              type: 'string',
-              allOf: [{ default: 'hi' }, { minLength: 4 }],
+              type: "string",
+              allOf: [{ default: "hi" }, { minLength: 4 }],
             },
           ],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'string',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "string",
           minLength: 4,
           maxLength: 5,
-          default: 'hi',
+          default: "hi",
         });
       });
 
-      it('should use experimental_customMergeAllOf when provided', () => {
+      it("should use experimental_customMergeAllOf when provided", () => {
         const schema: RJSFSchema = {
           allOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
-                string: { type: 'string' },
+                string: { type: "string" },
               },
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
-                number: { type: 'number' },
+                number: { type: "number" },
               },
             },
           ],
@@ -946,33 +1058,47 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
         const customMergeAllOf = jest.fn().mockReturnValue({
-          type: 'object',
-          properties: { string: { type: 'string' }, number: { type: 'number' } },
+          type: "object",
+          properties: {
+            string: { type: "string" },
+            number: { type: "number" },
+          },
         });
 
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData, customMergeAllOf)).toEqual({
-          type: 'object',
-          properties: { string: { type: 'string' }, number: { type: 'number' } },
+        expect(
+          retrieveSchema(
+            testValidator,
+            schema,
+            rootSchema,
+            formData,
+            customMergeAllOf,
+          ),
+        ).toEqual({
+          type: "object",
+          properties: {
+            string: { type: "string" },
+            number: { type: "number" },
+          },
         });
         expect(customMergeAllOf).toHaveBeenCalledWith(schema);
       });
-      it('should `resolve` a draft 2020-12 schema with `$defs` property in an `allOf` block', () => {
+      it("should `resolve` a draft 2020-12 schema with `$defs` property in an `allOf` block", () => {
         const schema: RJSFSchema = {
-          $schema: 'http://json-schema.org/draft/2020-12/schema#',
+          $schema: "http://json-schema.org/draft/2020-12/schema#",
           allOf: [
             {
-              type: 'object',
+              type: "object",
               $defs: {
                 string: {
-                  type: 'string',
+                  type: "string",
                 },
               },
             },
             {
-              type: 'object',
+              type: "object",
               $defs: {
                 number: {
-                  type: 'number',
+                  type: "number",
                 },
               },
             },
@@ -980,14 +1106,14 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         };
 
         expect(retrieveSchema(testValidator, schema, {}, {})).toEqual({
-          $schema: 'http://json-schema.org/draft/2020-12/schema#',
-          type: 'object',
-          $defs: { string: { type: 'string' }, number: { type: 'number' } },
+          $schema: "http://json-schema.org/draft/2020-12/schema#",
+          type: "object",
+          $defs: { string: { type: "string" }, number: { type: "number" } },
         });
       });
     });
-    describe('Conditional schemas (If, Then, Else)', () => {
-      it('should resolve if, then', () => {
+    describe("Conditional schemas (If, Then, Else)", () => {
+      it("should resolve if, then", () => {
         // Mock errors so that resolveCondition works as expected
         testValidator.setReturnValues({
           isValid: [
@@ -997,21 +1123,28 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         });
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {
-          country: 'United States of America',
-          postal_code: '20500',
+          country: "United States of America",
+          postal_code: "20500",
         };
-        expect(retrieveSchema(testValidator, SCHEMA_WITH_SINGLE_CONDITION, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(
+            testValidator,
+            SCHEMA_WITH_SINGLE_CONDITION,
+            rootSchema,
+            formData,
+          ),
+        ).toEqual({
+          type: "object",
           properties: {
             country: {
-              default: 'United States of America',
-              enum: ['United States of America', 'Canada'],
+              default: "United States of America",
+              enum: ["United States of America", "Canada"],
             },
-            postal_code: { pattern: '[0-9]{5}(-[0-9]{4})?' },
+            postal_code: { pattern: "[0-9]{5}(-[0-9]{4})?" },
           },
         });
       });
-      it('should resolve if, else', () => {
+      it("should resolve if, else", () => {
         // Mock errors so that resolveCondition works as expected
         testValidator.setReturnValues({
           isValid: [
@@ -1020,21 +1153,28 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         });
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {
-          country: 'Canada',
-          postal_code: 'K1M 1M4',
+          country: "Canada",
+          postal_code: "K1M 1M4",
         };
-        expect(retrieveSchema(testValidator, SCHEMA_WITH_SINGLE_CONDITION, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(
+            testValidator,
+            SCHEMA_WITH_SINGLE_CONDITION,
+            rootSchema,
+            formData,
+          ),
+        ).toEqual({
+          type: "object",
           properties: {
             country: {
-              default: 'United States of America',
-              enum: ['United States of America', 'Canada'],
+              default: "United States of America",
+              enum: ["United States of America", "Canada"],
             },
-            postal_code: { pattern: '[A-Z][0-9][A-Z] [0-9][A-Z][0-9]' },
+            postal_code: { pattern: "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]" },
           },
         });
       });
-      it('should resolve multiple conditions', () => {
+      it("should resolve multiple conditions", () => {
         // Mock errors so that resolveCondition works as expected
         testValidator.setReturnValues({
           isValid: [
@@ -1043,64 +1183,66 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ],
         });
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
             animal: {
-              enum: ['Cat', 'Fish'],
+              enum: ["Cat", "Fish"],
             },
           },
           allOf: [
             {
               if: {
-                properties: { animal: { const: 'Cat' } },
+                properties: { animal: { const: "Cat" } },
               },
               then: {
                 properties: {
-                  food: { type: 'string', enum: ['meat', 'grass', 'fish'] },
+                  food: { type: "string", enum: ["meat", "grass", "fish"] },
                 },
               },
-              required: ['food'],
+              required: ["food"],
             },
             {
               if: {
-                properties: { animal: { const: 'Fish' } },
+                properties: { animal: { const: "Fish" } },
               },
               then: {
                 properties: {
                   food: {
-                    type: 'string',
-                    enum: ['insect', 'worms'],
+                    type: "string",
+                    enum: ["insect", "worms"],
                   },
                   water: {
-                    type: 'string',
-                    enum: ['lake', 'sea'],
+                    type: "string",
+                    enum: ["lake", "sea"],
                   },
                 },
-                required: ['food', 'water'],
+                required: ["food", "water"],
               },
             },
             {
-              required: ['animal'],
+              required: ["animal"],
             },
           ],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {
-          animal: 'Cat',
+          animal: "Cat",
         };
 
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "object",
           properties: {
             animal: {
-              enum: ['Cat', 'Fish'],
+              enum: ["Cat", "Fish"],
             },
-            food: { type: 'string', enum: ['meat', 'grass', 'fish'] },
+            food: { type: "string", enum: ["meat", "grass", "fish"] },
           },
-          required: ['food', 'animal'],
+          required: ["food", "animal"],
         });
       });
-      it('should resolve multiple conditions in nested allOf blocks', () => {
+      it("should resolve multiple conditions in nested allOf blocks", () => {
         // Mock errors so that resolveCondition works as expected
         testValidator.setReturnValues({
           isValid: [
@@ -1112,82 +1254,89 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         });
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {
-          Animal: 'Dog',
+          Animal: "Dog",
           Breed: {
-            BreedName: 'Dalmation',
+            BreedName: "Dalmation",
           },
         };
 
-        expect(retrieveSchema(testValidator, SCHEMA_WITH_MULTIPLE_CONDITIONS, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(
+            testValidator,
+            SCHEMA_WITH_MULTIPLE_CONDITIONS,
+            rootSchema,
+            formData,
+          ),
+        ).toEqual({
+          type: "object",
           properties: {
             Animal: {
-              default: 'Cat',
-              enum: ['Cat', 'Dog'],
-              title: 'Animal',
-              type: 'string',
+              default: "Cat",
+              enum: ["Cat", "Dog"],
+              title: "Animal",
+              type: "string",
             },
             Breed: {
               properties: {
                 BreedName: {
-                  default: 'Alsatian',
-                  enum: ['Alsatian', 'Dalmation'],
-                  title: 'Breed name',
-                  type: 'string',
+                  default: "Alsatian",
+                  enum: ["Alsatian", "Dalmation"],
+                  title: "Breed name",
+                  type: "string",
                 },
               },
               allOf: [
                 {
                   if: {
-                    required: ['BreedName'],
+                    required: ["BreedName"],
                     properties: {
                       BreedName: {
-                        const: 'Alsatian',
+                        const: "Alsatian",
                       },
                     },
                   },
                   then: {
                     properties: {
                       Fur: {
-                        default: 'brown',
-                        enum: ['black', 'brown'],
-                        title: 'Fur',
-                        type: 'string',
+                        default: "brown",
+                        enum: ["black", "brown"],
+                        title: "Fur",
+                        type: "string",
                       },
                     },
-                    required: ['Fur'],
+                    required: ["Fur"],
                   },
                 },
                 {
                   if: {
-                    required: ['BreedName'],
+                    required: ["BreedName"],
                     properties: {
                       BreedName: {
-                        const: 'Dalmation',
+                        const: "Dalmation",
                       },
                     },
                   },
                   then: {
                     properties: {
                       Spots: {
-                        default: 'small',
-                        enum: ['large', 'small'],
-                        title: 'Spots',
-                        type: 'string',
+                        default: "small",
+                        enum: ["large", "small"],
+                        title: "Spots",
+                        type: "string",
                       },
                     },
-                    required: ['Spots'],
+                    required: ["Spots"],
                   },
                 },
               ],
-              required: ['BreedName'],
-              title: 'Breed',
+              required: ["BreedName"],
+              title: "Breed",
             },
           },
-          required: ['Animal'],
+          required: ["Animal"],
         });
       });
-      it('should resolve $ref', () => {
+      it("should resolve $ref", () => {
         // Mock errors so that resolveCondition works as expected
         testValidator.setReturnValues({
           isValid: [
@@ -1196,32 +1345,32 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ],
         });
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
             animal: {
-              enum: ['Cat', 'Fish'],
+              enum: ["Cat", "Fish"],
             },
           },
           allOf: [
             {
               if: {
-                properties: { animal: { const: 'Cat' } },
+                properties: { animal: { const: "Cat" } },
               },
               then: {
-                $ref: '#/definitions/cat',
+                $ref: "#/definitions/cat",
               },
-              required: ['food'],
+              required: ["food"],
             },
             {
               if: {
-                properties: { animal: { const: 'Fish' } },
+                properties: { animal: { const: "Fish" } },
               },
               then: {
-                $ref: '#/definitions/fish',
+                $ref: "#/definitions/fish",
               },
             },
             {
-              required: ['animal'],
+              required: ["animal"],
             },
           ],
         };
@@ -1230,69 +1379,76 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           definitions: {
             cat: {
               properties: {
-                food: { type: 'string', enum: ['meat', 'grass', 'fish'] },
+                food: { type: "string", enum: ["meat", "grass", "fish"] },
               },
             },
             fish: {
               properties: {
                 food: {
-                  type: 'string',
-                  enum: ['insect', 'worms'],
+                  type: "string",
+                  enum: ["insect", "worms"],
                 },
                 water: {
-                  type: 'string',
-                  enum: ['lake', 'sea'],
+                  type: "string",
+                  enum: ["lake", "sea"],
                 },
               },
-              required: ['food', 'water'],
+              required: ["food", "water"],
             },
           },
         };
 
         const formData = {
-          animal: 'Cat',
+          animal: "Cat",
         };
         const schemaUtils = createSchemaUtils(testValidator, rootSchema);
 
         expect(schemaUtils.retrieveSchema(schema, formData)).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
             animal: {
-              enum: ['Cat', 'Fish'],
+              enum: ["Cat", "Fish"],
             },
-            food: { type: 'string', enum: ['meat', 'grass', 'fish'] },
+            food: { type: "string", enum: ["meat", "grass", "fish"] },
           },
-          required: ['food', 'animal'],
+          required: ["food", "animal"],
         });
       });
-      it('handles nested if then else', () => {
+      it("handles nested if then else", () => {
         const rootSchema: RJSFSchema = {};
         const formData = {
-          country: 'USA',
-          state: 'New York',
+          country: "USA",
+          state: "New York",
         };
 
-        expect(retrieveSchema(testValidator, SCHEMA_WITH_NESTED_CONDITIONS, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(
+            testValidator,
+            SCHEMA_WITH_NESTED_CONDITIONS,
+            rootSchema,
+            formData,
+          ),
+        ).toEqual({
+          type: "object",
           properties: {
             country: {
-              enum: ['USA'],
+              enum: ["USA"],
             },
-            state: { type: 'string', enum: ['California', 'New York'] },
+            state: { type: "string", enum: ["California", "New York"] },
             city: {
-              type: 'string',
-              enum: ['New York City', 'Buffalo', 'Rochester'],
+              type: "string",
+              enum: ["New York City", "Buffalo", "Rochester"],
             },
           },
-          required: ['country', 'state'],
+          required: ["country", "state"],
         });
       });
-      it('overrides the base schema with a conditional branch when merged', () => {
+      it("overrides the base schema with a conditional branch when merged", () => {
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
             myString: {
-              type: 'string',
+              type: "string",
               minLength: 5,
             },
           },
@@ -1307,50 +1463,62 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
-          type: 'object',
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
+          type: "object",
           properties: {
             myString: {
-              type: 'string',
+              type: "string",
               minLength: 10,
             },
           },
         });
       });
     });
-    describe('withDependentProperties()', () => {
-      it('returns the schema when additionally required is falsey', () => {
-        const schema: RJSFSchema = { type: 'string' };
+    describe("withDependentProperties()", () => {
+      it("returns the schema when additionally required is falsey", () => {
+        const schema: RJSFSchema = { type: "string" };
         expect(withDependentProperties(schema)).toEqual(schema);
       });
     });
-    describe('withExactlyOneSubschema()', () => {
-      it('Handle conditions with falsy subschema, subschema.properties, or condition schema', () => {
+    describe("withExactlyOneSubschema()", () => {
+      it("Handle conditions with falsy subschema, subschema.properties, or condition schema", () => {
         const schema: RJSFSchema = {
-          type: 'integer',
+          type: "integer",
         };
-        const oneOf: RJSFSchema['oneOf'] = [
+        const oneOf: RJSFSchema["oneOf"] = [
           true,
           { properties: undefined },
-          { properties: { foo: { type: 'string' } } },
+          { properties: { foo: { type: "string" } } },
         ];
-        expect(withExactlyOneSubschema(testValidator, schema, schema, 'bar', oneOf, false, [])).toEqual([schema]);
+        expect(
+          withExactlyOneSubschema(
+            testValidator,
+            schema,
+            schema,
+            "bar",
+            oneOf,
+            false,
+            [],
+          ),
+        ).toEqual([schema]);
       });
     });
-    describe('withPatternProperties()', () => {
-      it('validates schemas with conditions inside patternProperties', () => {
+    describe("withPatternProperties()", () => {
+      it("validates schemas with conditions inside patternProperties", () => {
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
             foo: {
-              type: 'object',
+              type: "object",
             },
           },
           patternProperties: {
-            '^[a-z]+$': {
-              type: 'object',
+            "^[a-z]+$": {
+              type: "object",
               properties: {
-                isString: { type: 'boolean' },
+                isString: { type: "boolean" },
               },
               allOf: [
                 {
@@ -1360,7 +1528,7 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
                   then: {
                     properties: {
                       value: {
-                        type: 'string',
+                        type: "string",
                       },
                     },
                   },
@@ -1372,7 +1540,7 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
                   then: {
                     properties: {
                       value: {
-                        type: 'number',
+                        type: "number",
                       },
                     },
                   },
@@ -1394,13 +1562,19 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ...schema,
           properties: {
             foo: {
-              type: 'object',
-              properties: { isString: { type: 'boolean' }, value: { type: 'string' } },
+              type: "object",
+              properties: {
+                isString: { type: "boolean" },
+                value: { type: "string" },
+              },
             },
             bar: {
               [ADDITIONAL_PROPERTY_FLAG]: true,
-              type: 'object',
-              properties: { isString: { type: 'boolean' }, value: { type: 'string' } },
+              type: "object",
+              properties: {
+                isString: { type: "boolean" },
+                value: { type: "string" },
+              },
             },
           },
         });
@@ -1416,117 +1590,155 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ...schema,
           properties: {
             foo: {
-              type: 'object',
-              properties: { isString: { type: 'boolean' }, value: { type: 'number' } },
+              type: "object",
+              properties: {
+                isString: { type: "boolean" },
+                value: { type: "number" },
+              },
             },
             bar: {
               [ADDITIONAL_PROPERTY_FLAG]: true,
-              type: 'object',
-              properties: { isString: { type: 'boolean' }, value: { type: 'number' } },
+              type: "object",
+              properties: {
+                isString: { type: "boolean" },
+                value: { type: "number" },
+              },
             },
           },
         });
       });
-      it('merges all subschemas that match the patternProperties regex', () => {
+      it("merges all subschemas that match the patternProperties regex", () => {
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
-            foo: { type: 'number' },
-            baz: { type: 'boolean' },
+            foo: { type: "number" },
+            baz: { type: "boolean" },
           },
           patternProperties: {
-            '^foo': {
+            "^foo": {
               minimum: 10,
             },
-            '^foo.*': {
+            "^foo.*": {
               maximum: 20,
             },
-            '^bar': {
+            "^bar": {
               multipleOf: 2,
             },
           },
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const formData = {};
-        expect(retrieveSchema(testValidator, schema, rootSchema, formData)).toEqual({
+        expect(
+          retrieveSchema(testValidator, schema, rootSchema, formData),
+        ).toEqual({
           ...schema,
           properties: {
             foo: {
-              type: 'number',
+              type: "number",
               minimum: 10,
               maximum: 20,
             },
             baz: {
-              type: 'boolean',
+              type: "boolean",
             },
           },
         });
       });
     });
-    describe('stubExistingAdditionalProperties()', () => {
-      it('deals with undefined formData', () => {
-        const schema: RJSFSchema = { type: 'string' };
-        expect(stubExistingAdditionalProperties(testValidator, schema)).toEqual({
+    describe("stubExistingAdditionalProperties()", () => {
+      it("deals with undefined formData", () => {
+        const schema: RJSFSchema = { type: "string" };
+        expect(stubExistingAdditionalProperties(testValidator, schema)).toEqual(
+          {
+            ...schema,
+            properties: {},
+          },
+        );
+      });
+      it("deals with non-object formData", () => {
+        const schema: RJSFSchema = { type: "string" };
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            [],
+          ),
+        ).toEqual({
           ...schema,
           properties: {},
         });
       });
-      it('deals with non-object formData', () => {
-        const schema: RJSFSchema = { type: 'string' };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, [])).toEqual({
-          ...schema,
-          properties: {},
-        });
-      });
-      it('has property keys that match formData, additionalProperties is boolean', () => {
+      it("has property keys that match formData, additionalProperties is boolean", () => {
         const schema: RJSFSchema = {
           additionalProperties: true,
         };
-        const formData = { bar: 1, baz: false, foo: 'str' };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        const formData = { bar: 1, baz: false, foo: "str" };
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'number',
+              type: "number",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             baz: {
-              type: 'boolean',
+              type: "boolean",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             foo: {
-              type: 'string',
+              type: "string",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has property keys that match schema AND formData, additionalProperties is boolean', () => {
+      it("has property keys that match schema AND formData, additionalProperties is boolean", () => {
         const schema: RJSFSchema = {
           properties: {
-            foo: { type: 'string' },
-            bar: { type: 'number' },
+            foo: { type: "string" },
+            bar: { type: "number" },
           },
           additionalProperties: true,
         };
-        const formData = { foo: 'blah', bar: 1, baz: true };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        const formData = { foo: "blah", bar: 1, baz: true };
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             ...schema.properties,
             baz: {
-              type: 'boolean',
+              type: "boolean",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has additionalProperties of type number', () => {
+      it("has additionalProperties of type number", () => {
         const schema: RJSFSchema = {
-          additionalProperties: { type: 'number' },
+          additionalProperties: { type: "number" },
         };
         const formData = { bar: 1 };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
@@ -1536,117 +1748,152 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           },
         });
       });
-      it('has additionalProperties of empty object', () => {
+      it("has additionalProperties of empty object", () => {
         const schema: RJSFSchema = {
           additionalProperties: {},
         };
-        const formData = { foo: 'blah', bar: 1, baz: true };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        const formData = { foo: "blah", bar: 1, baz: true };
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             foo: {
-              type: 'string',
+              type: "string",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             bar: {
-              type: 'number',
+              type: "number",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             baz: {
-              type: 'boolean',
+              type: "boolean",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has additionalProperties with a ref', () => {
+      it("has additionalProperties with a ref", () => {
         const schema: RJSFSchema = {
-          additionalProperties: { $ref: '#/definitions/foo' },
+          additionalProperties: { $ref: "#/definitions/foo" },
         };
         const rootSchema: RJSFSchema = {
           definitions: {
-            foo: { type: 'string' },
+            foo: { type: "string" },
           },
         };
-        const formData = { bar: 'blah' };
-        expect(stubExistingAdditionalProperties(testValidator, schema, rootSchema, formData)).toEqual({
+        const formData = { bar: "blah" };
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            rootSchema,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'string',
+              type: "string",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has property keys that does not match patternProperties, no additionalProperties', () => {
+      it("has property keys that does not match patternProperties, no additionalProperties", () => {
         const schema: RJSFSchema = {
           patternProperties: {
-            '^foo': {
-              type: 'string',
+            "^foo": {
+              type: "string",
             },
-            '^bar': {
-              type: 'number',
+            "^bar": {
+              type: "number",
             },
           },
         };
         const formData = { baz: 1 };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             baz: {
-              type: 'null',
+              type: "null",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has property keys that match patternProperties', () => {
+      it("has property keys that match patternProperties", () => {
         const schema: RJSFSchema = {
           patternProperties: {
-            '^foo': {
-              type: 'string',
+            "^foo": {
+              type: "string",
             },
-            '^bar': {
-              type: 'number',
+            "^bar": {
+              type: "number",
               minimum: 10,
             },
           },
         };
         const formData = { bar: 1 };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'number',
+              type: "number",
               minimum: 10,
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has property keys that match multiple patternProperties', () => {
+      it("has property keys that match multiple patternProperties", () => {
         const schema: RJSFSchema = {
           patternProperties: {
-            '^foo': {
-              type: 'string',
+            "^foo": {
+              type: "string",
             },
-            '^bar': {
-              type: 'number',
+            "^bar": {
+              type: "number",
               minimum: 10,
             },
-            '^ba.*': {
-              type: 'number',
+            "^ba.*": {
+              type: "number",
               maximum: 20,
             },
           },
         };
         const formData = { bar: 1 };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'number',
+              type: "number",
               minimum: 10,
               maximum: 20,
               [ADDITIONAL_PROPERTY_FLAG]: true,
@@ -1654,62 +1901,76 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           },
         });
       });
-      it('has property keys that match patternProperties, additionalProperties is boolean', () => {
+      it("has property keys that match patternProperties, additionalProperties is boolean", () => {
         const schema: RJSFSchema = {
           patternProperties: {
-            '^foo': {
-              type: 'string',
+            "^foo": {
+              type: "string",
             },
-            '^bar': {
-              type: 'number',
+            "^bar": {
+              type: "number",
               minimum: 10,
             },
           },
           additionalProperties: true,
         };
         const formData = { bar: 1, baz: true };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'number',
+              type: "number",
               minimum: 10,
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             baz: {
-              type: 'boolean',
+              type: "boolean",
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
           },
         });
       });
-      it('has property keys that match patternProperties, additionalProperties is object', () => {
+      it("has property keys that match patternProperties, additionalProperties is object", () => {
         const schema: RJSFSchema = {
           patternProperties: {
-            '^foo': {
-              type: 'string',
+            "^foo": {
+              type: "string",
             },
-            '^bar': {
-              type: 'number',
+            "^bar": {
+              type: "number",
               minimum: 10,
             },
           },
           additionalProperties: {
-            type: 'number',
+            type: "number",
             maximum: 20,
           },
         };
         const formData = { bar: 1, baz: 2 };
-        expect(stubExistingAdditionalProperties(testValidator, schema, undefined, formData)).toEqual({
+        expect(
+          stubExistingAdditionalProperties(
+            testValidator,
+            schema,
+            undefined,
+            formData,
+          ),
+        ).toEqual({
           ...schema,
           properties: {
             bar: {
-              type: 'number',
+              type: "number",
               minimum: 10,
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
             baz: {
-              type: 'number',
+              type: "number",
               maximum: 20,
               [ADDITIONAL_PROPERTY_FLAG]: true,
             },
@@ -1717,125 +1978,143 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         });
       });
     });
-    describe('getAllPermutationsOfXxxOf()', () => {
-      it('returns a single permutation when there are only one version of each row', () => {
+    describe("getAllPermutationsOfXxxOf()", () => {
+      it("returns a single permutation when there are only one version of each row", () => {
         const oneOfs: RJSFSchema[][] = [
-          [{ title: 'A', type: 'string' }],
-          [{ title: 'B', type: 'number' }],
-          [{ title: 'C', type: 'boolean' }],
+          [{ title: "A", type: "string" }],
+          [{ title: "B", type: "number" }],
+          [{ title: "C", type: "boolean" }],
         ];
         expect(getAllPermutationsOfXxxOf(oneOfs)).toEqual([
           [
-            { title: 'A', type: 'string' },
-            { title: 'B', type: 'number' },
-            { title: 'C', type: 'boolean' },
+            { title: "A", type: "string" },
+            { title: "B", type: "number" },
+            { title: "C", type: "boolean" },
           ],
         ]);
       });
-      it('returns 2 permutations when there are 2 versions in one row and one in another', () => {
+      it("returns 2 permutations when there are 2 versions in one row and one in another", () => {
         const oneOfs: RJSFSchema[][] = [
-          [{ title: 'A', type: 'string' }],
+          [{ title: "A", type: "string" }],
           [
-            { title: 'B1', type: 'number' },
-            { title: 'B2', type: 'boolean' },
+            { title: "B1", type: "number" },
+            { title: "B2", type: "boolean" },
           ],
         ];
         expect(getAllPermutationsOfXxxOf(oneOfs)).toEqual([
           [
-            { title: 'A', type: 'string' },
-            { title: 'B1', type: 'number' },
+            { title: "A", type: "string" },
+            { title: "B1", type: "number" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B2', type: 'boolean' },
+            { title: "A", type: "string" },
+            { title: "B2", type: "boolean" },
           ],
         ]);
       });
-      it('returns 6 permutations when there are 3 in row 1, 2 in row 2 and one in row 3', () => {
+      it("returns 6 permutations when there are 3 in row 1, 2 in row 2 and one in row 3", () => {
         const oneOfs: RJSFSchema[][] = [
-          [{ title: 'A', type: 'string' }],
+          [{ title: "A", type: "string" }],
           [
-            { title: 'B1', type: 'number' },
-            { title: 'B2', type: 'boolean' },
+            { title: "B1", type: "number" },
+            { title: "B2", type: "boolean" },
           ],
           [
-            { title: 'C1', type: 'string' },
-            { title: 'C2', type: 'number' },
-            { title: 'C3', type: 'boolean' },
+            { title: "C1", type: "string" },
+            { title: "C2", type: "number" },
+            { title: "C3", type: "boolean" },
           ],
         ];
         expect(getAllPermutationsOfXxxOf(oneOfs)).toEqual([
           [
-            { title: 'A', type: 'string' },
-            { title: 'B1', type: 'number' },
-            { title: 'C1', type: 'string' },
+            { title: "A", type: "string" },
+            { title: "B1", type: "number" },
+            { title: "C1", type: "string" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B2', type: 'boolean' },
-            { title: 'C1', type: 'string' },
+            { title: "A", type: "string" },
+            { title: "B2", type: "boolean" },
+            { title: "C1", type: "string" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B1', type: 'number' },
-            { title: 'C2', type: 'number' },
+            { title: "A", type: "string" },
+            { title: "B1", type: "number" },
+            { title: "C2", type: "number" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B2', type: 'boolean' },
-            { title: 'C2', type: 'number' },
+            { title: "A", type: "string" },
+            { title: "B2", type: "boolean" },
+            { title: "C2", type: "number" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B1', type: 'number' },
-            { title: 'C3', type: 'boolean' },
+            { title: "A", type: "string" },
+            { title: "B1", type: "number" },
+            { title: "C3", type: "boolean" },
           ],
           [
-            { title: 'A', type: 'string' },
-            { title: 'B2', type: 'boolean' },
-            { title: 'C3', type: 'boolean' },
+            { title: "A", type: "string" },
+            { title: "B2", type: "boolean" },
+            { title: "C3", type: "boolean" },
           ],
         ]);
       });
     });
-    describe('resolveAnyOrOneOfSchemas()', () => {
-      it('resolves anyOf with $ref for single element, merging schemas', () => {
-        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.multi as RJSFSchema;
-        expect(resolveAnyOrOneOfSchemas(testValidator, anyOfSchema, SUPER_SCHEMA, false, [])).toEqual([
+    describe("resolveAnyOrOneOfSchemas()", () => {
+      it("resolves anyOf with $ref for single element, merging schemas", () => {
+        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.multi as RJSFSchema;
+        expect(
+          resolveAnyOrOneOfSchemas(
+            testValidator,
+            anyOfSchema,
+            SUPER_SCHEMA,
+            false,
+            [],
+          ),
+        ).toEqual([
           {
             ...(SUPER_SCHEMA.definitions?.foo as RJSFSchema),
-            title: 'multi',
+            title: "multi",
           },
         ]);
       });
-      it('resolves oneOf with $ref for expandedAll elements, merging schemas', () => {
-        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.single as RJSFSchema;
-        expect(resolveAnyOrOneOfSchemas(testValidator, oneOfSchema, SUPER_SCHEMA, true, [])).toEqual([
+      it("resolves oneOf with $ref for expandedAll elements, merging schemas", () => {
+        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.single as RJSFSchema;
+        expect(
+          resolveAnyOrOneOfSchemas(
+            testValidator,
+            oneOfSchema,
+            SUPER_SCHEMA,
+            true,
+            [],
+          ),
+        ).toEqual([
           {
             ...(SUPER_SCHEMA.definitions?.choice1 as RJSFSchema),
-            required: ['choice', 'more'],
+            required: ["choice", "more"],
           },
           {
             ...(SUPER_SCHEMA.definitions?.choice2 as RJSFSchema),
-            required: ['choice'],
+            required: ["choice"],
           },
         ]);
       });
-      it('resolves oneOf with multiple $refs', () => {
+      it("resolves oneOf with multiple $refs", () => {
         const schema: RJSFSchema = {
           oneOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
                 field: {
-                  $ref: '#/definitions/aObject',
+                  $ref: "#/definitions/aObject",
                 },
               },
             },
             {
-              type: 'array',
+              type: "array",
               items: {
-                $ref: '#/definitions/bObject',
+                $ref: "#/definitions/bObject",
               },
             },
           ],
@@ -1844,56 +2123,64 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           definitions: {
             aObject: {
               properties: {
-                a: { enum: ['typeA'] },
-                b: { type: 'number' },
+                a: { enum: ["typeA"] },
+                b: { type: "number" },
               },
             },
             bObject: {
               properties: {
-                a: { enum: ['typeB'] },
-                c: { type: 'boolean' },
+                a: { enum: ["typeB"] },
+                c: { type: "boolean" },
               },
             },
           },
         };
-        expect(resolveAnyOrOneOfSchemas(testValidator, schema, rootSchema, true, [])).toEqual([
+        expect(
+          resolveAnyOrOneOfSchemas(testValidator, schema, rootSchema, true, []),
+        ).toEqual([
           {
-            type: 'object',
+            type: "object",
             properties: {
               field: {
                 properties: {
-                  a: { enum: ['typeA'] },
-                  b: { type: 'number' },
+                  a: { enum: ["typeA"] },
+                  b: { type: "number" },
                 },
               },
             },
           },
           {
-            type: 'array',
+            type: "array",
             items: {
               properties: {
-                a: { enum: ['typeB'] },
-                c: { type: 'boolean' },
+                a: { enum: ["typeB"] },
+                c: { type: "boolean" },
               },
             },
           },
         ]);
       });
     });
-    describe('resolveCondition()', () => {
-      it('returns both conditions with expandAll', () => {
+    describe("resolveCondition()", () => {
+      it("returns both conditions with expandAll", () => {
         expect(
-          resolveCondition(testValidator, SCHEMA_WITH_SINGLE_CONDITION, SCHEMA_WITH_SINGLE_CONDITION, true, []),
+          resolveCondition(
+            testValidator,
+            SCHEMA_WITH_SINGLE_CONDITION,
+            SCHEMA_WITH_SINGLE_CONDITION,
+            true,
+            [],
+          ),
         ).toEqual([
           {
-            type: 'object',
+            type: "object",
             properties: {
               ...SCHEMA_WITH_SINGLE_CONDITION.properties,
               ...(SCHEMA_WITH_SINGLE_CONDITION.then as RJSFSchema).properties,
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               ...SCHEMA_WITH_SINGLE_CONDITION.properties,
               ...(SCHEMA_WITH_SINGLE_CONDITION.else as RJSFSchema).properties,
@@ -1901,24 +2188,26 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           },
         ]);
       });
-      it('returns neither condition with expandAll, using boolean based then/else', () => {
+      it("returns neither condition with expandAll, using boolean based then/else", () => {
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
             country: {
-              default: 'United States of America',
-              enum: ['United States of America', 'Canada'],
+              default: "United States of America",
+              enum: ["United States of America", "Canada"],
             },
           },
           if: {
-            properties: { country: { const: 'United States of America' } },
+            properties: { country: { const: "United States of America" } },
           },
           then: false,
           else: true,
         };
-        expect(resolveCondition(testValidator, schema, schema, true, [])).toEqual([
+        expect(
+          resolveCondition(testValidator, schema, schema, true, []),
+        ).toEqual([
           {
-            type: 'object',
+            type: "object",
             properties: {
               ...SCHEMA_WITH_SINGLE_CONDITION.properties,
             },
@@ -1926,21 +2215,21 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         ]);
       });
     });
-    describe('resolveReference() with experimental_customMergeAllOf', () => {
-      it('should pass experimental_customMergeAllOf parameter to retrieveSchemaInternal', () => {
+    describe("resolveReference() with experimental_customMergeAllOf", () => {
+      it("should pass experimental_customMergeAllOf parameter to retrieveSchemaInternal", () => {
         const schema: RJSFSchema = {
-          $ref: '#/definitions/testRef',
+          $ref: "#/definitions/testRef",
           allOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
-                string: { type: 'string' },
+                string: { type: "string" },
               },
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
-                number: { type: 'number' },
+                number: { type: "number" },
               },
             },
           ],
@@ -1948,53 +2237,59 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         const rootSchema: RJSFSchema = {
           definitions: {
             testRef: {
-              type: 'object',
+              type: "object",
               properties: {
-                base: { type: 'string' },
+                base: { type: "string" },
               },
             },
           },
         };
         const customMergeAllOf = jest.fn().mockReturnValue({
-          type: 'object',
+          type: "object",
           properties: {
-            base: { type: 'string' },
-            string: { type: 'string' },
-            number: { type: 'number' },
+            base: { type: "string" },
+            string: { type: "string" },
+            number: { type: "number" },
           },
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, {}, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          {},
+          customMergeAllOf,
+        );
         expect(customMergeAllOf).toHaveBeenCalled();
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            base: { type: 'string' },
-            string: { type: 'string' },
-            number: { type: 'number' },
+            base: { type: "string" },
+            string: { type: "string" },
+            number: { type: "number" },
           },
         });
       });
     });
-    describe('resolveDependencies() with experimental_customMergeAllOf', () => {
-      it('should pass experimental_customMergeAllOf parameter through dependency resolution', () => {
+    describe("resolveDependencies() with experimental_customMergeAllOf", () => {
+      it("should pass experimental_customMergeAllOf parameter through dependency resolution", () => {
         const schema: RJSFSchema = {
-          type: 'object',
+          type: "object",
           properties: {
-            a: { type: 'string' },
+            a: { type: "string" },
           },
           dependencies: {
             a: {
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    string: { type: 'string' },
+                    string: { type: "string" },
                   },
                 },
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    number: { type: 'number' },
+                    number: { type: "number" },
                   },
                 },
               ],
@@ -2002,43 +2297,49 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           },
         };
         const rootSchema: RJSFSchema = { definitions: {} };
-        const formData = { a: 'test' };
+        const formData = { a: "test" };
         const customMergeAllOf = jest.fn().mockReturnValue({
-          type: 'object',
+          type: "object",
           properties: {
-            string: { type: 'string' },
-            number: { type: 'number' },
+            string: { type: "string" },
+            number: { type: "number" },
           },
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, formData, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          formData,
+          customMergeAllOf,
+        );
         expect(customMergeAllOf).toHaveBeenCalled();
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            a: { type: 'string' },
-            string: { type: 'string' },
-            number: { type: 'number' },
+            a: { type: "string" },
+            string: { type: "string" },
+            number: { type: "number" },
           },
         });
       });
     });
-    describe('resolveSchema() integration with experimental_customMergeAllOf', () => {
-      it('should properly pass experimental_customMergeAllOf through all resolution paths', () => {
+    describe("resolveSchema() integration with experimental_customMergeAllOf", () => {
+      it("should properly pass experimental_customMergeAllOf through all resolution paths", () => {
         const schema: RJSFSchema = {
-          $ref: '#/definitions/baseSchema',
+          $ref: "#/definitions/baseSchema",
           dependencies: {
             trigger: {
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    prop1: { type: 'string' },
+                    prop1: { type: "string" },
                   },
                 },
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    prop2: { type: 'number' },
+                    prop2: { type: "number" },
                   },
                 },
               ],
@@ -2048,22 +2349,22 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         const rootSchema: RJSFSchema = {
           definitions: {
             baseSchema: {
-              type: 'object',
+              type: "object",
               properties: {
-                base: { type: 'string' },
+                base: { type: "string" },
               },
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    additional: { type: 'boolean' },
+                    additional: { type: "boolean" },
                   },
                 },
               ],
             },
           },
         };
-        const formData = { trigger: 'value' };
+        const formData = { trigger: "value" };
         const customMergeAllOf = jest.fn().mockImplementation((schema) => {
           // Custom merge logic that combines all properties
           const allProperties: any = {};
@@ -2083,72 +2384,84 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
             allOf: undefined,
           };
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, formData, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          formData,
+          customMergeAllOf,
+        );
         // Verify that customMergeAllOf was called multiple times (for different allOf blocks)
         expect(customMergeAllOf).toHaveBeenCalledTimes(3);
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            base: { type: 'string' },
-            additional: { type: 'boolean' },
+            base: { type: "string" },
+            additional: { type: "boolean" },
           },
           allOf: undefined,
         });
       });
-      it('should handle experimental_customMergeAllOf with nested $ref resolution', () => {
+      it("should handle experimental_customMergeAllOf with nested $ref resolution", () => {
         const schema: RJSFSchema = {
-          $ref: '#/definitions/nestedRef',
+          $ref: "#/definitions/nestedRef",
         };
         const rootSchema: RJSFSchema = {
           definitions: {
             nestedRef: {
-              $ref: '#/definitions/finalSchema',
+              $ref: "#/definitions/finalSchema",
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    nested: { type: 'string' },
+                    nested: { type: "string" },
                   },
                 },
               ],
             },
             finalSchema: {
-              type: 'object',
+              type: "object",
               properties: {
-                final: { type: 'number' },
+                final: { type: "number" },
               },
             },
           },
         };
         const customMergeAllOf = jest.fn().mockReturnValue({
-          type: 'object',
+          type: "object",
           properties: {
-            final: { type: 'number' },
-            nested: { type: 'string' },
+            final: { type: "number" },
+            nested: { type: "string" },
           },
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, {}, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          {},
+          customMergeAllOf,
+        );
         expect(customMergeAllOf).toHaveBeenCalled();
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            final: { type: 'number' },
-            nested: { type: 'string' },
+            final: { type: "number" },
+            nested: { type: "string" },
           },
         });
       });
     });
-    describe('Edge cases for experimental_customMergeAllOf fix', () => {
-      it('should handle undefined experimental_customMergeAllOf parameter gracefully', () => {
+    describe("Edge cases for experimental_customMergeAllOf fix", () => {
+      it("should handle undefined experimental_customMergeAllOf parameter gracefully", () => {
         const schema: RJSFSchema = {
-          $ref: '#/definitions/testRef',
+          $ref: "#/definitions/testRef",
           dependencies: {
             trigger: {
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    prop: { type: 'string' },
+                    prop: { type: "string" },
                   },
                 },
               ],
@@ -2158,64 +2471,79 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
         const rootSchema: RJSFSchema = {
           definitions: {
             testRef: {
-              type: 'object',
+              type: "object",
               properties: {
-                base: { type: 'string' },
+                base: { type: "string" },
               },
             },
           },
         };
-        const formData = { trigger: 'value' };
+        const formData = { trigger: "value" };
         // Test with undefined experimental_customMergeAllOf (should use default mergeAllOf)
-        const result = retrieveSchema(testValidator, schema, rootSchema, formData, undefined);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          formData,
+          undefined,
+        );
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            base: { type: 'string' },
+            base: { type: "string" },
           },
         });
       });
-      it('should handle experimental_customMergeAllOf that throws an error', () => {
+      it("should handle experimental_customMergeAllOf that throws an error", () => {
         const schema: RJSFSchema = {
           allOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
-                string: { type: 'string' },
+                string: { type: "string" },
               },
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
-                number: { type: 'number' },
+                number: { type: "number" },
               },
             },
           ],
         };
         const rootSchema: RJSFSchema = { definitions: {} };
         const customMergeAllOf = jest.fn().mockImplementation(() => {
-          throw new Error('Custom merge failed');
+          throw new Error("Custom merge failed");
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, {}, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          {},
+          customMergeAllOf,
+        );
         // Should fall back to default behavior when custom merge fails
         expect(result).toEqual({});
-        expect(consoleWarnSpy).toHaveBeenCalledWith('could not merge subschemas in allOf:\n', expect.any(Error));
+        expect(consoleWarnSpy).toHaveBeenCalledWith(
+          "could not merge subschemas in allOf:\n",
+          expect.any(Error),
+        );
       });
-      it('should pass experimental_customMergeAllOf through complex nested resolution chains', () => {
+      it("should pass experimental_customMergeAllOf through complex nested resolution chains", () => {
         const schema: RJSFSchema = {
-          $ref: '#/definitions/level1',
+          $ref: "#/definitions/level1",
         };
         const rootSchema: RJSFSchema = {
           definitions: {
             level1: {
-              $ref: '#/definitions/level2',
+              $ref: "#/definitions/level2",
               dependencies: {
                 dep1: {
                   allOf: [
                     {
-                      type: 'object',
+                      type: "object",
                       properties: {
-                        nested1: { type: 'string' },
+                        nested1: { type: "string" },
                       },
                     },
                   ],
@@ -2223,22 +2551,22 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
               },
             },
             level2: {
-              type: 'object',
+              type: "object",
               properties: {
-                base: { type: 'string' },
+                base: { type: "string" },
               },
               allOf: [
                 {
-                  type: 'object',
+                  type: "object",
                   properties: {
-                    additional: { type: 'number' },
+                    additional: { type: "number" },
                   },
                 },
               ],
             },
           },
         };
-        const formData = { dep1: 'value' };
+        const formData = { dep1: "value" };
         const customMergeAllOf = jest.fn().mockImplementation((schema) => {
           const allProperties: any = {};
           if (schema.properties) {
@@ -2257,39 +2585,83 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
             allOf: undefined,
           };
         });
-        const result = retrieveSchema(testValidator, schema, rootSchema, formData, customMergeAllOf);
+        const result = retrieveSchema(
+          testValidator,
+          schema,
+          rootSchema,
+          formData,
+          customMergeAllOf,
+        );
         // Should be called for both allOf blocks (level2 and dependency)
         expect(customMergeAllOf).toHaveBeenCalledTimes(3);
         expect(result).toEqual({
-          type: 'object',
+          type: "object",
           properties: {
-            base: { type: 'string' },
-            additional: { type: 'number' },
+            base: { type: "string" },
+            additional: { type: "number" },
           },
           allOf: undefined,
         });
       });
     });
-    describe('retrieveSchema() with resolveAnyOfOrOneOfRefs', () => {
-      it('resolves simple ref with no anyOf or oneOfs when false', () => {
-        const priceSchema: RJSFSchema = SUPER_SCHEMA.properties?.price as RJSFSchema;
-        expect(retrieveSchema(testValidator, priceSchema, SUPER_SCHEMA, {}, undefined)).toEqual({
+    describe("retrieveSchema() with resolveAnyOfOrOneOfRefs", () => {
+      it("resolves simple ref with no anyOf or oneOfs when false", () => {
+        const priceSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.price as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            priceSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+          ),
+        ).toEqual({
           ...(SUPER_SCHEMA.definitions?.price as RJSFSchema),
         });
       });
-      it('resolves simple ref with no anyOf or oneOfs when true', () => {
-        const priceSchema: RJSFSchema = SUPER_SCHEMA.properties?.price as RJSFSchema;
-        expect(retrieveSchema(testValidator, priceSchema, SUPER_SCHEMA, {}, undefined, true)).toEqual({
+      it("resolves simple ref with no anyOf or oneOfs when true", () => {
+        const priceSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.price as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            priceSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+            true,
+          ),
+        ).toEqual({
           ...(SUPER_SCHEMA.definitions?.price as RJSFSchema),
         });
       });
-      it('does not resolves the references inside of anyOfs when false', () => {
-        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.multi as RJSFSchema;
-        expect(retrieveSchema(testValidator, anyOfSchema, SUPER_SCHEMA, {}, undefined)).toEqual(anyOfSchema);
+      it("does not resolves the references inside of anyOfs when false", () => {
+        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.multi as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            anyOfSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+          ),
+        ).toEqual(anyOfSchema);
       });
-      it('resolves the references inside of anyOfs when true', () => {
-        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.multi as RJSFSchema;
-        expect(retrieveSchema(testValidator, anyOfSchema, SUPER_SCHEMA, {}, undefined, true)).toEqual({
+      it("resolves the references inside of anyOfs when true", () => {
+        const anyOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.multi as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            anyOfSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+            true,
+          ),
+        ).toEqual({
           ...anyOfSchema,
           anyOf: [
             {
@@ -2298,13 +2670,33 @@ export default function retrieveSchemaTest(testValidator: TestValidatorType) {
           ],
         });
       });
-      it('does not resolves the references inside of oneOfs when false', () => {
-        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.single as RJSFSchema;
-        expect(retrieveSchema(testValidator, oneOfSchema, SUPER_SCHEMA, {}, undefined, false)).toEqual(oneOfSchema);
+      it("does not resolves the references inside of oneOfs when false", () => {
+        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.single as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            oneOfSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+            false,
+          ),
+        ).toEqual(oneOfSchema);
       });
-      it('resolves the references inside of oneOfs when true', () => {
-        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties?.single as RJSFSchema;
-        expect(retrieveSchema(testValidator, oneOfSchema, SUPER_SCHEMA, {}, undefined, true)).toEqual({
+      it("resolves the references inside of oneOfs when true", () => {
+        const oneOfSchema: RJSFSchema = SUPER_SCHEMA.properties
+          ?.single as RJSFSchema;
+        expect(
+          retrieveSchema(
+            testValidator,
+            oneOfSchema,
+            SUPER_SCHEMA,
+            {},
+            undefined,
+            true,
+          ),
+        ).toEqual({
           ...oneOfSchema,
           oneOf: [
             {

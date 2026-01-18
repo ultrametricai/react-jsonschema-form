@@ -1,6 +1,11 @@
-import { CustomValidator, ErrorTransformer, RJSFSchema, ValidationData } from '@rjsf/utils';
-import { TestValidatorType } from '../../../utils/test/schema';
-import { customizeValidator, CustomValidatorOptionsType } from '../../src';
+import {
+  CustomValidator,
+  ErrorTransformer,
+  RJSFSchema,
+  ValidationData,
+} from "@rjsf/utils";
+import { TestValidatorType } from "../../../utils/test/schema";
+import { customizeValidator, CustomValidatorOptionsType } from "../../src";
 
 /** In this environment, a test validator merely creates an internal `AJV8` validator with the custom `options` and
  * then forwards all calls into it. It is provided to mirror the test validator in the `utils` directory, except that
@@ -8,7 +13,9 @@ import { customizeValidator, CustomValidatorOptionsType } from '../../src';
  *
  * @param options
  */
-export default function getTestValidator<T = any>(options: CustomValidatorOptionsType): TestValidatorType<T> {
+export default function getTestValidator<T = any>(
+  options: CustomValidatorOptionsType,
+): TestValidatorType<T> {
   const validator = customizeValidator<T>(options);
   return {
     validateFormData(
@@ -17,12 +24,24 @@ export default function getTestValidator<T = any>(options: CustomValidatorOption
       customValidate?: CustomValidator<T>,
       transformErrors?: ErrorTransformer<T>,
     ): ValidationData<T> {
-      return validator.validateFormData(formData, schema, customValidate, transformErrors);
+      return validator.validateFormData(
+        formData,
+        schema,
+        customValidate,
+        transformErrors,
+      );
     },
-    isValid(schema: RJSFSchema, formData: T | undefined, rootSchema: RJSFSchema): boolean {
+    isValid(
+      schema: RJSFSchema,
+      formData: T | undefined,
+      rootSchema: RJSFSchema,
+    ): boolean {
       return validator.isValid(schema, formData, rootSchema);
     },
-    rawValidation<Result = any>(schema: RJSFSchema, formData?: T): { errors?: Result[]; validationError?: Error } {
+    rawValidation<Result = any>(
+      schema: RJSFSchema,
+      formData?: T,
+    ): { errors?: Result[]; validationError?: Error } {
       return validator.rawValidation(schema, formData);
     },
     // This is intentionally a no-op as we are using the real validator here

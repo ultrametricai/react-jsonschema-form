@@ -1,32 +1,36 @@
-import { createFormComponent, expectToHaveBeenCalledWithFormData, submitForm } from './testUtils';
+import {
+  createFormComponent,
+  expectToHaveBeenCalledWithFormData,
+  submitForm,
+} from "./testUtils";
 
-describe('NullField', () => {
-  describe('No widget', () => {
-    it('should render a null field', () => {
+describe("NullField", () => {
+  describe("No widget", () => {
+    it("should render a null field", () => {
       const { node } = createFormComponent({
         schema: {
-          type: 'null',
+          type: "null",
         },
       });
 
-      expect(node.querySelectorAll('.rjsf-field')).toHaveLength(1);
+      expect(node.querySelectorAll(".rjsf-field")).toHaveLength(1);
     });
 
-    it('should render a null field with a label', () => {
+    it("should render a null field with a label", () => {
       const { node } = createFormComponent({
         schema: {
-          type: 'null',
-          title: 'foo',
+          type: "null",
+          title: "foo",
         },
       });
 
-      expect(node.querySelector('.rjsf-field label')).toHaveTextContent('foo');
+      expect(node.querySelector(".rjsf-field label")).toHaveTextContent("foo");
     });
 
-    it('should assign a default value', () => {
+    it("should assign a default value", () => {
       const { onChange } = createFormComponent({
         schema: {
-          type: 'null',
+          type: "null",
           default: null,
         },
       });
@@ -34,10 +38,10 @@ describe('NullField', () => {
       expectToHaveBeenCalledWithFormData(onChange, null);
     });
 
-    it('should not overwrite existing data', () => {
+    it("should not overwrite existing data", () => {
       const { node, onSubmit } = createFormComponent({
         schema: {
-          type: 'null',
+          type: "null",
         },
         formData: 3,
         noValidate: true,

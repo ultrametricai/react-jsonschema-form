@@ -1,18 +1,29 @@
-import { cloneElement, useCallback, useEffect, useRef, useState, ReactElement, ReactNode } from 'react';
-import { CssBaseline } from '@mui/material';
-import { CacheProvider } from '@emotion/react';
-import createCache, { EmotionCache } from '@emotion/cache';
-import Frame, { FrameComponentProps, FrameContextConsumer } from 'react-frame-component';
-import { Widgets } from '@rjsf/antd';
-import { __createChakraFrameProvider } from '@rjsf/chakra-ui';
-import { StyleProvider as AntdStyleProvider } from '@ant-design/cssinjs';
-import { __createFluentUIRCFrameProvider } from '@rjsf/fluentui-rc';
-import { __createDaisyUIFrameProvider } from '@rjsf/daisyui';
-import { MantineProvider } from '@mantine/core';
-import { ConfigProvider } from 'antd';
-import { PrimeReactProvider } from 'primereact/api';
+import {
+  cloneElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  ReactElement,
+  ReactNode,
+} from "react";
+import { CssBaseline } from "@mui/material";
+import { CacheProvider } from "@emotion/react";
+import createCache, { EmotionCache } from "@emotion/cache";
+import Frame, {
+  FrameComponentProps,
+  FrameContextConsumer,
+} from "react-frame-component";
+import { Widgets } from "@rjsf/antd";
+import { __createChakraFrameProvider } from "@rjsf/chakra-ui";
+import { StyleProvider as AntdStyleProvider } from "@ant-design/cssinjs";
+import { __createFluentUIRCFrameProvider } from "@rjsf/fluentui-rc";
+import { __createDaisyUIFrameProvider } from "@rjsf/daisyui";
+import { MantineProvider } from "@mantine/core";
+import { ConfigProvider } from "antd";
+import { PrimeReactProvider } from "primereact/api";
 
-const DEMO_FRAME_JSS = 'demo-frame-jss';
+const DEMO_FRAME_JSS = "demo-frame-jss";
 
 const { SelectWidget } = Widgets;
 
@@ -66,15 +77,19 @@ function AntdSelectPatcher({ frameDoc }: { frameDoc: Document }) {
       const style = dropdown.style;
 
       // Check if dropdown needs repositioning
-      const isHidden = style.inset && style.inset.includes('-1000vh');
+      const isHidden = style.inset && style.inset.includes("-1000vh");
       if (isHidden) {
-        const trigger = frameDoc.querySelector('.ant-select-focused, .ant-select-open');
+        const trigger = frameDoc.querySelector(
+          ".ant-select-focused, .ant-select-open",
+        );
 
         if (trigger) {
           const rect = trigger.getBoundingClientRect();
           // Get scroll offsets
-          const scrollTop = frameDoc.documentElement.scrollTop || frameDoc.body.scrollTop;
-          const scrollLeft = frameDoc.documentElement.scrollLeft || frameDoc.body.scrollLeft;
+          const scrollTop =
+            frameDoc.documentElement.scrollTop || frameDoc.body.scrollTop;
+          const scrollLeft =
+            frameDoc.documentElement.scrollLeft || frameDoc.body.scrollLeft;
 
           // Calculate absolute position accounting for scroll
           const top = rect.bottom + scrollTop + 4;
@@ -82,7 +97,7 @@ function AntdSelectPatcher({ frameDoc }: { frameDoc: Document }) {
 
           // Position the dropdown BELOW the select
           dropdown.style.inset = `${top}px auto auto ${left}px`;
-          dropdown.style.position = 'absolute';
+          dropdown.style.position = "absolute";
         }
       }
     };
@@ -90,20 +105,23 @@ function AntdSelectPatcher({ frameDoc }: { frameDoc: Document }) {
     const createObserver = () => {
       return new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          if (
+            mutation.type === "attributes" &&
+            mutation.attributeName === "style"
+          ) {
             const dropdown = mutation.target as HTMLElement;
 
-            if (dropdown.classList.contains('ant-select-dropdown')) {
+            if (dropdown.classList.contains("ant-select-dropdown")) {
               handleDropdownPositioning(dropdown);
             }
           }
 
           // Also check for newly added dropdowns
-          if (mutation.type === 'childList') {
+          if (mutation.type === "childList") {
             mutation.addedNodes.forEach((node) => {
               if (node.nodeType === 1) {
                 const element = node as HTMLElement;
-                if (element.classList.contains('ant-select-dropdown')) {
+                if (element.classList.contains("ant-select-dropdown")) {
                   handleDropdownPositioning(element);
                 }
               }
@@ -119,20 +137,22 @@ function AntdSelectPatcher({ frameDoc }: { frameDoc: Document }) {
       childList: true,
       subtree: true,
       attributes: true,
-      attributeFilter: ['style', 'class'],
+      attributeFilter: ["style", "class"],
     });
 
     // Also reposition on scroll
     const handleScroll = () => {
-      const dropdowns = frameDoc.querySelectorAll('.ant-select-dropdown:not(.ant-select-dropdown-hidden)');
+      const dropdowns = frameDoc.querySelectorAll(
+        ".ant-select-dropdown:not(.ant-select-dropdown-hidden)",
+      );
       dropdowns.forEach((dropdown) => {
         handleDropdownPositioning(dropdown as HTMLElement);
       });
     };
-    frameDoc.addEventListener('scroll', handleScroll, true);
+    frameDoc.addEventListener("scroll", handleScroll, true);
     return () => {
       iframeObserver.disconnect();
-      frameDoc.removeEventListener('scroll', handleScroll, true);
+      frameDoc.removeEventListener("scroll", handleScroll, true);
     };
   }, [frameDoc]);
 
@@ -152,7 +172,9 @@ export default function DemoFrame(props: DemoFrameProps) {
   const { children, head, theme, subtheme, ...frameProps } = props;
 
   const [ready, setReady] = useState(false);
-  const [emotionCache, setEmotionCache] = useState<EmotionCache>(createCache({ key: 'css' }));
+  const [emotionCache, setEmotionCache] = useState<EmotionCache>(
+    createCache({ key: "css" }),
+  );
   const [container, setContainer] = useState();
   const [window, setWindow] = useState();
 
@@ -162,7 +184,7 @@ export default function DemoFrame(props: DemoFrameProps) {
     setReady(true);
     setEmotionCache(
       createCache({
-        key: 'css',
+        key: "css",
         prepend: true,
         container: instanceRef.current.contentWindow[DEMO_FRAME_JSS],
       }),
@@ -172,7 +194,7 @@ export default function DemoFrame(props: DemoFrameProps) {
   }, [instanceRef]);
 
   let body: ReactNode = children;
-  if (theme === 'mui') {
+  if (theme === "mui") {
     body = ready ? (
       <CacheProvider value={emotionCache}>
         <CssBaseline />
@@ -182,28 +204,43 @@ export default function DemoFrame(props: DemoFrameProps) {
         })}
       </CacheProvider>
     ) : null;
-  } else if (theme === 'fluentui-rc') {
-    body = <FrameContextConsumer>{__createFluentUIRCFrameProvider(props)}</FrameContextConsumer>;
-  } else if (theme === 'chakra-ui') {
-    body = <FrameContextConsumer>{__createChakraFrameProvider(props)}</FrameContextConsumer>;
-  } else if (theme === 'antd') {
+  } else if (theme === "fluentui-rc") {
+    body = (
+      <FrameContextConsumer>
+        {__createFluentUIRCFrameProvider(props)}
+      </FrameContextConsumer>
+    );
+  } else if (theme === "chakra-ui") {
+    body = (
+      <FrameContextConsumer>
+        {__createChakraFrameProvider(props)}
+      </FrameContextConsumer>
+    );
+  } else if (theme === "antd") {
     body = ready ? (
       <FrameContextConsumer>
         {({ document: frameDoc }) => {
           const jssContainer =
-            frameDoc?.getElementById(DEMO_FRAME_JSS) || instanceRef.current.contentWindow[DEMO_FRAME_JSS];
+            frameDoc?.getElementById(DEMO_FRAME_JSS) ||
+            instanceRef.current.contentWindow[DEMO_FRAME_JSS];
           return (
             <>
-              <AntdSelectPatcher frameDoc={frameDoc || instanceRef.current.contentDocument} />
+              <AntdSelectPatcher
+                frameDoc={frameDoc || instanceRef.current.contentDocument}
+              />
               <AntdStyleProvider container={jssContainer}>
-                <ConfigProvider getPopupContainer={() => jssContainer.parentElement}>{children}</ConfigProvider>
+                <ConfigProvider
+                  getPopupContainer={() => jssContainer.parentElement}
+                >
+                  {children}
+                </ConfigProvider>
               </AntdStyleProvider>
             </>
           );
         }}
       </FrameContextConsumer>
     ) : null;
-  } else if (theme === 'daisy-ui') {
+  } else if (theme === "daisy-ui") {
     body = ready ? (
       <FrameContextConsumer>
         {__createDaisyUIFrameProvider({
@@ -212,19 +249,29 @@ export default function DemoFrame(props: DemoFrameProps) {
         })}
       </FrameContextConsumer>
     ) : null;
-  } else if (theme === 'primereact') {
+  } else if (theme === "primereact") {
     body = ready ? (
       <>
         <style>{`html { font-weight: 400; font-size: 14px; color: var(--text-color); }`}</style>
-        <link href='//cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.min.css' rel='stylesheet' />
-        <PrimeReactProvider value={{ styleContainer: container, appendTo: 'self' }}>{children}</PrimeReactProvider>
+        <link
+          href="//cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.min.css"
+          rel="stylesheet"
+        />
+        <PrimeReactProvider
+          value={{ styleContainer: container, appendTo: "self" }}
+        >
+          {children}
+        </PrimeReactProvider>
       </>
     ) : null;
-  } else if (theme === 'mantine') {
+  } else if (theme === "mantine") {
     body = ready ? (
       <FrameContextConsumer>
         {({ document }) => (
-          <MantineProvider getRootElement={() => document?.body} cssVariablesSelector='body'>
+          <MantineProvider
+            getRootElement={() => document?.body}
+            cssVariablesSelector="body"
+          >
             {children}
           </MantineProvider>
         )}
@@ -233,7 +280,12 @@ export default function DemoFrame(props: DemoFrameProps) {
   }
 
   return (
-    <Frame ref={instanceRef} contentDidMount={onContentDidMount} head={head} {...frameProps}>
+    <Frame
+      ref={instanceRef}
+      contentDidMount={onContentDidMount}
+      head={head}
+      {...frameProps}
+    >
       <div id={DEMO_FRAME_JSS} />
       {body}
     </Frame>

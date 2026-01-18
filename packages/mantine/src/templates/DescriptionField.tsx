@@ -1,6 +1,11 @@
-import { DescriptionFieldProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { RichDescription } from '@rjsf/core';
-import { Text } from '@mantine/core';
+import {
+  DescriptionFieldProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { RichDescription } from "@rjsf/core";
+import { Text } from "@mantine/core";
 
 /** The `DescriptionField` is the template to use to render the description of a field
  *
@@ -14,8 +19,12 @@ export default function DescriptionField<
   const { id, description, registry, uiSchema } = props;
   if (description) {
     return (
-      <Text id={id} mt={3} mb='sm'>
-        <RichDescription description={description} registry={registry} uiSchema={uiSchema} />
+      <Text id={id} mt={3} mb="sm">
+        <RichDescription
+          description={description}
+          registry={registry}
+          uiSchema={uiSchema}
+        />
       </Text>
     );
   }

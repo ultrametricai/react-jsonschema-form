@@ -6,7 +6,10 @@
  * @param params - The optional list of replaceable parameter values to substitute into the english string
  * @returns - The updated string with any replacement specifiers replaced
  */
-export default function replaceStringParameters(inputString: string, params?: string[]) {
+export default function replaceStringParameters(
+  inputString: string,
+  params?: string[],
+) {
   let output = inputString;
   if (Array.isArray(params)) {
     const parts = output.split(/(%\d)/);
@@ -16,7 +19,7 @@ export default function replaceStringParameters(inputString: string, params?: st
         parts[partIndex] = param;
       }
     });
-    output = parts.join('');
+    output = parts.join("");
   }
   return output;
 }

@@ -5,11 +5,6 @@
     "outDir": "./",
     "skipLibCheck": true
   },
-  "files": [
-    "../../tsc-alias-replacer/lodashReplacer.ts"
-  ],
-  "exclude": [
-    "./src",
-    "./test"
-  ]
+  "files": ["../../tsc-alias-replacer/lodashReplacer.ts"],
+  "exclude": ["./src", "./test"]
 }

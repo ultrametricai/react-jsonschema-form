@@ -1,5 +1,11 @@
-import { helpId, FieldHelpProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import RichHelp from '../RichHelp';
+import {
+  helpId,
+  FieldHelpProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import RichHelp from "../RichHelp";
 
 /** The `FieldHelpTemplate` component renders any help desired for a field
  *
@@ -16,7 +22,7 @@ export default function FieldHelpTemplate<
   }
 
   return (
-    <div id={helpId(fieldPathId)} className='help-block'>
+    <div id={helpId(fieldPathId)} className="help-block">
       <RichHelp help={help as string} registry={registry} uiSchema={uiSchema} />
     </div>
   );

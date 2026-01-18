@@ -1,10 +1,10 @@
-import cloneDeep from 'lodash/cloneDeep';
-import get from 'lodash/get';
-import set from 'lodash/set';
-import setWith from 'lodash/setWith';
+import cloneDeep from "lodash/cloneDeep";
+import get from "lodash/get";
+import set from "lodash/set";
+import setWith from "lodash/setWith";
 
-import { ErrorSchema, FieldPathList } from './types';
-import { ERRORS_KEY } from './constants';
+import { ErrorSchema, FieldPathList } from "./types";
+import { ERRORS_KEY } from "./constants";
 
 /** Represents the type of the path which can be a string of dotted path values or a list of string or numbers where
  * numbers represent array indexes/
@@ -44,9 +44,13 @@ export default class ErrorSchemaBuilder<T = any> {
    * @private
    */
   private getOrCreateErrorBlock(pathOfError?: PathType) {
-    const hasPath = (Array.isArray(pathOfError) && pathOfError.length > 0) || typeof pathOfError === 'string';
-    // @ts-expect-error TS2590 to avoid "Expression produces a union type that is too complex to represent" error
-    let errorBlock: ErrorSchema = hasPath ? get(this.errorSchema, pathOfError) : this.errorSchema;
+    const hasPath =
+      (Array.isArray(pathOfError) && pathOfError.length > 0) ||
+      typeof pathOfError === "string";
+    let errorBlock: ErrorSchema = hasPath
+      ? // @ts-expect-error TS2590 to avoid "Expression produces a union type that is too complex to represent" error
+        get(this.errorSchema, pathOfError)
+      : this.errorSchema;
     if (!errorBlock && pathOfError) {
       errorBlock = {};
       setWith(this.errorSchema, pathOfError, errorBlock, Object);
@@ -81,7 +85,9 @@ export default class ErrorSchemaBuilder<T = any> {
     }
 
     if (Array.isArray(errorOrList)) {
-      set(errorBlock, ERRORS_KEY, [...new Set([...errorsList, ...errorOrList])]);
+      set(errorBlock, ERRORS_KEY, [
+        ...new Set([...errorsList, ...errorOrList]),
+      ]);
     } else {
       set(errorBlock, ERRORS_KEY, [...new Set([...errorsList, errorOrList])]);
     }
@@ -99,7 +105,9 @@ export default class ErrorSchemaBuilder<T = any> {
   setErrors(errorOrList: string | string[], pathOfError?: PathType) {
     const errorBlock: ErrorSchema = this.getOrCreateErrorBlock(pathOfError);
     // Effectively clone the array being given to prevent accidental outside manipulation of the given list
-    const listToAdd = Array.isArray(errorOrList) ? [...new Set([...errorOrList])] : [errorOrList];
+    const listToAdd = Array.isArray(errorOrList)
+      ? [...new Set([...errorOrList])]
+      : [errorOrList];
     set(errorBlock, ERRORS_KEY, listToAdd);
     return this;
   }

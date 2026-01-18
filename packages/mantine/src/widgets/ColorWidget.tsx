@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback } from 'react';
+import { FocusEvent, useCallback } from "react";
 import {
   FormContextType,
   RJSFSchema,
@@ -6,18 +6,20 @@ import {
   WidgetProps,
   labelValue,
   ariaDescribedByIds,
-} from '@rjsf/utils';
-import { ColorInput } from '@mantine/core';
+} from "@rjsf/utils";
+import { ColorInput } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `ColorWidget` component uses the `ColorInput` from Mantine, allowing users to pick a color.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function ColorWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function ColorWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     name,
@@ -67,7 +69,7 @@ export default function ColorWidget<T = any, S extends StrictRJSFSchema = RJSFSc
     <ColorInput
       id={id}
       name={name}
-      value={value || ''}
+      value={value || ""}
       placeholder={placeholder || undefined}
       required={required}
       disabled={disabled || readonly}
@@ -76,7 +78,9 @@ export default function ColorWidget<T = any, S extends StrictRJSFSchema = RJSFSc
       onChange={handleChange}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       {...themeProps}
       aria-describedby={ariaDescribedByIds(id)}
       popoverProps={{ withinPortal: false }}

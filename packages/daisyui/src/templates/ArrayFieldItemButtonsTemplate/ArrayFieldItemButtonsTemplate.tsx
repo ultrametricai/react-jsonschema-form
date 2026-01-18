@@ -4,7 +4,7 @@ import {
   StrictRJSFSchema,
   ArrayFieldItemButtonsTemplateProps,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldItemButtonsTemplate` component renders the action buttons for an array field item
  * using DaisyUI's join component when multiple buttons are present.
@@ -29,18 +29,24 @@ export default function ArrayFieldItemButtonsTemplate<
     registry,
     uiSchema,
   } = props;
-  const { CopyButton, MoveDownButton, MoveUpButton, RemoveButton } = registry.templates.ButtonTemplates;
+  const { CopyButton, MoveDownButton, MoveUpButton, RemoveButton } =
+    registry.templates.ButtonTemplates;
 
-  const renderMany = [hasMoveUp || hasMoveDown, hasCopy, hasRemove].filter(Boolean).length > 1;
-  const btnClass = renderMany ? 'join-item btn btn-sm px-2' : 'btn btn-sm px-2 rounded-sm';
-  const removeBtnClass = renderMany ? 'join-item btn btn-sm btn-error px-2' : 'btn btn-sm btn-error px-2 rounded-sm';
+  const renderMany =
+    [hasMoveUp || hasMoveDown, hasCopy, hasRemove].filter(Boolean).length > 1;
+  const btnClass = renderMany
+    ? "join-item btn btn-sm px-2"
+    : "btn btn-sm px-2 rounded-sm";
+  const removeBtnClass = renderMany
+    ? "join-item btn btn-sm btn-error px-2"
+    : "btn btn-sm btn-error px-2 rounded-sm";
 
   const buttons = (
     <>
       {(hasMoveUp || hasMoveDown) && (
         <>
           <MoveUpButton
-            id={buttonId(fieldPathId, 'moveUp')}
+            id={buttonId(fieldPathId, "moveUp")}
             className={`rjsf-array-item-move-up ${btnClass}`}
             disabled={disabled || readonly || !hasMoveUp}
             onClick={onMoveUpItem}
@@ -48,7 +54,7 @@ export default function ArrayFieldItemButtonsTemplate<
             registry={registry}
           />
           <MoveDownButton
-            id={buttonId(fieldPathId, 'moveDown')}
+            id={buttonId(fieldPathId, "moveDown")}
             className={`rjsf-array-item-move-down ${btnClass}`}
             disabled={disabled || readonly || !hasMoveDown}
             onClick={onMoveDownItem}
@@ -59,7 +65,7 @@ export default function ArrayFieldItemButtonsTemplate<
       )}
       {hasCopy && (
         <CopyButton
-          id={buttonId(fieldPathId, 'copy')}
+          id={buttonId(fieldPathId, "copy")}
           className={`rjsf-array-item-copy ${btnClass}`}
           disabled={disabled || readonly}
           onClick={onCopyItem}
@@ -69,7 +75,7 @@ export default function ArrayFieldItemButtonsTemplate<
       )}
       {hasRemove && (
         <RemoveButton
-          id={buttonId(fieldPathId, 'remove')}
+          id={buttonId(fieldPathId, "remove")}
           className={`rjsf-array-item-remove ${removeBtnClass}`}
           disabled={disabled || readonly}
           onClick={onRemoveItem}
@@ -80,5 +86,5 @@ export default function ArrayFieldItemButtonsTemplate<
     </>
   );
 
-  return renderMany ? <div className='join'>{buttons}</div> : buttons;
+  return renderMany ? <div className="join">{buttons}</div> : buttons;
 }

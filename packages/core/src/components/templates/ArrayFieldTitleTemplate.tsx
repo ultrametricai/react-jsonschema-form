@@ -7,7 +7,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   TemplatesType,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldTitleTemplate` component renders a `TitleFieldTemplate` with an `id` derived from
  * the `fieldPathId`.
@@ -19,17 +19,26 @@ export default function ArrayFieldTitleTemplate<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: ArrayFieldTitleProps<T, S, F>) {
-  const { fieldPathId, title, schema, uiSchema, required, registry, optionalDataControl } = props;
+  const {
+    fieldPathId,
+    title,
+    schema,
+    uiSchema,
+    required,
+    registry,
+    optionalDataControl,
+  } = props;
   const options = getUiOptions<T, S, F>(uiSchema, registry.globalUiOptions);
   const { label: displayLabel = true } = options;
   if (!title || !displayLabel) {
     return null;
   }
-  const TitleFieldTemplate: TemplatesType<T, S, F>['TitleFieldTemplate'] = getTemplate<'TitleFieldTemplate', T, S, F>(
-    'TitleFieldTemplate',
-    registry,
-    options,
-  );
+  const TitleFieldTemplate: TemplatesType<T, S, F>["TitleFieldTemplate"] =
+    getTemplate<"TitleFieldTemplate", T, S, F>(
+      "TitleFieldTemplate",
+      registry,
+      options,
+    );
   return (
     <TitleFieldTemplate
       id={titleId(fieldPathId)}

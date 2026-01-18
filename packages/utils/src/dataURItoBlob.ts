@@ -6,26 +6,28 @@
  */
 export default function dataURItoBlob(dataURILike: string) {
   // check if is dataURI
-  if (dataURILike.indexOf('data:') === -1) {
-    throw new Error('File is invalid: URI must be a dataURI');
+  if (dataURILike.indexOf("data:") === -1) {
+    throw new Error("File is invalid: URI must be a dataURI");
   }
   const dataURI = dataURILike.slice(5);
   // split the dataURI into media and base64, with the base64 signature
-  const splitted = dataURI.split(';base64,');
+  const splitted = dataURI.split(";base64,");
   // if the base64 signature is not present, the latter part will become empty
   if (splitted.length !== 2) {
-    throw new Error('File is invalid: dataURI must be base64');
+    throw new Error("File is invalid: dataURI must be base64");
   }
   // extract the mime type, media parameters including the name, and the base64 string
   const [media, base64] = splitted;
-  const [mime, ...mediaparams] = media.split(';');
-  const type = mime || '';
+  const [mime, ...mediaparams] = media.split(";");
+  const type = mime || "";
 
   // extract the name from the parameters
   const name = decodeURI(
     // parse the parameters into key-value pairs, find a key, and extract a value
     // if no key is found, then the name is unknown
-    mediaparams.map((param) => param.split('=')).find(([key]) => key === 'name')?.[1] || 'unknown',
+    mediaparams
+      .map((param) => param.split("="))
+      .find(([key]) => key === "name")?.[1] || "unknown",
   );
 
   // Built the Uint8Array Blob parameter from the base64 string.
@@ -40,6 +42,6 @@ export default function dataURItoBlob(dataURILike: string) {
 
     return { blob, name };
   } catch (error) {
-    throw new Error('File is invalid: ' + (error as Error).message);
+    throw new Error("File is invalid: " + (error as Error).message);
   }
 }

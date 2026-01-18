@@ -1,4 +1,4 @@
-import { Col, Row, Form, Input } from 'antd';
+import { Col, Row, Form, Input } from "antd";
 import {
   ADDITIONAL_PROPERTY_FLAG,
   UI_OPTIONS_KEY,
@@ -8,13 +8,13 @@ import {
   TranslatableString,
   WrapIfAdditionalTemplateProps,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 const VERTICAL_LABEL_COL = { span: 24 };
 const VERTICAL_WRAPPER_COL = { span: 24 };
 
 const INPUT_STYLE = {
-  width: '100%',
+  width: "100%",
 };
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
@@ -48,7 +48,7 @@ export default function WrapIfAdditionalTemplate<
     labelCol = VERTICAL_LABEL_COL,
     readonlyAsDisabled = true,
     rowGutter = 24,
-    toolbarAlign = 'top',
+    toolbarAlign = "top",
     wrapperCol = VERTICAL_WRAPPER_COL,
     wrapperStyle,
   } = registry.formContext;
@@ -76,11 +76,11 @@ export default function WrapIfAdditionalTemplate<
   return (
     <div className={classNames} style={style}>
       <Row align={toolbarAlign} gutter={rowGutter}>
-        <Col className='form-additional' flex='1'>
-          <div className='form-group'>
+        <Col className="form-additional" flex="1">
+          <div className="form-group">
             <Form.Item
               colon={colon}
-              className='form-group'
+              className="form-group"
               hasFeedback
               htmlFor={`${id}-key`}
               label={displayLabel ? keyLabel : undefined}
@@ -90,25 +90,28 @@ export default function WrapIfAdditionalTemplate<
               wrapperCol={wrapperCol}
             >
               <Input
-                className='form-control'
+                className="form-control"
                 defaultValue={label}
                 disabled={disabled || (readonlyAsDisabled && readonly)}
                 id={`${id}-key`}
                 name={`${id}-key`}
                 onBlur={!readonly ? onKeyRenameBlur : undefined}
                 style={INPUT_STYLE}
-                type='text'
+                type="text"
               />
             </Form.Item>
           </div>
         </Col>
-        <Col className='form-additional' flex='1'>
+        <Col className="form-additional" flex="1">
           {children}
         </Col>
-        <Col flex='120px' style={{ marginTop: displayLabel ? '40px' : undefined }}>
+        <Col
+          flex="120px"
+          style={{ marginTop: displayLabel ? "40px" : undefined }}
+        >
           <RemoveButton
-            id={buttonId(id, 'remove')}
-            className='rjsf-object-property-remove'
+            id={buttonId(id, "remove")}
+            className="rjsf-object-property-remove"
             disabled={disabled || readonly}
             onClick={onRemoveProperty}
             uiSchema={buttonUiOptions}

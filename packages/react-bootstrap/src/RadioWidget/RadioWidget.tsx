@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import Form from 'react-bootstrap/Form';
+import { ChangeEvent, FocusEvent } from "react";
+import Form from "react-bootstrap/Form";
 import {
   ariaDescribedByIds,
   enumOptionsIsSelected,
@@ -9,9 +9,13 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   htmlName,
   options,
@@ -28,17 +32,33 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
     onChange(enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const inline = Boolean(options && options.inline);
 
   return (
-    <Form.Group className='mb-0'>
+    <Form.Group className="mb-0">
       {Array.isArray(enumOptions) &&
         enumOptions.map((option, index) => {
-          const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+          const itemDisabled =
+            Array.isArray(enumDisabled) &&
+            enumDisabled.indexOf(option.value) !== -1;
           const checked = enumOptionsIsSelected<S>(option.value, value);
 
           const radio = (
@@ -48,7 +68,7 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
               id={optionId(id, index)}
               key={index}
               name={htmlName || id}
-              type='radio'
+              type="radio"
               disabled={disabled || itemDisabled || readonly}
               checked={checked}
               required={required}

@@ -5,7 +5,7 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldItemTemplate` component is the template used to render an items of an array.
  *
@@ -16,19 +16,33 @@ export default function ArrayFieldItemTemplate<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: ArrayFieldItemTemplateProps<T, S, F>) {
-  const { children, buttonsProps, displayLabel, hasToolbar, uiSchema, registry } = props;
-  const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldItemButtonsTemplate = getTemplate<'ArrayFieldItemButtonsTemplate', T, S, F>(
-    'ArrayFieldItemButtonsTemplate',
+  const {
+    children,
+    buttonsProps,
+    displayLabel,
+    hasToolbar,
+    uiSchema,
     registry,
-    uiOptions,
-  );
+  } = props;
+  const uiOptions = getUiOptions<T, S, F>(uiSchema);
+  const ArrayFieldItemButtonsTemplate = getTemplate<
+    "ArrayFieldItemButtonsTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldItemButtonsTemplate", registry, uiOptions);
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: "relative" }}>
       {hasToolbar && (
-        <div style={{ position: 'absolute', right: 0, top: displayLabel ? '24px' : 0 }}>
+        <div
+          style={{
+            position: "absolute",
+            right: 0,
+            top: displayLabel ? "24px" : 0,
+          }}
+        >
           {hasToolbar && (
-            <div style={{ flexDirection: 'row' }}>
+            <div style={{ flexDirection: "row" }}>
               <ArrayFieldItemButtonsTemplate {...buttonsProps} />
             </div>
           )}

@@ -1,4 +1,4 @@
-import { ReactElement, ChangeEvent, FocusEvent, useCallback } from 'react';
+import { ReactElement, ChangeEvent, FocusEvent, useCallback } from "react";
 import {
   descriptionId,
   getTemplate,
@@ -8,8 +8,8 @@ import {
   WidgetProps,
   labelValue,
   ariaDescribedByIds,
-} from '@rjsf/utils';
-import { Checkbox } from '@mantine/core';
+} from "@rjsf/utils";
+import { Checkbox } from "@mantine/core";
 
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
@@ -42,11 +42,12 @@ export default function CheckboxWidget<
     uiSchema,
   } = props;
 
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
   const handleCheckboxChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -94,11 +95,15 @@ export default function CheckboxWidget<
         disabled={disabled || readonly}
         required={required}
         autoFocus={autofocus}
-        checked={typeof value === 'undefined' ? false : value === 'true' || value}
+        checked={
+          typeof value === "undefined" ? false : value === "true" || value
+        }
         onChange={handleCheckboxChange}
         onBlur={handleBlur}
         onFocus={handleFocus}
-        error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+        error={
+          rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+        }
         aria-describedby={ariaDescribedByIds(id)}
       />
     </>

@@ -1,4 +1,4 @@
-import { RJSFSchema, StrictRJSFSchema } from './types';
+import { RJSFSchema, StrictRJSFSchema } from "./types";
 
 /** Hashes a string using the algorithm based on Java's hashing function.
  * JS has no built-in hashing function, so rolling our own
@@ -46,6 +46,8 @@ export function hashObject(object: unknown): string {
  * @param schema - The schema for which the hash is desired
  * @returns - The string obtained from the hash of the stringified schema
  */
-export default function hashForSchema<S extends StrictRJSFSchema = RJSFSchema>(schema: S) {
+export default function hashForSchema<S extends StrictRJSFSchema = RJSFSchema>(
+  schema: S,
+) {
   return hashObject(schema);
 }

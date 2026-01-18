@@ -1,6 +1,6 @@
-import { gridTests } from '@rjsf/snapshot-tests';
+import { gridTests } from "@rjsf/snapshot-tests";
 
-import WrappedForm from './WrappedForm';
+import WrappedForm from "./WrappedForm";
 
 gridTests(WrappedForm, {
   ColumnWidthAll: { span: 12 },
@@ -8,145 +8,156 @@ gridTests(WrappedForm, {
   ColumnWidth6: { span: 6 },
   ColumnWidth8: { span: 8 },
   ComplexUiSchema: {
-    'ui:field': 'LayoutGridField',
-    'ui:layoutGrid': {
-      'ui:row': {
+    "ui:field": "LayoutGridField",
+    "ui:layoutGrid": {
+      "ui:row": {
         children: [
           {
-            'ui:row': {
+            "ui:row": {
               children: [
                 {
-                  'ui:col': {
+                  "ui:col": {
                     span: 12,
-                    children: ['person'],
+                    children: ["person"],
                   },
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               children: [
                 {
-                  'ui:columns': {
+                  "ui:columns": {
                     span: 4,
-                    children: ['person.name.first', 'person.name.middle', 'person.name.last'],
+                    children: [
+                      "person.name.first",
+                      "person.name.middle",
+                      "person.name.last",
+                    ],
                   },
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               children: [
                 {
-                  'ui:col': {
+                  "ui:col": {
                     span: 4,
                     children: [
                       {
-                        name: 'person.birth_date',
-                        placeholder: '$lookup=PlaceholderText',
+                        name: "person.birth_date",
+                        placeholder: "$lookup=PlaceholderText",
                       },
                     ],
                   },
                 },
                 {
-                  'ui:col': {
+                  "ui:col": {
                     span: 8,
-                    children: ['person.race'],
+                    children: ["person.race"],
                   },
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               children: [
                 {
-                  'ui:col': {
+                  "ui:col": {
                     span: 5,
-                    children: ['person.address'],
+                    children: ["person.address"],
                   },
                 },
                 {
-                  'ui:col': {
+                  "ui:col": {
                     span: 7,
                     children: [
                       {
-                        'ui:row': {
+                        "ui:row": {
                           children: [
                             {
-                              'ui:col': {
+                              "ui:col": {
                                 span: 12,
-                                children: ['employment'],
+                                children: ["employment"],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'company',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "company",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       span: 12,
-                                      children: ['employment.business', 'employment.title'],
+                                      children: [
+                                        "employment.business",
+                                        "employment.title",
+                                      ],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       span: 8,
-                                      children: ['employment.location.city'],
+                                      children: ["employment.location.city"],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       span: 4,
-                                      children: ['employment.location.state'],
+                                      children: ["employment.location.state"],
                                     },
                                   },
                                 ],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'education',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "education",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       span: 12,
-                                      children: ['employment.district', 'employment.school', 'employment.title'],
+                                      children: [
+                                        "employment.district",
+                                        "employment.school",
+                                        "employment.title",
+                                      ],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       span: 8,
-                                      children: ['employment.location.city'],
+                                      children: ["employment.location.city"],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       span: 4,
-                                      children: ['employment.location.state'],
+                                      children: ["employment.location.state"],
                                     },
                                   },
                                 ],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'other',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "other",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       span: 12,
                                       children: [
                                         {
-                                          name: 'employment.description',
+                                          name: "employment.description",
                                           rows: 6,
                                         },
                                       ],
@@ -168,31 +179,31 @@ gridTests(WrappedForm, {
       },
     },
     person: {
-      'ui:field': 'LayoutHeaderField',
+      "ui:field": "LayoutHeaderField",
       race: {
-        'ui:options': {
-          widget: 'checkboxes',
+        "ui:options": {
+          widget: "checkboxes",
         },
       },
       address: {
-        'ui:field': 'LayoutGridField',
-        'ui:layoutGrid': {
-          'ui:row': {
+        "ui:field": "LayoutGridField",
+        "ui:layoutGrid": {
+          "ui:row": {
             children: [
               {
-                'ui:columns': {
+                "ui:columns": {
                   span: 12,
-                  children: ['line_1', 'line_2', 'city'],
+                  children: ["line_1", "line_2", "city"],
                 },
               },
               {
-                'ui:row': {
-                  gutter: 'xs',
+                "ui:row": {
+                  gutter: "xs",
                   children: [
                     {
-                      'ui:columns': {
+                      "ui:columns": {
                         span: 6,
-                        children: ['state', 'postal_code'],
+                        children: ["state", "postal_code"],
                       },
                     },
                   ],
@@ -204,11 +215,11 @@ gridTests(WrappedForm, {
       },
     },
     employment: {
-      'ui:options': {
+      "ui:options": {
         inline: true,
       },
       description: {
-        'ui:widget': 'textarea',
+        "ui:widget": "textarea",
       },
     },
   },

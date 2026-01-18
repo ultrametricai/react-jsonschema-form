@@ -1,4 +1,11 @@
-import { FormContextType, TemplatesType, Registry, UIOptionsType, StrictRJSFSchema, RJSFSchema } from './types';
+import {
+  FormContextType,
+  TemplatesType,
+  Registry,
+  UIOptionsType,
+  StrictRJSFSchema,
+  RJSFSchema,
+} from "./types";
 
 /** Returns the template with the given `name` from either the `uiSchema` if it is defined or from the `registry`
  * otherwise. NOTE, since `ButtonTemplates` are not overridden in `uiSchema` only those in the `registry` are returned.
@@ -13,15 +20,19 @@ export default function getTemplate<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
->(name: Name, registry: Registry<T, S, F>, uiOptions: UIOptionsType<T, S, F> = {}): TemplatesType<T, S, F>[Name] {
+>(
+  name: Name,
+  registry: Registry<T, S, F>,
+  uiOptions: UIOptionsType<T, S, F> = {},
+): TemplatesType<T, S, F>[Name] {
   const { templates } = registry;
-  if (name === 'ButtonTemplates') {
+  if (name === "ButtonTemplates") {
     return templates[name];
   }
   // Allow templates to be customized per-field by using string keys from the registry
   if (
     Object.hasOwn(uiOptions, name) &&
-    typeof uiOptions[name] === 'string' &&
+    typeof uiOptions[name] === "string" &&
     Object.hasOwn(templates, uiOptions[name] as string)
   ) {
     const key = uiOptions[name];
@@ -32,6 +43,7 @@ export default function getTemplate<
   return (
     // Evaluating uiOptions[name] results in TS2590: Expression produces a union type that is too complex to represent
     // To avoid that, we cast uiOptions to `any` before accessing the name field
-    ((uiOptions as any)[name] as TemplatesType<T, S, F>[Name]) || templates[name]
+    ((uiOptions as any)[name] as TemplatesType<T, S, F>[Name]) ||
+    templates[name]
   );
 }

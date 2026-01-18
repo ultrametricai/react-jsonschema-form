@@ -1,6 +1,6 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
-import TextField, { TextFieldProps } from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
 
 import {
   ariaDescribedByIds,
@@ -11,9 +11,9 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-const TYPES_THAT_SHRINK_LABEL = ['date', 'datetime-local', 'file', 'time'];
+const TYPES_THAT_SHRINK_LABEL = ["date", "datetime-local", "file", "time"];
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the `core` theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -57,7 +57,11 @@ export default function BaseInputTemplate<
   } = props;
   const { ClearButton } = registry.templates.ButtonTemplates;
   // Now we need to pull out the step, min, max into an inner `inputProps` for material-ui
-  const { step, min, max, accept, ...rest } = getInputProps<T, S, F>(schema, type, options);
+  const { step, min, max, accept, ...rest } = getInputProps<T, S, F>(
+    schema,
+    type,
+    options,
+  );
   const htmlInputProps = {
     ...slotProps?.htmlInput,
     step,
@@ -67,9 +71,11 @@ export default function BaseInputTemplate<
     ...(schema.examples ? { list: examplesId(id) } : undefined),
   };
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.value);
   const DisplayInputLabelProps = TYPES_THAT_SHRINK_LABEL.includes(type)
     ? { ...slotProps?.inputLabel, ...InputLabelProps, shrink: true }
     : { ...slotProps?.inputLabel, ...InputLabelProps };
@@ -77,14 +83,14 @@ export default function BaseInputTemplate<
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
   const inputProps = { ...InputProps, ...slotProps?.input };
   if (options.allowClearTextInputs && value && !readonly && !disabled) {
     const clearAdornment = (
-      <InputAdornment position='end'>
+      <InputAdornment position="end">
         <ClearButton registry={registry} onClick={_onClear} />
       </InputAdornment>
     );
@@ -115,7 +121,7 @@ export default function BaseInputTemplate<
           inputLabel: DisplayInputLabelProps,
         }}
         {...rest}
-        value={value || value === 0 ? value : ''}
+        value={value || value === 0 ? value : ""}
         error={rawErrors.length > 0}
         onChange={onChangeOverride || _onChange}
         onBlur={_onBlur}
@@ -126,7 +132,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) && (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example: any) => {
               return <option key={example} value={example} />;
             })}

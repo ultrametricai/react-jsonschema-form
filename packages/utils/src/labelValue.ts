@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 /** Helper function that will return the value to use for a widget `label` based on `hideLabel`. The `fallback` is used
  * as the return value from the function when `hideLabel` is true. Due to the implementation of theme components, it
@@ -11,9 +11,21 @@ import { ReactElement } from 'react';
  * @returns - `fallback` if `hideLabel` is true, otherwise `label`
  */
 
-export default function labelValue(label?: string, hideLabel?: boolean, fallback?: ''): undefined | string;
-export default function labelValue(label?: string, hideLabel?: boolean, fallback?: false): undefined | false | string;
-export default function labelValue(label?: ReactElement, hideLabel?: boolean, fallback?: ''): undefined | ReactElement;
+export default function labelValue(
+  label?: string,
+  hideLabel?: boolean,
+  fallback?: "",
+): undefined | string;
+export default function labelValue(
+  label?: string,
+  hideLabel?: boolean,
+  fallback?: false,
+): undefined | false | string;
+export default function labelValue(
+  label?: ReactElement,
+  hideLabel?: boolean,
+  fallback?: "",
+): undefined | ReactElement;
 export default function labelValue(
   label?: ReactElement,
   hideLabel?: boolean,
@@ -22,7 +34,7 @@ export default function labelValue(
 export default function labelValue(
   label?: string | ReactElement,
   hideLabel?: boolean,
-  fallback?: false | '',
+  fallback?: false | "",
 ): undefined | false | string | ReactElement {
   return hideLabel ? fallback : label;
 }

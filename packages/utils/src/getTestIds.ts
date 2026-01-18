@@ -1,7 +1,7 @@
-import get from 'lodash/get';
-import uniqueId from 'lodash/uniqueId';
+import get from "lodash/get";
+import uniqueId from "lodash/uniqueId";
 
-import { TestIdShape } from './types';
+import { TestIdShape } from "./types";
 
 /** Returns an object of test IDs that can only be used in test mode. If the function is called in a test environment
  * (`NODE_ENV === 'test'`, this is set by jest) then a Proxy object will be returned. If a key within the returned
@@ -21,7 +21,10 @@ import { TestIdShape } from './types';
 export default function getTestIds(): TestIdShape {
   // For some reason, even though process.env contains the value of `test` for NODE_ENV, accessing it directly returns
   // 'development'. Using `get()` does, in fact, return test so sticking with it
-  if (typeof process === 'undefined' || get(process, 'env.NODE_ENV') !== 'test') {
+  if (
+    typeof process === "undefined" ||
+    get(process, "env.NODE_ENV") !== "test"
+  ) {
     return {};
   }
 
@@ -31,7 +34,7 @@ export default function getTestIds(): TestIdShape {
     {
       get(_obj, prop) {
         if (!ids.has(prop)) {
-          ids.set(prop, uniqueId('test-id-'));
+          ids.set(prop, uniqueId("test-id-"));
         }
         return ids.get(prop);
       },

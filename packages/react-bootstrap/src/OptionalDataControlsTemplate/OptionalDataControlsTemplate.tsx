@@ -1,7 +1,12 @@
-import { FormContextType, OptionalDataControlsTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { BsPlus } from '@react-icons/all-files/bs/BsPlus';
+import {
+  FormContextType,
+  OptionalDataControlsTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { BsPlus } from "@react-icons/all-files/bs/BsPlus";
 
-import IconButton, { RemoveButton } from '../IconButton';
+import IconButton, { RemoveButton } from "../IconButton";
 
 /** The OptionalDataControlsTemplate renders one of three different states. If
  * there is an `onAddClick()` function, it renders the "Add" button. If there is
@@ -22,12 +27,12 @@ export default function OptionalDataControlsTemplate<
       <IconButton
         id={id}
         registry={registry}
-        className='rjsf-add-optional-data'
+        className="rjsf-add-optional-data"
         icon={<BsPlus />}
         onClick={onAddClick}
         title={label}
-        size='sm'
-        variant='secondary'
+        size="sm"
+        variant="secondary"
       />
     );
   } else if (onRemoveClick) {
@@ -35,11 +40,11 @@ export default function OptionalDataControlsTemplate<
       <RemoveButton
         id={id}
         registry={registry}
-        className='rjsf-remove-optional-data'
+        className="rjsf-remove-optional-data"
         onClick={onRemoveClick}
         title={label}
-        size='sm'
-        variant='secondary'
+        size="sm"
+        variant="secondary"
       />
     );
   }

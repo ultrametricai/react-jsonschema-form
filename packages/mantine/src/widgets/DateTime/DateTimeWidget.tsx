@@ -1,6 +1,11 @@
-import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
 
-import DateTimeInput from './DateTimeInput';
+import DateTimeInput from "./DateTimeInput";
 
 /** The `DateWidget` component uses the `DateTimeInput` changing the valueFormat to show `datetime`
  *
@@ -11,7 +16,11 @@ export default function DateTimeWidget<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: WidgetProps<T, S, F>) {
-  const { valueFormat = 'YYYY-MM-DD HH:mm:ss', displayFormat, ...otherOptions } = props.options;
+  const {
+    valueFormat = "YYYY-MM-DD HH:mm:ss",
+    displayFormat,
+    ...otherOptions
+  } = props.options;
 
   return (
     <DateTimeInput

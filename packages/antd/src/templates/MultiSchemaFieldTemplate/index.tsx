@@ -1,4 +1,9 @@
-import { FormContextType, MultiSchemaFieldTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  FormContextType,
+  MultiSchemaFieldTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 export default function MultiSchemaFieldTemplate<
   T = any,

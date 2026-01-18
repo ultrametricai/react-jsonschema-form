@@ -1,4 +1,4 @@
-import { Grid } from 'semantic-ui-react';
+import { Grid } from "semantic-ui-react";
 import {
   FormContextType,
   ObjectFieldTemplateProps,
@@ -10,7 +10,7 @@ import {
   getUiOptions,
   titleId,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` is the template to use to render all the inner properties of an object along with the
  * title and description if available. If the object is expandable, then an `AddButton` is also rendered after all
@@ -39,12 +39,17 @@ export default function ObjectFieldTemplate<
     registry,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -60,7 +65,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -75,18 +82,18 @@ export default function ObjectFieldTemplate<
       {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
       {properties.map((prop) => prop.content)}
       {canExpand<T, S, F>(schema, uiSchema, formData) && (
-        <Grid.Column width={16} verticalAlign='middle'>
+        <Grid.Column width={16} verticalAlign="middle">
           <Grid.Row>
             <div
               style={{
-                marginTop: '1rem',
-                position: 'relative',
-                textAlign: 'right',
+                marginTop: "1rem",
+                position: "relative",
+                textAlign: "right",
               }}
             >
               <AddButton
-                id={buttonId(fieldPathId, 'add')}
-                className='rjsf-object-property-expand'
+                id={buttonId(fieldPathId, "add")}
+                className="rjsf-object-property-expand"
                 onClick={onAddProperty}
                 disabled={disabled || readonly}
                 uiSchema={uiSchema}

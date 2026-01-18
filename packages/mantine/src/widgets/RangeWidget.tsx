@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   ariaDescribedByIds,
   rangeSpec,
@@ -7,19 +7,21 @@ import {
   StrictRJSFSchema,
   WidgetProps,
   titleId,
-} from '@rjsf/utils';
-import { Slider, Input } from '@mantine/core';
+} from "@rjsf/utils";
+import { Slider, Input } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `RangeWidget` component uses the `BaseInputTemplate` changing the type to `range` and wrapping the result
  * in a div, with the value alongside it.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function RangeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     name,
@@ -69,7 +71,9 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
           {label}
         </Input.Label>
       )}
-      {options?.description && <Input.Description>{options.description}</Input.Description>}
+      {options?.description && (
+        <Input.Description>{options.description}</Input.Description>
+      )}
       <Slider
         id={id}
         name={name}
@@ -88,7 +92,9 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
       {rawErrors &&
         rawErrors?.length > 0 &&
         rawErrors.map((error: string, index: number) => (
-          <Input.Error key={`range-widget-input-errors-${index}`}>{error}</Input.Error>
+          <Input.Error key={`range-widget-input-errors-${index}`}>
+            {error}
+          </Input.Error>
         ))}
     </>
   );

@@ -1,7 +1,12 @@
-import isEqual from 'lodash/isEqual';
+import isEqual from "lodash/isEqual";
 
-import { FormContextType, Registry, RJSFSchema, StrictRJSFSchema } from './types';
-import { REF_KEY } from './constants';
+import {
+  FormContextType,
+  Registry,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "./types";
+import { REF_KEY } from "./constants";
 
 /** Helper to check whether a JSON schema object is the root schema. The schema is a root schema with root `properties`
  * key or a root `$ref` key. If the `schemaToCompare` has a root `oneOf` property, the function will
@@ -14,10 +19,11 @@ import { REF_KEY } from './constants';
  *        function will return true.
  * @returns - Flag indicating whether the `schemaToCompare` is the root schema
  */
-export default function isRootSchema<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  registry: Registry<T, S, F>,
-  schemaToCompare: S,
-): boolean {
+export default function isRootSchema<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(registry: Registry<T, S, F>, schemaToCompare: S): boolean {
   const { rootSchema, schemaUtils } = registry;
   if (isEqual(schemaToCompare, rootSchema)) {
     return true;

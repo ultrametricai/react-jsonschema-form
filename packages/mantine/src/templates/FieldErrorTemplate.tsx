@@ -1,5 +1,11 @@
-import { errorId, FieldErrorProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { Box, List } from '@mantine/core';
+import {
+  errorId,
+  FieldErrorProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { Box, List } from "@mantine/core";
 
 /** The `FieldErrorTemplate` component renders the errors local to the particular field
  *
@@ -16,7 +22,7 @@ export default function FieldErrorTemplate<
   // In mantine, errors are handled directly in each component, so there is no need to render a separate error template.
   const id = errorId(fieldPathId);
   return (
-    <Box id={id} c='red' display='none'>
+    <Box id={id} c="red" display="none">
       <List>
         {errors.map((error, index) => (
           <List.Item key={`field-error-${index}`}>{error}</List.Item>

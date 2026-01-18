@@ -1,17 +1,17 @@
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
-import { styled } from '@mui/material/styles';
-import Accordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MonacoEditor from '@monaco-editor/react';
-import { ErrorSchema, RJSFSchema, UiSchema } from '@rjsf/utils';
-import isEqualWith from 'lodash/isEqualWith';
+import { Dispatch, SetStateAction, useCallback, useState } from "react";
+import { styled } from "@mui/material/styles";
+import Accordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MonacoEditor from "@monaco-editor/react";
+import { ErrorSchema, RJSFSchema, UiSchema } from "@rjsf/utils";
+import isEqualWith from "lodash/isEqualWith";
 
-import ThemeSelector, { ThemesType } from './ThemeSelector';
-import SubthemeSelector, { SubthemeType } from './SubthemeSelector';
+import ThemeSelector, { ThemesType } from "./ThemeSelector";
+import SubthemeSelector, { SubthemeType } from "./SubthemeSelector";
 
 const monacoEditorOptions = {
   minimap: {
@@ -21,7 +21,7 @@ const monacoEditorOptions = {
 };
 
 const AccordionSummary = styled(MuiAccordionSummary)({
-  '.MuiAccordionSummary-content': {
+  ".MuiAccordionSummary-content": {
     margin: 0,
   },
 });
@@ -52,19 +52,19 @@ function Editor({ title, code, onChange }: EditorProps) {
     [setValid, onChange],
   );
 
-  const icon = valid ? 'ok' : 'remove';
-  const cls = valid ? 'valid' : 'invalid';
+  const icon = valid ? "ok" : "remove";
+  const cls = valid ? "valid" : "invalid";
 
   return (
-    <div className='panel panel-default'>
-      <div className='panel-heading'>
+    <div className="panel panel-default">
+      <div className="panel-heading">
         <span className={`${cls} glyphicon glyphicon-${icon}`} />
-        {' ' + title}
+        {" " + title}
       </div>
       <MonacoEditor
-        language='json'
+        language="json"
         value={code}
-        theme='vs-light'
+        theme="vs-light"
         onChange={onCodeChange}
         height={400}
         options={monacoEditorOptions}
@@ -159,23 +159,36 @@ export default function Editors({
     },
     [setExtraErrors, setShareURL],
   );
-  const uiSchemaTitle = hasUiSchemaGenerator ? 'UISchema (regenerated on theme change)' : 'UiSchema';
+  const uiSchemaTitle = hasUiSchemaGenerator
+    ? "UISchema (regenerated on theme change)"
+    : "UiSchema";
 
   return (
     <Accordion defaultExpanded disableGutters>
-      <AccordionSummary expandIcon={<ExpandMoreIcon fontSize='large' />} title='Toggle Editors'>
-        <Grid container spacing={1} sx={{ width: '100%' }}>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon fontSize="large" />}
+        title="Toggle Editors"
+      >
+        <Grid container spacing={1} sx={{ width: "100%" }}>
           <Grid size={6}>
-            <Typography component='div' variant='h2' sx={{ pr: 1 }}>
+            <Typography component="div" variant="h2" sx={{ pr: 1 }}>
               react-jsonschema-form
             </Typography>
           </Grid>
           <Grid size={3}>
-            <ThemeSelector themes={themes} theme={theme} select={onThemeSelected} />
+            <ThemeSelector
+              themes={themes}
+              theme={theme}
+              select={onThemeSelected}
+            />
           </Grid>
           <Grid size={3}>
             {themes[theme] && themes[theme].subthemes && (
-              <SubthemeSelector subthemes={themes[theme].subthemes!} subtheme={subtheme} select={onSubthemeSelected} />
+              <SubthemeSelector
+                subthemes={themes[theme].subthemes!}
+                subtheme={subtheme}
+                select={onSubthemeSelected}
+              />
             )}
           </Grid>
         </Grid>
@@ -183,17 +196,33 @@ export default function Editors({
       <AccordionDetails sx={{ p: 0 }}>
         <Grid container spacing={0.5}>
           <Grid size={extraErrors ? 3 : 4}>
-            <Editor title='JSONSchema' code={toJson(schema)} onChange={onSchemaEdited} />
+            <Editor
+              title="JSONSchema"
+              code={toJson(schema)}
+              onChange={onSchemaEdited}
+            />
           </Grid>
           <Grid size={extraErrors ? 3 : 4}>
-            <Editor title={uiSchemaTitle} code={toJson(uiSchema)} onChange={onUISchemaEdited} />
+            <Editor
+              title={uiSchemaTitle}
+              code={toJson(uiSchema)}
+              onChange={onUISchemaEdited}
+            />
           </Grid>
           <Grid size={extraErrors ? 3 : 4}>
-            <Editor title='formData' code={toJson(formData)} onChange={onFormDataEdited} />
+            <Editor
+              title="formData"
+              code={toJson(formData)}
+              onChange={onFormDataEdited}
+            />
           </Grid>
           {extraErrors && (
             <Grid size={3}>
-              <Editor title='extraErrors' code={toJson(extraErrors || {})} onChange={onExtraErrorsEdited} />
+              <Editor
+                title="extraErrors"
+                code={toJson(extraErrors || {})}
+                onChange={onExtraErrorsEdited}
+              />
             </Grid>
           )}
         </Grid>

@@ -1,9 +1,20 @@
-import { FluentProvider, RendererProvider, createDOMRenderer, teamsLightTheme } from '@fluentui/react-components';
-import { ReactNode, useMemo } from 'react';
+import {
+  FluentProvider,
+  RendererProvider,
+  createDOMRenderer,
+  teamsLightTheme,
+} from "@fluentui/react-components";
+import { ReactNode, useMemo } from "react";
 
-const FluentWrapper = (props: { children: ReactNode; targetDocument?: HTMLDocument }) => {
+const FluentWrapper = (props: {
+  children: ReactNode;
+  targetDocument?: HTMLDocument;
+}) => {
   const { children, targetDocument } = props;
-  const renderer = useMemo(() => createDOMRenderer(targetDocument), [targetDocument]);
+  const renderer = useMemo(
+    () => createDOMRenderer(targetDocument),
+    [targetDocument],
+  );
 
   return (
     <RendererProvider renderer={renderer} targetDocument={targetDocument}>
@@ -17,5 +28,7 @@ const FluentWrapper = (props: { children: ReactNode; targetDocument?: HTMLDocume
 export const __createFluentUIRCFrameProvider =
   (props: any) =>
   ({ document }: any) => {
-    return <FluentWrapper targetDocument={document}>{props.children}</FluentWrapper>;
+    return (
+      <FluentWrapper targetDocument={document}>{props.children}</FluentWrapper>
+    );
   };

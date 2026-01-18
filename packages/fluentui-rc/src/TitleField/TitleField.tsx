@@ -1,11 +1,16 @@
-import { Flex } from '@fluentui/react-migration-v0-v9';
-import { Text, Divider, makeStyles } from '@fluentui/react-components';
-import { FormContextType, TitleFieldProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import { Flex } from "@fluentui/react-migration-v0-v9";
+import { Text, Divider, makeStyles } from "@fluentui/react-components";
+import {
+  FormContextType,
+  TitleFieldProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
   root: {
-    marginTop: '8px',
-    marginBottom: '8px',
+    marginTop: "8px",
+    marginBottom: "8px",
   },
 });
 
@@ -13,14 +18,14 @@ const useStyles = makeStyles({
  *
  * @param props - The `TitleFieldProps` for this component
  */
-export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
-  id,
-  title,
-  optionalDataControl,
-}: TitleFieldProps<T, S, F>) {
+export default function TitleField<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({ id, title, optionalDataControl }: TitleFieldProps<T, S, F>) {
   const classes = useStyles();
   let heading = (
-    <Text as='h5' size={600} style={{ marginBlock: 0 }}>
+    <Text as="h5" size={600} style={{ marginBlock: 0 }}>
       {title}
     </Text>
   );
@@ -28,7 +33,7 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
     heading = (
       <Flex>
         <Flex fill>{heading}</Flex>
-        <Flex hAlign='end'>{optionalDataControl}</Flex>
+        <Flex hAlign="end">{optionalDataControl}</Flex>
       </Flex>
     );
   }

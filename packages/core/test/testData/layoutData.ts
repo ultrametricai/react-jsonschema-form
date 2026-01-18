@@ -1,31 +1,31 @@
-import { EnumOptionsType, RJSFSchema, UiSchema } from '@rjsf/utils';
+import { EnumOptionsType, RJSFSchema, UiSchema } from "@rjsf/utils";
 
 export const SIMPLE_ONEOF: RJSFSchema = {
-  title: 'Simple',
-  type: 'object',
+  title: "Simple",
+  type: "object",
   discriminator: {
-    propertyName: 'answer',
+    propertyName: "answer",
   },
   oneOf: [
     {
-      title: 'Choice 1',
-      type: 'object',
+      title: "Choice 1",
+      type: "object",
       properties: {
         answer: {
-          type: 'string',
-          default: '1',
+          type: "string",
+          default: "1",
           readOnly: true,
         },
       },
-      required: ['answer'],
+      required: ["answer"],
     },
     {
-      title: 'Choice 2',
-      type: 'object',
+      title: "Choice 2",
+      type: "object",
       properties: {
         answer: {
-          type: 'string',
-          default: '2',
+          type: "string",
+          default: "2",
           readOnly: true,
         },
       },
@@ -33,42 +33,42 @@ export const SIMPLE_ONEOF: RJSFSchema = {
   ],
 };
 export const SAMPLE_SCHEMA: RJSFSchema = {
-  title: 'My Title',
-  description: 'a storybook Material UI form',
-  type: 'object',
+  title: "My Title",
+  description: "a storybook Material UI form",
+  type: "object",
   definitions: {
     str: {
-      type: 'string',
+      type: "string",
       default: null,
     },
     int: {
-      type: 'integer',
+      type: "integer",
       default: null,
     },
     float: {
-      type: 'number',
+      type: "number",
       default: null,
     },
   },
   properties: {
     simpleString: {
-      $ref: '#/definitions/str',
+      $ref: "#/definitions/str",
     },
     simpleInt: {
-      $ref: '#/definitions/int',
+      $ref: "#/definitions/int",
     },
     ranges: {
-      type: 'object',
+      type: "object",
       properties: {
         int: {
-          $ref: '#/definitions/int',
+          $ref: "#/definitions/int",
           default: 1000,
           minimum: 1000,
           maximum: 10000,
           multipleOf: 1000,
         },
         float: {
-          $ref: '#/definitions/float',
+          $ref: "#/definitions/float",
           default: 100.0,
           minimum: 100.0,
           maximum: 1000.0,
@@ -77,14 +77,14 @@ export const SAMPLE_SCHEMA: RJSFSchema = {
       },
     },
   },
-  required: ['ranges'],
+  required: ["ranges"],
 };
 export const sampleUISchema: UiSchema = {
   simpleString: {
-    'ui:placeholder': 'Enter a string',
+    "ui:placeholder": "Enter a string",
   },
 };
 export const SIMPLE_ONEOF_OPTIONS: EnumOptionsType[] = [
-  { label: 'Choice 1', value: '1' },
-  { label: 'Choice 2', value: '2' },
+  { label: "Choice 1", value: "1" },
+  { label: "Choice 2", value: "2" },
 ];

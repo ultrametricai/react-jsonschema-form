@@ -8,12 +8,12 @@
  *
  * Then add the two updated `superSchema.cjs` and `superSchemaOptions.cjs` files to your PR
  */
-import { RJSFSchema } from '@rjsf/utils';
-import additionalMetaSchema from 'ajv/lib/refs/json-schema-draft-06.json';
+import { RJSFSchema } from "@rjsf/utils";
+import additionalMetaSchema from "ajv/lib/refs/json-schema-draft-06.json";
 
-import compileSchemaValidators from '../../src/compileSchemaValidators';
-import superSchemaObj from './superSchema.json';
-import { CustomValidatorOptionsType } from '../../src';
+import compileSchemaValidators from "../../src/compileSchemaValidators";
+import superSchemaObj from "./superSchema.json";
+import { CustomValidatorOptionsType } from "../../src";
 
 const superSchema = superSchemaObj as unknown as RJSFSchema;
 
@@ -21,17 +21,21 @@ const superSchema = superSchemaObj as unknown as RJSFSchema;
 const options: CustomValidatorOptionsType = {
   additionalMetaSchemas: [additionalMetaSchema],
   customFormats: {
-    'phone-us': /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
-    'area-code': /\d{3}/,
+    "phone-us": /\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{4}$/,
+    "area-code": /\d{3}/,
   },
   ajvOptionsOverrides: { $data: true, verbose: true, code: { lines: false } },
   ajvFormatOptions: {
-    mode: 'fast',
+    mode: "fast",
   },
 };
 
 // Since these are expected to be run via the `npm run compileSchemas` script from the root directory add the output
 // path to the directory where this file resides
-compileSchemaValidators(superSchema, './test/harness/superSchema.cjs');
+compileSchemaValidators(superSchema, "./test/harness/superSchema.cjs");
 
-compileSchemaValidators(superSchema, './test/harness/superSchemaOptions.cjs', options);
+compileSchemaValidators(
+  superSchema,
+  "./test/harness/superSchemaOptions.cjs",
+  options,
+);

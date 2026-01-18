@@ -1,18 +1,18 @@
-import { gridTests } from '@rjsf/snapshot-tests';
+import { gridTests } from "@rjsf/snapshot-tests";
 
-import Form from '../src';
+import Form from "../src";
 
 // Mock PrimeReact components that use parentElement or real DOM
-jest.mock('primereact/dropdown', () => ({
+jest.mock("primereact/dropdown", () => ({
   Dropdown: (props: Record<string, any>) => <select {...props} />,
 }));
 
-jest.mock('primereact/multiselect', () => ({
+jest.mock("primereact/multiselect", () => ({
   MultiSelect: (props: Record<string, any>) => <select multiple {...props} />,
 }));
 
-jest.mock('primereact/slider', () => ({
-  Slider: (props: Record<string, any>) => <input type='range' {...props} />,
+jest.mock("primereact/slider", () => ({
+  Slider: (props: Record<string, any>) => <input type="range" {...props} />,
 }));
 
 gridTests(Form, {
@@ -23,49 +23,60 @@ gridTests(Form, {
   Row2Columns: {},
   Row3Columns: {},
   ComplexUiSchema: {
-    'ui:field': 'LayoutGridField',
-    'ui:layoutGrid': {
-      'ui:row': {
+    "ui:field": "LayoutGridField",
+    "ui:layoutGrid": {
+      "ui:row": {
         children: [
           {
-            'ui:col': {
-              children: ['person'],
+            "ui:col": {
+              children: ["person"],
             },
           },
           {
-            'ui:columns': {
+            "ui:columns": {
               xs: 4,
-              children: ['person.name.first', 'person.name.middle', 'person.name.last'],
+              children: [
+                "person.name.first",
+                "person.name.middle",
+                "person.name.last",
+              ],
             },
           },
           {
-            'ui:col': {
+            "ui:col": {
               sm: 4,
-              children: ['person.birth_date'],
+              children: ["person.birth_date"],
             },
           },
           {
-            'ui:col': {
+            "ui:col": {
               sm: 8,
-              children: ['person.race'],
+              children: ["person.race"],
             },
           },
           {
-            'ui:col': {
+            "ui:col": {
               sm: 6,
               children: [
                 {
-                  'ui:row': {
+                  "ui:row": {
                     children: [
                       {
-                        'ui:columns': {
-                          children: ['person.address.line_1', 'person.address.line_2', 'person.address.city'],
+                        "ui:columns": {
+                          children: [
+                            "person.address.line_1",
+                            "person.address.line_2",
+                            "person.address.city",
+                          ],
                         },
                       },
                       {
-                        'ui:columns': {
+                        "ui:columns": {
                           sm: 6,
-                          children: ['person.address.state', 'person.address.postal_code'],
+                          children: [
+                            "person.address.state",
+                            "person.address.postal_code",
+                          ],
                         },
                       },
                     ],
@@ -75,76 +86,83 @@ gridTests(Form, {
             },
           },
           {
-            'ui:col': {
+            "ui:col": {
               sm: 6,
               children: [
                 {
-                  'ui:row': {
+                  "ui:row": {
                     children: [
                       {
-                        'ui:columns': {
-                          children: ['employment'],
+                        "ui:columns": {
+                          children: ["employment"],
                         },
                       },
                       {
-                        'ui:condition': {
-                          field: 'employment.job_type',
-                          value: 'company',
-                          operator: 'all',
+                        "ui:condition": {
+                          field: "employment.job_type",
+                          value: "company",
+                          operator: "all",
                           children: [
                             {
-                              'ui:columns': {
-                                children: ['employment.business', 'employment.title'],
+                              "ui:columns": {
+                                children: [
+                                  "employment.business",
+                                  "employment.title",
+                                ],
                               },
                             },
                             {
-                              'ui:col': {
-                                children: ['employment.location.city'],
+                              "ui:col": {
+                                children: ["employment.location.city"],
                               },
                             },
                             {
-                              'ui:col': {
-                                children: ['employment.location.state'],
+                              "ui:col": {
+                                children: ["employment.location.state"],
                               },
                             },
                           ],
                         },
                       },
                       {
-                        'ui:condition': {
-                          field: 'employment.job_type',
-                          value: 'education',
-                          operator: 'all',
+                        "ui:condition": {
+                          field: "employment.job_type",
+                          value: "education",
+                          operator: "all",
                           children: [
                             {
-                              'ui:columns': {
-                                children: ['employment.district', 'employment.school', 'employment.title'],
+                              "ui:columns": {
+                                children: [
+                                  "employment.district",
+                                  "employment.school",
+                                  "employment.title",
+                                ],
                               },
                             },
                             {
-                              'ui:col': {
-                                children: ['employment.location.city'],
+                              "ui:col": {
+                                children: ["employment.location.city"],
                               },
                             },
                             {
-                              'ui:col': {
-                                children: ['employment.location.state'],
+                              "ui:col": {
+                                children: ["employment.location.state"],
                               },
                             },
                           ],
                         },
                       },
                       {
-                        'ui:condition': {
-                          field: 'employment.job_type',
-                          value: 'other',
-                          operator: 'all',
+                        "ui:condition": {
+                          field: "employment.job_type",
+                          value: "other",
+                          operator: "all",
                           children: [
                             {
-                              'ui:columns': {
+                              "ui:columns": {
                                 children: [
                                   {
-                                    name: 'employment.description',
+                                    name: "employment.description",
                                     rows: 6,
                                   },
                                 ],
@@ -163,22 +181,22 @@ gridTests(Form, {
       },
     },
     person: {
-      'ui:field': 'LayoutHeaderField',
+      "ui:field": "LayoutHeaderField",
       race: {
-        'ui:options': {
-          widget: 'checkboxes',
+        "ui:options": {
+          widget: "checkboxes",
         },
       },
       address: {
-        'ui:field': 'LayoutGridField',
+        "ui:field": "LayoutGridField",
       },
     },
     employment: {
-      'ui:options': {
+      "ui:options": {
         inline: true,
       },
       description: {
-        'ui:widget': 'textarea',
+        "ui:widget": "textarea",
       },
     },
   },

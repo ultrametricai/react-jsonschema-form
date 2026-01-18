@@ -1,4 +1,10 @@
-import { FallbackFieldTemplateProps, FormContextType, getTemplate, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  FallbackFieldTemplateProps,
+  FormContextType,
+  getTemplate,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 /**
  * The `FallbackFieldTemplate` is used to render a field when no field matches. The field renders a type selector and
@@ -12,10 +18,12 @@ export default function FallbackFieldTemplate<
   const { schema, registry, typeSelector, schemaField } = props;
 
   // By default, use the MultiSchemaFieldTemplate, which handles the same basic requirements.
-  const MultiSchemaFieldTemplate = getTemplate<'MultiSchemaFieldTemplate', T, S, F>(
-    'MultiSchemaFieldTemplate',
-    registry,
-  );
+  const MultiSchemaFieldTemplate = getTemplate<
+    "MultiSchemaFieldTemplate",
+    T,
+    S,
+    F
+  >("MultiSchemaFieldTemplate", registry);
 
   return (
     <MultiSchemaFieldTemplate

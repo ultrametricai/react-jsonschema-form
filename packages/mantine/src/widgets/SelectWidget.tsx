@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback, useMemo } from 'react';
+import { FocusEvent, useCallback, useMemo } from "react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -8,19 +8,21 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Select, MultiSelect } from '@mantine/core';
+} from "@rjsf/utils";
+import { Select, MultiSelect } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `SelectWidget` is a widget for rendering dropdowns.
  *  It is typically used with string properties constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function SelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     htmlName,
@@ -46,7 +48,9 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
   const handleChange = useCallback(
     (nextValue: any) => {
       if (!disabled && !readonly && onChange) {
-        onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
+        onChange(
+          enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue),
+        );
       }
     },
     [onChange, disabled, readonly, enumOptions, emptyValue],
@@ -55,7 +59,14 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
   const handleBlur = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onBlur) {
-        onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+        onBlur(
+          id,
+          enumOptionsValueForIndex<S>(
+            target && target.value,
+            enumOptions,
+            emptyValue,
+          ),
+        );
       }
     },
     [onBlur, id, enumOptions, emptyValue],
@@ -64,13 +75,24 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
   const handleFocus = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
-        onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+        onFocus(
+          id,
+          enumOptionsValueForIndex<S>(
+            target && target.value,
+            enumOptions,
+            emptyValue,
+          ),
+        );
       }
     },
     [onFocus, id, enumOptions, emptyValue],
   );
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, multiple);
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    multiple,
+  );
 
   const selectOptions = useMemo(() => {
     if (Array.isArray(enumOptions)) {
@@ -78,7 +100,9 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
         key: String(index),
         value: String(index),
         label: option.label,
-        disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1,
+        disabled:
+          Array.isArray(enumDisabled) &&
+          enumDisabled.indexOf(option.value) !== -1,
       }));
     }
     return [];
@@ -100,7 +124,9 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
       placeholder={placeholder}
       disabled={disabled || readonly}
       required={required}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       searchable
       {...themeProps}
       aria-describedby={ariaDescribedByIds(id)}

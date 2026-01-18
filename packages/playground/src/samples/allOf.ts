@@ -1,13 +1,13 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const allOf: Sample = {
   schema: {
-    type: 'object',
+    type: "object",
     allOf: [
       {
         properties: {
           lorem: {
-            type: ['string', 'boolean'],
+            type: ["string", "boolean"],
             default: true,
           },
         },
@@ -15,10 +15,10 @@ const allOf: Sample = {
       {
         properties: {
           lorem: {
-            type: 'boolean',
+            type: "boolean",
           },
           ipsum: {
-            type: 'string',
+            type: "string",
           },
         },
       },

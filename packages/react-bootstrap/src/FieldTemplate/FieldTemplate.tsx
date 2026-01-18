@@ -5,8 +5,8 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import Form from 'react-bootstrap/Form';
+} from "@rjsf/utils";
+import Form from "react-bootstrap/Form";
 
 export default function FieldTemplate<
   T = any,
@@ -36,15 +36,16 @@ export default function FieldTemplate<
   registry,
 }: FieldTemplateProps<T, S, F>) {
   const uiOptions = getUiOptions(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
   if (hidden) {
-    return <div className='hidden'>{children}</div>;
+    return <div className="hidden">{children}</div>;
   }
-  const isCheckbox = uiOptions.widget === 'checkbox';
+  const isCheckbox = uiOptions.widget === "checkbox";
 
   return (
     <WrapIfAdditionalTemplate
@@ -66,14 +67,21 @@ export default function FieldTemplate<
     >
       <Form.Group>
         {displayLabel && !isCheckbox && (
-          <Form.Label htmlFor={id} className={rawErrors.length > 0 ? 'text-danger' : ''}>
+          <Form.Label
+            htmlFor={id}
+            className={rawErrors.length > 0 ? "text-danger" : ""}
+          >
             {label}
-            {required ? '*' : null}
+            {required ? "*" : null}
           </Form.Label>
         )}
         {children}
         {displayLabel && rawDescription && !isCheckbox && (
-          <Form.Text className={rawErrors.length > 0 ? 'text-danger' : 'text-muted'}>{description}</Form.Text>
+          <Form.Text
+            className={rawErrors.length > 0 ? "text-danger" : "text-muted"}
+          >
+            {description}
+          </Form.Text>
         )}
         {errors}
         {help}

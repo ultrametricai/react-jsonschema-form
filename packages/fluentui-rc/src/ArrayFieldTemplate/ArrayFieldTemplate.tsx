@@ -1,5 +1,5 @@
-import { makeStyles, shorthands } from '@fluentui/react-components';
-import { Flex } from '@fluentui/react-migration-v0-v9';
+import { makeStyles, shorthands } from "@fluentui/react-components";
+import { Flex } from "@fluentui/react-migration-v0-v9";
 import {
   getTemplate,
   getUiOptions,
@@ -8,11 +8,11 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
   arrayItemList: {
-    ...shorthands.gap('12px'),
+    ...shorthands.gap("12px"),
   },
 });
 
@@ -41,16 +41,18 @@ export default function ArrayFieldTemplate<
   } = props;
   const classes = useStyles();
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldDescriptionTemplate = getTemplate<'ArrayFieldDescriptionTemplate', T, S, F>(
-    'ArrayFieldDescriptionTemplate',
-    registry,
-    uiOptions,
-  );
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldDescriptionTemplate = getTemplate<
+    "ArrayFieldDescriptionTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldDescriptionTemplate", registry, uiOptions);
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -65,7 +67,9 @@ export default function ArrayFieldTemplate<
         uiSchema={uiSchema}
         required={required}
         registry={registry}
-        optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+        optionalDataControl={
+          showOptionalDataControlInTitle ? optionalDataControl : undefined
+        }
       />
       <ArrayFieldDescriptionTemplate
         fieldPathId={fieldPathId}
@@ -74,14 +78,18 @@ export default function ArrayFieldTemplate<
         uiSchema={uiSchema}
         registry={registry}
       />
-      <Flex column key={`array-item-list-${fieldPathId.$id}`} className={classes.arrayItemList}>
+      <Flex
+        column
+        key={`array-item-list-${fieldPathId.$id}`}
+        className={classes.arrayItemList}
+      >
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {items}
         {canAdd && (
-          <Flex hAlign='end'>
+          <Flex hAlign="end">
             <AddButton
-              id={buttonId(fieldPathId, 'add')}
-              className='rjsf-array-item-add'
+              id={buttonId(fieldPathId, "add")}
+              className="rjsf-array-item-add"
               onClick={onAddClick}
               disabled={disabled || readonly}
               uiSchema={uiSchema}

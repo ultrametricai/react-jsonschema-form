@@ -1,4 +1,10 @@
-import { errorId, FieldErrorProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  errorId,
+  FieldErrorProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 /** The `FieldErrorTemplate` component renders the errors local to the particular field
  *
@@ -17,12 +23,12 @@ export default function FieldErrorTemplate<
 
   return (
     <div>
-      <ul id={id} className='error-detail bs-callout bs-callout-info'>
+      <ul id={id} className="error-detail bs-callout bs-callout-info">
         {errors
           .filter((elem) => !!elem)
           .map((error, index: number) => {
             return (
-              <li className='text-danger' key={index}>
+              <li className="text-danger" key={index}>
                 {error}
               </li>
             );

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Command as CommandPrimitive } from 'cmdk';
-import isEqual from 'lodash/isEqual';
-import { X } from 'lucide-react';
+import { Command as CommandPrimitive } from "cmdk";
+import isEqual from "lodash/isEqual";
+import { X } from "lucide-react";
 import {
   FocusEvent,
   FocusEventHandler,
@@ -12,11 +12,11 @@ import {
   useMemo,
   useRef,
   useState,
-} from 'react';
+} from "react";
 
-import { cn } from '../../lib/utils';
-import { Badge } from './badge';
-import { Command, CommandGroup, CommandItem, CommandList } from './command';
+import { cn } from "../../lib/utils";
+import { Badge } from "./badge";
+import { Command, CommandGroup, CommandItem, CommandList } from "./command";
 
 /**
  * Represents an item in the fancy multi-select dropdown
@@ -83,15 +83,22 @@ export function FancyMultiSelect({
 }: Readonly<FancyMultiSelectProps>): ReactElement {
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
 
   const selectedItems = useMemo(
-    () => items.filter((item) => selected.some((selectedValue) => isEqual(item.value, selectedValue))),
+    () =>
+      items.filter((item) =>
+        selected.some((selectedValue) => isEqual(item.value, selectedValue)),
+      ),
     [items, selected],
   );
 
   const selectables = useMemo(
-    () => items.filter((framework) => !selectedItems.some((item) => isEqual(item.value, framework.value))),
+    () =>
+      items.filter(
+        (framework) =>
+          !selectedItems.some((item) => isEqual(item.value, framework.value)),
+      ),
     [items, selectedItems],
   );
 
@@ -100,7 +107,9 @@ export function FancyMultiSelect({
       if (disabled) {
         return;
       }
-      const newSelected = selectedItems.filter((s) => !isEqual(s.value, framework.value));
+      const newSelected = selectedItems.filter(
+        (s) => !isEqual(s.value, framework.value),
+      );
       onValueChange?.(newSelected.map((item) => item.index));
     },
     [selectedItems, onValueChange, disabled],
@@ -108,14 +117,14 @@ export function FancyMultiSelect({
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent<HTMLDivElement>) => {
-      if (disabled || !inputRef.current || inputRef.current.value !== '') {
+      if (disabled || !inputRef.current || inputRef.current.value !== "") {
         return;
       }
 
-      if (e.key === 'Delete' || e.key === 'Backspace') {
+      if (e.key === "Delete" || e.key === "Backspace") {
         const newSelected = selectedItems.slice(0, -1);
         onValueChange?.(newSelected.map((item) => item.index));
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         inputRef.current.blur();
       }
     },
@@ -127,7 +136,7 @@ export function FancyMultiSelect({
       if (disabled) {
         return;
       }
-      setInputValue('');
+      setInputValue("");
       const newSelected = multiple ? [...selectedItems, item] : [item];
       onValueChange?.(newSelected.map((item) => item.index));
     },
@@ -147,7 +156,7 @@ export function FancyMultiSelect({
   return (
     <Command
       onKeyDown={handleKeyDown}
-      className={cn('overflow-visible bg-transparent', className)}
+      className={cn("overflow-visible bg-transparent", className)}
       autoFocus={autoFocus}
       aria-disabled={disabled}
       onBlur={onBlur}
@@ -157,18 +166,20 @@ export function FancyMultiSelect({
     >
       <div
         className={cn(
-          'group border border-input px-3 py-2 text-sm ring-offset-background rounded-md focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-1',
-          disabled && 'opacity-50 cursor-not-allowed',
+          "group border border-input px-3 py-2 text-sm ring-offset-background rounded-md focus-within:ring-1 focus-within:ring-ring focus-within:ring-offset-1",
+          disabled && "opacity-50 cursor-not-allowed",
         )}
       >
-        <div className='flex gap-1 flex-wrap'>
+        <div className="flex gap-1 flex-wrap">
           {selectedItems.map((item) => (
-            <Badge key={item.value} variant='secondary'>
+            <Badge key={item.value} variant="secondary">
               {item.label}
               <button
-                type='button'
-                className='rtl:mr-1 ltr:ml-1 ring-offset-background rounded-full outline-none focus:ring-1 focus:ring-ring focus:ring-offset-1'
-                onKeyDown={(e) => e.key === 'Enter' && !disabled && handleUnselect(item)}
+                type="button"
+                className="rtl:mr-1 ltr:ml-1 ring-offset-background rounded-full outline-none focus:ring-1 focus:ring-ring focus:ring-offset-1"
+                onKeyDown={(e) =>
+                  e.key === "Enter" && !disabled && handleUnselect(item)
+                }
                 onMouseDown={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -178,8 +189,8 @@ export function FancyMultiSelect({
               >
                 <X
                   className={cn(
-                    'h-3 w-3 text-muted-foreground hover:text-foreground',
-                    disabled && 'pointer-events-none',
+                    "h-3 w-3 text-muted-foreground hover:text-foreground",
+                    disabled && "pointer-events-none",
                   )}
                 />
               </button>
@@ -191,8 +202,8 @@ export function FancyMultiSelect({
             onValueChange={setInputValue}
             onBlur={() => setOpen(false)}
             onFocus={() => !disabled && setOpen(true)}
-            placeholder='Select ...'
-            className='rtl:mr-2 ltr:ml-2 bg-transparent outline-none placeholder:text-muted-foreground flex-1'
+            placeholder="Select ..."
+            className="rtl:mr-2 ltr:ml-2 bg-transparent outline-none placeholder:text-muted-foreground flex-1"
             disabled={disabled}
             aria-controls={`command-item-input-${id}`}
             aria-labelledby={`command-item-input-${id}`}
@@ -201,9 +212,9 @@ export function FancyMultiSelect({
         </div>
       </div>
       {open && !disabled && selectables.length > 0 && (
-        <div className='relative mt-2'>
-          <div className='absolute w-full z-10 top-0 rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in'>
-            <CommandGroup className='h-full overflow-auto'>
+        <div className="relative mt-2">
+          <div className="absolute w-full z-10 top-0 rounded-md border bg-popover text-popover-foreground shadow-md outline-none animate-in">
+            <CommandGroup className="h-full overflow-auto">
               <CommandList>
                 {selectables.map((item) => (
                   <CommandItem
@@ -217,7 +228,7 @@ export function FancyMultiSelect({
                     aria-labelledby={`${item.value}-command-item`}
                     id={`${item.value}-command-item`}
                     onSelect={() => handleSelect(item)}
-                    className='cursor-pointer'
+                    className="cursor-pointer"
                   >
                     {item.label}
                   </CommandItem>

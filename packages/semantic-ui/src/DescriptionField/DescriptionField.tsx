@@ -1,5 +1,10 @@
-import { DescriptionFieldProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { RichDescription } from '@rjsf/core';
+import {
+  DescriptionFieldProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { RichDescription } from "@rjsf/core";
 
 /** The `DescriptionField` is the template to use to render the description of a field
  *
@@ -15,8 +20,12 @@ export default function DescriptionField<
     return null;
   }
   return (
-    <p id={id} className='sui-description'>
-      <RichDescription description={description} registry={registry} uiSchema={uiSchema} />
+    <p id={id} className="sui-description">
+      <RichDescription
+        description={description}
+        registry={registry}
+        uiSchema={uiSchema}
+      />
     </p>
   );
 }

@@ -1,6 +1,6 @@
-import { arrayTests } from '@rjsf/snapshot-tests';
+import { arrayTests } from "@rjsf/snapshot-tests";
 
-import '../__mocks__/matchMedia.mock';
-import Form from '../src';
+import "../__mocks__/matchMedia.mock";
+import Form from "../src";
 
 arrayTests(Form);

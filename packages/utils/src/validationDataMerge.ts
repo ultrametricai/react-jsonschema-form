@@ -1,8 +1,8 @@
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from "lodash/isEmpty";
 
-import mergeObjects from './mergeObjects';
-import toErrorList from './toErrorList';
-import { ErrorSchema, ValidationData } from './types';
+import mergeObjects from "./mergeObjects";
+import toErrorList from "./toErrorList";
+import { ErrorSchema, ValidationData } from "./types";
 
 /** Merges the errors in `additionalErrorSchema` into the existing `validationData` by combining the hierarchies in the
  * two `ErrorSchema`s and then appending the error list from the `additionalErrorSchema` obtained by calling
@@ -29,7 +29,7 @@ export default function validationDataMerge<T = any>(
     errorSchema = mergeObjects(
       oldErrorSchema,
       additionalErrorSchema,
-      preventDuplicates ? 'preventDuplicates' : true,
+      preventDuplicates ? "preventDuplicates" : true,
     ) as ErrorSchema<T>;
     errors = [...oldErrors].concat(errors);
   }

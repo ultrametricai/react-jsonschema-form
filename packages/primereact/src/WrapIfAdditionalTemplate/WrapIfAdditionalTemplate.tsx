@@ -6,8 +6,8 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
-import { InputText } from 'primereact/inputtext';
+} from "@rjsf/utils";
+import { InputText } from "primereact/inputtext";
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -52,12 +52,20 @@ export default function WrapIfAdditionalTemplate<
   return (
     <div
       className={classNames}
-      style={{ ...style, display: 'flex', alignItems: 'flex-start', gap: '1rem' }}
+      style={{
+        ...style,
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "1rem",
+      }}
       key={`${id}-key`}
     >
       <div style={{ flex: 1 }}>
         {displayLabel && (
-          <label htmlFor={`${id}-key`} style={{ display: 'block', marginBottom: '0.5rem' }}>
+          <label
+            htmlFor={`${id}-key`}
+            style={{ display: "block", marginBottom: "0.5rem" }}
+          >
             {keyLabel}
           </label>
         )}
@@ -68,14 +76,20 @@ export default function WrapIfAdditionalTemplate<
           disabled={disabled || readonly}
           onBlur={!readonly ? onKeyRenameBlur : undefined}
           required={required}
-          style={{ width: '100%' }}
+          style={{ width: "100%" }}
         />
       </div>
       <div style={{ flex: 1 }}>{children}</div>
-      <div style={displayLabel ? { alignSelf: 'center', marginTop: `${margin}px` } : undefined}>
+      <div
+        style={
+          displayLabel
+            ? { alignSelf: "center", marginTop: `${margin}px` }
+            : undefined
+        }
+      >
         <RemoveButton
-          id={buttonId(id, 'remove')}
-          className='rjsf-object-property-remove'
+          id={buttonId(id, "remove")}
+          className="rjsf-object-property-remove"
           disabled={disabled || readonly}
           onClick={onRemoveProperty}
           registry={registry}

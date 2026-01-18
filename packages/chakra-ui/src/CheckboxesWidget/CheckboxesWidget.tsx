@@ -1,4 +1,10 @@
-import { CheckboxGroup, FieldsetRoot, Stack, Text, FieldsetLegend } from '@chakra-ui/react';
+import {
+  CheckboxGroup,
+  FieldsetRoot,
+  Stack,
+  Text,
+  FieldsetLegend,
+} from "@chakra-ui/react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -9,11 +15,11 @@ import {
   StrictRJSFSchema,
   WidgetProps,
   labelValue,
-} from '@rjsf/utils';
-import { FocusEvent } from 'react';
+} from "@rjsf/utils";
+import { FocusEvent } from "react";
 
-import { Checkbox } from '../components/ui/checkbox';
-import { getChakra } from '../utils';
+import { Checkbox } from "../components/ui/checkbox";
+import { getChakra } from "../utils";
 
 export default function CheckboxesWidget<
   T = any,
@@ -39,12 +45,30 @@ export default function CheckboxesWidget<
   const { enumOptions, enumDisabled, emptyValue } = options;
 
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement | any>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement | any>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const row = options ? options.inline : false;
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, true) as string[];
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    true,
+  ) as string[];
 
   const chakraProps = getChakra({ uiSchema });
 
@@ -55,18 +79,24 @@ export default function CheckboxesWidget<
       invalid={rawErrors && rawErrors.length > 0}
       {...(chakraProps as any)}
     >
-      {!hideLabel && label && <FieldsetLegend>{labelValue(label)}</FieldsetLegend>}
+      {!hideLabel && label && (
+        <FieldsetLegend>{labelValue(label)}</FieldsetLegend>
+      )}
       <CheckboxGroup
-        onValueChange={(option) => onChange(enumOptionsValueForIndex<S>(option, enumOptions, emptyValue))}
+        onValueChange={(option) =>
+          onChange(enumOptionsValueForIndex<S>(option, enumOptions, emptyValue))
+        }
         value={selectedIndexes}
         aria-describedby={ariaDescribedByIds(id)}
         readOnly={readonly}
         required={required}
       >
-        <Stack direction={row ? 'row' : 'column'}>
+        <Stack direction={row ? "row" : "column"}>
           {Array.isArray(enumOptions) &&
             enumOptions.map((option, index) => {
-              const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+              const itemDisabled =
+                Array.isArray(enumDisabled) &&
+                enumDisabled.indexOf(option.value) !== -1;
               return (
                 <Checkbox
                   key={index}

@@ -1,4 +1,9 @@
-import { FormContextType, MultiSchemaFieldTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  FormContextType,
+  MultiSchemaFieldTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 export default function MultiSchemaFieldTemplate<
   T = any,
@@ -7,8 +12,8 @@ export default function MultiSchemaFieldTemplate<
 >(props: MultiSchemaFieldTemplateProps<T, S, F>) {
   const { optionSchemaField, selector } = props;
   return (
-    <div className='p-4 border rounded-sm shadow-sm'>
-      <div className='mb-4'>{selector}</div>
+    <div className="p-4 border rounded-sm shadow-sm">
+      <div className="mb-4">{selector}</div>
       {optionSchemaField}
     </div>
   );

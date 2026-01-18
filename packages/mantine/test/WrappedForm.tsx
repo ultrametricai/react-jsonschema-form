@@ -1,6 +1,6 @@
-import { MantineProvider } from '@mantine/core';
+import { MantineProvider } from "@mantine/core";
 
-import Form from '../src';
+import Form from "../src";
 
 export default function WrappedForm(props: any) {
   return (

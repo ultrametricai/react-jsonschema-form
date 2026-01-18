@@ -4,7 +4,7 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldTemplateItemButtons` component is the template used to render the buttons associate3d with items of
  * an array.
@@ -31,14 +31,15 @@ export default function ArrayFieldItemButtonsTemplate<
     registry,
     uiSchema,
   } = props;
-  const { CopyButton, MoveDownButton, MoveUpButton, RemoveButton } = registry.templates.ButtonTemplates;
+  const { CopyButton, MoveDownButton, MoveUpButton, RemoveButton } =
+    registry.templates.ButtonTemplates;
 
   return (
     <>
       {(hasMoveUp || hasMoveDown) && (
         <MoveUpButton
-          id={buttonId(fieldPathId, 'moveUp')}
-          className='rjsf-array-item-move-up'
+          id={buttonId(fieldPathId, "moveUp")}
+          className="rjsf-array-item-move-up"
           disabled={disabled || readonly || !hasMoveUp}
           onClick={onMoveUpItem}
           uiSchema={uiSchema}
@@ -47,8 +48,8 @@ export default function ArrayFieldItemButtonsTemplate<
       )}
       {(hasMoveUp || hasMoveDown) && (
         <MoveDownButton
-          id={buttonId(fieldPathId, 'moveDown')}
-          className='rjsf-array-item-move-down'
+          id={buttonId(fieldPathId, "moveDown")}
+          className="rjsf-array-item-move-down"
           disabled={disabled || readonly || !hasMoveDown}
           onClick={onMoveDownItem}
           uiSchema={uiSchema}
@@ -57,8 +58,8 @@ export default function ArrayFieldItemButtonsTemplate<
       )}
       {hasCopy && (
         <CopyButton
-          id={buttonId(fieldPathId, 'copy')}
-          className='rjsf-array-item-copy'
+          id={buttonId(fieldPathId, "copy")}
+          className="rjsf-array-item-copy"
           disabled={disabled || readonly}
           onClick={onCopyItem}
           uiSchema={uiSchema}
@@ -67,8 +68,8 @@ export default function ArrayFieldItemButtonsTemplate<
       )}
       {hasRemove && (
         <RemoveButton
-          id={buttonId(fieldPathId, 'remove')}
-          className='rjsf-array-item-remove'
+          id={buttonId(fieldPathId, "remove")}
+          className="rjsf-array-item-remove"
           disabled={disabled || readonly}
           onClick={onRemoveItem}
           uiSchema={uiSchema}

@@ -1,7 +1,15 @@
-import { FormContextType, OptionalDataControlsTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { AddSquareMultipleRegular, SubtractSquareMultipleRegular } from '@fluentui/react-icons';
+import {
+  FormContextType,
+  OptionalDataControlsTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import {
+  AddSquareMultipleRegular,
+  SubtractSquareMultipleRegular,
+} from "@fluentui/react-icons";
 
-import FluentIconButton from '../IconButton';
+import FluentIconButton from "../IconButton";
 
 /** The OptionalDataControlsTemplate renders one of three different states. If
  * there is an `onAddClick()` function, it renders the "Add" button. If there is
@@ -23,11 +31,11 @@ export default function OptionalDataControlsTemplate<
         id={id}
         registry={registry}
         icon={<AddSquareMultipleRegular />}
-        className='rjsf-add-optional-data'
+        className="rjsf-add-optional-data"
         onClick={onAddClick}
         title={label}
-        size='small'
-        appearance='secondary'
+        size="small"
+        appearance="secondary"
       />
     );
   } else if (onRemoveClick) {
@@ -36,11 +44,11 @@ export default function OptionalDataControlsTemplate<
         id={id}
         registry={registry}
         icon={<SubtractSquareMultipleRegular />}
-        className='rjsf-remove-optional-data'
+        className="rjsf-remove-optional-data"
         onClick={onRemoveClick}
         title={label}
-        size='small'
-        appearance='secondary'
+        size="small"
+        appearance="secondary"
       />
     );
   }

@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import Form from 'react-bootstrap/Form';
+import { ChangeEvent, FocusEvent } from "react";
+import Form from "react-bootstrap/Form";
 import {
   ariaDescribedByIds,
   enumOptionsDeselectValue,
@@ -11,7 +11,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 export default function CheckboxesWidget<
   T = any,
@@ -37,23 +37,46 @@ export default function CheckboxesWidget<
     (index: number) =>
     ({ target: { checked } }: ChangeEvent<HTMLInputElement>) => {
       if (checked) {
-        onChange(enumOptionsSelectValue<S>(index, checkboxesValues, enumOptions));
+        onChange(
+          enumOptionsSelectValue<S>(index, checkboxesValues, enumOptions),
+        );
       } else {
-        onChange(enumOptionsDeselectValue<S>(index, checkboxesValues, enumOptions));
+        onChange(
+          enumOptionsDeselectValue<S>(index, checkboxesValues, enumOptions),
+        );
       }
     };
 
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   return (
     <Form.Group>
       {Array.isArray(enumOptions) &&
         enumOptions.map((option, index: number) => {
-          const checked = enumOptionsIsSelected<S>(option.value, checkboxesValues);
-          const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+          const checked = enumOptionsIsSelected<S>(
+            option.value,
+            checkboxesValues,
+          );
+          const itemDisabled =
+            Array.isArray(enumDisabled) &&
+            enumDisabled.indexOf(option.value) !== -1;
 
           return (
             <Form.Check
@@ -61,8 +84,8 @@ export default function CheckboxesWidget<
               inline={inline}
               required={required}
               checked={checked}
-              className='bg-transparent border-0'
-              type={'checkbox'}
+              className="bg-transparent border-0"
+              type={"checkbox"}
               id={optionId(id, index)}
               name={htmlName || id}
               label={option.label}

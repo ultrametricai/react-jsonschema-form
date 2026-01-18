@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent } from "react";
 import {
   FileInfoType,
   FormContextType,
@@ -10,10 +10,14 @@ import {
   UIOptionsType,
   useFileWidgetProps,
   WidgetProps,
-} from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
+} from "@rjsf/utils";
+import Markdown from "markdown-to-jsx";
 
-function FileInfoPreview<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+function FileInfoPreview<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   fileInfo,
   registry,
 }: {
@@ -29,23 +33,33 @@ function FileInfoPreview<T = any, S extends StrictRJSFSchema = RJSFSchema, F ext
   // If type is JPEG or PNG then show image preview.
   // Originally, any type of image was supported, but this was changed into a whitelist
   // since SVGs and animated GIFs are also images, which are generally considered a security risk.
-  if (['image/jpeg', 'image/png'].includes(type)) {
-    return <img src={dataURL} style={{ maxWidth: '100%' }} className='file-preview' />;
+  if (["image/jpeg", "image/png"].includes(type)) {
+    return (
+      <img
+        src={dataURL}
+        style={{ maxWidth: "100%" }}
+        className="file-preview"
+      />
+    );
   }
 
   // otherwise, let users download file
 
   return (
     <>
-      {' '}
-      <a download={`preview-${name}`} href={dataURL} className='file-download'>
+      {" "}
+      <a download={`preview-${name}`} href={dataURL} className="file-download">
         {translateString(TranslatableString.PreviewLabel)}
       </a>
     </>
   );
 }
 
-function FilesInfo<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+function FilesInfo<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   filesInfo,
   registry,
   preview,
@@ -63,17 +77,32 @@ function FilesInfo<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends F
   }
   const { translateString } = registry;
 
-  const { RemoveButton } = getTemplate<'ButtonTemplates', T, S, F>('ButtonTemplates', registry, options);
+  const { RemoveButton } = getTemplate<"ButtonTemplates", T, S, F>(
+    "ButtonTemplates",
+    registry,
+    options,
+  );
 
   return (
-    <ul className='file-info'>
+    <ul className="file-info">
       {filesInfo.map((fileInfo, key) => {
         const { name, size, type } = fileInfo;
         const handleRemove = () => onRemove(key);
         return (
           <li key={key}>
-            <Markdown>{translateString(TranslatableString.FilesInfo, [name, type, String(size)])}</Markdown>
-            {preview && <FileInfoPreview<T, S, F> fileInfo={fileInfo} registry={registry} />}
+            <Markdown>
+              {translateString(TranslatableString.FilesInfo, [
+                name,
+                type,
+                String(size),
+              ])}
+            </Markdown>
+            {preview && (
+              <FileInfoPreview<T, S, F>
+                fileInfo={fileInfo}
+                registry={registry}
+              />
+            )}
             <RemoveButton onClick={handleRemove} registry={registry} />
           </li>
         );
@@ -86,12 +115,31 @@ function FilesInfo<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends F
  *  The `FileWidget` is a widget for rendering file upload fields.
  *  It is typically used with a string property with data-url format.
  */
-function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
-  const { disabled, readonly, required, multiple, onChange, value, options, registry } = props;
-  const { filesInfo, handleChange, handleRemove } = useFileWidgetProps(value, onChange, multiple);
-  const BaseInputTemplate = getTemplate<'BaseInputTemplate', T, S, F>('BaseInputTemplate', registry, options);
+function FileWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
+  const {
+    disabled,
+    readonly,
+    required,
+    multiple,
+    onChange,
+    value,
+    options,
+    registry,
+  } = props;
+  const { filesInfo, handleChange, handleRemove } = useFileWidgetProps(
+    value,
+    onChange,
+    multiple,
+  );
+  const BaseInputTemplate = getTemplate<"BaseInputTemplate", T, S, F>(
+    "BaseInputTemplate",
+    registry,
+    options,
+  );
 
   const handleOnChangeEvent = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -104,10 +152,10 @@ function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends 
       <BaseInputTemplate
         {...props}
         disabled={disabled || readonly}
-        type='file'
+        type="file"
         required={value ? false : required} // this turns off HTML required validation when a value exists
         onChangeOverride={handleOnChangeEvent}
-        value=''
+        value=""
         accept={options.accept ? String(options.accept) : undefined}
       />
       <FilesInfo<T, S, F>

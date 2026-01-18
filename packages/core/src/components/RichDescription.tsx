@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 import {
   FormContextType,
   Registry,
@@ -7,8 +7,8 @@ import {
   UiSchema,
   getTestIds,
   getUiOptions,
-} from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
+} from "@rjsf/utils";
+import Markdown from "markdown-to-jsx";
 
 const TEST_IDS = getTestIds();
 
@@ -37,9 +37,15 @@ export default function RichDescription<
   const { globalUiOptions } = registry;
   const uiOptions = getUiOptions<T, S, F>(uiSchema, globalUiOptions);
 
-  if (uiOptions.enableMarkdownInDescription && typeof description === 'string') {
+  if (
+    uiOptions.enableMarkdownInDescription &&
+    typeof description === "string"
+  ) {
     return (
-      <Markdown options={{ disableParsingRawHTML: true }} data-testid={TEST_IDS.markdown}>
+      <Markdown
+        options={{ disableParsingRawHTML: true }}
+        data-testid={TEST_IDS.markdown}
+      >
         {description}
       </Markdown>
     );

@@ -1,4 +1,4 @@
-import { Slider } from 'antd';
+import { Slider } from "antd";
 import {
   ariaDescribedByIds,
   rangeSpec,
@@ -7,16 +7,18 @@ import {
   StrictRJSFSchema,
   WidgetProps,
   GenericObjectType,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `RangeWidget` component uses the `BaseInputTemplate` changing the type to `range` and wrapping the result
  * in a div, with the value along side it.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function RangeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     autofocus,
     disabled,
@@ -36,9 +38,10 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
 
   const { min, max, step } = rangeSpec(schema);
 
-  const emptyValue = options.emptyValue || '';
+  const emptyValue = options.emptyValue || "";
 
-  const handleChange = (nextValue: any) => onChange(nextValue === '' ? emptyValue : nextValue);
+  const handleChange = (nextValue: any) =>
+    onChange(nextValue === "" ? emptyValue : nextValue);
 
   const handleBlur = () => onBlur(id, value);
 

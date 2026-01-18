@@ -1,7 +1,7 @@
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
-import weakMemoize from '@emotion/weak-memoize';
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
+import weakMemoize from "@emotion/weak-memoize";
+import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
 
 /**
  * __createChakraFrameProvider is used to ensure that <Global> emotion components
@@ -18,10 +18,12 @@ import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
  * Also see: https://github.com/emotion-js/emotion/issues/760#issuecomment-404353706
  */
 
-const memoizedCreateCacheWithContainer = weakMemoize((container: HTMLElement) => {
-  const newCache = createCache({ container, key: 'rjsf' });
-  return newCache;
-});
+const memoizedCreateCacheWithContainer = weakMemoize(
+  (container: HTMLElement) => {
+    const newCache = createCache({ container, key: "rjsf" });
+    return newCache;
+  },
+);
 
 export const __createChakraFrameProvider =
   (props: any) =>
@@ -29,7 +31,9 @@ export const __createChakraFrameProvider =
     return (
       <div style={{ margin: 2 }}>
         <CacheProvider value={memoizedCreateCacheWithContainer(document.head)}>
-          <ChakraProvider value={defaultSystem}>{props.children}</ChakraProvider>
+          <ChakraProvider value={defaultSystem}>
+            {props.children}
+          </ChakraProvider>
         </CacheProvider>
       </div>
     );

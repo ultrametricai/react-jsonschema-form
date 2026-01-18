@@ -16,7 +16,7 @@
  * backwards compatibility guarantees!)
  */
 
-import { useEffect, ReactNode } from 'react';
+import { useEffect, ReactNode } from "react";
 
 interface DaisyUIFrameProviderProps {
   children: ReactNode;
@@ -28,24 +28,26 @@ interface DaisyUIFrameProviderProps {
  *
  * @param props - The component props
  */
-function DaisyUIFrameComponent(props: DaisyUIFrameProviderProps & { document?: Document }) {
+function DaisyUIFrameComponent(
+  props: DaisyUIFrameProviderProps & { document?: Document },
+) {
   const { children, subtheme = {}, document } = props;
   const theme = (() => {
     try {
       if (subtheme?.dataTheme) {
-        localStorage.setItem('daisyui-theme', subtheme.dataTheme);
+        localStorage.setItem("daisyui-theme", subtheme.dataTheme);
         return subtheme.dataTheme;
       }
-      return localStorage.getItem('daisyui-theme') || 'cupcake';
+      return localStorage.getItem("daisyui-theme") || "cupcake";
     } catch {
-      return 'cupcake';
+      return "cupcake";
     }
   })();
 
   useEffect(() => {
     if (document) {
       // Configure Tailwind first to ensure config is available before script loads
-      const configScript = document.createElement('script');
+      const configScript = document.createElement("script");
       configScript.textContent = `
         window.tailwind = window.tailwind || {};
         window.tailwind.config = {
@@ -60,20 +62,21 @@ function DaisyUIFrameComponent(props: DaisyUIFrameProviderProps & { document?: D
       document.head.appendChild(configScript);
 
       // Add Tailwind
-      const tailwindScript = document.createElement('script');
-      tailwindScript.src = 'https://unpkg.com/@tailwindcss/browser@4.1.3';
+      const tailwindScript = document.createElement("script");
+      tailwindScript.src = "https://unpkg.com/@tailwindcss/browser@4.1.3";
       document.head.appendChild(tailwindScript);
 
       // Add DaisyUI CSS
-      const daisyLink = document.createElement('link');
-      daisyLink.rel = 'stylesheet';
-      daisyLink.href = 'https://cdn.jsdelivr.net/npm/daisyui@5.0.20';
+      const daisyLink = document.createElement("link");
+      daisyLink.rel = "stylesheet";
+      daisyLink.href = "https://cdn.jsdelivr.net/npm/daisyui@5.0.20";
       document.head.appendChild(daisyLink);
 
       // Add all themes
-      const daisyLinkAllThemes = document.createElement('link');
-      daisyLinkAllThemes.rel = 'stylesheet';
-      daisyLinkAllThemes.href = 'https://cdn.jsdelivr.net/npm/daisyui@5.0.20/themes.css';
+      const daisyLinkAllThemes = document.createElement("link");
+      daisyLinkAllThemes.rel = "stylesheet";
+      daisyLinkAllThemes.href =
+        "https://cdn.jsdelivr.net/npm/daisyui@5.0.20/themes.css";
       document.head.appendChild(daisyLinkAllThemes);
       return () => {
         configScript.remove();
@@ -86,7 +89,7 @@ function DaisyUIFrameComponent(props: DaisyUIFrameProviderProps & { document?: D
   }, [document]);
 
   return (
-    <div data-theme={theme} className='daisy-ui-theme'>
+    <div data-theme={theme} className="daisy-ui-theme">
       {children}
     </div>
   );
@@ -99,7 +102,9 @@ function DaisyUIFrameComponent(props: DaisyUIFrameProviderProps & { document?: D
  * @param props - The component props
  * @returns A component that sets up DaisyUI within an iframe context
  */
-export const __createDaisyUIFrameProvider = (props: DaisyUIFrameProviderProps) => {
+export const __createDaisyUIFrameProvider = (
+  props: DaisyUIFrameProviderProps,
+) => {
   return function DaisyUIFrame({ document }: { document?: Document }) {
     // Get theme from localStorage or use default
     return <DaisyUIFrameComponent document={document} {...props} />;

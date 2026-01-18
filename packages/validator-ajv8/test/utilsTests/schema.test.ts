@@ -1,5 +1,5 @@
-import Ajv2019 from 'ajv/dist/2019';
-import Ajv2020 from 'ajv/dist/2020';
+import Ajv2019 from "ajv/dist/2019";
+import Ajv2020 from "ajv/dist/2020";
 // The test world has access to the test suite via the direct import from the utils package
 import {
   findFieldInSchemaTest,
@@ -15,8 +15,8 @@ import {
   retrieveSchemaTest,
   sanitizeDataForNewSchemaTest,
   toPathSchemaTest,
-} from '../../../utils/test/schema';
-import getTestValidator from './getTestValidator';
+} from "../../../utils/test/schema";
+import getTestValidator from "./getTestValidator";
 
 const testValidator = getTestValidator({});
 

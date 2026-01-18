@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState } from "react";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -6,8 +6,11 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { AutoComplete, AutoCompleteCompleteEvent } from 'primereact/autocomplete';
+} from "@rjsf/utils";
+import {
+  AutoComplete,
+  AutoCompleteCompleteEvent,
+} from "primereact/autocomplete";
 
 /** The `AutoCompleteWidget` is a widget for rendering a field with options.
  *  This is used instead of the base input template if the schema has examples.
@@ -39,12 +42,13 @@ export default function AutoCompleteWidget<
   const inputProps = getInputProps<T, S, F>(schema, type, options);
   const primeProps = (options.prime || {}) as object;
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
+    onChange(value === "" ? options.emptyValue : value);
   const _onBlur = () => onBlur && onBlur(id, value);
   const _onFocus = () => onFocus && onFocus(id, value);
 
   const examples = (schema.examples as string[]).concat(
-    schema.default && !(schema.examples as string[]).includes(schema.default.toString())
+    schema.default &&
+      !(schema.examples as string[]).includes(schema.default.toString())
       ? [schema.default.toString()]
       : [],
   );
@@ -52,7 +56,11 @@ export default function AutoCompleteWidget<
   const [items, setItems] = useState<string[]>([]);
 
   const search = (event: AutoCompleteCompleteEvent) => {
-    setItems(examples.filter((example) => example.toString().toLowerCase().includes(event.query.toLowerCase())));
+    setItems(
+      examples.filter((example) =>
+        example.toString().toLowerCase().includes(event.query.toLowerCase()),
+      ),
+    );
   };
 
   return (
@@ -68,7 +76,7 @@ export default function AutoCompleteWidget<
       disabled={disabled || readonly}
       suggestions={items}
       completeMethod={search}
-      value={value || value === 0 ? value : ''}
+      value={value || value === 0 ? value : ""}
       dropdown
       invalid={rawErrors.length > 0}
       onChange={(onChangeOverride as any) || _onChange}
@@ -78,16 +86,16 @@ export default function AutoCompleteWidget<
       /* Make autocomplete look like a dropdown, which looks much nicer */
       pt={{
         root: {
-          className: 'p-dropdown',
+          className: "p-dropdown",
         },
         input: {
           root: {
-            style: { border: 'none' },
+            style: { border: "none" },
           },
         },
         dropdownButton: {
           root: {
-            className: 'p-button-text p-button-secondary',
+            className: "p-button-text p-button-secondary",
           },
         },
       }}

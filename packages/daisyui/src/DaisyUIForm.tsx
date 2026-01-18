@@ -1,5 +1,5 @@
-import { withTheme } from '@rjsf/core';
-import Theme from './theme';
+import { withTheme } from "@rjsf/core";
+import Theme from "./theme";
 
 /**
  * Form component pre-configured with the DaisyUI theme

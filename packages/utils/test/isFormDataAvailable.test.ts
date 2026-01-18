@@ -1,4 +1,4 @@
-import { isFormDataAvailable } from '../src';
+import { isFormDataAvailable } from "../src";
 
 const TEST_CASES = [
   { value: undefined, result: false },
@@ -7,12 +7,12 @@ const TEST_CASES = [
   { value: {}, result: false },
   { value: true, result: true },
   { value: 1, result: true },
-  { value: 'string', result: true },
+  { value: "string", result: true },
   { value: [1], result: true },
   { value: { foo: true }, result: true },
 ];
 
-describe.each(TEST_CASES)('hasFormData(%s)', ({ value, result }) => {
+describe.each(TEST_CASES)("hasFormData(%s)", ({ value, result }) => {
   test(`hasFormData(value) returns ${result}`, () => {
     expect(isFormDataAvailable(value)).toEqual(result);
   });

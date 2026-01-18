@@ -1,199 +1,199 @@
-import { transformRJSFValidationErrors } from '../src/processRawValidationErrors';
+import { transformRJSFValidationErrors } from "../src/processRawValidationErrors";
 
-describe('transformRJSFValidationErrors', () => {
+describe("transformRJSFValidationErrors", () => {
   // The rest of this function is tested by the validators
-  it('should transform errors without an error message or parentSchema field', () => {
+  it("should transform errors without an error message or parentSchema field", () => {
     const error = {
-      instancePath: '/numberOfChildren',
-      schemaPath: '#/properties/numberOfChildren/pattern',
-      keyword: 'pattern',
-      params: { pattern: '\\d+' },
-      schema: '\\d+',
-      data: 'aa',
+      instancePath: "/numberOfChildren",
+      schemaPath: "#/properties/numberOfChildren/pattern",
+      keyword: "pattern",
+      params: { pattern: "\\d+" },
+      schema: "\\d+",
+      data: "aa",
     };
 
     const errors = transformRJSFValidationErrors([error]);
 
     expect(errors).toHaveLength(1);
   });
-  it('should filter out duplicate anyOf messages', () => {
+  it("should filter out duplicate anyOf messages", () => {
     const errors = [
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/anyOf/0/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/anyOf/0/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteAnimal',
+          missingProperty: "favouriteAnimal",
         },
         message: "must have required property 'favouriteAnimal'",
-        schema: ['favouriteAnimal'],
+        schema: ["favouriteAnimal"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal'],
+          required: ["favouriteAnimal"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/anyOf/1/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/anyOf/1/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteAnimal',
+          missingProperty: "favouriteAnimal",
         },
         message: "must have required property 'favouriteAnimal'",
-        schema: ['favouriteAnimal', 'favouriteColour'],
+        schema: ["favouriteAnimal", "favouriteColour"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal', 'favouriteColour'],
+          required: ["favouriteAnimal", "favouriteColour"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/anyOf/1/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/anyOf/1/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteColour',
+          missingProperty: "favouriteColour",
         },
         message: "must have required property 'favouriteColour'",
-        schema: ['favouriteAnimal', 'favouriteColour'],
+        schema: ["favouriteAnimal", "favouriteColour"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal', 'favouriteColour'],
+          required: ["favouriteAnimal", "favouriteColour"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/anyOf/2/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/anyOf/2/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouritePerson',
+          missingProperty: "favouritePerson",
         },
         message: "must have required property 'favouritePerson'",
-        schema: ['favouritePerson'],
+        schema: ["favouritePerson"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouritePerson'],
+          required: ["favouritePerson"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/anyOf',
-        keyword: 'anyOf',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/anyOf",
+        keyword: "anyOf",
         params: {},
-        message: 'must match a schema in anyOf',
+        message: "must match a schema in anyOf",
         schema: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouriteAnimal: {
-                type: 'string',
+                type: "string",
               },
               favouriteColour: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouriteAnimal'],
+            required: ["favouriteAnimal"],
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouriteAnimal: {
-                type: 'string',
+                type: "string",
               },
               favouriteColour: {
-                type: 'string',
+                type: "string",
               },
               favouritePerson: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouriteAnimal', 'favouriteColour'],
+            required: ["favouriteAnimal", "favouriteColour"],
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouritePerson: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouritePerson'],
+            required: ["favouritePerson"],
           },
         ],
         parentSchema: {
           anyOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouriteAnimal: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouriteColour: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouriteAnimal'],
+              required: ["favouriteAnimal"],
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouriteAnimal: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouriteColour: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouritePerson: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouriteAnimal', 'favouriteColour'],
+              required: ["favouriteAnimal", "favouriteColour"],
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouritePerson: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouritePerson'],
+              required: ["favouritePerson"],
             },
           ],
         },
@@ -205,184 +205,184 @@ describe('transformRJSFValidationErrors', () => {
     expect(transformedErrors).not.toHaveLength(errors.length);
     expect(transformedErrors).toHaveLength(4);
   });
-  it('should filter out duplicate oneOf messages', () => {
+  it("should filter out duplicate oneOf messages", () => {
     const errors = [
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/oneOf/0/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/oneOf/0/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteAnimal',
+          missingProperty: "favouriteAnimal",
         },
         message: "must have required property 'favouriteAnimal'",
-        schema: ['favouriteAnimal'],
+        schema: ["favouriteAnimal"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal'],
+          required: ["favouriteAnimal"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/oneOf/1/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/oneOf/1/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteAnimal',
+          missingProperty: "favouriteAnimal",
         },
         message: "must have required property 'favouriteAnimal'",
-        schema: ['favouriteAnimal', 'favouriteColour'],
+        schema: ["favouriteAnimal", "favouriteColour"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal', 'favouriteColour'],
+          required: ["favouriteAnimal", "favouriteColour"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/oneOf/1/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/oneOf/1/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouriteColour',
+          missingProperty: "favouriteColour",
         },
         message: "must have required property 'favouriteColour'",
-        schema: ['favouriteAnimal', 'favouriteColour'],
+        schema: ["favouriteAnimal", "favouriteColour"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouriteAnimal: {
-              type: 'string',
+              type: "string",
             },
             favouriteColour: {
-              type: 'string',
+              type: "string",
             },
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouriteAnimal', 'favouriteColour'],
+          required: ["favouriteAnimal", "favouriteColour"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/oneOf/2/required',
-        keyword: 'required',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/oneOf/2/required",
+        keyword: "required",
         params: {
-          missingProperty: 'favouritePerson',
+          missingProperty: "favouritePerson",
         },
         message: "must have required property 'favouritePerson'",
-        schema: ['favouritePerson'],
+        schema: ["favouritePerson"],
         parentSchema: {
-          type: 'object',
+          type: "object",
           properties: {
             favouritePerson: {
-              type: 'string',
+              type: "string",
             },
           },
-          required: ['favouritePerson'],
+          required: ["favouritePerson"],
         },
         data: {},
       },
       {
-        instancePath: '/favouriteThings',
-        schemaPath: '#/properties/favouriteThings/oneOf',
-        keyword: 'oneOf',
+        instancePath: "/favouriteThings",
+        schemaPath: "#/properties/favouriteThings/oneOf",
+        keyword: "oneOf",
         params: {},
-        message: 'must match a schema in oneOf',
+        message: "must match a schema in oneOf",
         schema: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouriteAnimal: {
-                type: 'string',
+                type: "string",
               },
               favouriteColour: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouriteAnimal'],
+            required: ["favouriteAnimal"],
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouriteAnimal: {
-                type: 'string',
+                type: "string",
               },
               favouriteColour: {
-                type: 'string',
+                type: "string",
               },
               favouritePerson: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouriteAnimal', 'favouriteColour'],
+            required: ["favouriteAnimal", "favouriteColour"],
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               favouritePerson: {
-                type: 'string',
+                type: "string",
               },
             },
-            required: ['favouritePerson'],
+            required: ["favouritePerson"],
           },
         ],
         parentSchema: {
           oneOf: [
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouriteAnimal: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouriteColour: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouriteAnimal'],
+              required: ["favouriteAnimal"],
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouriteAnimal: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouriteColour: {
-                  type: 'string',
+                  type: "string",
                 },
                 favouritePerson: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouriteAnimal', 'favouriteColour'],
+              required: ["favouriteAnimal", "favouriteColour"],
             },
             {
-              type: 'object',
+              type: "object",
               properties: {
                 favouritePerson: {
-                  type: 'string',
+                  type: "string",
                 },
               },
-              required: ['favouritePerson'],
+              required: ["favouritePerson"],
             },
           ],
         },

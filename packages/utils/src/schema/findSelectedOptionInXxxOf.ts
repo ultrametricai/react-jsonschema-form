@@ -1,10 +1,16 @@
-import get from 'lodash/get';
-import isEqual from 'lodash/isEqual';
+import get from "lodash/get";
+import isEqual from "lodash/isEqual";
 
-import { CONST_KEY, DEFAULT_KEY, PROPERTIES_KEY } from '../constants';
-import { Experimental_CustomMergeAllOf, FormContextType, RJSFSchema, StrictRJSFSchema, ValidatorType } from '../types';
-import retrieveSchema from './retrieveSchema';
-import getDiscriminatorFieldFromSchema from '../getDiscriminatorFieldFromSchema';
+import { CONST_KEY, DEFAULT_KEY, PROPERTIES_KEY } from "../constants";
+import {
+  Experimental_CustomMergeAllOf,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  ValidatorType,
+} from "../types";
+import retrieveSchema from "./retrieveSchema";
+import getDiscriminatorFieldFromSchema from "../getDiscriminatorFieldFromSchema";
 
 /** Finds the option inside the `schema['any/oneOf']` list which has the `properties[selectorField].default` or
  * `properties[selectorField].const` that matches the `formData[selectorField]` value. For the purposes of this
@@ -29,7 +35,7 @@ export default function findSelectedOptionInXxxOf<
   rootSchema: S,
   schema: S,
   fallbackField: string,
-  xxx: 'anyOf' | 'oneOf',
+  xxx: "anyOf" | "oneOf",
   formData: T = {} as T,
   experimental_customMergeAllOf?: Experimental_CustomMergeAllOf<S>,
 ): S | undefined {
@@ -37,13 +43,23 @@ export default function findSelectedOptionInXxxOf<
     const discriminator = getDiscriminatorFieldFromSchema<S>(schema);
     const selectorField = discriminator || fallbackField;
     const xxxOfs = schema[xxx]!.map((xxxOf) =>
-      retrieveSchema<T, S, F>(validator, xxxOf as S, rootSchema, formData, experimental_customMergeAllOf),
+      retrieveSchema<T, S, F>(
+        validator,
+        xxxOf as S,
+        rootSchema,
+        formData,
+        experimental_customMergeAllOf,
+      ),
     );
     const data = get(formData, selectorField);
     if (data !== undefined) {
       return xxxOfs.find((xxx) => {
         return isEqual(
-          get(xxx, [PROPERTIES_KEY, selectorField, DEFAULT_KEY], get(xxx, [PROPERTIES_KEY, selectorField, CONST_KEY])),
+          get(
+            xxx,
+            [PROPERTIES_KEY, selectorField, DEFAULT_KEY],
+            get(xxx, [PROPERTIES_KEY, selectorField, CONST_KEY]),
+          ),
           data,
         );
       });

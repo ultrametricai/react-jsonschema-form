@@ -1,4 +1,4 @@
-import { Flex } from '@fluentui/react-migration-v0-v9';
+import { Flex } from "@fluentui/react-migration-v0-v9";
 import {
   FormContextType,
   ObjectFieldTemplateProps,
@@ -10,7 +10,7 @@ import {
   getUiOptions,
   titleId,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` is the template to use to render all the inner properties of an object along with the
  * title and description if available. If the object is expandable, then an `AddButton` is also rendered after all
@@ -39,12 +39,17 @@ export default function ObjectFieldTemplate<
     registry,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -60,7 +65,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -72,7 +79,7 @@ export default function ObjectFieldTemplate<
           registry={registry}
         />
       )}
-      <Flex fill column gap='gap.medium'>
+      <Flex fill column gap="gap.medium">
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {properties.map((element, index) =>
           // Remove the <Grid> if the inner element is hidden as the <Grid>
@@ -80,16 +87,16 @@ export default function ObjectFieldTemplate<
           element.hidden ? (
             element.content
           ) : (
-            <Flex column fill key={index} style={{ marginBottom: '10px' }}>
+            <Flex column fill key={index} style={{ marginBottom: "10px" }}>
               {element.content}
             </Flex>
           ),
         )}
         {canExpand<T, S, F>(schema, uiSchema, formData) && (
-          <Flex hAlign='end'>
+          <Flex hAlign="end">
             <AddButton
-              id={buttonId(fieldPathId, 'add')}
-              className='rjsf-object-property-expand'
+              id={buttonId(fieldPathId, "add")}
+              className="rjsf-object-property-expand"
               onClick={onAddProperty}
               disabled={disabled || readonly}
               uiSchema={uiSchema}

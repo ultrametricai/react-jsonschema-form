@@ -1,9 +1,12 @@
-import Ajv, { Options } from 'ajv';
-import addFormats, { FormatsPluginOptions } from 'ajv-formats';
-import isObject from 'lodash/isObject';
-import { ADDITIONAL_PROPERTY_FLAG, RJSF_ADDITIONAL_PROPERTIES_FLAG } from '@rjsf/utils';
+import Ajv, { Options } from "ajv";
+import addFormats, { FormatsPluginOptions } from "ajv-formats";
+import isObject from "lodash/isObject";
+import {
+  ADDITIONAL_PROPERTY_FLAG,
+  RJSF_ADDITIONAL_PROPERTIES_FLAG,
+} from "@rjsf/utils";
 
-import { CustomValidatorOptionsType } from './types';
+import { CustomValidatorOptionsType } from "./types";
 
 export const AJV_CONFIG: Options = {
   allErrors: true,
@@ -14,7 +17,8 @@ export const AJV_CONFIG: Options = {
 } as const;
 export const COLOR_FORMAT_REGEX =
   /^(#?([0-9A-Fa-f]{3}){1,2}\b|aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow|(rgb\(\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*\))|(rgb\(\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*\)))$/;
-export const DATA_URL_FORMAT_REGEX = /^data:([a-z]+\/[a-z0-9-+.]+)?;(?:name=(.*);)?base64,(.*)$/;
+export const DATA_URL_FORMAT_REGEX =
+  /^data:([a-z]+\/[a-z0-9-+.]+)?;(?:name=(.*);)?base64,(.*)$/;
 
 /** Creates an Ajv version 8 implementation object with standard support for the 'color` and `data-url` custom formats.
  * If `additionalMetaSchemas` are provided then the Ajv instance is modified to add each of the meta schemas in the
@@ -33,12 +37,12 @@ export const DATA_URL_FORMAT_REGEX = /^data:([a-z]+\/[a-z0-9-+.]+)?;(?:name=(.*)
  * @param [extenderFn] - A function to call to extend AJV, such as `ajvErrors()`
  */
 export default function createAjvInstance(
-  additionalMetaSchemas?: CustomValidatorOptionsType['additionalMetaSchemas'],
-  customFormats?: CustomValidatorOptionsType['customFormats'],
-  ajvOptionsOverrides: CustomValidatorOptionsType['ajvOptionsOverrides'] = {},
+  additionalMetaSchemas?: CustomValidatorOptionsType["additionalMetaSchemas"],
+  customFormats?: CustomValidatorOptionsType["customFormats"],
+  ajvOptionsOverrides: CustomValidatorOptionsType["ajvOptionsOverrides"] = {},
   ajvFormatOptions?: FormatsPluginOptions | false,
   AjvClass: typeof Ajv = Ajv,
-  extenderFn?: CustomValidatorOptionsType['extenderFn'],
+  extenderFn?: CustomValidatorOptionsType["extenderFn"],
 ) {
   let ajv = new AjvClass({ ...AJV_CONFIG, ...ajvOptionsOverrides });
   if (ajvFormatOptions) {
@@ -48,8 +52,8 @@ export default function createAjvInstance(
   }
 
   // add custom formats
-  ajv.addFormat('data-url', DATA_URL_FORMAT_REGEX);
-  ajv.addFormat('color', COLOR_FORMAT_REGEX);
+  ajv.addFormat("data-url", DATA_URL_FORMAT_REGEX);
+  ajv.addFormat("color", COLOR_FORMAT_REGEX);
 
   // Add RJSF-specific additional properties keywords so Ajv doesn't report errors if strict is enabled.
   ajv.addKeyword(ADDITIONAL_PROPERTY_FLAG);

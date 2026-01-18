@@ -8,19 +8,20 @@
  * @see https://github.com/thymikee/jest-preset-angular/issues/336
  */
 
-const CLEANED_FLAG = Symbol('cleaned');
+const CLEANED_FLAG = Symbol("cleaned");
 
 const attributesToClean: Record<string, RegExp[]> = {
   className: [/^mantine-.*$/, /^m-.*$/],
   id: [/^mantine-.*$/],
   htmlFor: [/^mantine-.*$/],
-  'aria-describedby': [/^mantine-.*$/],
-  'aria-labelledby': [/^mantine-.*$/],
-  'aria-controls': [/^mantine-.*$/],
+  "aria-describedby": [/^mantine-.*$/],
+  "aria-labelledby": [/^mantine-.*$/],
+  "aria-controls": [/^mantine-.*$/],
 };
 
 const attributesToCleanKeys = Object.keys(attributesToClean);
-const hasAttributesToClean = (key: string): boolean => attributesToCleanKeys.includes(key);
+const hasAttributesToClean = (key: string): boolean =>
+  attributesToCleanKeys.includes(key);
 
 interface TestNode {
   props?: Record<string, any>;
@@ -36,8 +37,11 @@ interface TestNode {
 type SerializeFn = (val: any) => string;
 
 // A recursive cleaning function that marks nodes as cleaned.
-function cleanNode(node: TestNode, visited: WeakSet<TestNode> = new WeakSet()): TestNode {
-  if (node && typeof node === 'object') {
+function cleanNode(
+  node: TestNode,
+  visited: WeakSet<TestNode> = new WeakSet(),
+): TestNode {
+  if (node && typeof node === "object") {
     // Prevent infinite loops in case of circular references.
     if (visited.has(node)) {
       return node;
@@ -45,16 +49,18 @@ function cleanNode(node: TestNode, visited: WeakSet<TestNode> = new WeakSet()): 
     visited.add(node);
 
     // Only clean if we haven't already processed this node.
-    if (node.props && typeof node.props === 'object' && !node[CLEANED_FLAG]) {
+    if (node.props && typeof node.props === "object" && !node[CLEANED_FLAG]) {
       const newProps: Record<string, any> = { ...node.props };
       for (const key of Object.keys(newProps)) {
-        if (hasAttributesToClean(key) && typeof newProps[key] === 'string') {
+        if (hasAttributesToClean(key) && typeof newProps[key] === "string") {
           newProps[key] = newProps[key]
-            .split(' ')
+            .split(" ")
             .filter((attrValue: string) => {
-              return !attributesToClean[key].some((regex: RegExp) => regex.test(attrValue));
+              return !attributesToClean[key].some((regex: RegExp) =>
+                regex.test(attrValue),
+              );
             })
-            .join(' ');
+            .join(" ");
         }
       }
       node = { ...node, props: newProps, [CLEANED_FLAG]: true };
@@ -65,7 +71,7 @@ function cleanNode(node: TestNode, visited: WeakSet<TestNode> = new WeakSet()): 
       node = {
         ...node,
         children: node.children.map((child) => {
-          if (typeof child === 'string') {
+          if (typeof child === "string") {
             return child;
           }
           return cleanNode(child, visited);
@@ -83,8 +89,8 @@ module.exports = {
   },
   test: (val: any): boolean =>
     !!val &&
-    typeof val === 'object' &&
-    'props' in val &&
+    typeof val === "object" &&
+    "props" in val &&
     val.props &&
     !val[CLEANED_FLAG] &&
     Object.keys(val.props).some(hasAttributesToClean),

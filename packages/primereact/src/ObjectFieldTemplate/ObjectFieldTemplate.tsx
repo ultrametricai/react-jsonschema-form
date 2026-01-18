@@ -9,7 +9,7 @@ import {
   getUiOptions,
   titleId,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` is the template to use to render all the inner properties of an object along with the
  * title and description if available. If the object is expandable, then an `AddButton` is also rendered after all
@@ -38,12 +38,17 @@ export default function ObjectFieldTemplate<
     registry,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -59,11 +64,13 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
-        <div style={{ marginBottom: '1rem' }}>
+        <div style={{ marginBottom: "1rem" }}>
           <DescriptionFieldTemplate
             id={descriptionId(fieldPathId)}
             description={description}
@@ -76,11 +83,11 @@ export default function ObjectFieldTemplate<
       {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
       {properties.map((prop) => prop.content)}
       {canExpand<T, S, F>(schema, uiSchema, formData) && (
-        <div style={{ marginTop: '1rem', textAlign: 'right' }}>
+        <div style={{ marginTop: "1rem", textAlign: "right" }}>
           <AddButton
-            id={buttonId(fieldPathId, 'add')}
-            className='rjsf-object-property-expand'
-            icon='pi pi-plus'
+            id={buttonId(fieldPathId, "add")}
+            className="rjsf-object-property-expand"
+            icon="pi pi-plus"
             onClick={onAddProperty}
             disabled={disabled || readonly}
             registry={registry}

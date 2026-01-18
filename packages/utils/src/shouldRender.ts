@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import deepEquals from './deepEquals';
-import shallowEquals from './shallowEquals';
+import deepEquals from "./deepEquals";
+import shallowEquals from "./shallowEquals";
 
 /** The supported component update strategies */
-export type ComponentUpdateStrategy = 'customDeep' | 'shallow' | 'always';
+export type ComponentUpdateStrategy = "customDeep" | "shallow" | "always";
 
 /** Determines whether the given `component` should be rerendered by comparing its current set of props and state
  * against the next set. The comparison strategy can be controlled via the `updateStrategy` parameter.
@@ -22,14 +22,14 @@ export default function shouldRender(
   component: React.Component,
   nextProps: any,
   nextState: any,
-  updateStrategy: ComponentUpdateStrategy = 'customDeep',
+  updateStrategy: ComponentUpdateStrategy = "customDeep",
 ) {
-  if (updateStrategy === 'always') {
+  if (updateStrategy === "always") {
     // Use React's default behavior: always update if state or props change (no shouldComponentUpdate optimization)
     return true;
   }
 
-  if (updateStrategy === 'shallow') {
+  if (updateStrategy === "shallow") {
     // Use shallow comparison for props and state
     const { props, state } = component;
     return !shallowEquals(props, nextProps) || !shallowEquals(state, nextState);

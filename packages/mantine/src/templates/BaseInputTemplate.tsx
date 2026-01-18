@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   BaseInputTemplateProps,
@@ -8,10 +8,10 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { TextInput, NumberInput } from '@mantine/core';
+} from "@rjsf/utils";
+import { TextInput, NumberInput } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the `core` theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -49,15 +49,20 @@ export default function BaseInputTemplate<
   const { ClearButton } = registry.templates.ButtonTemplates;
 
   const inputProps = getInputProps<T, S, F>(schema, type, options, false);
-  const description = hideLabel ? undefined : options.description || schema.description;
+  const description = hideLabel
+    ? undefined
+    : options.description || schema.description;
   const themeProps = cleanupOptions(options);
 
-  const handleNumberChange = useCallback((value: number | string) => onChange(value), [onChange]);
+  const handleNumberChange = useCallback(
+    (value: number | string) => onChange(value),
+    [onChange],
+  );
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const handler = onChangeOverride ? onChangeOverride : onChange;
-      const value = e.target.value === '' ? options.emptyValue : e.target.value;
+      const value = e.target.value === "" ? options.emptyValue : e.target.value;
       handler(value);
     },
     [onChange, onChangeOverride, options],
@@ -81,7 +86,7 @@ export default function BaseInputTemplate<
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
@@ -96,19 +101,19 @@ export default function BaseInputTemplate<
     onBlur: !readonly ? handleBlur : undefined,
     onFocus: !readonly ? handleFocus : undefined,
     placeholder,
-    error: rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined,
+    error: rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined,
     list: schema.examples ? examplesId(id) : undefined,
   };
 
   const input =
-    inputProps.type === 'number' || inputProps.type === 'integer' ? (
+    inputProps.type === "number" || inputProps.type === "integer" ? (
       <NumberInput
         onChange={!readonly ? handleNumberChange : undefined}
         {...componentProps}
         {...inputProps}
         {...themeProps}
-        step={typeof inputProps.step === 'number' ? inputProps.step : 1}
-        type='text'
+        step={typeof inputProps.step === "number" ? inputProps.step : 1}
+        type="text"
         description={description}
         value={value}
         aria-describedby={ariaDescribedByIds(id, !!schema.examples)}
@@ -135,7 +140,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) && (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example) => {
               return <option key={example} value={example} />;
             })}

@@ -5,7 +5,7 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ArrayFieldItemTemplate` component is the template used to render an item of an array.
  *
@@ -24,20 +24,34 @@ export default function ArrayFieldItemTemplate<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: ArrayFieldItemTemplateProps<T, S, F>) {
-  const { children, buttonsProps, displayLabel, hasToolbar, registry, uiSchema, index, totalItems } = props;
-  const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldItemButtonsTemplate = getTemplate<'ArrayFieldItemButtonsTemplate', T, S, F>(
-    'ArrayFieldItemButtonsTemplate',
+  const {
+    children,
+    buttonsProps,
+    displayLabel,
+    hasToolbar,
     registry,
-    uiOptions,
-  );
+    uiSchema,
+    index,
+    totalItems,
+  } = props;
+  const uiOptions = getUiOptions<T, S, F>(uiSchema);
+  const ArrayFieldItemButtonsTemplate = getTemplate<
+    "ArrayFieldItemButtonsTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldItemButtonsTemplate", registry, uiOptions);
 
   // Different styling for first, middle, and last items to create connected feel
   const isFirstItem = index === 0;
   const isLastItem = index === totalItems - 1;
-  const borderRadius = isFirstItem ? 'rounded-t-lg' : isLastItem ? 'rounded-b-lg' : '';
-  const marginBottom = isLastItem ? '' : 'mb-[-1px]';
-  const zIndex = index === undefined ? '' : 'z-' + (10 - Math.min(index, 9));
+  const borderRadius = isFirstItem
+    ? "rounded-t-lg"
+    : isLastItem
+      ? "rounded-b-lg"
+      : "";
+  const marginBottom = isLastItem ? "" : "mb-[-1px]";
+  const zIndex = index === undefined ? "" : "z-" + (10 - Math.min(index, 9));
 
   return (
     <fieldset
@@ -47,7 +61,7 @@ export default function ArrayFieldItemTemplate<
       {children}
       {/* Action buttons */}
       {hasToolbar && (
-        <div className={`flex justify-end ${displayLabel ? 'mt-5' : 'mt-1'}`}>
+        <div className={`flex justify-end ${displayLabel ? "mt-5" : "mt-1"}`}>
           <ArrayFieldItemButtonsTemplate {...buttonsProps} />
         </div>
       )}

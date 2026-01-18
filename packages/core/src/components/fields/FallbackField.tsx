@@ -10,9 +10,9 @@ import {
   toFieldPathId,
   TranslatableString,
   useDeepCompareMemo,
-} from '@rjsf/utils';
-import { useMemo, useState } from 'react';
-import { JSONSchema7TypeName } from 'json-schema';
+} from "@rjsf/utils";
+import { useMemo, useState } from "react";
+import { JSONSchema7TypeName } from "json-schema";
 
 /**
  * Get the schema for the type selection component.
@@ -20,9 +20,9 @@ import { JSONSchema7TypeName } from 'json-schema';
  */
 function getFallbackTypeSelectionSchema(title: string): RJSFSchema {
   return {
-    type: 'string',
-    enum: ['string', 'number', 'boolean', 'object', 'array'],
-    default: 'string',
+    type: "string",
+    enum: ["string", "number", "boolean", "object", "array"],
+    default: "string",
     title: title,
   };
 }
@@ -33,14 +33,18 @@ function getFallbackTypeSelectionSchema(title: string): RJSFSchema {
  */
 function getTypeOfFormData(formData: any): JSONSchema7TypeName {
   const dataType = typeof formData;
-  if (dataType === 'string' || dataType === 'number' || dataType === 'boolean') {
+  if (
+    dataType === "string" ||
+    dataType === "number" ||
+    dataType === "boolean"
+  ) {
     return dataType;
   }
-  if (dataType === 'object') {
-    return Array.isArray(formData) ? 'array' : 'object';
+  if (dataType === "object") {
+    return Array.isArray(formData) ? "array" : "object";
   }
   // Treat everything else as a string
-  return 'string';
+  return "string";
 }
 
 /**
@@ -50,13 +54,13 @@ function getTypeOfFormData(formData: any): JSONSchema7TypeName {
  */
 function castToNewType<T = any>(formData: T, newType: JSONSchema7TypeName): T {
   switch (newType) {
-    case 'string':
+    case "string":
       return String(formData) as T;
-    case 'number': {
+    case "number": {
       const castedNumber = Number(formData);
       return (isNaN(castedNumber) ? 0 : castedNumber) as T;
     }
-    case 'boolean':
+    case "boolean":
       return Boolean(formData) as T;
     default:
       return formData;
@@ -90,37 +94,59 @@ export default function FallbackField<
     errorSchema,
   } = props;
   const { translateString, fields, globalFormOptions } = registry;
-  const [type, setType] = useState<JSONSchema7TypeName>(getTypeOfFormData(formData));
+  const [type, setType] = useState<JSONSchema7TypeName>(
+    getTypeOfFormData(formData),
+  );
 
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
 
   const typeSelectorInnerFieldPathId = useDeepCompareMemo<FieldPathId>(
-    toFieldPathId('__internal_type_selector', globalFormOptions, fieldPathId),
+    toFieldPathId("__internal_type_selector", globalFormOptions, fieldPathId),
   );
 
   const schemaTitle = translateString(TranslatableString.Type);
-  const typesOptionSchema = useMemo(() => getFallbackTypeSelectionSchema(schemaTitle), [schemaTitle]);
+  const typesOptionSchema = useMemo(
+    () => getFallbackTypeSelectionSchema(schemaTitle),
+    [schemaTitle],
+  );
 
   const onTypeChange = (newType: T | undefined) => {
     if (newType != null) {
       setType(newType as JSONSchema7TypeName);
-      onChange(castToNewType<T>(formData as T, newType as JSONSchema7TypeName), fieldPathId.path, errorSchema, id);
+      onChange(
+        castToNewType<T>(formData as T, newType as JSONSchema7TypeName),
+        fieldPathId.path,
+        errorSchema,
+        id,
+      );
     }
   };
 
   if (!globalFormOptions.useFallbackUiForUnsupportedType) {
-    const { reason = translateString(TranslatableString.UnknownFieldType, [String(schema.type)]) } = props;
-    const UnsupportedFieldTemplate = getTemplate<'UnsupportedFieldTemplate', T, S, F>(
-      'UnsupportedFieldTemplate',
-      registry,
-      uiOptions,
-    );
+    const {
+      reason = translateString(TranslatableString.UnknownFieldType, [
+        String(schema.type),
+      ]),
+    } = props;
+    const UnsupportedFieldTemplate = getTemplate<
+      "UnsupportedFieldTemplate",
+      T,
+      S,
+      F
+    >("UnsupportedFieldTemplate", registry, uiOptions);
 
-    return <UnsupportedFieldTemplate schema={schema} fieldPathId={fieldPathId} reason={reason} registry={registry} />;
+    return (
+      <UnsupportedFieldTemplate
+        schema={schema}
+        fieldPathId={fieldPathId}
+        reason={reason}
+        registry={registry}
+      />
+    );
   }
 
-  const FallbackFieldTemplate = getTemplate<'FallbackFieldTemplate', T, S, F>(
-    'FallbackFieldTemplate',
+  const FallbackFieldTemplate = getTemplate<"FallbackFieldTemplate", T, S, F>(
+    "FallbackFieldTemplate",
     registry,
     uiOptions,
   );
@@ -133,7 +159,7 @@ export default function FallbackField<
       registry={registry}
       typeSelector={
         <SchemaField
-          key={formData ? hashObject(formData) : '__empty__'}
+          key={formData ? hashObject(formData) : "__empty__"}
           fieldPathId={typeSelectorInnerFieldPathId}
           name={`${name}__fallback_type`}
           schema={typesOptionSchema as S}
@@ -155,7 +181,7 @@ export default function FallbackField<
             {
               type,
               title: translateString(TranslatableString.Value),
-              ...(type === 'object' && { additionalProperties: true }),
+              ...(type === "object" && { additionalProperties: true }),
             } as S
           }
         />

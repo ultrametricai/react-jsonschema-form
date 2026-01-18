@@ -1,8 +1,8 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
-import isObject from './isObject';
-import { GenericObjectType } from '../src';
-import isNil from 'lodash/isNil';
+import isObject from "./isObject";
+import { GenericObjectType } from "../src";
+import isNil from "lodash/isNil";
 
 /** Merges the `defaults` object of type `T` into the `formData` of type `T`
  *
@@ -37,8 +37,12 @@ export default function mergeDefaultsWithFormData<T = any>(
     const defaultsArray = Array.isArray(defaults) ? defaults : [];
 
     // If overrideFormDataWithDefaults is true, we want to override the formData with the defaults
-    const overrideArray = overrideFormDataWithDefaults ? defaultsArray : formData;
-    const overrideOppositeArray = overrideFormDataWithDefaults ? formData : defaultsArray;
+    const overrideArray = overrideFormDataWithDefaults
+      ? defaultsArray
+      : formData;
+    const overrideOppositeArray = overrideFormDataWithDefaults
+      ? formData
+      : defaultsArray;
 
     const mapped = overrideArray.map((value, idx) => {
       // We want to explicitly make sure that the value is NOT undefined since null, 0 and empty space are valid values
@@ -56,7 +60,10 @@ export default function mergeDefaultsWithFormData<T = any>(
 
     // Merge any extra defaults when mergeExtraArrayDefaults is true
     // Or when overrideFormDataWithDefaults is true and the default array is shorter than the formData array
-    if ((mergeExtraArrayDefaults || overrideFormDataWithDefaults) && mapped.length < overrideOppositeArray.length) {
+    if (
+      (mergeExtraArrayDefaults || overrideFormDataWithDefaults) &&
+      mapped.length < overrideOppositeArray.length
+    ) {
       mapped.push(...overrideOppositeArray.slice(mapped.length));
     }
     return mapped as unknown as T;
@@ -65,15 +72,23 @@ export default function mergeDefaultsWithFormData<T = any>(
     const acc: { [key in keyof T]: any } = Object.assign({}, defaults); // Prevent mutation of source object.
     return Object.keys(formData as GenericObjectType).reduce((acc, key) => {
       const keyValue = get(formData, key);
-      const keyExistsInDefaults = isObject(defaults) && key in (defaults as GenericObjectType);
+      const keyExistsInDefaults =
+        isObject(defaults) && key in (defaults as GenericObjectType);
       const keyExistsInFormData = key in (formData as GenericObjectType);
       const keyDefault = get(defaults, key) ?? {};
-      const defaultValueIsNestedObject = keyExistsInDefaults && Object.entries(keyDefault).some(([, v]) => isObject(v));
+      const defaultValueIsNestedObject =
+        keyExistsInDefaults &&
+        Object.entries(keyDefault).some(([, v]) => isObject(v));
 
-      const keyDefaultIsObject = keyExistsInDefaults && isObject(get(defaults, key));
+      const keyDefaultIsObject =
+        keyExistsInDefaults && isObject(get(defaults, key));
       const keyHasFormDataObject = keyExistsInFormData && isObject(keyValue);
 
-      if (keyDefaultIsObject && keyHasFormDataObject && !defaultValueIsNestedObject) {
+      if (
+        keyDefaultIsObject &&
+        keyHasFormDataObject &&
+        !defaultValueIsNestedObject
+      ) {
         acc[key as keyof T] = {
           ...get(defaults, key),
           ...keyValue,
@@ -88,7 +103,8 @@ export default function mergeDefaultsWithFormData<T = any>(
         defaultSupercedesUndefined,
         // overrideFormDataWithDefaults can be true only when the key value exists in defaults
         // Or if the key value doesn't exist in formData
-        overrideFormDataWithDefaults && (keyExistsInDefaults || !keyExistsInFormData),
+        overrideFormDataWithDefaults &&
+          (keyExistsInDefaults || !keyExistsInFormData),
       );
       return acc;
     }, acc);
@@ -102,7 +118,8 @@ export default function mergeDefaultsWithFormData<T = any>(
    */
   if (
     (defaultSupercedesUndefined &&
-      ((!(defaults === undefined) && isNil(formData)) || (typeof formData === 'number' && isNaN(formData)))) ||
+      ((!(defaults === undefined) && isNil(formData)) ||
+        (typeof formData === "number" && isNaN(formData)))) ||
     (overrideFormDataWithDefaults && !isNil(formData))
   ) {
     return defaults;

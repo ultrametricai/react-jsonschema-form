@@ -1,10 +1,10 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from "@testing-library/react";
 
-import RatingWidget from '../src/widgets/RatingWidget/RatingWidget';
-import { makeWidgetMockProps } from './helpers/createMocks';
+import RatingWidget from "../src/widgets/RatingWidget/RatingWidget";
+import { makeWidgetMockProps } from "./helpers/createMocks";
 
-describe('RatingWidget', () => {
-  test('renders with default props (value=0)', () => {
+describe("RatingWidget", () => {
+  test("renders with default props (value=0)", () => {
     const { asFragment } = render(
       <RatingWidget
         {...makeWidgetMockProps({
@@ -15,7 +15,7 @@ describe('RatingWidget', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('renders with value=3', () => {
+  test("renders with value=3", () => {
     const { asFragment } = render(
       <RatingWidget
         {...makeWidgetMockProps({
@@ -26,12 +26,12 @@ describe('RatingWidget', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('renders with maximum stars from schema', () => {
+  test("renders with maximum stars from schema", () => {
     const { asFragment } = render(
       <RatingWidget
         {...makeWidgetMockProps({
           schema: {
-            type: 'integer',
+            type: "integer",
             maximum: 10,
           },
           value: 7,
@@ -41,7 +41,7 @@ describe('RatingWidget', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('renders in disabled state', () => {
+  test("renders in disabled state", () => {
     const { asFragment } = render(
       <RatingWidget
         {...makeWidgetMockProps({
@@ -53,7 +53,7 @@ describe('RatingWidget', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('renders in readonly state', () => {
+  test("renders in readonly state", () => {
     const { asFragment } = render(
       <RatingWidget
         {...makeWidgetMockProps({
@@ -65,7 +65,7 @@ describe('RatingWidget', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('calls onChange when rating is changed', () => {
+  test("calls onChange when rating is changed", () => {
     const onChange = jest.fn();
     const { container } = render(
       <RatingWidget
@@ -78,7 +78,7 @@ describe('RatingWidget', () => {
 
     // Get the third star (index 2, value 2+1=3)
     // Note: The actual implementation returns 0-indexed value (2)
-    const inputs = container.querySelectorAll('input');
+    const inputs = container.querySelectorAll("input");
     fireEvent.click(inputs[2]);
 
     // The value should be 2 (0-indexed)
@@ -87,7 +87,7 @@ describe('RatingWidget', () => {
 
   // Skip the disabled test for now as it's unreliable in the test environment
   // The actual component does prevent clicks when disabled
-  test.skip('does not call onChange when disabled', () => {
+  test.skip("does not call onChange when disabled", () => {
     const onChange = jest.fn();
     const { container } = render(
       <RatingWidget
@@ -99,7 +99,7 @@ describe('RatingWidget', () => {
       />,
     );
 
-    const inputs = container.querySelectorAll('input');
+    const inputs = container.querySelectorAll("input");
     fireEvent.click(inputs[2]);
 
     expect(onChange).not.toHaveBeenCalled();

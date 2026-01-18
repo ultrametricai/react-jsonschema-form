@@ -1,5 +1,5 @@
-import reduce from 'lodash/reduce';
-import deepFreeze from 'deep-freeze-es6';
+import reduce from "lodash/reduce";
+import deepFreeze from "deep-freeze-es6";
 
 import {
   ANY_OF_KEY,
@@ -12,7 +12,7 @@ import {
   ONE_OF_KEY,
   RJSFSchema,
   RJSFValidationError,
-} from '../../src';
+} from "../../src";
 
 export const GLOBAL_FORM_OPTIONS = {
   idPrefix: DEFAULT_ID_PREFIX,
@@ -21,194 +21,194 @@ export const GLOBAL_FORM_OPTIONS = {
 };
 
 export const oneOfData = {
-  name: 'second_option',
+  name: "second_option",
   flag: true,
   inner_spec: {
-    name: 'inner_spec',
+    name: "inner_spec",
     special_spec: {
-      name: 'special_spec',
-      cpg_params: 'blah',
+      name: "special_spec",
+      cpg_params: "blah",
     },
   },
 };
 export const oneOfSchema: RJSFSchema = deepFreeze({
-  type: 'object',
-  title: 'Testing OneOfs',
+  type: "object",
+  title: "Testing OneOfs",
   definitions: {
     special_spec_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'special_spec',
+          type: "string",
+          default: "special_spec",
           readOnly: true,
         },
         cpg_params: {
-          type: 'string',
+          type: "string",
         },
       },
-      required: ['name'],
+      required: ["name"],
     },
     inner_first_choice_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'inner_first_choice',
+          type: "string",
+          default: "inner_first_choice",
           readOnly: true,
         },
         params: {
-          type: 'string',
+          type: "string",
         },
       },
-      required: ['name', 'params'],
+      required: ["name", "params"],
       additionalProperties: false,
     },
     inner_second_choice_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'inner_second_choice',
+          type: "string",
+          default: "inner_second_choice",
           readOnly: true,
         },
         enumeration: {
-          type: 'string',
-          enum: ['enum_1', 'enum_2', 'enum_3'],
+          type: "string",
+          enum: ["enum_1", "enum_2", "enum_3"],
         },
         params: {
-          type: 'string',
-          default: '',
+          type: "string",
+          default: "",
         },
       },
-      required: ['name', 'enumeration'],
+      required: ["name", "enumeration"],
       additionalProperties: false,
     },
     inner_spec_2_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'inner_spec_2',
+          type: "string",
+          default: "inner_spec_2",
           readOnly: true,
         },
         inner_one_of: {
           oneOf: [
             {
-              $ref: '#/definitions/inner_first_choice_def',
-              title: 'inner_first_choice',
+              $ref: "#/definitions/inner_first_choice_def",
+              title: "inner_first_choice",
             },
             {
-              $ref: '#/definitions/inner_second_choice_def',
-              title: 'inner_second_choice',
+              $ref: "#/definitions/inner_second_choice_def",
+              title: "inner_second_choice",
             },
           ],
         },
       },
-      required: ['name', 'inner_one_of'],
+      required: ["name", "inner_one_of"],
     },
     first_option_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'first_option',
+          type: "string",
+          default: "first_option",
           readOnly: true,
         },
         flag: {
-          type: 'boolean',
+          type: "boolean",
           default: false,
         },
         inner_spec: {
-          $ref: '#/definitions/inner_spec_2_def',
+          $ref: "#/definitions/inner_spec_2_def",
         },
         unlabeled_options: {
           oneOf: [
             {
-              type: 'integer',
+              type: "integer",
             },
             {
-              type: 'array',
+              type: "array",
               items: {
-                type: 'integer',
+                type: "integer",
               },
             },
           ],
         },
       },
-      required: ['name', 'inner_spec'],
+      required: ["name", "inner_spec"],
       additionalProperties: false,
     },
     inner_spec_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'inner_spec',
+          type: "string",
+          default: "inner_spec",
           readOnly: true,
         },
         inner_one_of: {
           oneOf: [
             {
-              $ref: '#/definitions/inner_first_choice_def',
-              title: 'inner_first_choice',
+              $ref: "#/definitions/inner_first_choice_def",
+              title: "inner_first_choice",
             },
             {
-              $ref: '#/definitions/inner_second_choice_def',
-              title: 'inner_second_choice',
+              $ref: "#/definitions/inner_second_choice_def",
+              title: "inner_second_choice",
             },
           ],
         },
         special_spec: {
-          $ref: '#/definitions/special_spec_def',
+          $ref: "#/definitions/special_spec_def",
         },
       },
-      required: ['name'],
+      required: ["name"],
     },
     second_option_def: {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'second_option',
+          type: "string",
+          default: "second_option",
           readOnly: true,
         },
         flag: {
-          type: 'boolean',
+          type: "boolean",
           default: false,
         },
         inner_spec: {
-          $ref: '#/definitions/inner_spec_def',
+          $ref: "#/definitions/inner_spec_def",
         },
         unique_to_second: {
-          type: 'integer',
+          type: "integer",
         },
         labeled_options: {
           oneOf: [
             {
-              type: 'string',
+              type: "string",
             },
             {
-              type: 'array',
+              type: "array",
               items: {
-                type: 'string',
+                type: "string",
               },
             },
           ],
         },
       },
-      required: ['name', 'inner_spec'],
+      required: ["name", "inner_spec"],
       additionalProperties: false,
     },
   },
   oneOf: [
     {
-      $ref: '#/definitions/first_option_def',
-      title: 'first option',
+      $ref: "#/definitions/first_option_def",
+      title: "first option",
     },
     {
-      $ref: '#/definitions/second_option_def',
-      title: 'second option',
+      $ref: "#/definitions/second_option_def",
+      title: "second option",
     },
   ],
 });
@@ -218,48 +218,48 @@ export const SECOND_ONE_OF: RJSFSchema = ONE_OF_SCHEMA_OPTIONS[1];
 export const OPTIONAL_ONE_OF_SCHEMA: RJSFSchema = deepFreeze<RJSFSchema>({
   oneOf: [
     {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'first_option',
+          type: "string",
+          default: "first_option",
           readOnly: true,
         },
       },
       additionalProperties: false,
     },
     {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'second_option',
+          type: "string",
+          default: "second_option",
           readOnly: true,
         },
         flag: {
-          type: 'boolean',
+          type: "boolean",
           default: false,
         },
       },
       additionalProperties: false,
     },
     {
-      type: 'object',
+      type: "object",
       properties: {
         name: {
-          type: 'string',
-          default: 'third_option',
+          type: "string",
+          default: "third_option",
           readOnly: true,
         },
         flag: {
-          type: 'boolean',
+          type: "boolean",
           default: false,
         },
         inner_obj: {
-          type: 'object',
+          type: "object",
           properties: {
             foo: {
-              type: 'string',
+              type: "string",
             },
           },
         },
@@ -268,59 +268,61 @@ export const OPTIONAL_ONE_OF_SCHEMA: RJSFSchema = deepFreeze<RJSFSchema>({
     },
   ],
 });
-export const OPTIONAL_ONE_OF_SCHEMA_ONEOF = OPTIONAL_ONE_OF_SCHEMA[ONE_OF_KEY] as RJSFSchema[];
-export const OPTIONAL_ONE_OF_DATA = { flag: true, inner_obj: { foo: 'bar' } };
+export const OPTIONAL_ONE_OF_SCHEMA_ONEOF = OPTIONAL_ONE_OF_SCHEMA[
+  ONE_OF_KEY
+] as RJSFSchema[];
+export const OPTIONAL_ONE_OF_DATA = { flag: true, inner_obj: { foo: "bar" } };
 export const SIMPLE_ONE_OF_SCHEMA = {
   oneOf: [
     {}, // object with no type should take the type from its parent schema
-    { type: 'string' },
-    { type: 'array', items: { type: 'string' } },
+    { type: "string" },
+    { type: "array", items: { type: "string" } },
   ],
 } as RJSFSchema;
 export const FIRST_OPTION_ONE_OF_DATA = {
   flag: true,
   inner_spec: {
-    name: 'inner_spec_2',
+    name: "inner_spec_2",
     special_spec: undefined,
   },
-  name: 'first_option',
+  name: "first_option",
   unique_to_second: undefined,
 };
 export const ONE_OF_SCHEMA_DATA = { ...oneOfData, unique_to_second: 5 };
 
 export const ALL_OPTIONS: EnumOptionsType[] = [
-  { value: 'foo', label: 'Foo' },
-  { value: 'bar', label: 'Bar' },
-  { value: 'baz', label: 'Baz' },
-  { value: 'boo', label: 'Boo' },
+  { value: "foo", label: "Foo" },
+  { value: "bar", label: "Bar" },
+  { value: "baz", label: "Baz" },
+  { value: "boo", label: "Boo" },
 ];
 
 export const FALSY_OPTIONS: EnumOptionsType[] = [
-  { value: '', label: 'Empty String' },
-  { value: 0, label: 'Zero' },
+  { value: "", label: "Empty String" },
+  { value: 0, label: "Zero" },
 ];
 
 export const RECURSIVE_REF_ALLOF: RJSFSchema = deepFreeze({
   definitions: {
-    '@enum': {
-      type: 'object',
+    "@enum": {
+      type: "object",
       properties: {
         name: {
-          title: 'Name',
-          type: 'string',
-          default: '',
+          title: "Name",
+          type: "string",
+          default: "",
         },
         _id: {
-          title: 'Value',
-          type: 'number',
+          title: "Value",
+          type: "number",
         },
         children: {
-          title: 'Subvalues',
-          type: 'array',
+          title: "Subvalues",
+          type: "array",
           items: {
             allOf: [
               {
-                $ref: '#/definitions/@enum',
+                $ref: "#/definitions/@enum",
               },
             ],
           },
@@ -328,14 +330,14 @@ export const RECURSIVE_REF_ALLOF: RJSFSchema = deepFreeze({
       },
     },
   },
-  type: 'object',
+  type: "object",
   properties: {
     value: {
-      type: 'array',
+      type: "array",
       items: {
         allOf: [
           {
-            $ref: '#/definitions/@enum',
+            $ref: "#/definitions/@enum",
           },
         ],
       },
@@ -346,38 +348,38 @@ export const RECURSIVE_REF_ALLOF: RJSFSchema = deepFreeze({
 
 export const RECURSIVE_REF: RJSFSchema = deepFreeze({
   definitions: {
-    '@enum': {
-      type: 'object',
+    "@enum": {
+      type: "object",
       properties: {
         name: {
-          title: 'Name',
-          type: 'string',
-          default: '',
+          title: "Name",
+          type: "string",
+          default: "",
         },
         children: {
-          $ref: '#/definitions/@enum',
+          $ref: "#/definitions/@enum",
         },
       },
     },
   },
-  $ref: '#/definitions/@enum',
+  $ref: "#/definitions/@enum",
 });
 
 export const ERROR_MAPPER = {
-  '': 'root error',
-  foo: 'foo error',
-  list: 'list error',
-  noMessage: '',
-  'list.0': 'list 0 error',
-  'list.1': 'list 1 error',
-  nested: 'nested error',
-  'nested.baz': 'baz error',
-  'nested.blah': 'blah error',
+  "": "root error",
+  foo: "foo error",
+  list: "list error",
+  noMessage: "",
+  "list.0": "list 0 error",
+  "list.1": "list 1 error",
+  nested: "nested error",
+  "nested.baz": "baz error",
+  "nested.blah": "blah error",
 };
 
 export const TEST_FORM_DATA = {
-  foo: 'bar',
-  list: ['a', 'b'],
+  foo: "bar",
+  list: ["a", "b"],
   nested: {
     baz: 1,
     blah: false,
@@ -388,7 +390,7 @@ export const TEST_ERROR_SCHEMA: ErrorSchema = reduce(
   ERROR_MAPPER,
   (builder: ErrorSchemaBuilder, value, key) => {
     if (value) {
-      return builder.addErrors(value, key === '' ? undefined : key);
+      return builder.addErrors(value, key === "" ? undefined : key);
     }
     return builder;
   },
@@ -398,7 +400,11 @@ export const TEST_ERROR_SCHEMA: ErrorSchema = reduce(
 export const TEST_ERROR_LIST: RJSFValidationError[] = reduce(
   ERROR_MAPPER,
   (list: RJSFValidationError[], value, key) => {
-    list.push({ property: `.${key}`, message: value, stack: `.${key} ${value}` });
+    list.push({
+      property: `.${key}`,
+      message: value,
+      stack: `.${key} ${value}`,
+    });
     return list;
   },
   [],
@@ -408,7 +414,11 @@ export const TEST_ERROR_LIST_OUTPUT: RJSFValidationError[] = reduce(
   ERROR_MAPPER,
   (list: RJSFValidationError[], value, key) => {
     if (value) {
-      list.push({ property: `.${key}`, message: value, stack: `.${key} ${value}` });
+      list.push({
+        property: `.${key}`,
+        message: value,
+        stack: `.${key} ${value}`,
+      });
     }
     return list;
   },
@@ -416,101 +426,104 @@ export const TEST_ERROR_LIST_OUTPUT: RJSFValidationError[] = reduce(
 );
 
 export const SUPER_SCHEMA: RJSFSchema = deepFreeze<RJSFSchema>({
-  [ID_KEY]: 'super-schema',
+  [ID_KEY]: "super-schema",
   definitions: {
     test: {
-      type: 'string',
+      type: "string",
     },
     foo: {
-      type: 'object',
+      type: "object",
       properties: {
-        name: { type: 'string' },
+        name: { type: "string" },
       },
     },
     price: {
-      title: 'Price per task ($)',
-      type: 'number',
+      title: "Price per task ($)",
+      type: "number",
       multipleOf: 0.03,
       minimum: 0,
     },
     passwords: {
-      type: 'object',
+      type: "object",
       properties: {
-        pass1: { type: 'string' },
-        pass2: { type: 'string' },
+        pass1: { type: "string" },
+        pass2: { type: "string" },
       },
-      required: ['pass1', 'pass2'],
+      required: ["pass1", "pass2"],
     },
     list: {
-      type: 'array',
-      items: { type: 'string' },
+      type: "array",
+      items: { type: "string" },
     },
     choice1: {
-      type: 'object',
-      required: ['more'],
+      type: "object",
+      required: ["more"],
       properties: {
         choice: {
-          type: 'string',
-          const: 'one',
+          type: "string",
+          const: "one",
         },
         other: {
-          type: 'number',
+          type: "number",
         },
       },
     },
     choice2: {
-      type: 'object',
+      type: "object",
       properties: {
         choice: {
-          type: 'string',
-          const: 'two',
+          type: "string",
+          const: "two",
         },
         more: {
-          type: 'string',
+          type: "string",
         },
       },
     },
   },
-  type: 'object',
+  type: "object",
   properties: {
-    foo: { type: 'string' },
-    price: { $ref: '#/definitions/price' },
-    passwords: { $ref: '#/definitions/passwords' },
-    dataUrlWithName: { type: 'string', format: 'data-url' },
+    foo: { type: "string" },
+    price: { $ref: "#/definitions/price" },
+    passwords: { $ref: "#/definitions/passwords" },
+    dataUrlWithName: { type: "string", format: "data-url" },
     multi: {
-      title: 'multi',
-      anyOf: [{ $ref: '#/definitions/foo' }],
+      title: "multi",
+      anyOf: [{ $ref: "#/definitions/foo" }],
     },
-    list: { $ref: '#/definitions/list' },
+    list: { $ref: "#/definitions/list" },
     single: {
-      required: ['choice'],
-      oneOf: [{ $ref: '#/definitions/choice1' }, { $ref: '#/definitions/choice2' }],
+      required: ["choice"],
+      oneOf: [
+        { $ref: "#/definitions/choice1" },
+        { $ref: "#/definitions/choice2" },
+      ],
     },
     anything: {
-      type: 'object',
+      type: "object",
       additionalProperties: {
-        type: 'string',
+        type: "string",
       },
     },
   },
   anyOf: [
     {
-      title: 'First method of identification',
+      title: "First method of identification",
       properties: {
         firstName: {
-          type: 'string',
-          title: 'First name',
+          type: "string",
+          title: "First name",
         },
         lastName: {
-          $ref: '#/definitions/test',
+          $ref: "#/definitions/test",
         },
       },
     },
     {
-      title: 'Second method of identification',
+      title: "Second method of identification",
       properties: {
         idCode: {
-          $ref: '#/definitions/test',
+          $ref: "#/definitions/test",
         },
       },
     },
@@ -518,76 +531,79 @@ export const SUPER_SCHEMA: RJSFSchema = deepFreeze<RJSFSchema>({
 } satisfies RJSFSchema);
 
 export const PROPERTY_DEPENDENCIES: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   properties: {
-    a: { type: 'string' },
-    b: { type: 'integer' },
+    a: { type: "string" },
+    b: { type: "integer" },
   },
-  required: ['a'],
+  required: ["a"],
   dependencies: {
-    a: ['b'],
+    a: ["b"],
   },
 });
 
 export const SCHEMA_DEPENDENCIES: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   properties: {
-    a: { type: 'string' },
+    a: { type: "string" },
   },
   dependencies: {
     a: {
       properties: {
-        b: { type: 'integer' },
+        b: { type: "integer" },
       },
     },
   },
 });
 
 export const SCHEMA_AND_ONEOF_REF_DEPENDENCIES: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   definitions: {
     needsA: {
       properties: {
-        a: { enum: ['int'] },
-        b: { type: 'integer' },
+        a: { enum: ["int"] },
+        b: { type: "integer" },
       },
     },
     needsB: {
       properties: {
-        a: { enum: ['bool'] },
-        b: { type: 'boolean' },
+        a: { enum: ["bool"] },
+        b: { type: "boolean" },
       },
     },
   },
   properties: {
-    a: { type: 'string', enum: ['int', 'bool'] },
+    a: { type: "string", enum: ["int", "bool"] },
   },
   dependencies: {
     a: {
-      oneOf: [{ $ref: '#/definitions/needsA' }, { $ref: '#/definitions/needsB' }],
+      oneOf: [
+        { $ref: "#/definitions/needsA" },
+        { $ref: "#/definitions/needsB" },
+      ],
     },
   },
 });
 
 export const SCHEMA_AND_REQUIRED_DEPENDENCIES: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   properties: {
-    a: { type: 'string' },
-    b: { type: 'integer' },
+    a: { type: "string" },
+    b: { type: "integer" },
   },
-  required: ['a'],
+  required: ["a"],
   dependencies: {
     a: {
       properties: {
-        a: { type: 'string' },
+        a: { type: "string" },
       },
-      required: ['b'],
+      required: ["b"],
     },
   },
 });
 
 export const SCHEMA_WITH_ONEOF_NESTED_DEPENDENCIES: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   dependencies: {
     employee_accounts: {
       oneOf: [
@@ -597,12 +613,12 @@ export const SCHEMA_WITH_ONEOF_NESTED_DEPENDENCIES: RJSFSchema = deepFreeze({
               const: true,
             },
             update_absences: {
-              title: 'Update Absences',
-              type: 'string',
+              title: "Update Absences",
+              type: "string",
               oneOf: [
                 {
-                  title: 'Both',
-                  const: 'BOTH',
+                  title: "Both",
+                  const: "BOTH",
                 },
               ],
             },
@@ -615,33 +631,33 @@ export const SCHEMA_WITH_ONEOF_NESTED_DEPENDENCIES: RJSFSchema = deepFreeze({
         {
           properties: {
             permitted_extension: {
-              title: 'Permitted Extension',
-              type: 'integer',
+              title: "Permitted Extension",
+              type: "integer",
             },
             update_absences: {
-              const: 'BOTH',
+              const: "BOTH",
             },
           },
         },
         {
           properties: {
             permitted_extension: {
-              title: 'Permitted Extension',
-              type: 'integer',
+              title: "Permitted Extension",
+              type: "integer",
             },
             update_absences: {
-              const: 'MEDICAL_ONLY',
+              const: "MEDICAL_ONLY",
             },
           },
         },
         {
           properties: {
             permitted_extension: {
-              title: 'Permitted Extension',
-              type: 'integer',
+              title: "Permitted Extension",
+              type: "integer",
             },
             update_absences: {
-              const: 'NON_MEDICAL_ONLY',
+              const: "NON_MEDICAL_ONLY",
             },
           },
         },
@@ -650,306 +666,310 @@ export const SCHEMA_WITH_ONEOF_NESTED_DEPENDENCIES: RJSFSchema = deepFreeze({
   },
   properties: {
     employee_accounts: {
-      type: 'boolean',
-      title: 'Employee Accounts',
+      type: "boolean",
+      title: "Employee Accounts",
     },
   },
 });
 
 export const SCHEMA_WITH_SINGLE_CONDITION: RJSFSchema = deepFreeze({
-  type: 'object',
+  type: "object",
   properties: {
     country: {
-      default: 'United States of America',
-      enum: ['United States of America', 'Canada'],
+      default: "United States of America",
+      enum: ["United States of America", "Canada"],
     },
   },
   if: {
-    properties: { country: { const: 'United States of America' } },
+    properties: { country: { const: "United States of America" } },
   },
   then: {
-    properties: { postal_code: { pattern: '[0-9]{5}(-[0-9]{4})?' } },
+    properties: { postal_code: { pattern: "[0-9]{5}(-[0-9]{4})?" } },
   },
   else: {
     properties: {
-      postal_code: { pattern: '[A-Z][0-9][A-Z] [0-9][A-Z][0-9]' },
+      postal_code: { pattern: "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]" },
     },
   },
 });
 
-export const SCHEMA_WITH_MULTIPLE_CONDITIONS: RJSFSchema = deepFreeze<RJSFSchema>({
-  type: 'object',
-  properties: {
-    Animal: {
-      default: 'Cat',
-      enum: ['Cat', 'Dog'],
-      title: 'Animal',
-      type: 'string',
-    },
-  },
-  allOf: [
-    {
-      if: {
-        required: ['Animal'],
-        properties: {
-          Animal: {
-            const: 'Cat',
-          },
-        },
-      },
-      then: {
-        properties: {
-          Tail: {
-            default: 'Long',
-            enum: ['Long', 'Short', 'None'],
-            title: 'Tail length',
-            type: 'string',
-          },
-        },
-        required: ['Tail'],
+export const SCHEMA_WITH_MULTIPLE_CONDITIONS: RJSFSchema =
+  deepFreeze<RJSFSchema>({
+    type: "object",
+    properties: {
+      Animal: {
+        default: "Cat",
+        enum: ["Cat", "Dog"],
+        title: "Animal",
+        type: "string",
       },
     },
-    {
-      if: {
-        required: ['Animal'],
-        properties: {
-          Animal: {
-            const: 'Dog',
-          },
-        },
-      },
-      then: {
-        properties: {
-          Breed: {
-            title: 'Breed',
-            properties: {
-              BreedName: {
-                default: 'Alsatian',
-                enum: ['Alsatian', 'Dalmation'],
-                title: 'Breed name',
-                type: 'string',
-              },
+    allOf: [
+      {
+        if: {
+          required: ["Animal"],
+          properties: {
+            Animal: {
+              const: "Cat",
             },
-            allOf: [
-              {
-                if: {
-                  required: ['BreedName'],
-                  properties: {
-                    BreedName: {
-                      const: 'Alsatian',
-                    },
-                  },
-                },
-                then: {
-                  properties: {
-                    Fur: {
-                      default: 'brown',
-                      enum: ['black', 'brown'],
-                      title: 'Fur',
-                      type: 'string',
-                    },
-                  },
-                  required: ['Fur'],
-                },
-              },
-              {
-                if: {
-                  required: ['BreedName'],
-                  properties: {
-                    BreedName: {
-                      const: 'Dalmation',
-                    },
-                  },
-                },
-                then: {
-                  properties: {
-                    Spots: {
-                      default: 'small',
-                      enum: ['large', 'small'],
-                      title: 'Spots',
-                      type: 'string',
-                    },
-                  },
-                  required: ['Spots'],
+          },
+        },
+        then: {
+          properties: {
+            Tail: {
+              default: "Long",
+              enum: ["Long", "Short", "None"],
+              title: "Tail length",
+              type: "string",
+            },
+          },
+          required: ["Tail"],
+        },
+      },
+      {
+        if: {
+          required: ["Animal"],
+          properties: {
+            Animal: {
+              const: "Dog",
+            },
+          },
+        },
+        then: {
+          properties: {
+            Breed: {
+              title: "Breed",
+              properties: {
+                BreedName: {
+                  default: "Alsatian",
+                  enum: ["Alsatian", "Dalmation"],
+                  title: "Breed name",
+                  type: "string",
                 },
               },
-            ],
-            required: ['BreedName'],
+              allOf: [
+                {
+                  if: {
+                    required: ["BreedName"],
+                    properties: {
+                      BreedName: {
+                        const: "Alsatian",
+                      },
+                    },
+                  },
+                  then: {
+                    properties: {
+                      Fur: {
+                        default: "brown",
+                        enum: ["black", "brown"],
+                        title: "Fur",
+                        type: "string",
+                      },
+                    },
+                    required: ["Fur"],
+                  },
+                },
+                {
+                  if: {
+                    required: ["BreedName"],
+                    properties: {
+                      BreedName: {
+                        const: "Dalmation",
+                      },
+                    },
+                  },
+                  then: {
+                    properties: {
+                      Spots: {
+                        default: "small",
+                        enum: ["large", "small"],
+                        title: "Spots",
+                        type: "string",
+                      },
+                    },
+                    required: ["Spots"],
+                  },
+                },
+              ],
+              required: ["BreedName"],
+            },
           },
         },
       },
-    },
-  ],
-  required: ['Animal'],
-});
+    ],
+    required: ["Animal"],
+  });
 
-export const SCHEMA_WITH_NESTED_CONDITIONS: RJSFSchema = deepFreeze<RJSFSchema>({
-  type: 'object',
-  properties: {
-    country: {
-      enum: ['USA'],
-    },
-  },
-  required: ['country'],
-  if: {
+export const SCHEMA_WITH_NESTED_CONDITIONS: RJSFSchema = deepFreeze<RJSFSchema>(
+  {
+    type: "object",
     properties: {
       country: {
-        const: 'USA',
+        enum: ["USA"],
       },
     },
-    required: ['country'],
-  },
-  then: {
-    properties: {
-      state: {
-        type: 'string',
-        enum: ['California', 'New York'],
-      },
-    },
-    required: ['state'],
+    required: ["country"],
     if: {
       properties: {
-        state: {
-          const: 'New York',
+        country: {
+          const: "USA",
         },
       },
-      required: ['state'],
+      required: ["country"],
     },
     then: {
       properties: {
-        city: {
-          type: 'string',
-          enum: ['New York City', 'Buffalo', 'Rochester'],
+        state: {
+          type: "string",
+          enum: ["California", "New York"],
         },
       },
-    },
-    else: {
+      required: ["state"],
       if: {
         properties: {
           state: {
-            const: 'California',
+            const: "New York",
           },
         },
-        required: ['state'],
+        required: ["state"],
       },
       then: {
         properties: {
           city: {
-            type: 'string',
-            enum: ['Los Angeles', 'San Diego', 'San Jose'],
+            type: "string",
+            enum: ["New York City", "Buffalo", "Rochester"],
+          },
+        },
+      },
+      else: {
+        if: {
+          properties: {
+            state: {
+              const: "California",
+            },
+          },
+          required: ["state"],
+        },
+        then: {
+          properties: {
+            city: {
+              type: "string",
+              enum: ["Los Angeles", "San Diego", "San Jose"],
+            },
           },
         },
       },
     },
   },
-});
+);
 
 export const SCHEMA_WITH_ARRAY_CONDITION: RJSFSchema = deepFreeze<RJSFSchema>({
-  type: 'object',
+  type: "object",
   properties: {
     list: {
-      type: 'array',
+      type: "array",
       items: SCHEMA_WITH_SINGLE_CONDITION,
     },
   },
 });
 
-export const SCHEMA_WITH_ALLOF_CANNOT_MERGE: RJSFSchema = deepFreeze<RJSFSchema>({
-  type: 'object',
-  properties: {
-    animal: {
-      enum: ['Cat', 'Fish'],
-    },
-  },
-  allOf: [
-    {
-      if: {
-        properties: {
-          animal: {
-            const: 'Cat',
-          },
-        },
-      },
-      then: {
-        properties: {
-          food: {
-            type: 'string',
-            enum: ['meat', 'grass', 'fish'],
-          },
-        },
-        required: ['food'],
+export const SCHEMA_WITH_ALLOF_CANNOT_MERGE: RJSFSchema =
+  deepFreeze<RJSFSchema>({
+    type: "object",
+    properties: {
+      animal: {
+        enum: ["Cat", "Fish"],
       },
     },
-    {
-      if: {
-        properties: {
-          animal: {
-            const: 'Fish',
+    allOf: [
+      {
+        if: {
+          properties: {
+            animal: {
+              const: "Cat",
+            },
           },
         },
-      },
-      then: {
-        properties: {
-          food: {
-            type: 'string',
-            enum: ['insect', 'worms'],
+        then: {
+          properties: {
+            food: {
+              type: "string",
+              enum: ["meat", "grass", "fish"],
+            },
           },
-          water: {
-            type: 'string',
-            enum: ['lake', 'sea'],
+          required: ["food"],
+        },
+      },
+      {
+        if: {
+          properties: {
+            animal: {
+              const: "Fish",
+            },
           },
         },
-        required: ['food', 'water'],
+        then: {
+          properties: {
+            food: {
+              type: "string",
+              enum: ["insect", "worms"],
+            },
+            water: {
+              type: "string",
+              enum: ["lake", "sea"],
+            },
+          },
+          required: ["food", "water"],
+        },
       },
-    },
-    {
-      required: ['animal'],
-    },
-  ],
-});
+      {
+        required: ["animal"],
+      },
+    ],
+  });
 
 export const CHOICES: RJSFSchema[] = [
   {
-    title: 'Choice 1',
-    type: 'object',
+    title: "Choice 1",
+    type: "object",
     properties: {
       answer: {
-        type: 'string',
-        default: '1',
+        type: "string",
+        default: "1",
         readOnly: true,
       },
     },
-    required: ['answer'],
+    required: ["answer"],
   },
   {
-    title: 'Choice 2',
-    type: 'object',
+    title: "Choice 2",
+    type: "object",
     properties: {
       answer: {
-        type: 'string',
-        const: '2',
+        type: "string",
+        const: "2",
       },
     },
   },
 ];
 
 export const testOneOfSchema: RJSFSchema = {
-  title: 'Simple OneOf',
-  type: 'object',
+  title: "Simple OneOf",
+  type: "object",
   [ONE_OF_KEY]: CHOICES,
-  required: ['answer'],
+  required: ["answer"],
 };
 
 export const testOneOfDiscriminatorSchema: RJSFSchema = {
   ...testOneOfSchema,
   discriminator: {
-    propertyName: 'answer',
+    propertyName: "answer",
   },
 };
 
 export const testAnyOfSchema: RJSFSchema = {
-  title: 'Simple AnyOf',
-  type: 'object',
+  title: "Simple AnyOf",
+  type: "object",
   [ANY_OF_KEY]: CHOICES,
   required: [],
 };
@@ -957,9 +977,9 @@ export const testAnyOfSchema: RJSFSchema = {
 export const testAnyOfDiscriminatorSchema: RJSFSchema = {
   ...testAnyOfSchema,
   discriminator: {
-    propertyName: 'answer',
+    propertyName: "answer",
   },
 };
 
-export const ANSWER_1 = { answer: '1' };
-export const ANSWER_2 = { answer: '2' };
+export const ANSWER_1 = { answer: "1" };
+export const ANSWER_2 = { answer: "2" };

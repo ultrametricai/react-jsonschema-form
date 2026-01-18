@@ -1,5 +1,5 @@
-import { FocusEvent } from 'react';
-import { Radio, RadioChangeEvent } from 'antd';
+import { FocusEvent } from "react";
+import { Radio, RadioChangeEvent } from "antd";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -10,14 +10,18 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `RadioWidget` is a widget for rendering a radio group.
  *  It is typically used with a string property constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   autofocus,
   disabled,
   registry,
@@ -39,12 +43,29 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
     onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
 
   const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions) as string;
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+  ) as string;
 
   return (
     <Radio.Group
@@ -63,7 +84,11 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
             id={optionId(id, i)}
             name={htmlName || id}
             autoFocus={i === 0 ? autofocus : false}
-            disabled={disabled || (Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1)}
+            disabled={
+              disabled ||
+              (Array.isArray(enumDisabled) &&
+                enumDisabled.indexOf(option.value) !== -1)
+            }
             key={i}
             value={String(i)}
           >

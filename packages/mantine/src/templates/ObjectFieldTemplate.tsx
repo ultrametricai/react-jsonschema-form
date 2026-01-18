@@ -1,4 +1,10 @@
-import { Box, Container, Group, MantineSpacing, SimpleGrid } from '@mantine/core';
+import {
+  Box,
+  Container,
+  Group,
+  MantineSpacing,
+  SimpleGrid,
+} from "@mantine/core";
 import {
   buttonId,
   canExpand,
@@ -11,7 +17,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   titleId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` is the template to use to render all the inner properties of an object along with the
  * title and description if available. If the object is expandable, then an `AddButton` is also rendered after all
@@ -40,18 +46,25 @@ export default function ObjectFieldTemplate<
     registry,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
     ButtonTemplates: { AddButton },
   } = registry.templates;
-  const gridCols = (typeof uiOptions?.gridCols === 'number' && uiOptions?.gridCols) || undefined;
+  const gridCols =
+    (typeof uiOptions?.gridCols === "number" && uiOptions?.gridCols) ||
+    undefined;
   const gridSpacing = uiOptions?.gridSpacing;
   const gridVerticalSpacing = uiOptions?.gridVerticalSpacing;
 
@@ -65,7 +78,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -81,7 +96,7 @@ export default function ObjectFieldTemplate<
         cols={gridCols}
         spacing={gridSpacing as MantineSpacing | undefined}
         verticalSpacing={gridVerticalSpacing as MantineSpacing | undefined}
-        mb='sm'
+        mb="sm"
       >
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {properties
@@ -91,12 +106,12 @@ export default function ObjectFieldTemplate<
           ))}
       </SimpleGrid>
       {canExpand(schema, uiSchema, formData) && (
-        <Group mt='xs' justify='flex-end'>
+        <Group mt="xs" justify="flex-end">
           <AddButton
-            id={buttonId(fieldPathId, 'add')}
+            id={buttonId(fieldPathId, "add")}
             disabled={disabled || readonly}
             onClick={onAddProperty}
-            className='rjsf-object-property-expand'
+            className="rjsf-object-property-expand"
             uiSchema={uiSchema}
             registry={registry}
           />

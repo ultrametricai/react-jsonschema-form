@@ -6,8 +6,8 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
-import { Form, Grid } from 'semantic-ui-react';
+} from "@rjsf/utils";
+import { Form, Grid } from "semantic-ui-react";
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -57,10 +57,10 @@ export default function WrapIfAdditionalTemplate<
     <div className={classNames} style={style} key={`${id}-key`}>
       <Grid>
         <Grid.Row>
-          <Grid.Column width={7} className='form-additional'>
-            <Form.Group widths='equal' grouped>
+          <Grid.Column width={7} className="form-additional">
+            <Form.Group widths="equal" grouped>
               <Form.Input
-                className='form-group'
+                className="form-group"
                 hasFeedback
                 fluid
                 htmlFor={`${id}`}
@@ -72,18 +72,25 @@ export default function WrapIfAdditionalTemplate<
                 name={`${id}`}
                 onBlur={!readonly ? onKeyRenameBlur : undefined}
                 style={wrapperStyle}
-                type='text'
+                type="text"
               ></Form.Input>
             </Form.Group>
           </Grid.Column>
-          <Grid.Column width={7} className='form-additional' verticalAlign='middle'>
+          <Grid.Column
+            width={7}
+            className="form-additional"
+            verticalAlign="middle"
+          >
             {children}
           </Grid.Column>
-          <Grid.Column verticalAlign='middle' style={displayLabel ? { marginTop: `${margin}px` } : undefined}>
+          <Grid.Column
+            verticalAlign="middle"
+            style={displayLabel ? { marginTop: `${margin}px` } : undefined}
+          >
             <RemoveButton
-              id={buttonId(id, 'remove')}
-              iconType='mini'
-              className='rjsf-object-property-remove'
+              id={buttonId(id, "remove")}
+              iconType="mini"
+              className="rjsf-object-property-remove"
               disabled={disabled || readonly}
               onClick={onRemoveProperty}
               uiSchema={uiSchema}

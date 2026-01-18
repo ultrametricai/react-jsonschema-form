@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -6,9 +6,9 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import dayjs from 'dayjs';
-import { DateInput } from '@mantine/dates';
+} from "@rjsf/utils";
+import dayjs from "dayjs";
+import { DateInput } from "@mantine/dates";
 
 const dateParser = (input: string, format: string) => {
   if (!input) {
@@ -20,9 +20,9 @@ const dateParser = (input: string, format: string) => {
 
 const dateFormat = (date?: Date, format?: string) => {
   if (!date) {
-    return '';
+    return "";
   }
-  return dayjs(date).format(format || 'YYYY-MM-DD');
+  return dayjs(date).format(format || "YYYY-MM-DD");
 };
 
 /** The `DateTimeInput` is a base component that used by other Date-Time widget components.
@@ -86,11 +86,15 @@ export default function DateTimeInput<
       onChange={handleChange}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       {...options}
       aria-describedby={ariaDescribedByIds(id)}
       popoverProps={{ withinPortal: false }}
-      classNames={typeof options?.classNames === 'object' ? options.classNames : undefined}
+      classNames={
+        typeof options?.classNames === "object" ? options.classNames : undefined
+      }
       valueFormat={displayFormat}
     />
   );

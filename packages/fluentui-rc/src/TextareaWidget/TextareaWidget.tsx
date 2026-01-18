@@ -1,4 +1,4 @@
-import { Label, Textarea, makeStyles } from '@fluentui/react-components';
+import { Label, Textarea, makeStyles } from "@fluentui/react-components";
 import {
   FormContextType,
   RJSFSchema,
@@ -6,14 +6,14 @@ import {
   WidgetProps,
   ariaDescribedByIds,
   labelValue,
-} from '@rjsf/utils';
-import { ChangeEvent, FocusEvent } from 'react';
+} from "@rjsf/utils";
+import { ChangeEvent, FocusEvent } from "react";
 
 const useStyles = makeStyles({
   label: {
-    paddingTop: '2px',
-    paddingBottom: '2px',
-    marginBottom: '2px',
+    paddingTop: "2px",
+    paddingBottom: "2px",
+    marginBottom: "2px",
   },
 });
 
@@ -46,19 +46,26 @@ export default function TextareaWidget<
   } = props;
   const classes = useStyles();
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onFocus(id, target && target.value);
 
   let rows: string | number = 5;
-  if (typeof options.rows === 'string' || typeof options.rows === 'number') {
+  if (typeof options.rows === "string" || typeof options.rows === "number") {
     rows = options.rows;
   }
 
   return (
     <>
       {labelValue(
-        <Label htmlFor={id} required={required} disabled={disabled} className={classes.label}>
+        <Label
+          htmlFor={id}
+          required={required}
+          disabled={disabled}
+          className={classes.label}
+        >
           {label}
         </Label>,
         hideLabel,
@@ -70,7 +77,7 @@ export default function TextareaWidget<
         autoFocus={autofocus}
         required={required}
         disabled={disabled || readonly}
-        value={value || value === 0 ? value : ''}
+        value={value || value === 0 ? value : ""}
         onChange={onChangeOverride || _onChange}
         onFocus={_onFocus}
         onBlur={_onBlur}

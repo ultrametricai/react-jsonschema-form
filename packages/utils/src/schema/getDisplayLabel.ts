@@ -1,9 +1,13 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
-import { ADDITIONAL_PROPERTY_FLAG, UI_FIELD_KEY, UI_WIDGET_KEY } from '../constants';
-import getSchemaType from '../getSchemaType';
-import getUiOptions from '../getUiOptions';
-import isCustomWidget from '../isCustomWidget';
+import {
+  ADDITIONAL_PROPERTY_FLAG,
+  UI_FIELD_KEY,
+  UI_WIDGET_KEY,
+} from "../constants";
+import getSchemaType from "../getSchemaType";
+import getUiOptions from "../getUiOptions";
+import isCustomWidget from "../isCustomWidget";
 import {
   FormContextType,
   GlobalUISchemaOptions,
@@ -12,9 +16,9 @@ import {
   UiSchema,
   ValidatorType,
   Experimental_CustomMergeAllOf,
-} from '../types';
-import isFilesArray from './isFilesArray';
-import isMultiSelect from './isMultiSelect';
+} from "../types";
+import isFilesArray from "./isFilesArray";
+import isMultiSelect from "./isMultiSelect";
 
 /** Determines whether the combination of `schema` and `uiSchema` properties indicates that the label for the `schema`
  * should be displayed in a UI.
@@ -44,20 +48,35 @@ export default function getDisplayLabel<
   let displayLabel = Boolean(label);
   if (displayLabel) {
     const schemaType = getSchemaType<S>(schema);
-    const addedByAdditionalProperty = get(schema, ADDITIONAL_PROPERTY_FLAG, false);
+    const addedByAdditionalProperty = get(
+      schema,
+      ADDITIONAL_PROPERTY_FLAG,
+      false,
+    );
 
-    if (schemaType === 'array') {
+    if (schemaType === "array") {
       displayLabel =
         addedByAdditionalProperty ||
-        isMultiSelect<T, S, F>(validator, schema, rootSchema, experimental_customMergeAllOf) ||
-        isFilesArray<T, S, F>(validator, schema, uiSchema, rootSchema, experimental_customMergeAllOf) ||
+        isMultiSelect<T, S, F>(
+          validator,
+          schema,
+          rootSchema,
+          experimental_customMergeAllOf,
+        ) ||
+        isFilesArray<T, S, F>(
+          validator,
+          schema,
+          uiSchema,
+          rootSchema,
+          experimental_customMergeAllOf,
+        ) ||
         isCustomWidget(uiSchema);
     }
 
-    if (schemaType === 'object') {
+    if (schemaType === "object") {
       displayLabel = addedByAdditionalProperty;
     }
-    if (schemaType === 'boolean' && uiSchema && !uiSchema[UI_WIDGET_KEY]) {
+    if (schemaType === "boolean" && uiSchema && !uiSchema[UI_WIDGET_KEY]) {
       displayLabel = false;
     }
     if (uiSchema && uiSchema[UI_FIELD_KEY]) {

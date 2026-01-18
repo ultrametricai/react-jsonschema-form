@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, useMemo } from 'react';
+import { ChangeEvent, FocusEvent, useMemo } from "react";
 import {
   ariaDescribedByIds,
   EnumOptionsType,
@@ -9,12 +9,15 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { OptionsOrGroups } from 'chakra-react-select';
-import { createListCollection, NativeSelect as ChakraSelect } from '@chakra-ui/react';
+} from "@rjsf/utils";
+import { OptionsOrGroups } from "chakra-react-select";
+import {
+  createListCollection,
+  NativeSelect as ChakraSelect,
+} from "@chakra-ui/react";
 
-import { Field } from '../components/ui/field';
-import { getChakra } from '../utils';
+import { Field } from "../components/ui/field";
+import { getChakra } from "../utils";
 
 /**
  * NativeSelectWidget is a React component that renders a native select input.
@@ -53,14 +56,34 @@ export default function NativeSelectWidget<
   const { enumOptions, enumDisabled, emptyValue } = options;
 
   const _onChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
-    return onChange(enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    return onChange(
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   };
 
   const _onBlur = ({ target }: FocusEvent<HTMLSelectElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const _onFocus = ({ target }: FocusEvent<HTMLSelectElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const showPlaceholderOption = !multiple && schema.default === undefined;
   const { valueLabelMap, displayEnumOptions } = useMemo((): {
@@ -70,35 +93,44 @@ export default function NativeSelectWidget<
     const valueLabelMap: Record<string | number, string> = {};
     let displayEnumOptions: OptionsOrGroups<any, any> = [];
     if (Array.isArray(enumOptions)) {
-      displayEnumOptions = enumOptions.map((option: EnumOptionsType<S>, index: number) => {
-        const { value, label } = option;
-        valueLabelMap[index] = label || String(value);
-        return {
-          label,
-          value: String(index),
-          disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
-        };
-      });
+      displayEnumOptions = enumOptions.map(
+        (option: EnumOptionsType<S>, index: number) => {
+          const { value, label } = option;
+          valueLabelMap[index] = label || String(value);
+          return {
+            label,
+            value: String(index),
+            disabled:
+              Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
+          };
+        },
+      );
       if (showPlaceholderOption) {
-        (displayEnumOptions as any[]).unshift({ value: '', label: placeholder || '' });
+        (displayEnumOptions as any[]).unshift({
+          value: "",
+          label: placeholder || "",
+        });
       }
     }
-    return { valueLabelMap: valueLabelMap, displayEnumOptions: displayEnumOptions };
+    return {
+      valueLabelMap: valueLabelMap,
+      displayEnumOptions: displayEnumOptions,
+    };
   }, [enumDisabled, enumOptions, placeholder, showPlaceholderOption]);
 
   const selectedIndex = enumOptionsIndexForValue<S>(value, enumOptions, false);
 
   const getSingleValue = () =>
-    typeof selectedIndex !== 'undefined'
+    typeof selectedIndex !== "undefined"
       ? [
           {
-            label: valueLabelMap[selectedIndex as string] || '',
+            label: valueLabelMap[selectedIndex as string] || "",
             value: selectedIndex.toString(),
           },
         ]
       : [];
 
-  const formValue = getSingleValue()[0]?.value || '';
+  const formValue = getSingleValue()[0]?.value || "";
 
   const selectOptions = createListCollection({
     items: displayEnumOptions.filter((item) => item.value),

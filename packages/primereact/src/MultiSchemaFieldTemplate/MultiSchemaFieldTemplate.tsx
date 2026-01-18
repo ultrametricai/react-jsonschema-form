@@ -1,5 +1,10 @@
-import { FormContextType, MultiSchemaFieldTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { Fieldset } from 'primereact/fieldset';
+import {
+  FormContextType,
+  MultiSchemaFieldTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { Fieldset } from "primereact/fieldset";
 
 export default function MultiSchemaFieldTemplate<
   T = any,
@@ -10,7 +15,7 @@ export default function MultiSchemaFieldTemplate<
 
   return (
     <Fieldset>
-      <div style={{ marginBottom: '1rem' }}>{selector}</div>
+      <div style={{ marginBottom: "1rem" }}>{selector}</div>
       {optionSchemaField}
     </Fieldset>
   );

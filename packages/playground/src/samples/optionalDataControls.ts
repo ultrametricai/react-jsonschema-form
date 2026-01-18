@@ -1,115 +1,115 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const optionalDataControls: Sample = {
   schema: {
-    title: 'test',
+    title: "test",
     properties: {
       nestedObjectOptional: {
-        type: 'object',
+        type: "object",
         properties: {
           test: {
-            type: 'string',
+            type: "string",
           },
           deepObjectOptional: {
-            type: 'object',
+            type: "object",
             properties: {
               deepTest: {
-                type: 'string',
+                type: "string",
               },
             },
           },
           deepObject: {
-            type: 'object',
+            type: "object",
             properties: {
               deepTest: {
-                type: 'string',
+                type: "string",
               },
             },
           },
           deepArrayOptional: {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'string',
+              type: "string",
             },
           },
           deepArrayOptional2: {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'string',
+              type: "string",
             },
           },
           deepArray: {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'string',
+              type: "string",
             },
           },
         },
-        required: ['deepObject', 'deepArray'],
+        required: ["deepObject", "deepArray"],
       },
       nestedArrayOptional: {
-        type: 'array',
+        type: "array",
         items: {
-          type: 'string',
+          type: "string",
         },
       },
       nestedObject: {
-        type: 'object',
+        type: "object",
         properties: {
           test: {
-            type: 'string',
+            type: "string",
           },
         },
       },
       nestedArray: {
-        type: 'array',
+        type: "array",
         items: {
-          type: 'string',
+          type: "string",
         },
       },
       optionalObjectWithOneofs: {
         oneOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               name: {
-                type: 'string',
-                default: 'first_option',
+                type: "string",
+                default: "first_option",
                 readOnly: true,
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               name: {
-                type: 'string',
-                default: 'second_option',
+                type: "string",
+                default: "second_option",
                 readOnly: true,
               },
               flag: {
-                type: 'boolean',
+                type: "boolean",
                 default: false,
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               name: {
-                type: 'string',
-                default: 'third_option',
+                type: "string",
+                default: "third_option",
                 readOnly: true,
               },
               flag: {
-                type: 'boolean',
+                type: "boolean",
                 default: false,
               },
               inner_obj: {
-                type: 'object',
+                type: "object",
                 properties: {
                   foo: {
-                    type: 'string',
+                    type: "string",
                   },
                 },
               },
@@ -120,24 +120,24 @@ const optionalDataControls: Sample = {
       optionalArrayWithAnyofs: {
         anyOf: [
           {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'string',
+              type: "string",
             },
           },
           {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'number',
+              type: "number",
             },
           },
           {
-            type: 'array',
+            type: "array",
             items: {
-              type: 'object',
+              type: "object",
               properties: {
                 test: {
-                  type: 'string',
+                  type: "string",
                 },
               },
             },
@@ -145,22 +145,22 @@ const optionalDataControls: Sample = {
         ],
       },
     },
-    required: ['nestedObject', 'nestedArray'],
+    required: ["nestedObject", "nestedArray"],
   },
   uiSchema: {
-    'ui:globalOptions': {
-      enableOptionalDataFieldForType: ['object', 'array'],
+    "ui:globalOptions": {
+      enableOptionalDataFieldForType: ["object", "array"],
     },
     nestedObjectOptional: {
       deepArrayOptional: {
-        'ui:enableOptionalDataFieldForType': ['object'],
+        "ui:enableOptionalDataFieldForType": ["object"],
       },
     },
   },
   liveSettings: {
     experimental_defaultFormStateBehavior: {
       // Set the emptyObjectFields to only populate required defaults to highlight the code working
-      emptyObjectFields: 'populateRequiredDefaults',
+      emptyObjectFields: "populateRequiredDefaults",
     },
   },
 };

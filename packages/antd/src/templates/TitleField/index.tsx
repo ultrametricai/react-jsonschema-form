@@ -1,13 +1,22 @@
-import classNames from 'classnames';
-import { FormContextType, TitleFieldProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { Col, Divider, Row, ConfigProvider } from 'antd';
-import { useContext } from 'react';
+import classNames from "classnames";
+import {
+  FormContextType,
+  TitleFieldProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { Col, Divider, Row, ConfigProvider } from "antd";
+import { useContext } from "react";
 
 /** The `TitleField` is the template to use to render the title of a field
  *
  * @param props - The `TitleFieldProps` for this component
  */
-export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function TitleField<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   required,
   registry,
@@ -18,8 +27,8 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
   const { colon = true } = formContext;
 
   let labelChildren = title;
-  if (colon && typeof title === 'string' && title.trim() !== '') {
-    labelChildren = title.replace(/[：:]\s*$/, '');
+  if (colon && typeof title === "string" && title.trim() !== "") {
+    labelChildren = title.replace(/[：:]\s*$/, "");
   }
 
   const handleLabelClick = () => {
@@ -27,14 +36,16 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
       return;
     }
 
-    const control: HTMLLabelElement | null = document.querySelector(`[id="${id}"]`);
+    const control: HTMLLabelElement | null = document.querySelector(
+      `[id="${id}"]`,
+    );
     if (control && control.focus) {
       control.focus();
     }
   };
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('form');
+  const prefixCls = getPrefixCls("form");
   const labelClassName = classNames({
     [`${prefixCls}-item-required`]: required,
     [`${prefixCls}-item-no-colon`]: !colon,
@@ -44,7 +55,7 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
       className={labelClassName}
       htmlFor={id}
       onClick={handleLabelClick}
-      title={typeof title === 'string' ? title : ''}
+      title={typeof title === "string" ? title : ""}
     >
       {labelChildren}
     </label>
@@ -52,8 +63,8 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
   if (optionalDataControl) {
     heading = (
       <Row>
-        <Col flex='auto'>{heading}</Col>
-        <Col flex='none'>{optionalDataControl}</Col>
+        <Col flex="auto">{heading}</Col>
+        <Col flex="none">{optionalDataControl}</Col>
       </Row>
     );
   }
@@ -61,7 +72,12 @@ export default function TitleField<T = any, S extends StrictRJSFSchema = RJSFSch
   return (
     <>
       {heading}
-      <Divider size='small' style={{ marginBlock: '1px' /* pull the margin right up against the label */ }} />
+      <Divider
+        size="small"
+        style={{
+          marginBlock: "1px" /* pull the margin right up against the label */,
+        }}
+      />
     </>
   );
 }

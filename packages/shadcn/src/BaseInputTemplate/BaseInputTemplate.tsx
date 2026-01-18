@@ -6,11 +6,11 @@ import {
   getInputProps,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
+} from "@rjsf/utils";
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
 
-import { Input } from '../components/ui/input';
-import { cn } from '../lib/utils';
+import { Input } from "../components/ui/input";
+import { cn } from "../lib/utils";
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the `core` theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -50,20 +50,22 @@ export default function BaseInputTemplate<
     ...getInputProps<T, S, F>(schema, type, options),
   };
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.value);
   const _onClear = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
 
   return (
-    <div className='p-0.5'>
+    <div className="p-0.5">
       <Input
         id={id}
         name={htmlName || id}
@@ -73,10 +75,13 @@ export default function BaseInputTemplate<
         required={required}
         disabled={disabled}
         readOnly={readonly}
-        className={cn({ 'border-destructive focus-visible:ring-0': rawErrors.length > 0 }, className)}
+        className={cn(
+          { "border-destructive focus-visible:ring-0": rawErrors.length > 0 },
+          className,
+        )}
         list={schema.examples ? examplesId(id) : undefined}
         {...inputProps}
-        value={value || value === 0 ? value : ''}
+        value={value || value === 0 ? value : ""}
         onChange={onChangeOverride || _onChange}
         onBlur={_onBlur}
         onFocus={_onFocus}
@@ -89,7 +94,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) ? (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example: any) => {
               return <option key={example} value={example} />;
             })}

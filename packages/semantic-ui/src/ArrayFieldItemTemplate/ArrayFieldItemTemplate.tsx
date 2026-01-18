@@ -5,13 +5,13 @@ import {
   StrictRJSFSchema,
   getUiOptions,
   getTemplate,
-} from '@rjsf/utils';
-import { Button, Grid, Segment } from 'semantic-ui-react';
+} from "@rjsf/utils";
+import { Button, Grid, Segment } from "semantic-ui-react";
 
-import { getSemanticProps, MaybeWrap } from '../util';
+import { getSemanticProps, MaybeWrap } from "../util";
 
 const gridStyle = (vertical: boolean) => ({
-  display: 'grid',
+  display: "grid",
   gridTemplateColumns: `1fr ${vertical ? 65 : 150}px`,
 });
 
@@ -24,14 +24,23 @@ export default function ArrayFieldItemTemplate<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: ArrayFieldItemTemplateProps<T, S, F>) {
-  const { children, buttonsProps, displayLabel, hasDescription, hasToolbar, uiSchema, registry, parentUiSchema } =
-    props;
-  const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldItemButtonsTemplate = getTemplate<'ArrayFieldItemButtonsTemplate', T, S, F>(
-    'ArrayFieldItemButtonsTemplate',
+  const {
+    children,
+    buttonsProps,
+    displayLabel,
+    hasDescription,
+    hasToolbar,
+    uiSchema,
     registry,
-    uiOptions,
-  );
+    parentUiSchema,
+  } = props;
+  const uiOptions = getUiOptions<T, S, F>(uiSchema);
+  const ArrayFieldItemButtonsTemplate = getTemplate<
+    "ArrayFieldItemButtonsTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldItemButtonsTemplate", registry, uiOptions);
   const semanticProps = getSemanticProps<T, S, F>({
     uiSchema: parentUiSchema,
     formContext: registry.formContext,
@@ -40,16 +49,18 @@ export default function ArrayFieldItemTemplate<
   const { horizontalButtons = true, wrapItem = false } = semanticProps;
   const margin = hasDescription ? 5 : 24;
   return (
-    <div className='rjsf-array-item'>
+    <div className="rjsf-array-item">
       <MaybeWrap wrap={wrapItem} component={Segment}>
-        <Grid style={{ ...gridStyle(!horizontalButtons), alignItems: 'center' }}>
-          <Grid.Column width={16} verticalAlign='middle'>
+        <Grid
+          style={{ ...gridStyle(!horizontalButtons), alignItems: "center" }}
+        >
+          <Grid.Column width={16} verticalAlign="middle">
             {children}
           </Grid.Column>
           {hasToolbar && (
             <Grid.Column>
               <Button.Group
-                size='mini'
+                size="mini"
                 vertical={!horizontalButtons}
                 style={{ marginTop: displayLabel ? `${margin}px` : undefined }}
               >

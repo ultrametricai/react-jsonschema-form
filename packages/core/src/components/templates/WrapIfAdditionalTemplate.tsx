@@ -6,9 +6,9 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import Label from './FieldTemplate/Label';
+import Label from "./FieldTemplate/Label";
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -46,11 +46,11 @@ export default function WrapIfAdditionalTemplate<
   const additional = ADDITIONAL_PROPERTY_FLAG in schema;
   const hasDescription = !!rawDescription;
 
-  const classNamesList = ['form-group', classNames];
+  const classNamesList = ["form-group", classNames];
   if (!hideError && rawErrors && rawErrors.length > 0) {
-    classNamesList.push('has-error has-danger');
+    classNamesList.push("has-error has-danger");
   }
-  const uiClassNames = classNamesList.join(' ').trim();
+  const uiClassNames = classNamesList.join(" ").trim();
 
   if (!additional) {
     return (
@@ -62,26 +62,31 @@ export default function WrapIfAdditionalTemplate<
   const margin = hasDescription ? 46 : 26;
   return (
     <div className={uiClassNames} style={style}>
-      <div className='row'>
-        <div className='col-xs-5 form-additional'>
-          <div className='form-group'>
-            {displayLabel && <Label label={keyLabel} required={required} id={`${id}-key`} />}
+      <div className="row">
+        <div className="col-xs-5 form-additional">
+          <div className="form-group">
+            {displayLabel && (
+              <Label label={keyLabel} required={required} id={`${id}-key`} />
+            )}
             {displayLabel && rawDescription && <div>&nbsp;</div>}
             <input
-              className='form-control'
-              type='text'
+              className="form-control"
+              type="text"
               id={`${id}-key`}
               onBlur={onKeyRenameBlur}
               defaultValue={label}
             />
           </div>
         </div>
-        <div className='form-additional form-group col-xs-5'>{children}</div>
-        <div className='col-xs-2' style={{ marginTop: displayLabel ? `${margin}px` : undefined }}>
+        <div className="form-additional form-group col-xs-5">{children}</div>
+        <div
+          className="col-xs-2"
+          style={{ marginTop: displayLabel ? `${margin}px` : undefined }}
+        >
           <RemoveButton
-            id={buttonId(id, 'remove')}
-            className='rjsf-object-property-remove btn-block'
-            style={{ border: '0' }}
+            id={buttonId(id, "remove")}
+            className="rjsf-object-property-remove btn-block"
+            style={{ border: "0" }}
             disabled={disabled || readonly}
             onClick={onRemoveProperty}
             uiSchema={uiSchema}

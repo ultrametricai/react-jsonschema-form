@@ -1,5 +1,11 @@
-import { errorId, FieldErrorProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { Message } from 'primereact/message';
+import {
+  errorId,
+  FieldErrorProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { Message } from "primereact/message";
 
 /** The `FieldErrorTemplate` component renders the errors local to the particular field
  *
@@ -19,10 +25,10 @@ export default function FieldErrorTemplate<
     return (
       <Message
         id={id}
-        severity='error'
-        style={{ justifyContent: 'left' }}
+        severity="error"
+        style={{ justifyContent: "left" }}
         text={content}
-        pt={{ text: { style: { fontSize: 'smaller' } } }}
+        pt={{ text: { style: { fontSize: "smaller" } } }}
       />
     );
   }

@@ -7,10 +7,10 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   buttonId,
-} from '@rjsf/utils';
-import classNames from 'classnames';
-import { Col, Row, ConfigProvider } from 'antd';
-import { useContext } from 'react';
+} from "@rjsf/utils";
+import classNames from "classnames";
+import { Col, Row, ConfigProvider } from "antd";
+import { useContext } from "react";
 
 /** The `ArrayFieldTemplate` component is the template used to render all items in an array.
  *
@@ -37,25 +37,27 @@ export default function ArrayFieldTemplate<
     uiSchema,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   const { formContext } = registry;
   // Button templates are not overridden in the uiSchema
   const {
     ButtonTemplates: { AddButton },
   } = registry.templates;
-  const { labelAlign = 'right', rowGutter = 24 } = formContext as GenericObjectType;
+  const { labelAlign = "right", rowGutter = 24 } =
+    formContext as GenericObjectType;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('form');
+  const prefixCls = getPrefixCls("form");
   const labelClsBasic = `${prefixCls}-item-label`;
   const labelColClassName = classNames(
     labelClsBasic,
-    labelAlign === 'left' && `${labelClsBasic}-left`,
+    labelAlign === "left" && `${labelClsBasic}-left`,
     // labelCol.className,
   );
 
@@ -71,21 +73,23 @@ export default function ArrayFieldTemplate<
               schema={schema}
               uiSchema={uiSchema}
               registry={registry}
-              optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+              optionalDataControl={
+                showOptionalDataControlInTitle ? optionalDataControl : undefined
+              }
             />
           </Col>
         )}
-        <Col className='row array-item-list' span={24}>
+        <Col className="row array-item-list" span={24}>
           {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
           {items}
         </Col>
         {canAdd && (
           <Col span={24}>
-            <Row gutter={rowGutter} justify='end'>
-              <Col flex='120px'>
+            <Row gutter={rowGutter} justify="end">
+              <Col flex="120px">
                 <AddButton
-                  id={buttonId(fieldPathId, 'add')}
-                  className='rjsf-array-item-add'
+                  id={buttonId(fieldPathId, "add")}
+                  className="rjsf-array-item-add"
                   disabled={disabled || readonly}
                   onClick={onAddClick}
                   uiSchema={uiSchema}

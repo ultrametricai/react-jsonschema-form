@@ -6,7 +6,7 @@ import {
   TranslatableString,
   useAltDateWidgetProps,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `AltDateWidget` component provides an alternative date/time input
  * with individual fields for year, month, day, and optionally time components.
@@ -38,20 +38,21 @@ export default function AltDateWidget<
     onFocus,
   } = props;
   const { translateString } = registry;
-  const { elements, handleChange, handleClear, handleSetNow } = useAltDateWidgetProps(props);
+  const { elements, handleChange, handleClear, handleSetNow } =
+    useAltDateWidgetProps(props);
 
   return (
-    <div className='space-y-3'>
-      <div className='grid grid-cols-3 gap-2'>
+    <div className="space-y-3">
+      <div className="grid grid-cols-3 gap-2">
         {elements.map((elemProps, i) => (
-          <div key={i} className='form-control'>
-            <label className='label'>
-              <span className='label-text capitalize'>{elemProps.type}</span>
+          <div key={i} className="form-control">
+            <label className="label">
+              <span className="label-text capitalize">{elemProps.type}</span>
             </label>
             <DateElement
               rootId={id}
               name={name}
-              className='select select-bordered select-sm'
+              className="select select-bordered select-sm"
               select={handleChange}
               type={elemProps.type}
               range={elemProps.range}
@@ -66,21 +67,25 @@ export default function AltDateWidget<
           </div>
         ))}
       </div>
-      <div className='flex justify-start space-x-2'>
-        {(options.hideNowButton !== undefined ? !options.hideNowButton : true) && (
+      <div className="flex justify-start space-x-2">
+        {(options.hideNowButton !== undefined
+          ? !options.hideNowButton
+          : true) && (
           <button
-            type='button'
-            className='btn btn-sm btn-primary'
+            type="button"
+            className="btn btn-sm btn-primary"
             onClick={handleSetNow}
             disabled={disabled || readonly}
           >
             {translateString(TranslatableString.NowLabel)}
           </button>
         )}
-        {(options.hideClearButton !== undefined ? !options.hideClearButton : true) && (
+        {(options.hideClearButton !== undefined
+          ? !options.hideClearButton
+          : true) && (
           <button
-            type='button'
-            className='btn btn-sm btn-secondary'
+            type="button"
+            className="btn btn-sm btn-secondary"
             onClick={handleClear}
             disabled={disabled || readonly}
           >

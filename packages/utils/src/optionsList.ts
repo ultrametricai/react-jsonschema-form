@@ -1,10 +1,16 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
-import { CONST_KEY, DEFAULT_KEY, PROPERTIES_KEY } from './constants';
-import getDiscriminatorFieldFromSchema from './getDiscriminatorFieldFromSchema';
-import getUiOptions from './getUiOptions';
-import toConstant from './toConstant';
-import { RJSFSchema, EnumOptionsType, StrictRJSFSchema, FormContextType, UiSchema } from './types';
+import { CONST_KEY, DEFAULT_KEY, PROPERTIES_KEY } from "./constants";
+import getDiscriminatorFieldFromSchema from "./getDiscriminatorFieldFromSchema";
+import getUiOptions from "./getUiOptions";
+import toConstant from "./toConstant";
+import {
+  RJSFSchema,
+  EnumOptionsType,
+  StrictRJSFSchema,
+  FormContextType,
+  UiSchema,
+} from "./types";
 
 /** Gets the list of options from the `schema`. If the schema has an enum list, then those enum values are returned. The
  * label will be the same as the `value`.
@@ -19,10 +25,11 @@ import { RJSFSchema, EnumOptionsType, StrictRJSFSchema, FormContextType, UiSchem
  * @param [uiSchema] - The optional uiSchema from which to get alternate labels for the options
  * @returns - The list of options from the schema
  */
-export default function optionsList<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  schema: S,
-  uiSchema?: UiSchema<T, S, F>,
-): EnumOptionsType<S>[] | undefined {
+export default function optionsList<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(schema: S, uiSchema?: UiSchema<T, S, F>): EnumOptionsType<S>[] | undefined {
   if (schema.enum) {
     let enumNames: string[] | undefined;
     if (uiSchema) {
@@ -34,7 +41,7 @@ export default function optionsList<T = any, S extends StrictRJSFSchema = RJSFSc
       return { label, value };
     });
   }
-  let altSchemas: S['anyOf'] | S['oneOf'] = undefined;
+  let altSchemas: S["anyOf"] | S["oneOf"] = undefined;
   let altUiSchemas: UiSchema<T, S, F> | undefined = undefined;
   if (schema.anyOf) {
     altSchemas = schema.anyOf;
@@ -47,7 +54,9 @@ export default function optionsList<T = any, S extends StrictRJSFSchema = RJSFSc
   // pull one from the uiSchema
   let selectorField = getDiscriminatorFieldFromSchema<S>(schema);
   if (uiSchema) {
-    const { optionsSchemaSelector = selectorField } = getUiOptions<T, S, F>(uiSchema);
+    const { optionsSchemaSelector = selectorField } = getUiOptions<T, S, F>(
+      uiSchema,
+    );
     selectorField = optionsSchemaSelector;
   }
   return (
@@ -55,10 +64,14 @@ export default function optionsList<T = any, S extends StrictRJSFSchema = RJSFSc
     altSchemas.map((aSchemaDef, index) => {
       const { title } = getUiOptions<T, S, F>(altUiSchemas?.[index]);
       const aSchema = aSchemaDef as S;
-      let value: EnumOptionsType<S>['value'];
+      let value: EnumOptionsType<S>["value"];
       let label = title;
       if (selectorField) {
-        const innerSchema: S = get(aSchema, [PROPERTIES_KEY, selectorField], {}) as S;
+        const innerSchema: S = get(
+          aSchema,
+          [PROPERTIES_KEY, selectorField],
+          {},
+        ) as S;
         value = get(innerSchema, DEFAULT_KEY, get(innerSchema, CONST_KEY));
         label = label || innerSchema?.title || aSchema.title || String(value);
       } else {

@@ -1,4 +1,4 @@
-import { Box } from '@mantine/core';
+import { Box } from "@mantine/core";
 import {
   FieldTemplateProps,
   FormContextType,
@@ -6,7 +6,7 @@ import {
   StrictRJSFSchema,
   getTemplate,
   getUiOptions,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `FieldTemplate` component is the template used by `SchemaField` to render any field. It renders the field
  * content, (label, description, children, errors and help) inside a `WrapIfAdditional` component.
@@ -37,14 +37,15 @@ export default function FieldTemplate<
   } = props;
 
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
 
   if (hidden) {
-    return <Box display='none'>{children}</Box>;
+    return <Box display="none">{children}</Box>;
   }
 
   return (

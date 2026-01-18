@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, SyntheticEvent, useCallback } from 'react';
+import { ChangeEvent, FocusEvent, SyntheticEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -7,7 +7,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 function getValue(event: SyntheticEvent<HTMLSelectElement>, multiple: boolean) {
   if (multiple) {
@@ -24,7 +24,11 @@ function getValue(event: SyntheticEvent<HTMLSelectElement>, multiple: boolean) {
  *
  * @param props - The `WidgetProps` for this component
  */
-function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+function SelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   schema,
   id,
   options,
@@ -41,12 +45,15 @@ function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
   htmlName,
 }: WidgetProps<T, S, F>) {
   const { enumOptions, enumDisabled, emptyValue: optEmptyVal } = options;
-  const emptyValue = multiple ? [] : '';
+  const emptyValue = multiple ? [] : "";
 
   const handleFocus = useCallback(
     (event: FocusEvent<HTMLSelectElement>) => {
       const newValue = getValue(event, multiple);
-      return onFocus(id, enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal));
+      return onFocus(
+        id,
+        enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal),
+      );
     },
     [onFocus, id, multiple, enumOptions, optEmptyVal],
   );
@@ -54,7 +61,10 @@ function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
   const handleBlur = useCallback(
     (event: FocusEvent<HTMLSelectElement>) => {
       const newValue = getValue(event, multiple);
-      return onBlur(id, enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal));
+      return onBlur(
+        id,
+        enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal),
+      );
     },
     [onBlur, id, multiple, enumOptions, optEmptyVal],
   );
@@ -62,12 +72,18 @@ function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLSelectElement>) => {
       const newValue = getValue(event, multiple);
-      return onChange(enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal));
+      return onChange(
+        enumOptionsValueForIndex<S>(newValue, enumOptions, optEmptyVal),
+      );
     },
     [onChange, multiple, enumOptions, optEmptyVal],
   );
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, multiple);
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    multiple,
+  );
   const showPlaceholderOption = !multiple && schema.default === undefined;
 
   return (
@@ -75,9 +91,11 @@ function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
       id={id}
       name={htmlName || id}
       multiple={multiple}
-      role='combobox'
-      className='form-control'
-      value={typeof selectedIndexes === 'undefined' ? emptyValue : selectedIndexes}
+      role="combobox"
+      className="form-control"
+      value={
+        typeof selectedIndexes === "undefined" ? emptyValue : selectedIndexes
+      }
       required={required}
       disabled={disabled || readonly}
       autoFocus={autofocus}
@@ -86,7 +104,7 @@ function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
       onChange={handleChange}
       aria-describedby={ariaDescribedByIds(id)}
     >
-      {showPlaceholderOption && <option value=''>{placeholder}</option>}
+      {showPlaceholderOption && <option value="">{placeholder}</option>}
       {Array.isArray(enumOptions) &&
         enumOptions.map(({ value, label }, i) => {
           const disabled = enumDisabled && enumDisabled.indexOf(value) !== -1;

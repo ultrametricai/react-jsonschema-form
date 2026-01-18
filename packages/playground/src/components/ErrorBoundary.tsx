@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react';
+import { Component, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -35,10 +35,10 @@ class ErrorBoundary extends Component<Props, State> {
 
     if (hasError) {
       return (
-        <div className='alert alert-danger'>
+        <div className="alert alert-danger">
           <p>The following error was encountered:</p>
           <pre>{error.message}</pre>
-          <button className='btn' onClick={this.resetErrorBoundary}>
+          <button className="btn" onClick={this.resetErrorBoundary}>
             Refresh Form
           </button>
         </div>

@@ -1,11 +1,11 @@
-import { UiSchema } from '@rjsf/utils';
-import { FormProps } from '@rjsf/core';
+import { UiSchema } from "@rjsf/utils";
+import { FormProps } from "@rjsf/core";
 
-import { LiveSettings } from '../components/OptionsDrawer';
+import { LiveSettings } from "../components/OptionsDrawer";
 
 export type UiSchemaForTheme = (theme: string) => UiSchema;
 
-export interface Sample extends Omit<FormProps, 'validator' | 'uiSchema'> {
-  uiSchema?: FormProps['uiSchema'] | UiSchemaForTheme;
+export interface Sample extends Omit<FormProps, "validator" | "uiSchema"> {
+  uiSchema?: FormProps["uiSchema"] | UiSchemaForTheme;
   liveSettings?: LiveSettings;
 }

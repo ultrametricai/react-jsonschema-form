@@ -5,7 +5,7 @@ import {
   FormContextType,
   getTemplate,
   getUiOptions,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `FieldTemplate` component provides the main layout for each form field
  * with DaisyUI styling. It handles:
@@ -55,13 +55,14 @@ export default function FieldTemplate<
   } = props;
 
   // Special handling for checkboxes - they should have the label after the input
-  const isCheckbox = schema.type === 'boolean';
+  const isCheckbox = schema.type === "boolean";
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
 
   return (
     <WrapIfAdditionalTemplate
@@ -79,12 +80,12 @@ export default function FieldTemplate<
       uiSchema={uiSchema}
       registry={registry}
     >
-      <div className={`field-template mb-3 ${classNames || ''}`} {...divProps}>
+      <div className={`field-template mb-3 ${classNames || ""}`} {...divProps}>
         {displayLabel && !isCheckbox && (
-          <label htmlFor={id} className='label'>
-            <span className='label-text font-medium'>
+          <label htmlFor={id} className="label">
+            <span className="label-text font-medium">
               {label}
-              {required && <span className='text-error ml-1'>*</span>}
+              {required && <span className="text-error ml-1">*</span>}
             </span>
           </label>
         )}

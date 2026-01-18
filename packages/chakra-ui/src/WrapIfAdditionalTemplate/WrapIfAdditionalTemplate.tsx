@@ -6,10 +6,10 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
-import { Grid, GridItem, Input } from '@chakra-ui/react';
+} from "@rjsf/utils";
+import { Grid, GridItem, Input } from "@chakra-ui/react";
 
-import { Field } from '../components/ui/field';
+import { Field } from "../components/ui/field";
 
 export default function WrapIfAdditionalTemplate<
   T = any,
@@ -36,7 +36,9 @@ export default function WrapIfAdditionalTemplate<
   const { templates, translateString } = registry;
   // Button templates are not overridden in the uiSchema
   const { RemoveButton } = templates.ButtonTemplates;
-  const keyLabel = displayLabel ? translateString(TranslatableString.KeyLabel, [label]) : undefined;
+  const keyLabel = displayLabel
+    ? translateString(TranslatableString.KeyLabel, [label])
+    : undefined;
   const additional = ADDITIONAL_PROPERTY_FLAG in schema;
   const hasDescription = !!rawDescription;
   const margin = hasDescription ? 58 : 22;
@@ -51,13 +53,16 @@ export default function WrapIfAdditionalTemplate<
   return (
     <Grid
       key={`${id}-key`}
-      templateColumns='repeat(11, 1fr)'
+      templateColumns="repeat(11, 1fr)"
       className={classNames}
       style={style}
-      alignItems='center'
+      alignItems="center"
       gap={2}
     >
-      <GridItem colSpan={5} style={{ marginTop: hasDescription ? '36px' : undefined }}>
+      <GridItem
+        colSpan={5}
+        style={{ marginTop: hasDescription ? "36px" : undefined }}
+      >
         <Field required={required} label={keyLabel}>
           <Input
             defaultValue={label}
@@ -65,16 +70,19 @@ export default function WrapIfAdditionalTemplate<
             id={`${id}-key`}
             name={`${id}-key`}
             onBlur={!readonly ? onKeyRenameBlur : undefined}
-            type='text'
+            type="text"
             mb={1}
           />
         </Field>
       </GridItem>
       <GridItem colSpan={5}>{children}</GridItem>
-      <GridItem justifySelf='flex-end' style={{ marginTop: displayLabel ? `${margin}px` : undefined }}>
+      <GridItem
+        justifySelf="flex-end"
+        style={{ marginTop: displayLabel ? `${margin}px` : undefined }}
+      >
         <RemoveButton
-          id={buttonId(id, 'remove')}
-          className='rjsf-object-property-remove'
+          id={buttonId(id, "remove")}
+          className="rjsf-object-property-remove"
           disabled={disabled || readonly}
           onClick={onRemoveProperty}
           uiSchema={uiSchema}

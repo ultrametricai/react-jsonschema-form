@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent } from "react";
 import {
   ariaDescribedByIds,
   labelValue,
@@ -6,9 +6,9 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Form } from 'semantic-ui-react';
-import { getSemanticProps } from '../util';
+} from "@rjsf/utils";
+import { Form } from "semantic-ui-react";
+import { getSemanticProps } from "../util";
 
 /** The `TextareaWidget` is a widget for rendering input fields as textarea.
  *
@@ -40,11 +40,11 @@ export default function TextareaWidget<
   const semanticProps = getSemanticProps<T, S, F>({
     formContext: registry.formContext,
     options,
-    defaultSchemaProps: { inverted: 'false' },
+    defaultSchemaProps: { inverted: "false" },
   });
   // eslint-disable-next-line no-shadow
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
-    onChange && onChange(value === '' ? options.emptyValue : value);
+    onChange && onChange(value === "" ? options.emptyValue : value);
   const _onBlur = () => onBlur && onBlur(id, value);
   const _onFocus = () => onFocus && onFocus(id, value);
   return (
@@ -58,7 +58,7 @@ export default function TextareaWidget<
       required={required}
       disabled={disabled || readonly}
       {...semanticProps}
-      value={value || ''}
+      value={value || ""}
       error={rawErrors.length > 0}
       rows={options.rows || 5}
       onChange={_onChange}

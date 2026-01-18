@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   BaseInputTemplateProps,
@@ -7,7 +7,7 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the `core` theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -47,7 +47,7 @@ export default function BaseInputTemplate<
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
   // exclude the "options" and "schema" ones here.
   if (!id) {
-    console.log('No id for', props);
+    console.log("No id for", props);
     throw new Error(`no id for props ${JSON.stringify(props)}`);
   }
   const inputProps = {
@@ -56,29 +56,32 @@ export default function BaseInputTemplate<
   };
 
   let inputValue;
-  if (inputProps.type === 'number' || inputProps.type === 'integer') {
-    inputValue = value || value === 0 ? value : '';
+  if (inputProps.type === "number" || inputProps.type === "integer") {
+    inputValue = value || value === 0 ? value : "";
   } else {
-    inputValue = value == null ? '' : value;
+    inputValue = value == null ? "" : value;
   }
 
   const _onChange = useCallback(
-    ({ target: { value } }: ChangeEvent<HTMLInputElement>) => onChange(value === '' ? options.emptyValue : value),
+    ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
+      onChange(value === "" ? options.emptyValue : value),
     [onChange, options],
   );
   const _onBlur = useCallback(
-    ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value),
+    ({ target }: FocusEvent<HTMLInputElement>) =>
+      onBlur(id, target && target.value),
     [onBlur, id],
   );
   const _onFocus = useCallback(
-    ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value),
+    ({ target }: FocusEvent<HTMLInputElement>) =>
+      onFocus(id, target && target.value),
     [onFocus, id],
   );
   const _onClear = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
@@ -88,7 +91,7 @@ export default function BaseInputTemplate<
       <input
         id={id}
         name={htmlName || id}
-        className='form-control'
+        className="form-control"
         readOnly={readonly}
         disabled={disabled}
         autoFocus={autofocus}
@@ -106,7 +109,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) && (
         <datalist key={`datalist_${id}`} id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example: any) => {
               return <option key={example} value={example} />;
             })}

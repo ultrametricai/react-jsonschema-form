@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent } from "react";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -6,8 +6,8 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Password } from 'primereact/password';
+} from "@rjsf/utils";
+import { Password } from "primereact/password";
 
 /** The `PasswordWidget` renders a `Password` component
  *
@@ -39,7 +39,7 @@ export default function PasswordWidget<
   const primeProps = (options.prime || {}) as object;
 
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
+    onChange(value === "" ? options.emptyValue : value);
   const _onBlur = () => onBlur && onBlur(id, value);
   const _onFocus = () => onFocus && onFocus(id, value);
 
@@ -53,13 +53,13 @@ export default function PasswordWidget<
       required={required}
       autoFocus={autofocus}
       disabled={disabled || readonly}
-      value={value || ''}
+      value={value || ""}
       invalid={rawErrors.length > 0}
       onChange={onChangeOverride || _onChange}
       onBlur={_onBlur}
       onFocus={_onFocus}
       aria-describedby={ariaDescribedByIds(id, !!schema.examples)}
-      pt={{ root: { style: { display: 'flex', flexDirection: 'column' } } }}
+      pt={{ root: { style: { display: "flex", flexDirection: "column" } } }}
     />
   );
 }

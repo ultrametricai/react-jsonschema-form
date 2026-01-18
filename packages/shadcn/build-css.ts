@@ -1,15 +1,15 @@
-import { execSync } from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
+import { execSync } from "child_process";
+import * as fs from "fs";
+import * as path from "path";
 
-const srcDir = './src/css';
-const distDir = './dist/';
+const srcDir = "./src/css";
+const distDir = "./dist/";
 
 // Ensure dist directory exists
 fs.mkdirSync(distDir, { recursive: true });
 
 fs.readdirSync(srcDir).forEach((file) => {
-  if (path.extname(file) === '.css') {
+  if (path.extname(file) === ".css") {
     const srcFile = path.join(srcDir, file);
     const distFile = path.join(distDir, file); // Keep the same filename
     try {
@@ -17,7 +17,7 @@ fs.readdirSync(srcDir).forEach((file) => {
       execSync(
         `npx @tailwindcss/cli -i ${srcFile} -o ${distFile} --minify --content="./src/**/*.{js,jsx,ts,tsx},../playground/src/**/*.{js,jsx,ts,tsx}"`,
         {
-          stdio: 'ignore',
+          stdio: "ignore",
         },
       );
     } catch (error) {

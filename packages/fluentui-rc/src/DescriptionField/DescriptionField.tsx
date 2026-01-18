@@ -1,6 +1,11 @@
-import { Text, makeStyles, tokens } from '@fluentui/react-components';
-import { DescriptionFieldProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { RichDescription } from '@rjsf/core';
+import { Text, makeStyles, tokens } from "@fluentui/react-components";
+import {
+  DescriptionFieldProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { RichDescription } from "@rjsf/core";
 
 const useStyles = makeStyles({
   label: {
@@ -26,7 +31,11 @@ export default function DescriptionField<
 
   return (
     <Text block id={id} className={classes.label}>
-      <RichDescription description={description} registry={registry} uiSchema={uiSchema} />
+      <RichDescription
+        description={description}
+        registry={registry}
+        uiSchema={uiSchema}
+      />
     </Text>
   );
 }

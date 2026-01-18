@@ -1,4 +1,4 @@
-import { Fieldset } from '@chakra-ui/react';
+import { Fieldset } from "@chakra-ui/react";
 import {
   FieldTemplateProps,
   FormContextType,
@@ -6,7 +6,7 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 export default function FieldTemplate<
   T = any,
@@ -37,14 +37,15 @@ export default function FieldTemplate<
     uiSchema,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
 
   if (hidden) {
-    return <div style={{ display: 'none' }}>{children}</div>;
+    return <div style={{ display: "none" }}>{children}</div>;
   }
 
   return (
@@ -65,8 +66,13 @@ export default function FieldTemplate<
       uiSchema={uiSchema}
       registry={registry}
     >
-      <Fieldset.Root disabled={disabled} invalid={rawErrors && rawErrors.length > 0}>
-        {displayLabel && rawDescription ? <Fieldset.Legend mt={2}>{description}</Fieldset.Legend> : null}
+      <Fieldset.Root
+        disabled={disabled}
+        invalid={rawErrors && rawErrors.length > 0}
+      >
+        {displayLabel && rawDescription ? (
+          <Fieldset.Legend mt={2}>{description}</Fieldset.Legend>
+        ) : null}
         {help}
         <Fieldset.Content>{children}</Fieldset.Content>
         {errors}

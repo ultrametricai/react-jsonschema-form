@@ -1,6 +1,11 @@
-import { RichDescription } from '@rjsf/core';
-import { DescriptionFieldProps, FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { Text } from '@chakra-ui/react';
+import { RichDescription } from "@rjsf/core";
+import {
+  DescriptionFieldProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { Text } from "@chakra-ui/react";
 
 /** The `DescriptionField` is the template to use to render the description of a field
  *
@@ -16,8 +21,12 @@ export default function DescriptionField<
   }
 
   return (
-    <Text as='sup' fontSize='md' id={id}>
-      <RichDescription description={description} registry={registry} uiSchema={uiSchema} />
+    <Text as="sup" fontSize="md" id={id}>
+      <RichDescription
+        description={description}
+        registry={registry}
+        uiSchema={uiSchema}
+      />
     </Text>
   );
 }

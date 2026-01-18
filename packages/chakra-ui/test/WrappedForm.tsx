@@ -1,7 +1,11 @@
-import { ChakraProvider, defaultSystem, EnvironmentProvider } from '@chakra-ui/react';
-import { FormProps } from '@rjsf/core';
+import {
+  ChakraProvider,
+  defaultSystem,
+  EnvironmentProvider,
+} from "@chakra-ui/react";
+import { FormProps } from "@rjsf/core";
 
-import Form from '../src';
+import Form from "../src";
 
 export default function WrappedForm(props: FormProps) {
   return (

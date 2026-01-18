@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties } from "react";
 import {
   ADDITIONAL_PROPERTY_FLAG,
   buttonId,
@@ -7,35 +7,35 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
-import { Field, Input, makeStyles } from '@fluentui/react-components';
-import { Flex } from '@fluentui/react-migration-v0-v9';
+} from "@rjsf/utils";
+import { Field, Input, makeStyles } from "@fluentui/react-components";
+import { Flex } from "@fluentui/react-migration-v0-v9";
 
 const useStyles = makeStyles({
   input: {
-    width: '100%',
+    width: "100%",
   },
   grow: {
     flexGrow: 1,
   },
   halfWidth: {
-    width: '46%',
+    width: "46%",
   },
   alignEnd: {
-    alignSelf: 'flex-end',
-    justifyContent: 'flex-end',
+    alignSelf: "flex-end",
+    justifyContent: "flex-end",
   },
   alignCenter: {
-    alignSelf: 'center',
-    marginTop: '-14px',
-    justifyContent: 'flex-end',
+    alignSelf: "center",
+    marginTop: "-14px",
+    justifyContent: "flex-end",
   },
   label: {
-    marginBottom: '4px',
+    marginBottom: "4px",
   },
 });
 
-const containerTypes = ['object', 'array'];
+const containerTypes = ["object", "array"];
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -75,13 +75,15 @@ export default function WrapIfAdditionalTemplate<
     flex: 1,
     paddingLeft: 6,
     paddingRight: 6,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   };
 
   if (!additional) {
     const { type } = schema;
     // Flex grow only non container classes
-    const className = containerTypes.includes(type as string) ? classNames : `${classes.grow} ${classNames}`;
+    const className = containerTypes.includes(type as string)
+      ? classNames
+      : `${classes.grow} ${classNames}`;
     return (
       <div className={className} style={style}>
         {children}
@@ -90,7 +92,13 @@ export default function WrapIfAdditionalTemplate<
   }
 
   return (
-    <Flex gap='gap.medium' vAlign='start' key={`${id}-key`} className={classNames} style={style}>
+    <Flex
+      gap="gap.medium"
+      vAlign="start"
+      key={`${id}-key`}
+      className={classNames}
+      style={style}
+    >
       <div className={classes.halfWidth}>
         <Field label={displayLabel ? keyLabel : undefined} required={required}>
           <Input
@@ -100,7 +108,7 @@ export default function WrapIfAdditionalTemplate<
             id={`${id}-key`}
             name={`${id}-key`}
             onBlur={!readonly ? onKeyRenameBlur : undefined}
-            type='text'
+            type="text"
             input={{
               className: classes.input,
             }}
@@ -110,9 +118,9 @@ export default function WrapIfAdditionalTemplate<
       <div className={classes.halfWidth}>{children}</div>
       <div className={hasDescription ? classes.alignCenter : classes.alignEnd}>
         <RemoveButton
-          id={buttonId(id, 'remove')}
-          iconType='default'
-          className='rjsf-object-property-remove'
+          id={buttonId(id, "remove")}
+          iconType="default"
+          className="rjsf-object-property-remove"
           style={btnStyle}
           disabled={disabled || readonly}
           onClick={onRemoveProperty}

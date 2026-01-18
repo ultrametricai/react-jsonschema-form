@@ -1,7 +1,7 @@
-import { type DateObject } from './types';
+import { type DateObject } from "./types";
 
 /** Available options for re-ordering date input element */
-export type DateElementFormat = 'DMY' | 'MDY' | 'YMD';
+export type DateElementFormat = "DMY" | "MDY" | "YMD";
 
 /** Type describing format of DateElement prop */
 export type DateElementProp = {
@@ -23,32 +23,40 @@ export default function getDateElementProps(
   date: DateObject,
   time: boolean,
   yearRange: [number, number] = [1900, new Date().getFullYear() + 2],
-  format: DateElementFormat = 'YMD',
+  format: DateElementFormat = "YMD",
 ) {
   const { day, month, year, hour, minute, second } = date;
 
-  const dayObj: DateElementProp = { type: 'day', range: [1, 31], value: day };
-  const monthObj: DateElementProp = { type: 'month', range: [1, 12], value: month };
-  const yearObj: DateElementProp = { type: 'year', range: yearRange, value: year };
+  const dayObj: DateElementProp = { type: "day", range: [1, 31], value: day };
+  const monthObj: DateElementProp = {
+    type: "month",
+    range: [1, 12],
+    value: month,
+  };
+  const yearObj: DateElementProp = {
+    type: "year",
+    range: yearRange,
+    value: year,
+  };
 
   const dateElementProp: DateElementProp[] = [];
   switch (format) {
-    case 'MDY':
+    case "MDY":
       dateElementProp.push(monthObj, dayObj, yearObj);
       break;
-    case 'DMY':
+    case "DMY":
       dateElementProp.push(dayObj, monthObj, yearObj);
       break;
-    case 'YMD':
+    case "YMD":
     default:
       dateElementProp.push(yearObj, monthObj, dayObj);
   }
 
   if (time) {
     dateElementProp.push(
-      { type: 'hour', range: [0, 23], value: hour },
-      { type: 'minute', range: [0, 59], value: minute },
-      { type: 'second', range: [0, 59], value: second },
+      { type: "hour", range: [0, 23], value: hour },
+      { type: "minute", range: [0, 59], value: minute },
+      { type: "second", range: [0, 59], value: second },
     );
   }
 

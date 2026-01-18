@@ -1,8 +1,8 @@
-import standaloneCode from 'ajv/dist/standalone';
-import { RJSFSchema, StrictRJSFSchema, schemaParser } from '@rjsf/utils';
+import standaloneCode from "ajv/dist/standalone";
+import { RJSFSchema, StrictRJSFSchema, schemaParser } from "@rjsf/utils";
 
-import createAjvInstance from './createAjvInstance';
-import { CustomValidatorOptionsType } from './types';
+import createAjvInstance from "./createAjvInstance";
+import { CustomValidatorOptionsType } from "./types";
 
 /** The function used to compile a schema into javascript code in the form that allows it to be used as a precompiled
  * validator. The main reasons for using a precompiled validator is reducing code size, improving validation speed and,
@@ -14,10 +14,9 @@ import { CustomValidatorOptionsType } from './types';
  *        compiling the schema. They are the same options that are passed to the `customizeValidator()` function in
  *        order to modify the behavior of the regular AJV-based validator.
  */
-export function compileSchemaValidatorsCode<S extends StrictRJSFSchema = RJSFSchema>(
-  schema: S,
-  options: CustomValidatorOptionsType = {},
-) {
+export function compileSchemaValidatorsCode<
+  S extends StrictRJSFSchema = RJSFSchema,
+>(schema: S, options: CustomValidatorOptionsType = {}) {
   const schemaMaps = schemaParser(schema);
   const schemas = Object.values(schemaMaps);
 

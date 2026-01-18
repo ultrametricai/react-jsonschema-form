@@ -1,4 +1,4 @@
-import { ReactElement, ChangeEvent, FocusEvent, useCallback } from 'react';
+import { ReactElement, ChangeEvent, FocusEvent, useCallback } from "react";
 import {
   StrictRJSFSchema,
   RJSFSchema,
@@ -6,10 +6,10 @@ import {
   WidgetProps,
   labelValue,
   ariaDescribedByIds,
-} from '@rjsf/utils';
-import { Textarea } from '@mantine/core';
+} from "@rjsf/utils";
+import { Textarea } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `TextareaWidget` is a widget for rendering input fields as textarea.
  *
@@ -44,7 +44,7 @@ export default function TextareaWidget<
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLTextAreaElement>) => {
-      onChange(e.target.value === '' ? emptyValue : e.target.value);
+      onChange(e.target.value === "" ? emptyValue : e.target.value);
     },
     [onChange, emptyValue],
   );
@@ -71,7 +71,7 @@ export default function TextareaWidget<
     <Textarea
       id={id}
       name={htmlName || name}
-      value={value || ''}
+      value={value || ""}
       placeholder={placeholder || undefined}
       required={required}
       disabled={disabled || readonly}
@@ -80,7 +80,9 @@ export default function TextareaWidget<
       onChange={handleChange}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       aria-describedby={ariaDescribedByIds(id)}
       {...themeProps}
     />

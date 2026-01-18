@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import { Select, SelectProps } from 'antd';
+import { useMemo, useState } from "react";
+import { Select, SelectProps } from "antd";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -9,12 +9,12 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import isString from 'lodash/isString';
-import { DefaultOptionType } from 'antd/es/select';
+} from "@rjsf/utils";
+import isString from "lodash/isString";
+import { DefaultOptionType } from "antd/es/select";
 
 const SELECT_STYLE = {
-  width: '100%',
+  width: "100%",
 };
 
 /** The `SelectWidget` is a widget for rendering dropdowns.
@@ -48,13 +48,16 @@ export default function SelectWidget<
 
   const { enumOptions, enumDisabled, emptyValue } = options;
 
-  const handleChange = (nextValue: any) => onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
+  const handleChange = (nextValue: any) =>
+    onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
 
-  const handleBlur = () => onBlur(id, enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
+  const handleBlur = () =>
+    onBlur(id, enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
 
-  const handleFocus = () => onFocus(id, enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
+  const handleFocus = () =>
+    onFocus(id, enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
 
-  const filterOption: SelectProps['filterOption'] = (input, option) => {
+  const filterOption: SelectProps["filterOption"] = (input, option) => {
     if (option && isString(option.label)) {
       // labels are strings in this context
       return option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -64,7 +67,11 @@ export default function SelectWidget<
 
   const getPopupContainer = SelectWidget.getPopupContainerCallback();
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, multiple);
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    multiple,
+  );
 
   // Antd's typescript definitions do not contain the following props that are actually necessary and, if provided,
   // they are used, so hacking them in via by spreading `extraProps` on the component to avoid typescript errors
@@ -76,15 +83,19 @@ export default function SelectWidget<
 
   const selectOptions: DefaultOptionType[] | undefined = useMemo(() => {
     if (Array.isArray(enumOptions)) {
-      const options: DefaultOptionType[] = enumOptions.map(({ value: optionValue, label: optionLabel }, index) => ({
-        disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(optionValue) !== -1,
-        key: String(index),
-        value: String(index),
-        label: optionLabel,
-      }));
+      const options: DefaultOptionType[] = enumOptions.map(
+        ({ value: optionValue, label: optionLabel }, index) => ({
+          disabled:
+            Array.isArray(enumDisabled) &&
+            enumDisabled.indexOf(optionValue) !== -1,
+          key: String(index),
+          value: String(index),
+          label: optionLabel,
+        }),
+      );
 
       if (showPlaceholderOption) {
-        options.unshift({ value: '', label: placeholder || '' });
+        options.unshift({ value: "", label: placeholder || "" });
       }
       return options;
     }
@@ -98,7 +109,7 @@ export default function SelectWidget<
       disabled={disabled || (readonlyAsDisabled && readonly)}
       getPopupContainer={getPopupContainer}
       id={id}
-      mode={multiple ? 'multiple' : undefined}
+      mode={multiple ? "multiple" : undefined}
       onBlur={!readonly ? handleBlur : undefined}
       onChange={!readonly ? handleChange : undefined}
       onFocus={!readonly ? handleFocus : undefined}
@@ -119,4 +130,5 @@ export default function SelectWidget<
  * disabled while in the playground. Since the callback is a simple function, it can be returned by this static
  * "generator" function.
  */
-SelectWidget.getPopupContainerCallback = () => (node: any) => node.parentElement;
+SelectWidget.getPopupContainerCallback = () => (node: any) =>
+  node.parentElement;

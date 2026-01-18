@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Form } from "antd";
 import {
   FieldTemplateProps,
   FormContextType,
@@ -7,7 +7,7 @@ import {
   getTemplate,
   getUiOptions,
   GenericObjectType,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 const VERTICAL_LABEL_COL = { span: 24 };
 const VERTICAL_WRAPPER_COL = { span: 24 };
@@ -45,19 +45,20 @@ export default function FieldTemplate<
     labelCol = VERTICAL_LABEL_COL,
     wrapperCol = VERTICAL_WRAPPER_COL,
     wrapperStyle,
-    descriptionLocation = 'below',
+    descriptionLocation = "below",
   } = formContext as GenericObjectType;
 
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
 
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
 
   if (hidden) {
-    return <div className='rjsf-field-hidden'>{children}</div>;
+    return <div className="rjsf-field-hidden">{children}</div>;
   }
 
   // check to see if there is rawDescription(string) before using description(ReactNode)
@@ -65,27 +66,27 @@ export default function FieldTemplate<
   const descriptionNode = rawDescription ? description : undefined;
   const descriptionProps: GenericObjectType = {};
   switch (descriptionLocation) {
-    case 'tooltip':
+    case "tooltip":
       descriptionProps.tooltip = descriptionNode;
       break;
-    case 'below':
+    case "below":
     default:
       descriptionProps.extra = descriptionNode;
       break;
   }
-  const isCheckbox = uiOptions.widget === 'checkbox';
+  const isCheckbox = uiOptions.widget === "checkbox";
   return (
     <WrapIfAdditionalTemplate {...props}>
       <Form.Item
         colon={colon}
-        hasFeedback={schema.type !== 'array' && schema.type !== 'object'}
+        hasFeedback={schema.type !== "array" && schema.type !== "object"}
         help={(!!rawHelp && help) || (rawErrors?.length ? errors : undefined)}
         htmlFor={id}
         label={displayLabel && !isCheckbox && label}
         labelCol={labelCol}
         required={required}
         style={wrapperStyle}
-        validateStatus={rawErrors?.length ? 'error' : undefined}
+        validateStatus={rawErrors?.length ? "error" : undefined}
         wrapperCol={wrapperCol}
         {...descriptionProps}
       >

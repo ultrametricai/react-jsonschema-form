@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import { Stack } from '@chakra-ui/react';
+import { ChangeEvent, FocusEvent } from "react";
+import { Stack } from "@chakra-ui/react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -10,13 +10,17 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { Field } from '../components/ui/field';
-import { Radio, RadioGroup } from '../components/ui/radio';
-import { getChakra } from '../utils';
+import { Field } from "../components/ui/field";
+import { Radio, RadioGroup } from "../components/ui/radio";
+import { getChakra } from "../utils";
 
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   htmlName,
   options,
@@ -41,7 +45,8 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
     onFocus(id, enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
 
   const row = options ? options.inline : false;
-  const selectedIndex = (enumOptionsIndexForValue<S>(value, enumOptions) as string) ?? null;
+  const selectedIndex =
+    (enumOptionsIndexForValue<S>(value, enumOptions) as string) ?? null;
 
   const chakraProps = getChakra({ uiSchema });
 
@@ -62,10 +67,12 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
         name={htmlName || id}
         aria-describedby={ariaDescribedByIds(id)}
       >
-        <Stack direction={row ? 'row' : 'column'}>
+        <Stack direction={row ? "row" : "column"}>
           {Array.isArray(enumOptions) &&
             enumOptions.map((option, index) => {
-              const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+              const itemDisabled =
+                Array.isArray(enumDisabled) &&
+                enumDisabled.indexOf(option.value) !== -1;
 
               return (
                 <Radio

@@ -1,13 +1,19 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import { ariaDescribedByIds, FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+import { ChangeEvent, FocusEvent } from "react";
+import {
+  ariaDescribedByIds,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
 
-import { Textarea } from '../components/ui/textarea';
+import { Textarea } from "../components/ui/textarea";
 
-type CustomWidgetProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any> = WidgetProps<
-  T,
-  S,
-  F
-> & {
+type CustomWidgetProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+> = WidgetProps<T, S, F> & {
   options: any;
 };
 
@@ -35,19 +41,21 @@ export default function TextareaWidget<
   className,
 }: CustomWidgetProps<T, S, F>) {
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onFocus(id, target && target.value);
 
   return (
-    <div className='flex p-0.5'>
+    <div className="flex p-0.5">
       <Textarea
         id={id}
         name={htmlName || id}
         placeholder={placeholder}
         disabled={disabled}
         readOnly={readonly}
-        value={value ?? ''}
+        value={value ?? ""}
         required={required}
         autoFocus={autofocus}
         rows={options.rows || 5}

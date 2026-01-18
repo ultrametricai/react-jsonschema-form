@@ -1,5 +1,10 @@
-import { FocusEvent, useCallback } from 'react';
-import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjsf/utils';
+import { FocusEvent, useCallback } from "react";
+import {
+  WidgetProps,
+  StrictRJSFSchema,
+  RJSFSchema,
+  FormContextType,
+} from "@rjsf/utils";
 
 /** The `CheckboxesWidget` component renders a set of checkboxes for multiple choice selection
  * with DaisyUI styling.
@@ -15,7 +20,11 @@ import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjs
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function CheckboxesWidget<T, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function CheckboxesWidget<
+  T,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   htmlName,
   disabled,
@@ -28,7 +37,10 @@ export default function CheckboxesWidget<T, S extends StrictRJSFSchema = RJSFSch
   onBlur,
 }: WidgetProps<T, S, F>) {
   const { enumOptions } = options;
-  const isEnumeratedObject = enumOptions && enumOptions[0]?.value && typeof enumOptions[0].value === 'object';
+  const isEnumeratedObject =
+    enumOptions &&
+    enumOptions[0]?.value &&
+    typeof enumOptions[0].value === "object";
 
   /** Determines if a checkbox option should be checked based on the current value
    *
@@ -61,7 +73,13 @@ export default function CheckboxesWidget<T, S extends StrictRJSFSchema = RJSFSch
       const optionValue = isEnumeratedObject ? option.value : option.value;
 
       if (isChecked(option)) {
-        onChange(newValue.filter((v) => (isEnumeratedObject ? v.name !== optionValue.name : v !== optionValue)));
+        onChange(
+          newValue.filter((v) =>
+            isEnumeratedObject
+              ? v.name !== optionValue.name
+              : v !== optionValue,
+          ),
+        );
       } else {
         onChange([...newValue, optionValue]);
       }
@@ -98,15 +116,18 @@ export default function CheckboxesWidget<T, S extends StrictRJSFSchema = RJSFSch
   );
 
   return (
-    <div className='form-control'>
+    <div className="form-control">
       {/* Use a vertical layout with proper spacing */}
-      <div className='flex flex-col gap-2 mt-1'>
+      <div className="flex flex-col gap-2 mt-1">
         {enumOptions?.map((option, index) => (
-          <label key={option.value} className='flex items-center cursor-pointer gap-2'>
+          <label
+            key={option.value}
+            className="flex items-center cursor-pointer gap-2"
+          >
             <input
-              type='checkbox'
+              type="checkbox"
               id={`${id}-${option.value}`}
-              className='checkbox'
+              className="checkbox"
               name={htmlName || id}
               checked={isChecked(option)}
               required={required}
@@ -116,7 +137,7 @@ export default function CheckboxesWidget<T, S extends StrictRJSFSchema = RJSFSch
               onFocus={handleFocus}
               onBlur={handleBlur}
             />
-            <span className='label-text'>{option.label}</span>
+            <span className="label-text">{option.label}</span>
           </label>
         ))}
       </div>

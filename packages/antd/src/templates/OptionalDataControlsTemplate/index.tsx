@@ -1,6 +1,11 @@
-import { FormContextType, OptionalDataControlsTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  FormContextType,
+  OptionalDataControlsTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
-import { AddButton, RemoveButton } from '../IconButton';
+import { AddButton, RemoveButton } from "../IconButton";
 
 /** The OptionalDataControlsTemplate renders one of three different states. If
  * there is an `onAddClick()` function, it renders the "Add" button. If there is
@@ -21,11 +26,11 @@ export default function OptionalDataControlsTemplate<
       <AddButton
         id={id}
         registry={registry}
-        className='rjsf-add-optional-data'
+        className="rjsf-add-optional-data"
         onClick={onAddClick}
         title={label}
-        size='small'
-        iconType='default'
+        size="small"
+        iconType="default"
         block={false}
       />
     );
@@ -34,11 +39,11 @@ export default function OptionalDataControlsTemplate<
       <RemoveButton
         id={id}
         registry={registry}
-        className='rjsf-remove-optional-data'
+        className="rjsf-remove-optional-data"
         onClick={onRemoveClick}
         title={label}
-        size='small'
-        iconType='default'
+        size="small"
+        iconType="default"
         block={false}
       />
     );

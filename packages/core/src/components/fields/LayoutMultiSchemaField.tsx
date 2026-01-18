@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
   ANY_OF_KEY,
   CONST_KEY,
@@ -20,13 +20,13 @@ import {
   SchemaUtilsType,
   StrictRJSFSchema,
   UiSchema,
-} from '@rjsf/utils';
-import get from 'lodash/get';
-import has from 'lodash/has';
-import isEmpty from 'lodash/isEmpty';
-import noop from 'lodash/noop';
-import omit from 'lodash/omit';
-import set from 'lodash/set';
+} from "@rjsf/utils";
+import get from "lodash/get";
+import has from "lodash/has";
+import isEmpty from "lodash/isEmpty";
+import noop from "lodash/noop";
+import omit from "lodash/omit";
+import set from "lodash/set";
 
 /** Gets the selected option from the list of `options`, using the `selectorField` to search inside each `option` for
  * the `properties[selectorField].default(or const)` that matches the given `value`.
@@ -40,11 +40,15 @@ export function getSelectedOption<S extends StrictRJSFSchema = RJSFSchema>(
   selectorField: string,
   value: unknown,
 ): S | undefined {
-  const defaultValue = '!@#!@$@#$!@$#';
+  const defaultValue = "!@#!@$@#$!@$#";
   const schemaOptions: S[] = options.map(({ schema }) => schema!);
   return schemaOptions.find((option) => {
     const selector = get(option, [PROPERTIES_KEY, selectorField]);
-    const result = get(selector, DEFAULT_KEY, get(selector, CONST_KEY, defaultValue));
+    const result = get(
+      selector,
+      DEFAULT_KEY,
+      get(selector, CONST_KEY, defaultValue),
+    );
     return result === value;
   });
 }
@@ -59,14 +63,20 @@ export function getSelectedOption<S extends StrictRJSFSchema = RJSFSchema>(
  * @returns - The list of enumOptions for the `schema` and `options`
  * @throws - Error when no enum options were computed
  */
-export function computeEnumOptions<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
+export function computeEnumOptions<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
   schema: S,
   options: S[],
   schemaUtils: SchemaUtilsType<T, S, F>,
   uiSchema?: UiSchema<T, S, F>,
   formData?: T,
 ): EnumOptionsType<S>[] {
-  const realOptions = options.map((opt: S) => schemaUtils.retrieveSchema(opt, formData));
+  const realOptions = options.map((opt: S) =>
+    schemaUtils.retrieveSchema(opt, formData),
+  );
   let tempSchema = schema;
   if (has(schema, ONE_OF_KEY)) {
     tempSchema = { ...schema, [ONE_OF_KEY]: realOptions };
@@ -75,7 +85,9 @@ export function computeEnumOptions<T = any, S extends StrictRJSFSchema = RJSFSch
   }
   const enumOptions = optionsList<T, S, F>(tempSchema, uiSchema);
   if (!enumOptions) {
-    throw new Error(`No enumOptions were computed from the schema ${JSON.stringify(tempSchema)}`);
+    throw new Error(
+      `No enumOptions were computed from the schema ${JSON.stringify(tempSchema)}`,
+    );
   }
   return enumOptions;
 }
@@ -111,46 +123,75 @@ export default function LayoutMultiSchemaField<
     hideError = false,
   } = props;
   const { widgets, schemaUtils, globalUiOptions } = registry;
-  const [enumOptions, setEnumOptions] = useState(computeEnumOptions(schema, options, schemaUtils, uiSchema, formData)!);
+  const [enumOptions, setEnumOptions] = useState(
+    computeEnumOptions(schema, options, schemaUtils, uiSchema, formData)!,
+  );
   const id = get(fieldPathId, ID_KEY);
   const discriminator = getDiscriminatorFieldFromSchema(schema);
-  const FieldErrorTemplate = getTemplate<'FieldErrorTemplate', T, S, F>('FieldErrorTemplate', registry, options);
-  const FieldTemplate = getTemplate<'FieldTemplate', T, S, F>('FieldTemplate', registry, options);
+  const FieldErrorTemplate = getTemplate<"FieldErrorTemplate", T, S, F>(
+    "FieldErrorTemplate",
+    registry,
+    options,
+  );
+  const FieldTemplate = getTemplate<"FieldTemplate", T, S, F>(
+    "FieldTemplate",
+    registry,
+    options,
+  );
   const schemaHash = hashObject(schema);
   const optionsHash = hashObject(options);
-  const uiSchemaHash = uiSchema ? hashObject(uiSchema) : '';
-  const formDataHash = formData ? hashObject(formData) : '';
+  const uiSchemaHash = uiSchema ? hashObject(uiSchema) : "";
+  const formDataHash = formData ? hashObject(formData) : "";
 
   useEffect(() => {
-    setEnumOptions(computeEnumOptions(schema, options, schemaUtils, uiSchema, formData));
+    setEnumOptions(
+      computeEnumOptions(schema, options, schemaUtils, uiSchema, formData),
+    );
     // We are using hashes in place of the dependencies
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [schemaHash, optionsHash, schemaUtils, uiSchemaHash, formDataHash]);
   const {
-    widget = discriminator ? 'radio' : 'select',
-    title = '',
-    placeholder = '',
+    widget = discriminator ? "radio" : "select",
+    title = "",
+    placeholder = "",
     optionsSchemaSelector: selectorField = discriminator,
     hideError: uiSchemaHideError,
     ...uiOptions
   } = getUiOptions<T, S, F>(uiSchema);
   if (!selectorField) {
-    throw new Error('No selector field provided for the LayoutMultiSchemaField');
+    throw new Error(
+      "No selector field provided for the LayoutMultiSchemaField",
+    );
   }
   const selectedOption = get(formData, selectorField);
-  let optionSchema: S = get(enumOptions[0]?.schema, [PROPERTIES_KEY, selectorField], {}) as S;
-  const option = getSelectedOption<S>(enumOptions, selectorField, selectedOption);
+  let optionSchema: S = get(
+    enumOptions[0]?.schema,
+    [PROPERTIES_KEY, selectorField],
+    {},
+  ) as S;
+  const option = getSelectedOption<S>(
+    enumOptions,
+    selectorField,
+    selectedOption,
+  );
   // If the subschema doesn't declare a type, infer the type from the parent schema
-  optionSchema = optionSchema?.type ? optionSchema : ({ ...optionSchema, type: option?.type || baseType } as S);
+  optionSchema = optionSchema?.type
+    ? optionSchema
+    : ({ ...optionSchema, type: option?.type || baseType } as S);
   const Widget = getWidget<T, S, F>(optionSchema!, widget, widgets);
 
   // The following code was copied from `@rjsf`'s `SchemaField`
   // Set hideError to the value provided in the uiSchema, otherwise stick with the prop to propagate to children
-  const hideFieldError = uiSchemaHideError === undefined ? hideError : Boolean(uiSchemaHideError);
+  const hideFieldError =
+    uiSchemaHideError === undefined ? hideError : Boolean(uiSchemaHideError);
 
   const rawErrors = get(errorSchema, [ERRORS_KEY], []) as string[];
   const fieldErrorSchema = omit(errorSchema, [ERRORS_KEY]);
-  const displayLabel = schemaUtils.getDisplayLabel(schema, uiSchema, globalUiOptions);
+  const displayLabel = schemaUtils.getDisplayLabel(
+    schema,
+    uiSchema,
+    globalUiOptions,
+  );
 
   /** Callback function that updates the selected option and adjusts the form data based on the structure of the new
    * option, calling the `onChange` callback with the adjusted formData.
@@ -160,12 +201,24 @@ export default function LayoutMultiSchemaField<
    */
   const onOptionChange = (opt?: unknown) => {
     const newOption = getSelectedOption<S>(enumOptions, selectorField, opt);
-    const oldOption = getSelectedOption<S>(enumOptions, selectorField, selectedOption);
+    const oldOption = getSelectedOption<S>(
+      enumOptions,
+      selectorField,
+      selectedOption,
+    );
 
-    let newFormData = schemaUtils.sanitizeDataForNewSchema(newOption, oldOption, formData);
+    let newFormData = schemaUtils.sanitizeDataForNewSchema(
+      newOption,
+      oldOption,
+      formData,
+    );
     if (newFormData && newOption) {
       // Call getDefaultFormState to make sure defaults are populated on change.
-      newFormData = schemaUtils.getDefaultFormState(newOption, newFormData, 'excludeObjectChildren') as T;
+      newFormData = schemaUtils.getDefaultFormState(
+        newOption,
+        newFormData,
+        "excludeObjectChildren",
+      ) as T;
     }
     if (newFormData) {
       set(newFormData, selectorField, opt);
@@ -178,7 +231,12 @@ export default function LayoutMultiSchemaField<
   const widgetOptions = { enumOptions, ...uiOptions };
   const errors =
     !hideFieldError && rawErrors.length > 0 ? (
-      <FieldErrorTemplate fieldPathId={fieldPathId} schema={schema} errors={rawErrors} registry={registry} />
+      <FieldErrorTemplate
+        fieldPathId={fieldPathId}
+        schema={schema}
+        errors={rawErrors}
+        registry={registry}
+      />
     ) : undefined;
 
   return (
@@ -186,8 +244,10 @@ export default function LayoutMultiSchemaField<
       fieldPathId={fieldPathId}
       id={id}
       schema={schema}
-      label={(title || schema.title) ?? ''}
-      disabled={disabled || (Array.isArray(enumOptions) && isEmpty(enumOptions))}
+      label={(title || schema.title) ?? ""}
+      disabled={
+        disabled || (Array.isArray(enumOptions) && isEmpty(enumOptions))
+      }
       uiSchema={uiSchema}
       required={required}
       readonly={!!readonly}
@@ -203,8 +263,10 @@ export default function LayoutMultiSchemaField<
         id={id}
         name={name}
         schema={schema}
-        label={(title || schema.title) ?? ''}
-        disabled={disabled || (Array.isArray(enumOptions) && isEmpty(enumOptions))}
+        label={(title || schema.title) ?? ""}
+        disabled={
+          disabled || (Array.isArray(enumOptions) && isEmpty(enumOptions))
+        }
         uiSchema={uiSchema}
         autofocus={autofocus}
         readonly={readonly}

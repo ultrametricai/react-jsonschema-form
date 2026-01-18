@@ -10,7 +10,7 @@ import {
   getUiOptions,
   titleId,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` is the template to use to render all the inner properties of an object along with the
  * title and description if available. If the object is expandable, then an `AddButton` is also rendered after all
@@ -40,16 +40,24 @@ export default function ObjectFieldTemplate<
     uiSchema,
   } = props;
   const options = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, options);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     options,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
   // For "pure union" schemas (oneOf/anyOf without properties), skip rendering the empty fieldset wrapper.
   // The AnyOfField/OneOfField will handle rendering the union selector and selected variant's content directly.
-  const isPureUnionSchema = (schema.oneOf || schema.anyOf) && !schema.properties && properties.length === 0;
+  const isPureUnionSchema =
+    (schema.oneOf || schema.anyOf) &&
+    !schema.properties &&
+    properties.length === 0;
 
   if (isPureUnionSchema) {
     return null;
@@ -70,7 +78,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -86,8 +96,8 @@ export default function ObjectFieldTemplate<
       {properties.map((prop: ObjectFieldTemplatePropertyType) => prop.content)}
       {canExpand<T, S, F>(schema, uiSchema, formData) && (
         <AddButton
-          id={buttonId(fieldPathId, 'add')}
-          className='rjsf-object-property-expand'
+          id={buttonId(fieldPathId, "add")}
+          className="rjsf-object-property-expand"
           onClick={onAddProperty}
           disabled={disabled || readonly}
           uiSchema={uiSchema}

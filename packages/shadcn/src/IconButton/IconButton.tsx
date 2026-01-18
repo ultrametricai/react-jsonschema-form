@@ -1,8 +1,14 @@
-import { FormContextType, IconButtonProps, RJSFSchema, StrictRJSFSchema, TranslatableString } from '@rjsf/utils';
-import { ChevronDown, ChevronUp, Copy, Trash2, X } from 'lucide-react';
-import type { VariantProps } from 'class-variance-authority';
+import {
+  FormContextType,
+  IconButtonProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+  TranslatableString,
+} from "@rjsf/utils";
+import { ChevronDown, ChevronUp, Copy, Trash2, X } from "lucide-react";
+import type { VariantProps } from "class-variance-authority";
 
-import { Button, buttonVariants } from '../components/ui/button';
+import { Button, buttonVariants } from "../components/ui/button";
 
 export type ShadIconButtonProps<
   T = any,
@@ -17,12 +23,21 @@ export type ShadIconButtonProps<
  *
  * @param props - The combined props from RJSF IconButtonProps and Shadcn ButtonProps, including icon and event handlers
  */
-export default function IconButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
-  const { icon, iconType, className, uiSchema, registry, ...otherProps } = props;
+export default function IconButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
+  const { icon, iconType, className, uiSchema, registry, ...otherProps } =
+    props;
   return (
-    <Button size='icon' variant='outline' className={className} {...otherProps} type='button'>
+    <Button
+      size="icon"
+      variant="outline"
+      className={className}
+      {...otherProps}
+      type="button"
+    >
       {icon}
     </Button>
   );
@@ -34,14 +49,20 @@ export default function IconButton<T = any, S extends StrictRJSFSchema = RJSFSch
  *
  * @param props - The RJSF icon button properties, including registry for translations and event handlers
  */
-export function CopyButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
+export function CopyButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
   return (
-    <IconButton title={translateString(TranslatableString.CopyButton)} {...props} icon={<Copy className='h-4 w-4' />} />
+    <IconButton
+      title={translateString(TranslatableString.CopyButton)}
+      {...props}
+      icon={<Copy className="h-4 w-4" />}
+    />
   );
 }
 
@@ -51,9 +72,11 @@ export function CopyButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F e
  *
  * @param props - The RJSF icon button properties, including registry for translations and event handlers
  */
-export function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
+export function MoveDownButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -61,7 +84,7 @@ export function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema,
     <IconButton
       title={translateString(TranslatableString.MoveDownButton)}
       {...props}
-      icon={<ChevronDown className='h-4 w-4' />}
+      icon={<ChevronDown className="h-4 w-4" />}
     />
   );
 }
@@ -72,9 +95,11 @@ export function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema,
  *
  * @param props - The RJSF icon button properties, including registry for translations and event handlers
  */
-export function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
+export function MoveUpButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -82,7 +107,7 @@ export function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F
     <IconButton
       title={translateString(TranslatableString.MoveUpButton)}
       {...props}
-      icon={<ChevronUp className='h-4 w-4' />}
+      icon={<ChevronUp className="h-4 w-4" />}
     />
   );
 }
@@ -94,9 +119,11 @@ export function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F
  *
  * @param props - The RJSF icon button properties, including registry for translations and event handlers
  */
-export function RemoveButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
+export function RemoveButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -104,17 +131,25 @@ export function RemoveButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F
     <IconButton
       title={translateString(TranslatableString.RemoveButton)}
       {...props}
-      className={'border-destructive'}
-      icon={<Trash2 className='h-4 w-4 stroke-destructive' />}
+      className={"border-destructive"}
+      icon={<Trash2 className="h-4 w-4 stroke-destructive" />}
     />
   );
 }
 
-export function ClearButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ShadIconButtonProps<T, S, F>,
-) {
+export function ClearButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ShadIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
-  return <IconButton title={translateString(TranslatableString.ClearButton)} {...props} icon={<X />} />;
+  return (
+    <IconButton
+      title={translateString(TranslatableString.ClearButton)}
+      {...props}
+      icon={<X />}
+    />
+  );
 }

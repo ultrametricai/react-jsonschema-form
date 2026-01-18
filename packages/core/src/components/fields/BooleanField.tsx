@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   getWidget,
   getUiOptions,
@@ -10,17 +10,19 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   TranslatableString,
-} from '@rjsf/utils';
-import isObject from 'lodash/isObject';
+} from "@rjsf/utils";
+import isObject from "lodash/isObject";
 
 /** The `BooleanField` component is used to render a field in the schema is boolean. It constructs `enumOptions` for the
  * two boolean values based on the various alternatives in the schema.
  *
  * @param props - The `FieldProps` for this template
  */
-function BooleanField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: FieldProps<T, S, F>,
-) {
+function BooleanField<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: FieldProps<T, S, F>) {
   const {
     schema,
     name,
@@ -42,7 +44,7 @@ function BooleanField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
   const { title: schemaTitle } = schema;
   const { widgets, translateString, globalUiOptions } = registry;
   const {
-    widget = 'checkbox',
+    widget = "checkbox",
     title: uiTitle,
     // Unlike the other fields, don't use `getDisplayLabel()` since it always returns false for the boolean type
     label: displayLabel = true,
@@ -73,7 +75,11 @@ function BooleanField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extend
     );
   } else {
     const enums = schema.enum ?? [true, false];
-    if (!enumNames && enums.length === 2 && enums.every((v: any) => typeof v === 'boolean')) {
+    if (
+      !enumNames &&
+      enums.length === 2 &&
+      enums.every((v: any) => typeof v === "boolean")
+    ) {
       enumOptions = [
         {
           value: enums[0],

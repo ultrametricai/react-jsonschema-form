@@ -1,22 +1,41 @@
-import { FormContextType, RJSFSchema, StrictRJSFSchema, TranslatableString } from '@rjsf/utils';
-import { ArrowUpIcon, ArrowDownIcon, CopyIcon, DeleteIcon, X } from 'lucide-react';
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  TranslatableString,
+} from "@rjsf/utils";
+import {
+  ArrowUpIcon,
+  ArrowDownIcon,
+  CopyIcon,
+  DeleteIcon,
+  X,
+} from "lucide-react";
 
-import ChakraIconButton, { ChakraIconButtonProps } from './ChakraIconButton';
+import ChakraIconButton, { ChakraIconButtonProps } from "./ChakraIconButton";
 
-export function CopyButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ChakraIconButtonProps<T, S, F>,
-) {
+export function CopyButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ChakraIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
   return (
-    <ChakraIconButton<T, S, F> title={translateString(TranslatableString.CopyButton)} {...props} icon={<CopyIcon />} />
+    <ChakraIconButton<T, S, F>
+      title={translateString(TranslatableString.CopyButton)}
+      {...props}
+      icon={<CopyIcon />}
+    />
   );
 }
 
-export function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ChakraIconButtonProps<T, S, F>,
-) {
+export function MoveDownButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ChakraIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -29,9 +48,11 @@ export function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema,
   );
 }
 
-export function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ChakraIconButtonProps<T, S, F>,
-) {
+export function MoveUpButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ChakraIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -44,9 +65,11 @@ export function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F
   );
 }
 
-export function RemoveButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ChakraIconButtonProps<T, S, F>,
-) {
+export function RemoveButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ChakraIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
@@ -59,11 +82,19 @@ export function RemoveButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F
   );
 }
 
-export function ClearButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ChakraIconButtonProps<T, S, F>,
-) {
+export function ClearButton<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ChakraIconButtonProps<T, S, F>) {
   const {
     registry: { translateString },
   } = props;
-  return <ChakraIconButton<T, S, F> title={translateString(TranslatableString.ClearButton)} {...props} icon={<X />} />;
+  return (
+    <ChakraIconButton<T, S, F>
+      title={translateString(TranslatableString.ClearButton)}
+      {...props}
+      icon={<X />}
+    />
+  );
 }

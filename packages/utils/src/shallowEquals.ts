@@ -17,7 +17,7 @@ export default function shallowEquals(a: any, b: any): boolean {
   }
 
   // If they're not objects, they're not equal (since Object.is already checked)
-  if (typeof a !== 'object' || typeof b !== 'object') {
+  if (typeof a !== "object" || typeof b !== "object") {
     return false;
   }
 
@@ -32,7 +32,10 @@ export default function shallowEquals(a: any, b: any): boolean {
   // Check if all keys and values are equal
   for (let i = 0; i < keysA.length; i++) {
     const key = keysA[i];
-    if (!Object.prototype.hasOwnProperty.call(b, key) || !Object.is(a[key], b[key])) {
+    if (
+      !Object.prototype.hasOwnProperty.call(b, key) ||
+      !Object.is(a[key], b[key])
+    ) {
       return false;
     }
   }

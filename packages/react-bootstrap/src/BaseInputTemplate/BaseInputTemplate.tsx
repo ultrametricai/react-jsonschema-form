@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
-import Form from 'react-bootstrap/Form';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
+import Form from "react-bootstrap/Form";
 import {
   ariaDescribedByIds,
   BaseInputTemplateProps,
@@ -8,7 +8,7 @@ import {
   getInputProps,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 export default function BaseInputTemplate<
   T = any,
@@ -41,14 +41,16 @@ export default function BaseInputTemplate<
     ...getInputProps<T, S, F>(schema, type, options),
   };
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.value);
   const _onClear = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
@@ -64,10 +66,10 @@ export default function BaseInputTemplate<
         required={required}
         disabled={disabled}
         readOnly={readonly}
-        className={rawErrors.length > 0 ? 'is-invalid' : ''}
+        className={rawErrors.length > 0 ? "is-invalid" : ""}
         list={schema.examples ? examplesId(id) : undefined}
         {...inputProps}
-        value={value || value === 0 ? value : ''}
+        value={value || value === 0 ? value : ""}
         onChange={onChangeOverride || _onChange}
         onBlur={_onBlur}
         onFocus={_onFocus}
@@ -80,7 +82,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) ? (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example: any) => {
               return <option key={example} value={example} />;
             })}

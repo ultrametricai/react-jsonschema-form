@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import {
   getTemplate,
   getUiOptions,
@@ -7,7 +7,7 @@ import {
   RJSFSchema,
   FormContextType,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 export default function ArrayFieldTemplate<
   T = any,
@@ -29,16 +29,18 @@ export default function ArrayFieldTemplate<
     title,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldDescriptionTemplate = getTemplate<'ArrayFieldDescriptionTemplate', T, S, F>(
-    'ArrayFieldDescriptionTemplate',
-    registry,
-    uiOptions,
-  );
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldDescriptionTemplate = getTemplate<
+    "ArrayFieldDescriptionTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldDescriptionTemplate", registry, uiOptions);
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -53,7 +55,9 @@ export default function ArrayFieldTemplate<
         uiSchema={uiSchema}
         required={required}
         registry={registry}
-        optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+        optionalDataControl={
+          showOptionalDataControlInTitle ? optionalDataControl : undefined
+        }
       />
       <ArrayFieldDescriptionTemplate
         fieldPathId={fieldPathId}
@@ -68,11 +72,11 @@ export default function ArrayFieldTemplate<
           {items}
         </GridItem>
         {canAdd && (
-          <GridItem justifySelf='flex-end'>
+          <GridItem justifySelf="flex-end">
             <Box mt={2}>
               <AddButton
-                id={buttonId(fieldPathId, 'add')}
-                className='rjsf-array-item-add'
+                id={buttonId(fieldPathId, "add")}
+                className="rjsf-array-item-add"
                 onClick={onAddClick}
                 disabled={disabled || readonly}
                 uiSchema={uiSchema}

@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback, useState } from 'react';
+import { FocusEvent, useCallback, useState } from "react";
 import {
   ADDITIONAL_PROPERTY_FLAG,
   ANY_OF_KEY,
@@ -22,14 +22,14 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   TranslatableString,
-} from '@rjsf/utils';
-import Markdown from 'markdown-to-jsx';
-import get from 'lodash/get';
-import has from 'lodash/has';
-import isObject from 'lodash/isObject';
-import set from 'lodash/set';
+} from "@rjsf/utils";
+import Markdown from "markdown-to-jsx";
+import get from "lodash/get";
+import has from "lodash/has";
+import isObject from "lodash/isObject";
+import set from "lodash/set";
 
-import { ADDITIONAL_PROPERTY_KEY_REMOVE } from '../constants';
+import { ADDITIONAL_PROPERTY_KEY_REMOVE } from "../constants";
 
 /** Returns a flag indicating whether the `name` field is required in the object schema
  *
@@ -37,7 +37,10 @@ import { ADDITIONAL_PROPERTY_KEY_REMOVE } from '../constants';
  * @param name - The name of the field to check for required-ness
  * @returns - True if the field `name` is required, false otherwise
  */
-function isRequired<S extends StrictRJSFSchema = RJSFSchema>(schema: S, name: string) {
+function isRequired<S extends StrictRJSFSchema = RJSFSchema>(
+  schema: S,
+  name: string,
+) {
   return Array.isArray(schema.required) && schema.required.indexOf(name) !== -1;
 }
 
@@ -46,22 +49,26 @@ function isRequired<S extends StrictRJSFSchema = RJSFSchema>(schema: S, name: st
  * @param translateString - The string translation function from the registry
  * @param type - The type of the new additional schema property
  */
-function getDefaultValue<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  translateString: Registry<T, S, F>['translateString'],
-  type?: RJSFSchema['type'],
+function getDefaultValue<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
+  translateString: Registry<T, S, F>["translateString"],
+  type?: RJSFSchema["type"],
 ) {
   switch (type) {
-    case 'array':
+    case "array":
       return [];
-    case 'boolean':
+    case "boolean":
       return false;
-    case 'null':
+    case "null":
       return null;
-    case 'number':
+    case "number":
       return 0;
-    case 'object':
+    case "object":
       return {};
-    case 'string':
+    case "string":
     default:
       // We don't have a datatype for some reason (perhaps additionalProperties was true)
       return translateString(TranslatableString.NewStringDefault);
@@ -69,8 +76,11 @@ function getDefaultValue<T = any, S extends StrictRJSFSchema = RJSFSchema, F ext
 }
 
 /** Props for the `ObjectFieldProperty` component */
-interface ObjectFieldPropertyProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>
-  extends Omit<FieldProps<T, S, F>, 'name'> {
+interface ObjectFieldPropertyProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+> extends Omit<FieldProps<T, S, F>, "name"> {
   /** The name of the property within the parent object */
   propertyName: string;
   /** Flag indicating whether this property was added by the additionalProperties UI */
@@ -83,9 +93,11 @@ interface ObjectFieldPropertyProps<T = any, S extends StrictRJSFSchema = RJSFSch
 
 /** The `ObjectFieldProperty` component is used to render the `SchemaField` for a child property of an object
  */
-function ObjectFieldProperty<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: ObjectFieldPropertyProps<T, S, F>,
-) {
+function ObjectFieldProperty<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: ObjectFieldPropertyProps<T, S, F>) {
   const {
     fieldPathId,
     schema,
@@ -121,13 +133,18 @@ function ObjectFieldProperty<T = any, S extends StrictRJSFSchema = RJSFSchema, F
    * @returns - The onPropertyChange callback for the `name` property
    */
   const onPropertyChange = useCallback(
-    (value: T | undefined, path: FieldPathList, newErrorSchema?: ErrorSchema<T>, id?: string) => {
+    (
+      value: T | undefined,
+      path: FieldPathList,
+      newErrorSchema?: ErrorSchema<T>,
+      id?: string,
+    ) => {
       if (value === undefined && addedByAdditionalProperties) {
         // Don't set value = undefined for fields added by additionalProperties. Doing so removes them from the
         // formData, which causes them to completely disappear (including the input field for the property name). Unlike
         // fields which are "mandated" by the schema, these fields can be set to undefined by clicking a "delete field"
         // button, so set empty values to the empty string.
-        value = '' as unknown as T;
+        value = "" as unknown as T;
       }
       onChange(value, path, newErrorSchema, id);
     },
@@ -195,9 +212,11 @@ function ObjectFieldProperty<T = any, S extends StrictRJSFSchema = RJSFSchema, F
  *
  * @param props - The `FieldProps` for this template
  */
-export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: FieldProps<T, S, F>,
-) {
+export default function ObjectField<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: FieldProps<T, S, F>) {
   const {
     schema: rawSchema,
     uiSchema = {},
@@ -225,7 +244,12 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
 
   const templateTitle = uiOptions.title ?? schema.title ?? title ?? name;
   const description = uiOptions.description ?? schema.description;
-  const renderOptionalField = shouldRenderOptionalField<T, S, F>(registry, schema, required, uiSchema);
+  const renderOptionalField = shouldRenderOptionalField<T, S, F>(
+    registry,
+    schema,
+    required,
+    uiSchema,
+  );
   const hasFormData = isFormDataAvailable<T>(formData);
   let orderedProperties: string[] = [];
 
@@ -238,7 +262,10 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
    */
   const getAvailableKey = useCallback(
     (preferredKey: string, formData?: T) => {
-      const { duplicateKeySuffixSeparator = '-' } = getUiOptions<T, S, F>(uiSchema, globalUiOptions);
+      const { duplicateKeySuffixSeparator = "-" } = getUiOptions<T, S, F>(
+        uiSchema,
+        globalUiOptions,
+      );
 
       let index = 0;
       let newKey = preferredKey;
@@ -259,14 +286,14 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
     }
     const { translateString } = registry;
     const newFormData = { ...formData } as T;
-    const newKey = getAvailableKey('newKey', newFormData);
+    const newKey = getAvailableKey("newKey", newFormData);
     if (schema.patternProperties) {
       // Cast this to make the `set` work properly
       set(newFormData as GenericObjectType, newKey, null);
     } else {
-      let type: RJSFSchema['type'] = undefined;
-      let constValue: RJSFSchema['const'] = undefined;
-      let defaultValue: RJSFSchema['default'] = undefined;
+      let type: RJSFSchema["type"] = undefined;
+      let constValue: RJSFSchema["const"] = undefined;
+      let defaultValue: RJSFSchema["default"] = undefined;
       if (isObject(schema.additionalProperties)) {
         type = schema.additionalProperties.type;
         constValue = schema.additionalProperties.const;
@@ -274,17 +301,23 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
         let apSchema = schema.additionalProperties;
         if (REF_KEY in apSchema) {
           const { schemaUtils } = registry;
-          apSchema = schemaUtils.retrieveSchema({ [REF_KEY]: apSchema[REF_KEY] } as S, formData);
+          apSchema = schemaUtils.retrieveSchema(
+            { [REF_KEY]: apSchema[REF_KEY] } as S,
+            formData,
+          );
           type = apSchema.type;
           constValue = apSchema.const;
           defaultValue = apSchema.default;
         }
         if (!type && (ANY_OF_KEY in apSchema || ONE_OF_KEY in apSchema)) {
-          type = 'object';
+          type = "object";
         }
       }
 
-      const newValue = constValue ?? defaultValue ?? getDefaultValue<T, S, F>(translateString, type);
+      const newValue =
+        constValue ??
+        defaultValue ??
+        getDefaultValue<T, S, F>(translateString, type);
       // Cast this to make the `set` work properly
       set(newFormData as GenericObjectType, newKey, newValue);
     }
@@ -324,7 +357,10 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
    */
   const handleRemoveProperty = useCallback(
     (key: string) => {
-      onChange(ADDITIONAL_PROPERTY_KEY_REMOVE as T, [...childFieldPathId.path, key]);
+      onChange(ADDITIONAL_PROPERTY_KEY_REMOVE as T, [
+        ...childFieldPathId.path,
+        key,
+      ]);
     },
     [onChange, childFieldPathId],
   );
@@ -336,9 +372,12 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
     } catch (err) {
       return (
         <div>
-          <p className='rjsf-config-error' style={{ color: 'red' }}>
+          <p className="rjsf-config-error" style={{ color: "red" }}>
             <Markdown options={{ disableParsingRawHTML: true }}>
-              {translateString(TranslatableString.InvalidObjectField, [name || 'root', (err as Error).message])}
+              {translateString(TranslatableString.InvalidObjectField, [
+                name || "root",
+                (err as Error).message,
+              ])}
             </Markdown>
           </p>
           <pre>{JSON.stringify(schema)}</pre>
@@ -347,19 +386,33 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
     }
   }
 
-  const Template = getTemplate<'ObjectFieldTemplate', T, S, F>('ObjectFieldTemplate', registry, uiOptions);
+  const Template = getTemplate<"ObjectFieldTemplate", T, S, F>(
+    "ObjectFieldTemplate",
+    registry,
+    uiOptions,
+  );
   const optionalDataControl = renderOptionalField ? (
-    <OptionalDataControlsField {...props} fieldPathId={childFieldPathId} schema={schema} />
+    <OptionalDataControlsField
+      {...props}
+      fieldPathId={childFieldPathId}
+      schema={schema}
+    />
   ) : undefined;
 
   const templateProps = {
     // getDisplayLabel() always returns false for object types, so just check the `uiOptions.label`
-    title: uiOptions.label === false ? '' : templateTitle,
+    title: uiOptions.label === false ? "" : templateTitle,
     description: uiOptions.label === false ? undefined : description,
     properties: orderedProperties.map((name) => {
-      const addedByAdditionalProperties = has(schema, [PROPERTIES_KEY, name, ADDITIONAL_PROPERTY_FLAG]);
-      const fieldUiSchema = addedByAdditionalProperties ? uiSchema.additionalProperties : uiSchema[name];
-      const hidden = getUiOptions<T, S, F>(fieldUiSchema).widget === 'hidden';
+      const addedByAdditionalProperties = has(schema, [
+        PROPERTIES_KEY,
+        name,
+        ADDITIONAL_PROPERTY_FLAG,
+      ]);
+      const fieldUiSchema = addedByAdditionalProperties
+        ? uiSchema.additionalProperties
+        : uiSchema[name];
+      const hidden = getUiOptions<T, S, F>(fieldUiSchema).widget === "hidden";
       const content = (
         <ObjectFieldProperty<T, S, F>
           key={name}
@@ -401,7 +454,7 @@ export default function ObjectField<T = any, S extends StrictRJSFSchema = RJSFSc
     formData,
     registry,
     optionalDataControl,
-    className: renderOptionalField ? 'rjsf-optional-object-field' : undefined,
+    className: renderOptionalField ? "rjsf-optional-object-field" : undefined,
   };
   return <Template {...templateProps} onAddProperty={onAddProperty} />;
 }

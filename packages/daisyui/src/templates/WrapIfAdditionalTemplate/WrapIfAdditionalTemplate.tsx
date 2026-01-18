@@ -6,7 +6,7 @@ import {
   buttonId,
   ADDITIONAL_PROPERTY_FLAG,
   TranslatableString,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -51,16 +51,19 @@ export default function WrapIfAdditionalTemplate<
 
   return (
     <div className={`wrap-if-additional-template ${classNames}`} {...rest}>
-      <div className='flex items-baseline' style={{ justifyContent: 'space-between' }}>
+      <div
+        className="flex items-baseline"
+        style={{ justifyContent: "space-between" }}
+      >
         <div>
           {displayLabel && (
-            <label htmlFor={`${id}-key`} className='label'>
-              <span className='label-text'>{keyLabel}</span>
+            <label htmlFor={`${id}-key`} className="label">
+              <span className="label-text">{keyLabel}</span>
             </label>
           )}
           <input
-            type='text'
-            className='input input-bordered'
+            type="text"
+            className="input input-bordered"
             id={`${id}-key`}
             onBlur={onKeyRenameBlur}
             defaultValue={label}
@@ -68,10 +71,10 @@ export default function WrapIfAdditionalTemplate<
           />
         </div>
         {children}
-        <div className='flex self-start' style={{ marginTop: `${margin}px` }}>
+        <div className="flex self-start" style={{ marginTop: `${margin}px` }}>
           <RemoveButton
-            id={buttonId(id, 'remove')}
-            className='rjsf-object-property-remove'
+            id={buttonId(id, "remove")}
+            className="rjsf-object-property-remove"
             disabled={disabled || readonly}
             onClick={onRemoveProperty}
             uiSchema={uiSchema}

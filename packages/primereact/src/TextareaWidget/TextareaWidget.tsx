@@ -1,6 +1,11 @@
-import { ChangeEvent } from 'react';
-import { InputTextarea } from 'primereact/inputtextarea';
-import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+import { ChangeEvent } from "react";
+import { InputTextarea } from "primereact/inputtextarea";
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
 
 /** The `TextareaWidget` is a widget for rendering input fields as textarea using PrimeReact.
  *
@@ -11,17 +16,31 @@ export default function TextareaWidget<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: WidgetProps<T, S, F>) {
-  const { id, htmlName, value, required, disabled, readonly, autofocus, onChange, onBlur, onFocus, options } = props;
+  const {
+    id,
+    htmlName,
+    value,
+    required,
+    disabled,
+    readonly,
+    autofocus,
+    onChange,
+    onBlur,
+    onFocus,
+    options,
+  } = props;
   const primeProps = (options.prime || {}) as object;
 
   let rows = 5;
   // noinspection SuspiciousTypeOfGuard
-  if (typeof options.rows === 'string' || typeof options.rows === 'number') {
+  if (typeof options.rows === "string" || typeof options.rows === "number") {
     rows = Number(options.rows);
   }
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(event.target.value === '' ? options.emptyValue : event.target.value);
+    onChange(
+      event.target.value === "" ? options.emptyValue : event.target.value,
+    );
   };
 
   return (
@@ -29,7 +48,7 @@ export default function TextareaWidget<
       id={id}
       name={htmlName || id}
       {...primeProps}
-      value={value || ''}
+      value={value || ""}
       required={required}
       disabled={disabled || readonly}
       autoFocus={autofocus}

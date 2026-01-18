@@ -10,23 +10,25 @@ const base64 = (function () {
   return {
     encode(text: string): string {
       let encoder: any;
-      if (typeof TextEncoder !== 'undefined') {
+      if (typeof TextEncoder !== "undefined") {
         encoder = new TextEncoder();
       } else {
-        const { TextEncoder } = require('util');
+        const { TextEncoder } = require("util");
         encoder = new TextEncoder();
       }
       return btoa(safeFromCharCode(encoder, text));
     },
     decode(text: string): string {
       let decoder: any;
-      if (typeof TextDecoder !== 'undefined') {
+      if (typeof TextDecoder !== "undefined") {
         decoder = new TextDecoder();
       } else {
-        const { TextDecoder } = require('util');
+        const { TextDecoder } = require("util");
         decoder = new TextDecoder();
       }
-      return decoder.decode(Uint8Array.from(atob(text), (c) => c.charCodeAt(0)));
+      return decoder.decode(
+        Uint8Array.from(atob(text), (c) => c.charCodeAt(0)),
+      );
     },
   };
 })();
@@ -38,7 +40,7 @@ const base64 = (function () {
 function safeFromCharCode(encoder: any, text: string): string {
   const codes = encoder.encode(text);
   const CHUNK_SIZE = 0x9000; // 36864
-  let result = '';
+  let result = "";
 
   for (let i = 0; i < codes.length; i += CHUNK_SIZE) {
     const chunk = codes.slice(i, i + CHUNK_SIZE);

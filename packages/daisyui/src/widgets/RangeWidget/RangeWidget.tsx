@@ -1,5 +1,10 @@
-import { FocusEvent, useCallback } from 'react';
-import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjsf/utils';
+import { FocusEvent, useCallback } from "react";
+import {
+  WidgetProps,
+  StrictRJSFSchema,
+  RJSFSchema,
+  FormContextType,
+} from "@rjsf/utils";
 
 /** The `RangeWidget` component renders a range slider input with DaisyUI styling
  *
@@ -12,7 +17,11 @@ import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjs
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RangeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   value,
   required,
@@ -55,12 +64,12 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   );
 
   return (
-    <div className='form-control'>
-      <div className='flex items-center'>
+    <div className="form-control">
+      <div className="flex items-center">
         <input
-          type='range'
+          type="range"
           id={id}
-          className='range'
+          className="range"
           value={value || schema.default}
           required={required}
           disabled={disabled || readonly}
@@ -71,7 +80,7 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
           onFocus={handleFocus}
           onBlur={handleBlur}
         />
-        <span className='label-text ml-4'>{value}</span>
+        <span className="label-text ml-4">{value}</span>
       </div>
     </div>
   );

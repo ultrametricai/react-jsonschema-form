@@ -1,7 +1,7 @@
-import { dateRangeOptions, pad } from '../src';
+import { dateRangeOptions, pad } from "../src";
 
-describe('dateRangeOptions()', () => {
-  it('start & stop are positive integers, where stop < start', () => {
+describe("dateRangeOptions()", () => {
+  it("start & stop are positive integers, where stop < start", () => {
     expect(dateRangeOptions(2, 10)).toEqual([
       { value: 2, label: pad(2, 2) },
       { value: 3, label: pad(3, 2) },
@@ -14,7 +14,7 @@ describe('dateRangeOptions()', () => {
       { value: 10, label: pad(10, 2) },
     ]);
   });
-  it('start & stop are positive integers, where stop > start', () => {
+  it("start & stop are positive integers, where stop > start", () => {
     expect(dateRangeOptions(10, 2)).toEqual([
       { value: 10, label: pad(10, 2) },
       { value: 9, label: pad(9, 2) },
@@ -27,7 +27,7 @@ describe('dateRangeOptions()', () => {
       { value: 2, label: pad(2, 2) },
     ]);
   });
-  it('start & stop are negative integers, returns years from today in reverse order', () => {
+  it("start & stop are negative integers, returns years from today in reverse order", () => {
     const startYear = new Date().getFullYear() - 10;
     expect(dateRangeOptions(-10, 0)).toEqual([
       { value: startYear, label: `${startYear}` },
@@ -43,7 +43,7 @@ describe('dateRangeOptions()', () => {
       { value: startYear + 10, label: `${startYear + 10}` },
     ]);
   });
-  it('start & stop are negative integers, returns years from today in reverse order', () => {
+  it("start & stop are negative integers, returns years from today in reverse order", () => {
     const startYear = new Date().getFullYear() - 2;
     expect(dateRangeOptions(-2, -10)).toEqual([
       { value: startYear, label: `${startYear}` },
@@ -57,13 +57,17 @@ describe('dateRangeOptions()', () => {
       { value: startYear - 8, label: `${startYear - 8}` },
     ]);
   });
-  it('start & stop are zero, returns the year for today', () => {
+  it("start & stop are zero, returns the year for today", () => {
     const startYear = new Date().getFullYear();
-    expect(dateRangeOptions(0, 0)).toEqual([{ value: startYear, label: `${startYear}` }]);
+    expect(dateRangeOptions(0, 0)).toEqual([
+      { value: startYear, label: `${startYear}` },
+    ]);
   });
-  it('throws when start and stop are different signs', () => {
+  it("throws when start and stop are different signs", () => {
     expect(() => dateRangeOptions(1, -1)).toThrow(
-      new Error(`Both start (${1}) and stop (${-1}) must both be <= 0 or > 0, got one of each`),
+      new Error(
+        `Both start (${1}) and stop (${-1}) must both be <= 0 or > 0, got one of each`,
+      ),
     );
   });
 });

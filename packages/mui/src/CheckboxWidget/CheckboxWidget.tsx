@@ -1,5 +1,5 @@
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import {
   ariaDescribedByIds,
   descriptionId,
@@ -10,7 +10,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
@@ -29,7 +29,7 @@ export default function CheckboxWidget<
     value,
     disabled,
     readonly,
-    label = '',
+    label = "",
     hideLabel,
     autofocus,
     onChange,
@@ -39,19 +39,22 @@ export default function CheckboxWidget<
     options,
     uiSchema,
   } = props;
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
   // Because an unchecked checkbox will cause html5 validation to fail, only add
   // the "required" attribute if the field value must be "true", due to the
   // "const" or "enum" keywords
   const required = schemaRequiresTrueValue<S>(schema);
 
   const _onChange = (_: any, checked: boolean) => onChange(checked);
-  const _onBlur: React.FocusEventHandler<HTMLButtonElement> = () => onBlur(id, value);
-  const _onFocus: React.FocusEventHandler<HTMLButtonElement> = () => onFocus(id, value);
+  const _onBlur: React.FocusEventHandler<HTMLButtonElement> = () =>
+    onBlur(id, value);
+  const _onFocus: React.FocusEventHandler<HTMLButtonElement> = () =>
+    onFocus(id, value);
   const description = options.description ?? schema.description;
 
   return (
@@ -70,7 +73,7 @@ export default function CheckboxWidget<
           <Checkbox
             id={id}
             name={htmlName || id}
-            checked={typeof value === 'undefined' ? false : Boolean(value)}
+            checked={typeof value === "undefined" ? false : Boolean(value)}
             required={required}
             disabled={disabled || readonly}
             autoFocus={autofocus}

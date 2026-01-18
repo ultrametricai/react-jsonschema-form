@@ -1,15 +1,15 @@
-import { renderHook, waitFor } from '@testing-library/react';
+import { renderHook, waitFor } from "@testing-library/react";
 
-import { useFileWidgetProps, FileInfoType } from '../src';
+import { useFileWidgetProps, FileInfoType } from "../src";
 
-const FILE_1_STR = 'data:text/plain;name=file1.txt;base64,';
-const FILE_2_STR = 'data:text/plain;name=file2.txt;base64,';
-const FILE_3_STR = 'data:text/plain;name=file3.txt;base64,';
-const BAD_STR = 'data:text/plain;name=file3.txt;base64,x=';
+const FILE_1_STR = "data:text/plain;name=file1.txt;base64,";
+const FILE_2_STR = "data:text/plain;name=file2.txt;base64,";
+const FILE_3_STR = "data:text/plain;name=file3.txt;base64,";
+const BAD_STR = "data:text/plain;name=file3.txt;base64,x=";
 
-const FILE_1 = { name: 'file1.txt', size: 0, type: 'text/plain' } as File;
-const FILE_2 = { name: 'file2.txt', size: 0, type: 'text/plain' } as File;
-const FILE_3 = { name: 'file3.txt', size: 0, type: 'text/plain' } as File;
+const FILE_1 = { name: "file1.txt", size: 0, type: "text/plain" } as File;
+const FILE_2 = { name: "file2.txt", size: 0, type: "text/plain" } as File;
+const FILE_3 = { name: "file3.txt", size: 0, type: "text/plain" } as File;
 
 const FILE_1_INFO: FileInfoType = { dataURL: FILE_1_STR, ...FILE_1 };
 const FILE_2_INFO: FileInfoType = { dataURL: FILE_2_STR, ...FILE_2 };
@@ -50,14 +50,14 @@ function toFileList(list: File[]) {
   return dataTransfer.files;
 }
 
-describe('useFileWidgetProps()', () => {
+describe("useFileWidgetProps()", () => {
   let onChange: jest.Mock;
   let windowFileReaderSpy: jest.SpyInstance;
   let FN_RESULT: any;
   beforeAll(() => {
     onChange = jest.fn();
-    FN_RESULT = { target: { result: 'data:text/plain;base64,' } };
-    windowFileReaderSpy = jest.spyOn(window, 'FileReader').mockImplementation(
+    FN_RESULT = { target: { result: "data:text/plain;base64," } };
+    windowFileReaderSpy = jest.spyOn(window, "FileReader").mockImplementation(
       () =>
         ({
           // eslint-disable-next-line no-unused-vars
@@ -72,8 +72,10 @@ describe('useFileWidgetProps()', () => {
     onChange.mockClear();
     windowFileReaderSpy.mockClear();
   });
-  test('undefined initial value, single, handleChange', async () => {
-    const { result } = renderHook(() => useFileWidgetProps(undefined, onChange));
+  test("undefined initial value, single, handleChange", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps(undefined, onChange),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -85,8 +87,10 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith(FILE_1_STR);
     });
   });
-  test('File initial value, single, handleChange', async () => {
-    const { result } = renderHook(() => useFileWidgetProps(FILE_2_STR, onChange));
+  test("File initial value, single, handleChange", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps(FILE_2_STR, onChange),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([FILE_2_INFO]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -98,8 +102,10 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith(FILE_3_STR);
     });
   });
-  test('File initial value, single, handleRemove', async () => {
-    const { result } = renderHook(() => useFileWidgetProps(FILE_2_STR, onChange));
+  test("File initial value, single, handleRemove", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps(FILE_2_STR, onChange),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([FILE_2_INFO]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -111,7 +117,7 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith(undefined);
     });
   });
-  test('undefined initial value, multiple, handleChange', async () => {
+  test("undefined initial value, multiple, handleChange", async () => {
     const { result } = renderHook(() => useFileWidgetProps([], onChange, true));
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([]);
@@ -124,8 +130,10 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith([FILE_1_STR, FILE_3_STR]);
     });
   });
-  test('undefined initial value, multiple, handleChange', async () => {
-    const { result } = renderHook(() => useFileWidgetProps(null, onChange, true));
+  test("undefined initial value, multiple, handleChange", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps(null, onChange, true),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -137,8 +145,10 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith([FILE_1_STR, FILE_3_STR]);
     });
   });
-  test('File initial value, multiple, handleChange', async () => {
-    const { result } = renderHook(() => useFileWidgetProps(FILE_2_STR, onChange, true));
+  test("File initial value, multiple, handleChange", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps(FILE_2_STR, onChange, true),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([FILE_2_INFO]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -150,8 +160,10 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith([FILE_2_STR, FILE_3_STR]);
     });
   });
-  test('File initial value, multiple, handleRemove', async () => {
-    const { result } = renderHook(() => useFileWidgetProps([FILE_1_STR, FILE_3_STR], onChange, true));
+  test("File initial value, multiple, handleRemove", async () => {
+    const { result } = renderHook(() =>
+      useFileWidgetProps([FILE_1_STR, FILE_3_STR], onChange, true),
+    );
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([FILE_1_INFO, FILE_3_INFO]);
     expect(handleChange).toBeInstanceOf(Function);
@@ -163,7 +175,7 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith([FILE_3_STR]);
     });
   });
-  test('Bad initial value, single, handleChange', async () => {
+  test("Bad initial value, single, handleChange", async () => {
     const { result } = renderHook(() => useFileWidgetProps(BAD_STR, onChange));
     const { filesInfo, handleChange, handleRemove } = result.current;
     expect(filesInfo).toEqual([]);
@@ -176,7 +188,7 @@ describe('useFileWidgetProps()', () => {
       expect(onChange).toHaveBeenCalledWith(FILE_3_STR);
     });
   });
-  test('null, single, handleChange, NO dataURL', async () => {
+  test("null, single, handleChange, NO dataURL", async () => {
     FN_RESULT = { target: null };
     const { result } = renderHook(() => useFileWidgetProps(null, onChange));
     const { filesInfo, handleChange, handleRemove } = result.current;

@@ -1,7 +1,7 @@
-import { forwardRef, ReactNode } from 'react';
-import { Alert as ChakraAlert } from '@chakra-ui/react';
+import { forwardRef, ReactNode } from "react";
+import { Alert as ChakraAlert } from "@chakra-ui/react";
 
-import { CloseButton } from './close-button';
+import { CloseButton } from "./close-button";
 
 /**
  * Alert component that displays a message with an optional icon and close button.
@@ -15,7 +15,7 @@ import { CloseButton } from './close-button';
  *
  * @returns {JSX.Element} The rendered alert component.
  */
-export interface AlertProps extends Omit<ChakraAlert.RootProps, 'title'> {
+export interface AlertProps extends Omit<ChakraAlert.RootProps, "title"> {
   startElement?: ReactNode;
   endElement?: ReactNode;
   title?: ReactNode;
@@ -23,23 +23,40 @@ export interface AlertProps extends Omit<ChakraAlert.RootProps, 'title'> {
   onClose?: () => void;
 }
 
-export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(props, ref) {
-  const { title, children, closable, onClose, startElement, endElement, ...rest } = props;
-  return (
-    <ChakraAlert.Root ref={ref} {...rest}>
-      {startElement || <ChakraAlert.Indicator />}
-      {children ? (
-        <ChakraAlert.Content>
-          <ChakraAlert.Title>{title}</ChakraAlert.Title>
-          <ChakraAlert.Description>{children}</ChakraAlert.Description>
-        </ChakraAlert.Content>
-      ) : (
-        <ChakraAlert.Title flex='1'>{title}</ChakraAlert.Title>
-      )}
-      {endElement}
-      {closable && (
-        <CloseButton size='sm' pos='relative' top='-2' insetEnd='-2' alignSelf='flex-start' onClick={onClose} />
-      )}
-    </ChakraAlert.Root>
-  );
-});
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
+  function Alert(props, ref) {
+    const {
+      title,
+      children,
+      closable,
+      onClose,
+      startElement,
+      endElement,
+      ...rest
+    } = props;
+    return (
+      <ChakraAlert.Root ref={ref} {...rest}>
+        {startElement || <ChakraAlert.Indicator />}
+        {children ? (
+          <ChakraAlert.Content>
+            <ChakraAlert.Title>{title}</ChakraAlert.Title>
+            <ChakraAlert.Description>{children}</ChakraAlert.Description>
+          </ChakraAlert.Content>
+        ) : (
+          <ChakraAlert.Title flex="1">{title}</ChakraAlert.Title>
+        )}
+        {endElement}
+        {closable && (
+          <CloseButton
+            size="sm"
+            pos="relative"
+            top="-2"
+            insetEnd="-2"
+            alignSelf="flex-start"
+            onClick={onClose}
+          />
+        )}
+      </ChakraAlert.Root>
+    );
+  },
+);

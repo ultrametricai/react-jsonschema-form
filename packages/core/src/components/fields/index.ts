@@ -1,18 +1,24 @@
-import { Field, FormContextType, RegistryFieldsType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  Field,
+  FormContextType,
+  RegistryFieldsType,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
-import ArrayField from './ArrayField';
-import BooleanField from './BooleanField';
-import FallbackField from './FallbackField';
-import LayoutGridField from './LayoutGridField';
-import LayoutHeaderField from './LayoutHeaderField';
-import LayoutMultiSchemaField from './LayoutMultiSchemaField';
-import MultiSchemaField from './MultiSchemaField';
-import NumberField from './NumberField';
-import ObjectField from './ObjectField';
-import OptionalDataControlsField from './OptionalDataControlsField';
-import SchemaField from './SchemaField';
-import StringField from './StringField';
-import NullField from './NullField';
+import ArrayField from "./ArrayField";
+import BooleanField from "./BooleanField";
+import FallbackField from "./FallbackField";
+import LayoutGridField from "./LayoutGridField";
+import LayoutHeaderField from "./LayoutHeaderField";
+import LayoutMultiSchemaField from "./LayoutMultiSchemaField";
+import MultiSchemaField from "./MultiSchemaField";
+import NumberField from "./NumberField";
+import ObjectField from "./ObjectField";
+import OptionalDataControlsField from "./OptionalDataControlsField";
+import SchemaField from "./SchemaField";
+import StringField from "./StringField";
+import NullField from "./NullField";
 
 function fields<
   T = any,

@@ -7,9 +7,9 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   buttonId,
-} from '@rjsf/utils';
-import { Fieldset } from 'primereact/fieldset';
-import AddButton from '../AddButton';
+} from "@rjsf/utils";
+import { Fieldset } from "primereact/fieldset";
+import AddButton from "../AddButton";
 
 /** The `ArrayFieldTemplate` component is the template used to render all items in an array.
  *
@@ -41,16 +41,18 @@ export default function ArrayFieldTemplate<
   } = props;
 
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldDescriptionTemplate = getTemplate<'ArrayFieldDescriptionTemplate', T, S, F>(
-    'ArrayFieldDescriptionTemplate',
-    registry,
-    uiOptions,
-  );
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldDescriptionTemplate = getTemplate<
+    "ArrayFieldDescriptionTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldDescriptionTemplate", registry, uiOptions);
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
 
   return (
@@ -62,12 +64,14 @@ export default function ArrayFieldTemplate<
         uiSchema={uiSchema}
         required={required}
         registry={registry}
-        optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+        optionalDataControl={
+          showOptionalDataControlInTitle ? optionalDataControl : undefined
+        }
       />
       <Fieldset
         {...rest}
         id={fieldPathId.$id}
-        className={`${className}${isFixedItems<S>(schema) ? '' : ' sortable-form-fields'}`}
+        className={`${className}${isFixedItems<S>(schema) ? "" : " sortable-form-fields"}`}
       >
         <ArrayFieldDescriptionTemplate
           fieldPathId={fieldPathId}
@@ -84,14 +88,14 @@ export default function ArrayFieldTemplate<
           {canAdd && (
             <div
               style={{
-                marginTop: '1rem',
-                position: 'relative',
-                textAlign: 'right',
+                marginTop: "1rem",
+                position: "relative",
+                textAlign: "right",
               }}
             >
               <AddButton
-                id={buttonId(fieldPathId, 'add')}
-                className='rjsf-array-item-add'
+                id={buttonId(fieldPathId, "add")}
+                className="rjsf-array-item-add"
                 onClick={onAddClick}
                 disabled={disabled || readonly}
                 uiSchema={uiSchema}

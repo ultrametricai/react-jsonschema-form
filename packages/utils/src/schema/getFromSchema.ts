@@ -1,10 +1,16 @@
-import get from 'lodash/get';
-import has from 'lodash/has';
-import isEmpty from 'lodash/isEmpty';
+import get from "lodash/get";
+import has from "lodash/has";
+import isEmpty from "lodash/isEmpty";
 
-import retrieveSchema from './retrieveSchema';
-import { Experimental_CustomMergeAllOf, FormContextType, RJSFSchema, StrictRJSFSchema, ValidatorType } from '../types';
-import { REF_KEY } from '../constants';
+import retrieveSchema from "./retrieveSchema";
+import {
+  Experimental_CustomMergeAllOf,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  ValidatorType,
+} from "../types";
+import { REF_KEY } from "../constants";
 
 /** Internal helper function that acts like lodash's `get` but additionally retrieves `$ref`s as needed to get the path
  * for schemas containing potentially nested `$ref`s.
@@ -16,7 +22,11 @@ import { REF_KEY } from '../constants';
  * @param [experimental_customMergeAllOf] - Optional function that allows for custom merging of `allOf` schemas
  * @returns - The internal schema from the `schema` for the given `path` or undefined if not found
  */
-function getFromSchemaInternal<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
+function getFromSchemaInternal<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
   validator: ValidatorType<T, S, F>,
   rootSchema: S,
   schema: S,
@@ -25,12 +35,18 @@ function getFromSchemaInternal<T = any, S extends StrictRJSFSchema = RJSFSchema,
 ): T | S | undefined {
   let fieldSchema = schema;
   if (has(schema, REF_KEY)) {
-    fieldSchema = retrieveSchema<T, S, F>(validator, schema, rootSchema, undefined, experimental_customMergeAllOf);
+    fieldSchema = retrieveSchema<T, S, F>(
+      validator,
+      schema,
+      rootSchema,
+      undefined,
+      experimental_customMergeAllOf,
+    );
   }
   if (isEmpty(path)) {
     return fieldSchema;
   }
-  const pathList = Array.isArray(path) ? path : path.split('.');
+  const pathList = Array.isArray(path) ? path : path.split(".");
   const [part, ...nestedPath] = pathList;
   if (part && has(fieldSchema, part)) {
     fieldSchema = get(fieldSchema, part) as S;
@@ -92,7 +108,13 @@ export default function getFromSchema<
   defaultValue: T | S,
   experimental_customMergeAllOf?: Experimental_CustomMergeAllOf<S>,
 ): T | S {
-  const result = getFromSchemaInternal(validator, rootSchema, schema, path, experimental_customMergeAllOf);
+  const result = getFromSchemaInternal(
+    validator,
+    rootSchema,
+    schema,
+    path,
+    experimental_customMergeAllOf,
+  );
   if (result === undefined) {
     return defaultValue;
   }

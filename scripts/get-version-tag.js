@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 // Since this file is in the `scripts` directory, the root dir of the repo is up one level
-const utilsPackage = path.resolve(__dirname, '../packages/utils/package.json');
+const utilsPackage = path.resolve(__dirname, "../packages/utils/package.json");
 
 // Read the file and parse it into a json object and find the version tag
 const packageJson = fs.readFileSync(utilsPackage);

@@ -1,7 +1,12 @@
-import { FormContextType, OptionalDataControlsTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import { PlusIcon } from 'lucide-react';
+import {
+  FormContextType,
+  OptionalDataControlsTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import { PlusIcon } from "lucide-react";
 
-import ChakraIconButton, { RemoveButton } from '../IconButton';
+import ChakraIconButton, { RemoveButton } from "../IconButton";
 
 /** The OptionalDataControlsTemplate renders one of three different states. If
  * there is an `onAddClick()` function, it renders the "Add" button. If there is
@@ -22,12 +27,12 @@ export default function OptionalDataControlsTemplate<
       <ChakraIconButton
         id={id}
         registry={registry}
-        className='rjsf-add-optional-data btn-sm'
+        className="rjsf-add-optional-data btn-sm"
         onClick={onAddClick}
         title={label}
         icon={<PlusIcon />}
-        size='xs'
-        variant='subtle'
+        size="xs"
+        variant="subtle"
       />
     );
   } else if (onRemoveClick) {
@@ -35,11 +40,11 @@ export default function OptionalDataControlsTemplate<
       <RemoveButton
         id={id}
         registry={registry}
-        className='rjsf-remove-optional-data btn-sm'
+        className="rjsf-remove-optional-data btn-sm"
         onClick={onRemoveClick}
         title={label}
-        size='xs'
-        variant='subtle'
+        size="xs"
+        variant="subtle"
       />
     );
   }

@@ -1,6 +1,9 @@
-import { ArrayFieldItemButtonsTemplateProps, ArrayFieldTemplateProps } from '@rjsf/utils';
+import {
+  ArrayFieldItemButtonsTemplateProps,
+  ArrayFieldTemplateProps,
+} from "@rjsf/utils";
 
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 function ArrayFieldTemplate(props: ArrayFieldTemplateProps) {
   const { className, items, canAdd, onAddClick } = props;
@@ -8,9 +11,9 @@ function ArrayFieldTemplate(props: ArrayFieldTemplateProps) {
     <div className={className}>
       {items}
       {canAdd && (
-        <div className='row'>
-          <p className='col-xs-3 col-xs-offset-9 array-item-add text-right'>
-            <button onClick={onAddClick} type='button'>
+        <div className="row">
+          <p className="col-xs-3 col-xs-offset-9 array-item-add text-right">
+            <button onClick={onAddClick} type="button">
               Custom +
             </button>
           </p>
@@ -20,8 +23,11 @@ function ArrayFieldTemplate(props: ArrayFieldTemplateProps) {
   );
 }
 
-function ArrayFieldItemButtonsTemplate(props: ArrayFieldItemButtonsTemplateProps) {
-  const { hasMoveDown, hasMoveUp, onMoveDownItem, onMoveUpItem, onRemoveItem } = props;
+function ArrayFieldItemButtonsTemplate(
+  props: ArrayFieldItemButtonsTemplateProps,
+) {
+  const { hasMoveDown, hasMoveUp, onMoveDownItem, onMoveUpItem, onRemoveItem } =
+    props;
   return (
     <>
       {hasMoveDown && <button onClick={onMoveDownItem}>Down</button>}
@@ -34,13 +40,13 @@ function ArrayFieldItemButtonsTemplate(props: ArrayFieldItemButtonsTemplateProps
 
 export const customArray: Sample = {
   schema: {
-    title: 'Custom array of strings',
-    type: 'array',
+    title: "Custom array of strings",
+    type: "array",
     items: {
-      type: 'string',
+      type: "string",
     },
   },
-  formData: ['react', 'jsonschema', 'form'],
+  formData: ["react", "jsonschema", "form"],
   templates: { ArrayFieldTemplate, ArrayFieldItemButtonsTemplate },
 };
 

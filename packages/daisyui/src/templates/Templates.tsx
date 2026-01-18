@@ -1,9 +1,14 @@
-import { FormContextType, RJSFSchema, StrictRJSFSchema, TemplatesType } from '@rjsf/utils';
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  TemplatesType,
+} from "@rjsf/utils";
 
-import ArrayFieldItemButtonsTemplate from './ArrayFieldItemButtonsTemplate';
-import ArrayFieldItemTemplate from './ArrayFieldItemTemplate';
-import ArrayFieldTemplate from './ArrayFieldTemplate/ArrayFieldTemplate';
-import BaseInputTemplate from './BaseInputTemplate/BaseInputTemplate';
+import ArrayFieldItemButtonsTemplate from "./ArrayFieldItemButtonsTemplate";
+import ArrayFieldItemTemplate from "./ArrayFieldItemTemplate";
+import ArrayFieldTemplate from "./ArrayFieldTemplate/ArrayFieldTemplate";
+import BaseInputTemplate from "./BaseInputTemplate/BaseInputTemplate";
 import {
   AddButton,
   CopyButton,
@@ -12,18 +17,18 @@ import {
   RemoveButton,
   SubmitButton,
   ClearButton,
-} from './ButtonTemplates';
-import DescriptionField from './DescriptionField';
-import ErrorList from './ErrorList';
-import FieldErrorTemplate from './FieldErrorTemplate';
-import FieldHelpTemplate from './FieldHelpTemplate';
-import FieldTemplate from './FieldTemplate';
-import GridTemplate from './GridTemplate/GridTemplate';
-import MultiSchemaFieldTemplate from './MultiSchemaFieldTemplate';
-import ObjectFieldTemplate from './ObjectFieldTemplate';
-import OptionalDataControlsTemplate from './OptionalDataControlsTemplate';
-import TitleFieldTemplate from './TitleField/TitleField';
-import WrapIfAdditionalTemplate from './WrapIfAdditionalTemplate';
+} from "./ButtonTemplates";
+import DescriptionField from "./DescriptionField";
+import ErrorList from "./ErrorList";
+import FieldErrorTemplate from "./FieldErrorTemplate";
+import FieldHelpTemplate from "./FieldHelpTemplate";
+import FieldTemplate from "./FieldTemplate";
+import GridTemplate from "./GridTemplate/GridTemplate";
+import MultiSchemaFieldTemplate from "./MultiSchemaFieldTemplate";
+import ObjectFieldTemplate from "./ObjectFieldTemplate";
+import OptionalDataControlsTemplate from "./OptionalDataControlsTemplate";
+import TitleFieldTemplate from "./TitleField/TitleField";
+import WrapIfAdditionalTemplate from "./WrapIfAdditionalTemplate";
 
 /** Function that generates all the template components required for the DaisyUI theme.
  *

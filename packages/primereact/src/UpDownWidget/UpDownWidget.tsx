@@ -5,16 +5,18 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { InputNumber, InputNumberChangeEvent } from 'primereact/inputnumber';
+} from "@rjsf/utils";
+import { InputNumber, InputNumberChangeEvent } from "primereact/inputnumber";
 
 /** The `UpDownWidget` renders an input component for a number.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function UpDownWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function UpDownWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     placeholder,
@@ -33,10 +35,19 @@ export default function UpDownWidget<T = any, S extends StrictRJSFSchema = RJSFS
     rawErrors = [],
   } = props;
   const inputProps = getInputProps<T, S, F>(schema, type, options);
-  const { showButtons, buttonLayout, useGrouping, minFractionDigits, maxFractionDigits, locale, currency } = options;
+  const {
+    showButtons,
+    buttonLayout,
+    useGrouping,
+    minFractionDigits,
+    maxFractionDigits,
+    locale,
+    currency,
+  } = options;
   const primeProps = (options.prime || {}) as object;
 
-  const _onChange = (event: InputNumberChangeEvent) => onChange(event.value === null ? options.emptyValue : value);
+  const _onChange = (event: InputNumberChangeEvent) =>
+    onChange(event.value === null ? options.emptyValue : value);
   const _onBlur = () => onBlur && onBlur(id, value);
   const _onFocus = () => onFocus && onFocus(id, value);
 
@@ -50,14 +61,14 @@ export default function UpDownWidget<T = any, S extends StrictRJSFSchema = RJSFS
       required={required}
       autoFocus={autofocus}
       disabled={disabled || readonly}
-      style={buttonLayout === 'vertical' ? { width: '4em' } : {}}
-      showButtons={typeof showButtons === 'undefined' ? true : !!showButtons}
-      buttonLayout={(buttonLayout as any) ?? 'stacked'}
+      style={buttonLayout === "vertical" ? { width: "4em" } : {}}
+      showButtons={typeof showButtons === "undefined" ? true : !!showButtons}
+      buttonLayout={(buttonLayout as any) ?? "stacked"}
       useGrouping={!!useGrouping}
       minFractionDigits={minFractionDigits as number}
       maxFractionDigits={maxFractionDigits as number}
       locale={locale as string}
-      mode={currency ? 'currency' : 'decimal'}
+      mode={currency ? "currency" : "decimal"}
       currency={currency as string}
       value={isNaN(Number(value)) ? null : Number(value)}
       invalid={rawErrors.length > 0}

@@ -1,4 +1,4 @@
-import { FocusEvent } from 'react';
+import { FocusEvent } from "react";
 import {
   ariaDescribedByIds,
   descriptionId,
@@ -9,8 +9,8 @@ import {
   StrictRJSFSchema,
   RJSFSchema,
   FormContextType,
-} from '@rjsf/utils';
-import Form from 'react-bootstrap/Form';
+} from "@rjsf/utils";
+import Form from "react-bootstrap/Form";
 
 export default function CheckboxWidget<
   T = any,
@@ -38,19 +38,26 @@ export default function CheckboxWidget<
   // the "required" attribute if the field value must be "true", due to the
   // "const" or "enum" keywords
   const required = schemaRequiresTrueValue<S>(schema);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
-  const _onChange = ({ target: { checked } }: FocusEvent<HTMLInputElement>) => onChange(checked);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.checked);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.checked);
+  const _onChange = ({ target: { checked } }: FocusEvent<HTMLInputElement>) =>
+    onChange(checked);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.checked);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.checked);
 
   const description = options.description || schema.description;
   return (
-    <Form.Group className={disabled || readonly ? 'disabled' : ''} aria-describedby={ariaDescribedByIds(id)}>
+    <Form.Group
+      className={disabled || readonly ? "disabled" : ""}
+      aria-describedby={ariaDescribedByIds(id)}
+    >
       {!hideLabel && description && (
         <DescriptionFieldTemplate
           id={descriptionId(id)}
@@ -64,12 +71,12 @@ export default function CheckboxWidget<
         id={id}
         name={htmlName || id}
         label={labelValue(label, hideLabel || !label)}
-        checked={typeof value === 'undefined' ? false : value}
+        checked={typeof value === "undefined" ? false : value}
         required={required}
         disabled={disabled || readonly}
         autoFocus={autofocus}
         onChange={_onChange}
-        type='checkbox'
+        type="checkbox"
         onBlur={_onBlur}
         onFocus={_onFocus}
       />

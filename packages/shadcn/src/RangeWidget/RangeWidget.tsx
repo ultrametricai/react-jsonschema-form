@@ -1,22 +1,29 @@
-import { ariaDescribedByIds, FormContextType, rangeSpec, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
-import _pick from 'lodash/pick';
+import {
+  ariaDescribedByIds,
+  FormContextType,
+  rangeSpec,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
+import _pick from "lodash/pick";
 
-import { Slider } from '../components/ui/slider';
+import { Slider } from "../components/ui/slider";
 
 const allowedProps = [
-  'name',
-  'min',
-  'max',
-  'step',
-  'orientation',
-  'disabled',
-  'defaultValue',
-  'value',
-  'onValueChange',
-  'className',
-  'dir',
-  'inverted',
-  'minStepsBetweenThumbs',
+  "name",
+  "min",
+  "max",
+  "step",
+  "orientation",
+  "disabled",
+  "defaultValue",
+  "value",
+  "onValueChange",
+  "className",
+  "dir",
+  "inverted",
+  "minStepsBetweenThumbs",
 ];
 
 /**
@@ -32,7 +39,11 @@ const allowedProps = [
  * @param {string} props.id - The unique identifier for the widget
  * @returns {JSX.Element} The rendered range widget
  */
-export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RangeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   value,
   readonly,
   disabled,
@@ -45,7 +56,10 @@ export default function RangeWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const _onChange = (value: number[]) => onChange(value[0]);
 
   const sliderProps = { value, label, id, ...rangeSpec<S>(schema) };
-  const uiProps = { id, ..._pick((options.props as object) || {}, allowedProps) };
+  const uiProps = {
+    id,
+    ..._pick((options.props as object) || {}, allowedProps),
+  };
   return (
     <>
       <Slider

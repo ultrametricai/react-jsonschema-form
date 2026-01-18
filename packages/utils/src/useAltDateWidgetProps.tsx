@@ -1,13 +1,22 @@
-'use client';
+"use client";
 
-import { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useMemo, useState } from "react";
 
-import dateRangeOptions from './dateRangeOptions';
-import getDateElementProps, { DateElementFormat, DateElementProp } from './getDateElementProps';
-import { ariaDescribedByIds } from './idGenerators';
-import parseDateString from './parseDateString';
-import toDateString from './toDateString';
-import { DateObject, FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from './types';
+import dateRangeOptions from "./dateRangeOptions";
+import getDateElementProps, {
+  DateElementFormat,
+  DateElementProp,
+} from "./getDateElementProps";
+import { ariaDescribedByIds } from "./idGenerators";
+import parseDateString from "./parseDateString";
+import toDateString from "./toDateString";
+import {
+  DateObject,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "./types";
 
 /** Function that checks to see if a `DateObject` is ready for the onChange callback to be triggered
  *
@@ -19,18 +28,30 @@ function readyForChange(state: DateObject) {
 }
 
 /** The Props for the `DateElement` component */
-export type DateElementProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any> = Pick<
+export type DateElementProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+> = Pick<
   WidgetProps<T, S, F>,
-  'value' | 'name' | 'disabled' | 'readonly' | 'autofocus' | 'registry' | 'onBlur' | 'onFocus' | 'className'
+  | "value"
+  | "name"
+  | "disabled"
+  | "readonly"
+  | "autofocus"
+  | "registry"
+  | "onBlur"
+  | "onFocus"
+  | "className"
 > & {
   /** The root id of the field */
   rootId: string;
   /** The selector function for a specific prop within the `DateObject`, for a value */
   select: (property: keyof DateObject, value: any) => void;
   /** The type of the date element */
-  type: DateElementProp['type'];
+  type: DateElementProp["type"];
   /** The range for the date element */
-  range: DateElementProp['range'];
+  range: DateElementProp["range"];
 };
 
 /** The `DateElement` component renders one of the 6 date element selectors for an `AltDateWidget`, using the `select`
@@ -38,11 +59,13 @@ export type DateElementProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F
  *
  * @param props - The `DateElementProps` for the date element
  */
-export function DateElement<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: DateElementProps<T, S, F>,
-) {
+export function DateElement<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: DateElementProps<T, S, F>) {
   const {
-    className = 'form-control',
+    className = "form-control",
     type,
     range,
     value,
@@ -58,10 +81,13 @@ export function DateElement<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
   } = props;
   const id = `${rootId}_${type}`;
   const { SelectWidget } = registry.widgets;
-  const onChange = useCallback((value: any) => select(type as keyof DateObject, value), [select, type]);
+  const onChange = useCallback(
+    (value: any) => select(type as keyof DateObject, value),
+    [select, type],
+  );
   return (
     <SelectWidget
-      schema={{ type: 'integer' } as S}
+      schema={{ type: "integer" } as S}
       id={id}
       name={name}
       className={className}
@@ -75,7 +101,7 @@ export function DateElement<T = any, S extends StrictRJSFSchema = RJSFSchema, F 
       onBlur={onBlur}
       onFocus={onFocus}
       registry={registry}
-      label=''
+      label=""
       aria-describedby={ariaDescribedByIds(rootId)}
     />
   );
@@ -105,7 +131,14 @@ export default function useAltDateWidgetProps<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: WidgetProps<T, S, F>): UseAltDateWidgetResult {
-  const { time = false, disabled = false, readonly = false, options, onChange, value } = props;
+  const {
+    time = false,
+    disabled = false,
+    readonly = false,
+    options,
+    onChange,
+    value,
+  } = props;
   const [state, setState] = useState(parseDateString(value, time));
 
   useEffect(() => {
@@ -116,7 +149,7 @@ export default function useAltDateWidgetProps<
     (property: keyof DateObject, value?: string) => {
       const nextState = {
         ...state,
-        [property]: typeof value === 'undefined' ? -1 : value,
+        [property]: typeof value === "undefined" ? -1 : value,
       };
 
       if (readyForChange(nextState)) {

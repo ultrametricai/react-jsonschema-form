@@ -1,31 +1,31 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const customField: Sample = {
   schema: {
-    title: 'A registration form',
-    description: 'A custom-field form example.',
-    type: 'object',
+    title: "A registration form",
+    description: "A custom-field form example.",
+    type: "object",
     definitions: {
       specialString: {
-        $id: '/schemas/specialString',
-        type: 'string',
+        $id: "/schemas/specialString",
+        type: "string",
       },
     },
     properties: {
       mySpecialStringField: {
-        $ref: '#/definitions/specialString',
+        $ref: "#/definitions/specialString",
       },
       mySpecialStringArray: {
-        type: 'array',
+        type: "array",
         items: {
-          $ref: '#/definitions/specialString',
+          $ref: "#/definitions/specialString",
         },
       },
     },
   },
   uiSchema: {},
   formData: {
-    mySpecialStringField: 'special-text',
+    mySpecialStringField: "special-text",
   },
 };
 

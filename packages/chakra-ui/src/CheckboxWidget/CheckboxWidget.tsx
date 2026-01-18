@@ -1,5 +1,5 @@
-import { FocusEvent } from 'react';
-import { CheckboxCheckedChangeDetails, Text } from '@chakra-ui/react';
+import { FocusEvent } from "react";
+import { CheckboxCheckedChangeDetails, Text } from "@chakra-ui/react";
 import {
   ariaDescribedByIds,
   descriptionId,
@@ -11,11 +11,11 @@ import {
   RJSFSchema,
   FormContextType,
   getUiOptions,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { Field } from '../components/ui/field';
-import { Checkbox } from '../components/ui/checkbox';
-import { getChakra } from '../utils';
+import { Field } from "../components/ui/field";
+import { Checkbox } from "../components/ui/checkbox";
+import { getChakra } from "../utils";
 
 export default function CheckboxWidget<
   T = any,
@@ -42,18 +42,24 @@ export default function CheckboxWidget<
   // the "required" attribute if the field value must be "true", due to the
   // "const" or "enum" keywords
   const required = schemaRequiresTrueValue<S>(schema);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
   const uiOptions = getUiOptions(uiSchema);
-  const isCheckbox = uiOptions.widget === 'checkbox';
-  const description = isCheckbox ? undefined : (options.description ?? schema.description);
+  const isCheckbox = uiOptions.widget === "checkbox";
+  const description = isCheckbox
+    ? undefined
+    : (options.description ?? schema.description);
 
-  const _onChange = ({ checked }: CheckboxCheckedChangeDetails) => onChange(checked);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement | any>) => onBlur(id, target && target.checked);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement | any>) => onFocus(id, target && target.checked);
+  const _onChange = ({ checked }: CheckboxCheckedChangeDetails) =>
+    onChange(checked);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement | any>) =>
+    onBlur(id, target && target.checked);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement | any>) =>
+    onFocus(id, target && target.checked);
 
   const chakraProps = getChakra({ uiSchema });
 
@@ -71,7 +77,7 @@ export default function CheckboxWidget<
       <Checkbox
         id={id}
         name={htmlName || id}
-        checked={typeof value === 'undefined' ? false : value}
+        checked={typeof value === "undefined" ? false : value}
         disabled={disabled || readonly}
         onCheckedChange={_onChange}
         onBlur={_onBlur}

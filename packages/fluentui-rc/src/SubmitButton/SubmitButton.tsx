@@ -1,5 +1,11 @@
-import { FormContextType, getSubmitButtonOptions, RJSFSchema, StrictRJSFSchema, SubmitButtonProps } from '@rjsf/utils';
-import { Button, makeStyles, tokens } from '@fluentui/react-components';
+import {
+  FormContextType,
+  getSubmitButtonOptions,
+  RJSFSchema,
+  StrictRJSFSchema,
+  SubmitButtonProps,
+} from "@rjsf/utils";
+import { Button, makeStyles, tokens } from "@fluentui/react-components";
 
 const useStyles = makeStyles({
   buttonRow: {
@@ -13,13 +19,17 @@ export default function SubmitButton<
   F extends FormContextType = any,
 >({ uiSchema }: SubmitButtonProps<T, S, F>) {
   const classes = useStyles();
-  const { submitText, norender, props: submitButtonProps } = getSubmitButtonOptions(uiSchema);
+  const {
+    submitText,
+    norender,
+    props: submitButtonProps,
+  } = getSubmitButtonOptions(uiSchema);
   if (norender) {
     return null;
   }
   return (
     <div className={classes.buttonRow}>
-      <Button appearance='primary' type='submit' {...submitButtonProps}>
+      <Button appearance="primary" type="submit" {...submitButtonProps}>
         {submitText}
       </Button>
     </div>

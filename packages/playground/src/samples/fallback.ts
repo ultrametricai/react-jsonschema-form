@@ -1,8 +1,8 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const fallback: Sample = {
   schema: {
-    title: 'Fallback',
+    title: "Fallback",
     description: 'A field with no JSON Schema "type".',
   },
   formData: 1234,

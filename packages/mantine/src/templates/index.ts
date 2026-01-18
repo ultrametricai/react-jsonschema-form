@@ -1,21 +1,26 @@
-import { FormContextType, RJSFSchema, StrictRJSFSchema, TemplatesType } from '@rjsf/utils';
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  TemplatesType,
+} from "@rjsf/utils";
 
-import ArrayFieldItemTemplate from './ArrayFieldItemTemplate';
-import ArrayFieldTemplate from './ArrayFieldTemplate';
-import ArrayFieldTitleTemplate from './ArrayFieldTitleTemplate';
-import BaseInputTemplate from './BaseInputTemplate';
-import DescriptionField from './DescriptionField';
-import ErrorList from './ErrorList';
-import ButtonTemplates from './ButtonTemplates';
-import FieldErrorTemplate from './FieldErrorTemplate';
-import FieldTemplate from './FieldTemplate';
-import FieldHelpTemplate from './FieldHelpTemplate';
-import GridTemplate from './GridTemplate';
-import ObjectFieldTemplate from './ObjectFieldTemplate';
-import OptionalDataControlsTemplate from './OptionalDataControlsTemplate';
-import TitleField from './TitleField';
-import WrapIfAdditionalTemplate from './WrapIfAdditionalTemplate';
-import MultiSchemaFieldTemplate from './MultiSchemaFieldTemplate';
+import ArrayFieldItemTemplate from "./ArrayFieldItemTemplate";
+import ArrayFieldTemplate from "./ArrayFieldTemplate";
+import ArrayFieldTitleTemplate from "./ArrayFieldTitleTemplate";
+import BaseInputTemplate from "./BaseInputTemplate";
+import DescriptionField from "./DescriptionField";
+import ErrorList from "./ErrorList";
+import ButtonTemplates from "./ButtonTemplates";
+import FieldErrorTemplate from "./FieldErrorTemplate";
+import FieldTemplate from "./FieldTemplate";
+import FieldHelpTemplate from "./FieldHelpTemplate";
+import GridTemplate from "./GridTemplate";
+import ObjectFieldTemplate from "./ObjectFieldTemplate";
+import OptionalDataControlsTemplate from "./OptionalDataControlsTemplate";
+import TitleField from "./TitleField";
+import WrapIfAdditionalTemplate from "./WrapIfAdditionalTemplate";
+import MultiSchemaFieldTemplate from "./MultiSchemaFieldTemplate";
 
 export function generateTemplates<
   T = any,

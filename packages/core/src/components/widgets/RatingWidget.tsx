@@ -1,5 +1,10 @@
-import { FocusEvent, useCallback } from 'react';
-import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+import { FocusEvent, useCallback } from "react";
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
 
 /** The `RatingWidget` component renders a star or heart rating input
  *
@@ -31,10 +36,12 @@ export default function RatingWidget<
   options,
   htmlName,
 }: WidgetProps<T, S, F>) {
-  const { stars = 5, shape = 'star' } = options;
+  const { stars = 5, shape = "star" } = options;
 
   // Use schema.maximum if provided, otherwise use stars option (limited to 1-5)
-  const numStars = schema.maximum ? Math.min(schema.maximum, 5) : Math.min(Math.max(stars as number, 1), 5);
+  const numStars = schema.maximum
+    ? Math.min(schema.maximum, 5)
+    : Math.min(Math.max(stars as number, 1), 5);
   const min = schema.minimum || 0;
 
   /** Handles clicking on a star to set the rating */
@@ -73,20 +80,20 @@ export default function RatingWidget<
 
   // Get the appropriate Unicode character based on shape option
   const getSymbol = (isFilled: boolean): string => {
-    if (shape === 'heart') {
-      return isFilled ? '♥' : '♡';
+    if (shape === "heart") {
+      return isFilled ? "♥" : "♡";
     }
-    return isFilled ? '★' : '☆';
+    return isFilled ? "★" : "☆";
   };
 
   return (
     <>
       <div
-        className='rating-widget'
+        className="rating-widget"
         style={{
-          display: 'inline-flex',
-          fontSize: '1.5rem',
-          cursor: disabled || readonly ? 'default' : 'pointer',
+          display: "inline-flex",
+          fontSize: "1.5rem",
+          cursor: disabled || readonly ? "default" : "pointer",
         }}
       >
         {[...Array(numStars)].map((_, index) => {
@@ -101,14 +108,14 @@ export default function RatingWidget<
               onBlur={handleBlur}
               data-value={starValue}
               tabIndex={disabled || readonly ? -1 : 0}
-              role='radio'
+              role="radio"
               aria-checked={starValue === value}
-              aria-label={`${starValue} ${shape === 'heart' ? 'heart' : 'star'}${starValue === 1 ? '' : 's'}`}
+              aria-label={`${starValue} ${shape === "heart" ? "heart" : "star"}${starValue === 1 ? "" : "s"}`}
               style={{
-                color: isFilled ? '#FFD700' : '#ccc',
-                padding: '0 0.2rem',
-                transition: 'color 0.2s',
-                userSelect: 'none',
+                color: isFilled ? "#FFD700" : "#ccc",
+                padding: "0 0.2rem",
+                transition: "color 0.2s",
+                userSelect: "none",
               }}
             >
               {getSymbol(isFilled)}
@@ -116,13 +123,13 @@ export default function RatingWidget<
           );
         })}
         <input
-          type='hidden'
+          type="hidden"
           id={id}
           name={htmlName || id}
-          value={value || ''}
+          value={value || ""}
           required={required}
           disabled={disabled || readonly}
-          aria-hidden='true'
+          aria-hidden="true"
         />
       </div>
     </>

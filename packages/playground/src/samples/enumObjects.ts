@@ -1,7 +1,7 @@
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 const ENUM_NAMES = {
-  'ui:enumNames': ['New York', 'Amsterdam', 'Hong Kong'],
+  "ui:enumNames": ["New York", "Amsterdam", "Hong Kong"],
 };
 
 const enumObjects: Sample = {
@@ -10,47 +10,47 @@ const enumObjects: Sample = {
       locations: {
         enum: [
           {
-            name: 'New York',
+            name: "New York",
             lat: 40,
             lon: 74,
           },
           {
-            name: 'Amsterdam',
+            name: "Amsterdam",
             lat: 52,
             lon: 5,
           },
           {
-            name: 'Hong Kong',
+            name: "Hong Kong",
             lat: 22,
             lon: 114,
           },
         ],
       },
     },
-    type: 'object',
+    type: "object",
     properties: {
       location: {
-        title: 'Location',
-        $ref: '#/definitions/locations',
+        title: "Location",
+        $ref: "#/definitions/locations",
       },
       locationRadio: {
-        title: 'Location Radio',
-        $ref: '#/definitions/locations',
+        title: "Location Radio",
+        $ref: "#/definitions/locations",
       },
       multiSelect: {
-        title: 'Locations',
-        type: 'array',
+        title: "Locations",
+        type: "array",
         uniqueItems: true,
         items: {
-          $ref: '#/definitions/locations',
+          $ref: "#/definitions/locations",
         },
       },
       checkboxes: {
-        title: 'Locations Checkboxes',
-        type: 'array',
+        title: "Locations Checkboxes",
+        type: "array",
         uniqueItems: true,
         items: {
-          $ref: '#/definitions/locations',
+          $ref: "#/definitions/locations",
         },
       },
     },
@@ -58,20 +58,20 @@ const enumObjects: Sample = {
   uiSchema: {
     location: ENUM_NAMES,
     locationRadio: {
-      'ui:widget': 'RadioWidget',
+      "ui:widget": "RadioWidget",
       ...ENUM_NAMES,
     },
     multiSelect: {
       ...ENUM_NAMES,
     },
     checkboxes: {
-      'ui:widget': 'CheckboxesWidget',
+      "ui:widget": "CheckboxesWidget",
       ...ENUM_NAMES,
     },
   },
   formData: {
     location: {
-      name: 'Amsterdam',
+      name: "Amsterdam",
       lat: 52,
       lon: 5,
     },

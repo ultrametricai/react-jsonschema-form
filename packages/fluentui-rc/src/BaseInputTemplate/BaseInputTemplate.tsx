@@ -1,5 +1,10 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
-import { Input, InputProps, Label, makeStyles } from '@fluentui/react-components';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
+import {
+  Input,
+  InputProps,
+  Label,
+  makeStyles,
+} from "@fluentui/react-components";
 import {
   ariaDescribedByIds,
   BaseInputTemplateProps,
@@ -9,16 +14,16 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   labelValue,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
   input: {
-    width: '100%',
+    width: "100%",
   },
   label: {
-    paddingTop: '2px',
-    paddingBottom: '2px',
-    marginBottom: '2px',
+    paddingTop: "2px",
+    paddingBottom: "2px",
+    marginBottom: "2px",
   },
 });
 
@@ -58,21 +63,28 @@ export default function BaseInputTemplate<
   const inputProps = getInputProps<T, S, F>(schema, type, options);
   // Now we need to pull out the step, min, max into an inner `inputProps` for fluentui-rc
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.value);
   const _onClear = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
   return (
     <>
       {labelValue(
-        <Label htmlFor={id} required={required} disabled={disabled} className={classes.label}>
+        <Label
+          htmlFor={id}
+          required={required}
+          disabled={disabled}
+          className={classes.label}
+        >
           {label}
         </Label>,
         hideLabel,
@@ -90,7 +102,7 @@ export default function BaseInputTemplate<
           // Due to Fluent UI this does not work correctly
           list: schema.examples ? examplesId(id) : undefined,
         }}
-        value={value || value === 0 ? value : ''}
+        value={value || value === 0 ? value : ""}
         onChange={onChangeOverride || _onChange}
         onFocus={_onFocus}
         onBlur={_onBlur}
@@ -102,7 +114,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) && (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example: any) => {
               return <option key={example} value={example} />;
             })}

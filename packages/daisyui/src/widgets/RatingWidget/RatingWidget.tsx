@@ -1,5 +1,10 @@
-import { ChangeEvent, FocusEvent, useCallback } from 'react';
-import { FormContextType, RJSFSchema, StrictRJSFSchema, WidgetProps } from '@rjsf/utils';
+import { ChangeEvent, FocusEvent, useCallback } from "react";
+import {
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  WidgetProps,
+} from "@rjsf/utils";
 
 /** The `RatingWidget` component renders a star or heart rating input with DaisyUI styling
  *
@@ -33,17 +38,25 @@ export default function RatingWidget<
   schema,
   options,
 }: WidgetProps<T, S, F>) {
-  const { stars = 5, shape = 'star', color = 'orange', size = 'md', colorGradient = false } = options;
+  const {
+    stars = 5,
+    shape = "star",
+    color = "orange",
+    size = "md",
+    colorGradient = false,
+  } = options;
 
   // Use schema.maximum if provided, otherwise use stars option (limited to 1-5)
-  const numStars = schema.maximum ? Math.min(schema.maximum, 5) : Math.min(Math.max(stars as number, 1), 5);
+  const numStars = schema.maximum
+    ? Math.min(schema.maximum, 5)
+    : Math.min(Math.max(stars as number, 1), 5);
   const min = schema.minimum || 0;
 
   // Generate shape class
-  const maskClass = shape === 'heart' ? 'mask-heart' : 'mask-star-2';
+  const maskClass = shape === "heart" ? "mask-heart" : "mask-star-2";
 
   // Generate size class
-  const sizeClass = size === 'md' ? '' : `rating-${size}`;
+  const sizeClass = size === "md" ? "" : `rating-${size}`;
 
   /** Handles change events from radio inputs */
   const _onChange = useCallback(
@@ -86,20 +99,20 @@ export default function RatingWidget<
     }
 
     // For gradient effect, use different colors based on position
-    const colors = ['red', 'orange', 'yellow', 'lime', 'green'];
+    const colors = ["red", "orange", "yellow", "lime", "green"];
     const colorIdx = Math.min(index, colors.length - 1);
     return `bg-${colors[colorIdx]}-400`;
   };
 
   return (
-    <div className='form-control w-full'>
+    <div className="form-control w-full">
       <div className={`rating gap-1 ${sizeClass}`}>
         {[...Array(numStars)].map((_, index) => {
           const starValue = min + index;
           return (
             <input
               key={index}
-              type='radio'
+              type="radio"
               name={id}
               value={starValue}
               checked={value === starValue}
@@ -110,7 +123,7 @@ export default function RatingWidget<
               disabled={disabled || readonly}
               required={required}
               autoFocus={autofocus && index === 0}
-              aria-label={`${starValue} ${shape === 'heart' ? 'heart' : 'star'}${starValue === 1 ? '' : 's'}`}
+              aria-label={`${starValue} ${shape === "heart" ? "heart" : "star"}${starValue === 1 ? "" : "s"}`}
             />
           );
         })}

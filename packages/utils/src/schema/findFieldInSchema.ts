@@ -1,9 +1,14 @@
-import get from 'lodash/get';
-import has from 'lodash/has';
+import get from "lodash/get";
+import has from "lodash/has";
 
-import findSelectedOptionInXxxOf from './findSelectedOptionInXxxOf';
-import getFromSchema from './getFromSchema';
-import { ANY_OF_KEY, ONE_OF_KEY, PROPERTIES_KEY, REQUIRED_KEY } from '../constants';
+import findSelectedOptionInXxxOf from "./findSelectedOptionInXxxOf";
+import getFromSchema from "./getFromSchema";
+import {
+  ANY_OF_KEY,
+  ONE_OF_KEY,
+  PROPERTIES_KEY,
+  REQUIRED_KEY,
+} from "../constants";
 import {
   Experimental_CustomMergeAllOf,
   FormContextType,
@@ -11,10 +16,10 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   ValidatorType,
-} from '../types';
+} from "../types";
 
 /** Unique schema that represents no schema was found, exported for testing purposes */
-export const NOT_FOUND_SCHEMA = { title: '!@#$_UNKNOWN_$#@!' };
+export const NOT_FOUND_SCHEMA = { title: "!@#$_UNKNOWN_$#@!" };
 
 /** Finds the field specified by the `path` within the root or recursed `schema`. If there is no field for the specified
  * `path`, then the default `{ field: undefined, isRequired: undefined }` is returned. It determines whether a leaf
@@ -41,7 +46,7 @@ export default function findFieldInSchema<
   formData: T = {} as T,
   experimental_customMergeAllOf?: Experimental_CustomMergeAllOf<S>,
 ): FoundFieldType<S> {
-  const pathList = Array.isArray(path) ? [...path] : path.split('.');
+  const pathList = Array.isArray(path) ? [...path] : path.split(".");
   let parentField = schema;
 
   // store the desired field into a variable and removing it from the `pathList`

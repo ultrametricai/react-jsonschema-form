@@ -1,4 +1,4 @@
-import getTestValidator from './testUtils/getTestValidator';
+import getTestValidator from "./testUtils/getTestValidator";
 import {
   findFieldInSchemaTest,
   findSelectedOptionInXxxOfTest,
@@ -14,7 +14,7 @@ import {
   retrieveSchemaTest,
   sanitizeDataForNewSchemaTest,
   toPathSchemaTest,
-} from './schema';
+} from "./schema";
 
 const testValidator = getTestValidator({});
 

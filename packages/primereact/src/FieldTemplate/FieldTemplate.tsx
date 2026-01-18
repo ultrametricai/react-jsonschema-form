@@ -5,34 +5,56 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { Label } from '../util';
+import { Label } from "../util";
 
 export default function FieldTemplate<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: FieldTemplateProps<T, S, F>) {
-  const { children, errors, help, displayLabel, description, rawDescription, hidden, uiSchema, registry } = props;
-  const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
+  const {
+    children,
+    errors,
+    help,
+    displayLabel,
+    description,
+    rawDescription,
+    hidden,
+    uiSchema,
     registry,
-    uiOptions,
-  );
+  } = props;
+  const uiOptions = getUiOptions<T, S, F>(uiSchema);
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
 
   if (hidden) {
-    return <div style={{ display: 'none' }}>{children}</div>;
+    return <div style={{ display: "none" }}>{children}</div>;
   }
 
-  const isCheckbox = uiOptions.widget === 'checkbox';
+  const isCheckbox = uiOptions.widget === "checkbox";
   return (
     <WrapIfAdditionalTemplate {...props}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1rem' }}>
-        {displayLabel && !isCheckbox && <Label id={props.id} text={props.label} required={props.required} />}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+          marginBottom: "1rem",
+        }}
+      >
+        {displayLabel && !isCheckbox && (
+          <Label id={props.id} text={props.label} required={props.required} />
+        )}
         {children}
-        {displayLabel && rawDescription && !isCheckbox && <small>{description}</small>}
+        {displayLabel && rawDescription && !isCheckbox && (
+          <small>{description}</small>
+        )}
         {errors}
         {help}
       </div>

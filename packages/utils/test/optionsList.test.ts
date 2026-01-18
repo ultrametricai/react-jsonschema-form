@@ -1,13 +1,19 @@
-import get from 'lodash/get';
+import get from "lodash/get";
 
-import { CONST_KEY, optionsList, PROPERTIES_KEY, RJSFSchema, UiSchema } from '../src';
+import {
+  CONST_KEY,
+  optionsList,
+  PROPERTIES_KEY,
+  RJSFSchema,
+  UiSchema,
+} from "../src";
 
-describe('optionsList()', () => {
+describe("optionsList()", () => {
   let consoleWarnSpy: jest.SpyInstance;
   let oldProcessEnv: string | undefined;
   beforeAll(() => {
     oldProcessEnv = process.env.NODE_ENV;
-    consoleWarnSpy = jest.spyOn(console, 'warn').mockImplementation();
+    consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation();
   });
   afterAll(() => {
     consoleWarnSpy.mockRestore();
@@ -16,54 +22,56 @@ describe('optionsList()', () => {
     process.env.NODE_ENV = oldProcessEnv;
     consoleWarnSpy.mockClear();
   });
-  it('returns undefined when schema does not have any options', () => {
+  it("returns undefined when schema does not have any options", () => {
     expect(optionsList({})).toBeUndefined();
   });
-  describe('enums', () => {
-    it('should generate options for an enum schema', () => {
+  describe("enums", () => {
+    it("should generate options for an enum schema", () => {
       const enumSchema: RJSFSchema = {
-        type: 'string',
-        enum: ['Opt1', 'Opt2', 'Opt3'],
+        type: "string",
+        enum: ["Opt1", "Opt2", "Opt3"],
       };
 
-      expect(optionsList(enumSchema)).toEqual(enumSchema.enum!.map((opt) => ({ label: opt, value: opt })));
+      expect(optionsList(enumSchema)).toEqual(
+        enumSchema.enum!.map((opt) => ({ label: opt, value: opt })),
+      );
     });
-    it('should generate options for an enum schema and uiSchema enumNames', () => {
+    it("should generate options for an enum schema and uiSchema enumNames", () => {
       const enumSchema: RJSFSchema = {
-        type: 'string',
-        enum: ['Opt1', 'Opt2', 'Opt3'],
+        type: "string",
+        enum: ["Opt1", "Opt2", "Opt3"],
       };
       const uiSchema: UiSchema = {
-        'ui:enumNames': ['Option1', 'Option2', 'Option3'],
+        "ui:enumNames": ["Option1", "Option2", "Option3"],
       };
 
       expect(optionsList(enumSchema, uiSchema)).toEqual(
         enumSchema.enum!.map((opt, index) => {
-          const label: string = uiSchema['ui:enumNames']![index] ?? opt;
+          const label: string = uiSchema["ui:enumNames"]![index] ?? opt;
           return { label, value: opt };
         }),
       );
     });
   });
-  describe('anyOf', () => {
-    it('should generate options for an anyOf schema', () => {
+  describe("anyOf", () => {
+    it("should generate options for an anyOf schema", () => {
       const anyOfSchema = {
-        title: 'string',
+        title: "string",
         anyOf: [
           {
-            const: 'Option1',
-            title: 'Option1 title',
-            description: 'Option1 description',
+            const: "Option1",
+            title: "Option1 title",
+            description: "Option1 description",
           },
           {
-            const: 'Option2',
-            title: 'Option2 title',
-            description: 'Option2 description',
+            const: "Option2",
+            title: "Option2 title",
+            description: "Option2 description",
           },
           {
-            const: 'Option3',
-            title: 'Option3 title',
-            description: 'Option3 description',
+            const: "Option3",
+            title: "Option3 title",
+            description: "Option3 description",
           },
         ],
       };
@@ -86,38 +94,38 @@ describe('optionsList()', () => {
         })),
       );
     });
-    it('should generate options for an anyOf schema and uiSchema', () => {
+    it("should generate options for an anyOf schema and uiSchema", () => {
       const anyOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         anyOf: [
           {
-            const: 'Option',
-            description: 'Option description',
+            const: "Option",
+            description: "Option description",
           },
         ],
       };
       const anyOfUiSchema: UiSchema = {
         anyOf: [
           {
-            'ui:title': 'Alternate',
+            "ui:title": "Alternate",
           },
         ],
       };
       expect(optionsList(anyOfSchema, anyOfUiSchema)).toEqual(
         anyOfSchema.anyOf!.map((schema, index) => ({
           schema,
-          label: anyOfUiSchema.anyOf[index]['ui:title'],
+          label: anyOfUiSchema.anyOf[index]["ui:title"],
           value: get(schema, CONST_KEY),
         })),
       );
     });
-    it('should generate options for an anyOf schema uses value as fallback title', () => {
+    it("should generate options for an anyOf schema uses value as fallback title", () => {
       const anyOfSchema = {
-        title: 'string',
+        title: "string",
         anyOf: [
           {
-            const: 'Option',
-            description: 'Option description',
+            const: "Option",
+            description: "Option description",
           },
         ],
       };
@@ -129,30 +137,30 @@ describe('optionsList()', () => {
         })),
       );
     });
-    it('should generate options for an anyOf object schema with a discriminator, titles in object', () => {
+    it("should generate options for an anyOf object schema with a discriminator, titles in object", () => {
       const anyOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         anyOf: [
           {
-            type: 'object',
-            title: 'Dog',
+            type: "object",
+            title: "Dog",
             properties: {
               animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
-            title: 'Fish',
+            type: "object",
+            title: "Fish",
             properties: {
               animal: {
-                type: 'string',
-                const: 'fish',
+                type: "string",
+                const: "fish",
               },
             },
           },
@@ -161,35 +169,35 @@ describe('optionsList()', () => {
       expect(optionsList(anyOfSchema)).toEqual(
         anyOfSchema.anyOf!.map((schema) => ({
           schema,
-          label: get(schema, ['title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, ["title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for an anyOf object schema with a discriminator, titles in discriminator property', () => {
+    it("should generate options for an anyOf object schema with a discriminator, titles in discriminator property", () => {
       const anyOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         anyOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Dog',
-                const: 'dog',
+                type: "string",
+                title: "Dog",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Fish',
-                const: 'fish',
+                type: "string",
+                title: "Fish",
+                const: "fish",
               },
             },
           },
@@ -198,33 +206,33 @@ describe('optionsList()', () => {
       expect(optionsList(anyOfSchema)).toEqual(
         anyOfSchema.anyOf!.map((schema) => ({
           schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', 'title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, [PROPERTIES_KEY, "animal", "title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for an anyOf object schema with a discriminator, value as fallback titles', () => {
+    it("should generate options for an anyOf object schema with a discriminator, value as fallback titles", () => {
       const anyOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         anyOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                const: 'fish',
+                type: "string",
+                const: "fish",
               },
             },
           },
@@ -233,97 +241,99 @@ describe('optionsList()', () => {
       expect(optionsList(anyOfSchema, {})).toEqual(
         anyOfSchema.anyOf!.map((schema) => ({
           schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for an anyOf object schema without a discriminator, with optionsSchemaSelector', () => {
+    it("should generate options for an anyOf object schema without a discriminator, with optionsSchemaSelector", () => {
       const anyOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         anyOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Dog',
-                const: 'dog',
+                type: "string",
+                title: "Dog",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Fish',
-                const: 'fish',
-              },
-            },
-          },
-        ],
-      };
-      const anyOfUiSchema = { 'ui:options': { optionsSchemaSelector: 'animal' } };
-      expect(optionsList(anyOfSchema, anyOfUiSchema)).toEqual(
-        anyOfSchema.anyOf!.map((schema) => ({
-          schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', 'title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
-        })),
-      );
-    });
-    it('should generate options for an anyOf object schema without a discriminator, with optionsSchemaSelector, uiTitles', () => {
-      const anyOfSchema: RJSFSchema = {
-        title: 'string',
-        anyOf: [
-          {
-            type: 'object',
-            properties: {
-              animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                title: "Fish",
+                const: "fish",
               },
             },
           },
         ],
       };
       const anyOfUiSchema = {
-        'ui:options': { optionsSchemaSelector: 'animal' },
+        "ui:options": { optionsSchemaSelector: "animal" },
+      };
+      expect(optionsList(anyOfSchema, anyOfUiSchema)).toEqual(
+        anyOfSchema.anyOf!.map((schema) => ({
+          schema,
+          label: get(schema, [PROPERTIES_KEY, "animal", "title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
+        })),
+      );
+    });
+    it("should generate options for an anyOf object schema without a discriminator, with optionsSchemaSelector, uiTitles", () => {
+      const anyOfSchema: RJSFSchema = {
+        title: "string",
         anyOf: [
           {
-            'ui:title': 'Alternate',
+            type: "object",
+            properties: {
+              animal: {
+                type: "string",
+                const: "dog",
+              },
+            },
+          },
+        ],
+      };
+      const anyOfUiSchema = {
+        "ui:options": { optionsSchemaSelector: "animal" },
+        anyOf: [
+          {
+            "ui:title": "Alternate",
           },
         ],
       };
       expect(optionsList(anyOfSchema, anyOfUiSchema)).toEqual(
         anyOfSchema.anyOf!.map((schema, index) => ({
           schema,
-          label: anyOfUiSchema.anyOf[index]['ui:title'],
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: anyOfUiSchema.anyOf[index]["ui:title"],
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
   });
-  describe('oneOf', () => {
-    it('should generate options for a oneOf schema', () => {
+  describe("oneOf", () => {
+    it("should generate options for a oneOf schema", () => {
       const oneOfSchema = {
-        title: 'string',
+        title: "string",
         oneOf: [
           {
-            const: 'Option1',
-            title: 'Option1 title',
-            description: 'Option1 description',
+            const: "Option1",
+            title: "Option1 title",
+            description: "Option1 description",
           },
           {
-            const: 'Option2',
-            title: 'Option2 title',
-            description: 'Option2 description',
+            const: "Option2",
+            title: "Option2 title",
+            description: "Option2 description",
           },
           {
-            const: 'Option3',
-            title: 'Option3 title',
-            description: 'Option3 description',
+            const: "Option3",
+            title: "Option3 title",
+            description: "Option3 description",
           },
         ],
       };
@@ -347,38 +357,38 @@ describe('optionsList()', () => {
         })),
       );
     });
-    it('should generate options for a oneOf schema and uiSchema', () => {
+    it("should generate options for a oneOf schema and uiSchema", () => {
       const oneOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         oneOf: [
           {
-            const: 'Option',
-            description: 'Option description',
+            const: "Option",
+            description: "Option description",
           },
         ],
       };
       const oneOfUiSchema: UiSchema = {
         oneOf: [
           {
-            'ui:title': 'Alternate',
+            "ui:title": "Alternate",
           },
         ],
       };
       expect(optionsList(oneOfSchema, oneOfUiSchema)).toEqual(
         oneOfSchema.oneOf!.map((schema, index) => ({
           schema,
-          label: oneOfUiSchema.oneOf[index]['ui:title'],
+          label: oneOfUiSchema.oneOf[index]["ui:title"],
           value: get(schema, CONST_KEY),
         })),
       );
     });
-    it('should generate options for a oneOf schema uses value as fallback title', () => {
+    it("should generate options for a oneOf schema uses value as fallback title", () => {
       const oneOfSchema = {
-        title: 'string',
+        title: "string",
         oneOf: [
           {
-            const: 'Option',
-            description: 'Option description',
+            const: "Option",
+            description: "Option description",
           },
         ],
       };
@@ -390,30 +400,30 @@ describe('optionsList()', () => {
         })),
       );
     });
-    it('should generate options for a oneOf object schema with a discriminator, titles in object', () => {
+    it("should generate options for a oneOf object schema with a discriminator, titles in object", () => {
       const oneOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         oneOf: [
           {
-            type: 'object',
-            title: 'Dog',
+            type: "object",
+            title: "Dog",
             properties: {
               animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
-            title: 'Fish',
+            type: "object",
+            title: "Fish",
             properties: {
               animal: {
-                type: 'string',
-                const: 'fish',
+                type: "string",
+                const: "fish",
               },
             },
           },
@@ -422,35 +432,35 @@ describe('optionsList()', () => {
       expect(optionsList(oneOfSchema)).toEqual(
         oneOfSchema.oneOf!.map((schema) => ({
           schema,
-          label: get(schema, ['title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, ["title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for a oneOf object schema with a discriminator, titles in discriminator property', () => {
+    it("should generate options for a oneOf object schema with a discriminator, titles in discriminator property", () => {
       const oneOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         oneOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Dog',
-                const: 'dog',
+                type: "string",
+                title: "Dog",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Fish',
-                const: 'fish',
+                type: "string",
+                title: "Fish",
+                const: "fish",
               },
             },
           },
@@ -459,33 +469,33 @@ describe('optionsList()', () => {
       expect(optionsList(oneOfSchema)).toEqual(
         oneOfSchema.oneOf!.map((schema) => ({
           schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', 'title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, [PROPERTIES_KEY, "animal", "title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for a oneOf object schema with a discriminator, value as fallback titles', () => {
+    it("should generate options for a oneOf object schema with a discriminator, value as fallback titles", () => {
       const oneOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         discriminator: {
-          propertyName: 'animal',
+          propertyName: "animal",
         },
         oneOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                const: 'fish',
+                type: "string",
+                const: "fish",
               },
             },
           },
@@ -494,74 +504,76 @@ describe('optionsList()', () => {
       expect(optionsList(oneOfSchema, {})).toEqual(
         oneOfSchema.oneOf!.map((schema) => ({
           schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });
-    it('should generate options for a oneOf object schema without a discriminator, with optionsSchemaSelector', () => {
+    it("should generate options for a oneOf object schema without a discriminator, with optionsSchemaSelector", () => {
       const oneOfSchema: RJSFSchema = {
-        title: 'string',
+        title: "string",
         oneOf: [
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Dog',
-                const: 'dog',
+                type: "string",
+                title: "Dog",
+                const: "dog",
               },
             },
           },
           {
-            type: 'object',
+            type: "object",
             properties: {
               animal: {
-                type: 'string',
-                title: 'Fish',
-                const: 'fish',
-              },
-            },
-          },
-        ],
-      };
-      const oneOfUiSchema = { 'ui:options': { optionsSchemaSelector: 'animal' } };
-      expect(optionsList(oneOfSchema, oneOfUiSchema)).toEqual(
-        oneOfSchema.oneOf!.map((schema) => ({
-          schema,
-          label: get(schema, [PROPERTIES_KEY, 'animal', 'title']),
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
-        })),
-      );
-    });
-    it('should generate options for a oneOf object schema without a discriminator, with optionsSchemaSelector, uiTitles', () => {
-      const oneOfSchema: RJSFSchema = {
-        title: 'string',
-        oneOf: [
-          {
-            type: 'object',
-            properties: {
-              animal: {
-                type: 'string',
-                const: 'dog',
+                type: "string",
+                title: "Fish",
+                const: "fish",
               },
             },
           },
         ],
       };
       const oneOfUiSchema = {
-        'ui:options': { optionsSchemaSelector: 'animal' },
+        "ui:options": { optionsSchemaSelector: "animal" },
+      };
+      expect(optionsList(oneOfSchema, oneOfUiSchema)).toEqual(
+        oneOfSchema.oneOf!.map((schema) => ({
+          schema,
+          label: get(schema, [PROPERTIES_KEY, "animal", "title"]),
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
+        })),
+      );
+    });
+    it("should generate options for a oneOf object schema without a discriminator, with optionsSchemaSelector, uiTitles", () => {
+      const oneOfSchema: RJSFSchema = {
+        title: "string",
         oneOf: [
           {
-            'ui:title': 'Alternate',
+            type: "object",
+            properties: {
+              animal: {
+                type: "string",
+                const: "dog",
+              },
+            },
+          },
+        ],
+      };
+      const oneOfUiSchema = {
+        "ui:options": { optionsSchemaSelector: "animal" },
+        oneOf: [
+          {
+            "ui:title": "Alternate",
           },
         ],
       };
       expect(optionsList(oneOfSchema, oneOfUiSchema)).toEqual(
         oneOfSchema.oneOf!.map((schema, index) => ({
           schema,
-          label: oneOfUiSchema.oneOf[index]['ui:title'],
-          value: get(schema, [PROPERTIES_KEY, 'animal', CONST_KEY]),
+          label: oneOfUiSchema.oneOf[index]["ui:title"],
+          value: get(schema, [PROPERTIES_KEY, "animal", CONST_KEY]),
         })),
       );
     });

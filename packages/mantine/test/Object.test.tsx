@@ -1,5 +1,5 @@
-import { objectTests } from '@rjsf/snapshot-tests';
+import { objectTests } from "@rjsf/snapshot-tests";
 
-import WrappedForm from './WrappedForm';
+import WrappedForm from "./WrappedForm";
 
 objectTests(WrappedForm);

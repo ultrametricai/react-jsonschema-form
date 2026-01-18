@@ -1,5 +1,10 @@
-import { FocusEvent, useCallback } from 'react';
-import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjsf/utils';
+import { FocusEvent, useCallback } from "react";
+import {
+  WidgetProps,
+  StrictRJSFSchema,
+  RJSFSchema,
+  FormContextType,
+} from "@rjsf/utils";
 
 /** The `TimeWidget` component renders a time input with DaisyUI styling
  *
@@ -11,10 +16,13 @@ import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType } from '@rjs
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
-  const { id, value, onChange, onFocus, onBlur, required, disabled, readonly } = props;
+export default function TimeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
+  const { id, value, onChange, onFocus, onBlur, required, disabled, readonly } =
+    props;
 
   /** Handle focus events
    *
@@ -54,12 +62,12 @@ export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSch
   );
 
   return (
-    <div className='form-control'>
+    <div className="form-control">
       <input
-        type='time'
+        type="time"
         id={id}
-        className='input input-bordered w-full'
-        value={value || ''}
+        className="input input-bordered w-full"
+        value={value || ""}
         required={required}
         disabled={disabled || readonly}
         readOnly={readonly}

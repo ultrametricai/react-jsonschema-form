@@ -8,10 +8,10 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Checkbox, CheckboxChangeEvent } from 'primereact/checkbox';
+} from "@rjsf/utils";
+import { Checkbox, CheckboxChangeEvent } from "primereact/checkbox";
 
-import { Label } from '../util';
+import { Label } from "../util";
 
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
@@ -29,7 +29,7 @@ export default function CheckboxWidget<
     value,
     disabled,
     readonly,
-    label = '',
+    label = "",
     hideLabel,
     autofocus,
     onChange,
@@ -41,17 +41,20 @@ export default function CheckboxWidget<
     registry,
   } = props;
 
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
   const required = schemaRequiresTrueValue<S>(schema);
-  const checked = value === 'true' || value === true;
+  const checked = value === "true" || value === true;
   const _onChange = (e: CheckboxChangeEvent) => onChange && onChange(e.checked);
-  const _onBlur: React.FocusEventHandler<HTMLInputElement> = () => onBlur && onBlur(id, value);
-  const _onFocus: React.FocusEventHandler<HTMLInputElement> = () => onFocus && onFocus(id, value);
+  const _onBlur: React.FocusEventHandler<HTMLInputElement> = () =>
+    onBlur && onBlur(id, value);
+  const _onFocus: React.FocusEventHandler<HTMLInputElement> = () =>
+    onFocus && onFocus(id, value);
   const description = options.description ?? schema.description;
   const primeProps = (options.prime || {}) as object;
 
@@ -66,14 +69,21 @@ export default function CheckboxWidget<
           registry={registry}
         />
       )}
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "0.5rem",
+          alignItems: "center",
+        }}
+      >
         <Checkbox
           inputId={id}
           name={htmlName || id}
           {...primeProps}
           disabled={disabled || readonly}
           autoFocus={autofocus}
-          checked={typeof value === 'undefined' ? false : checked}
+          checked={typeof value === "undefined" ? false : checked}
           onChange={_onChange}
           onBlur={_onBlur}
           onFocus={_onFocus}

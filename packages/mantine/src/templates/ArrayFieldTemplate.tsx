@@ -6,8 +6,8 @@ import {
   FormContextType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { Fieldset, Box, Group } from '@mantine/core';
+} from "@rjsf/utils";
+import { Fieldset, Box, Group } from "@mantine/core";
 
 /** The `ArrayFieldTemplate` component is the template used to render all items in an array.
  *
@@ -35,16 +35,18 @@ export default function ArrayFieldTemplate<
   } = props;
 
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldDescriptionTemplate = getTemplate<'ArrayFieldDescriptionTemplate', T, S, F>(
-    'ArrayFieldDescriptionTemplate',
-    registry,
-    uiOptions,
-  );
-  const ArrayFieldTitleTemplate = getTemplate<'ArrayFieldTitleTemplate', T, S, F>(
-    'ArrayFieldTitleTemplate',
-    registry,
-    uiOptions,
-  );
+  const ArrayFieldDescriptionTemplate = getTemplate<
+    "ArrayFieldDescriptionTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldDescriptionTemplate", registry, uiOptions);
+  const ArrayFieldTitleTemplate = getTemplate<
+    "ArrayFieldTitleTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldTitleTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -59,7 +61,9 @@ export default function ArrayFieldTemplate<
       schema={schema}
       uiSchema={uiSchema}
       registry={registry}
-      optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+      optionalDataControl={
+        showOptionalDataControlInTitle ? optionalDataControl : undefined
+      }
     />
   );
 
@@ -74,20 +78,20 @@ export default function ArrayFieldTemplate<
           registry={registry}
         />
       )}
-      <Box className='row rjsf-array-item-list'>
+      <Box className="row rjsf-array-item-list">
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {items}
       </Box>
       {canAdd && (
-        <Group justify='flex-end'>
+        <Group justify="flex-end">
           <AddButton
-            id={buttonId(fieldPathId, 'add')}
-            className='rjsf-array-item-add'
+            id={buttonId(fieldPathId, "add")}
+            className="rjsf-array-item-add"
             disabled={disabled || readonly}
             onClick={onAddClick}
             uiSchema={uiSchema}
             registry={registry}
-            iconType='md'
+            iconType="md"
           />
         </Group>
       )}

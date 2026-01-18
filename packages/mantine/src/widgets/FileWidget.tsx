@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -7,19 +7,21 @@ import {
   StrictRJSFSchema,
   useFileWidgetProps,
   WidgetProps,
-} from '@rjsf/utils';
-import { FileInput, Pill } from '@mantine/core';
+} from "@rjsf/utils";
+import { FileInput, Pill } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /**
  * The `FileWidget` is a widget for rendering file upload fields.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function FileWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     name,
@@ -36,12 +38,16 @@ export default function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSch
     multiple,
     onChange,
   } = props;
-  const { filesInfo, handleChange, handleRemove } = useFileWidgetProps(value, onChange, multiple);
+  const { filesInfo, handleChange, handleRemove } = useFileWidgetProps(
+    value,
+    onChange,
+    multiple,
+  );
   const themeProps = cleanupOptions(options);
 
   const handleOnChange = useCallback(
     (files: any) => {
-      if (typeof files === 'object') {
+      if (typeof files === "object") {
         handleChange(files);
       }
     },
@@ -53,7 +59,11 @@ export default function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSch
       return (
         <Pill.Group>
           {filesInfo.map((file, index) => (
-            <Pill key={index} withRemoveButton onRemove={() => handleRemove(index)}>
+            <Pill
+              key={index}
+              withRemoveButton
+              onRemove={() => handleRemove(index)}
+            >
               {file.name}
             </Pill>
           ))}
@@ -67,7 +77,7 @@ export default function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSch
     <FileInput
       id={id}
       name={name}
-      value={value || ''}
+      value={value || ""}
       placeholder={placeholder || undefined}
       required={required}
       disabled={disabled || readonly}
@@ -76,7 +86,9 @@ export default function FileWidget<T = any, S extends StrictRJSFSchema = RJSFSch
       multiple={!!multiple}
       valueComponent={ValueComponent}
       onChange={handleOnChange}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       {...themeProps}
       aria-describedby={ariaDescribedByIds(id)}
     />

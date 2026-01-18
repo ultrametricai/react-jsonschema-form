@@ -1,9 +1,14 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { FormContextType, OptionalDataControlsTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  FormContextType,
+  OptionalDataControlsTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
-import { RemoveButton } from '../ButtonTemplates';
-import DaisyUIButton from '../ButtonTemplates/DaisyUIButton';
+import { RemoveButton } from "../ButtonTemplates";
+import DaisyUIButton from "../ButtonTemplates/DaisyUIButton";
 
 /** The OptionalDataControlsTemplate renders one of three different states. If
  * there is an `onAddClick()` function, it renders the "Add" button. If there is
@@ -24,9 +29,9 @@ export default function OptionalDataControlsTemplate<
       <DaisyUIButton
         id={id}
         registry={registry}
-        iconType='info'
+        iconType="info"
         icon={faPlus as IconDefinition}
-        className='rjsf-add-optional-data'
+        className="rjsf-add-optional-data"
         onClick={onAddClick}
         title={label}
       />
@@ -36,7 +41,7 @@ export default function OptionalDataControlsTemplate<
       <RemoveButton
         id={id}
         registry={registry}
-        className='rjsf-remove-optional-data'
+        className="rjsf-remove-optional-data"
         onClick={onRemoveClick}
         title={label}
       />

@@ -1,5 +1,12 @@
-import { useCallback } from 'react';
-import { WidgetProps, StrictRJSFSchema, RJSFSchema, FormContextType, getTemplate, descriptionId } from '@rjsf/utils';
+import { useCallback } from "react";
+import {
+  WidgetProps,
+  StrictRJSFSchema,
+  RJSFSchema,
+  FormContextType,
+  getTemplate,
+  descriptionId,
+} from "@rjsf/utils";
 
 /** The `CheckboxWidget` component renders a single checkbox input with DaisyUI styling.
  *
@@ -34,28 +41,31 @@ export default function CheckboxWidget<
     onFocus,
     onBlur,
   } = props;
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
   const description = options.description || schema.description;
 
   /** Handle focus events
    */
-  const handleFocus: React.FocusEventHandler<HTMLInputElement> = useCallback(() => {
-    if (onFocus) {
-      onFocus(id, value);
-    }
-  }, [onFocus, id, value]);
+  const handleFocus: React.FocusEventHandler<HTMLInputElement> =
+    useCallback(() => {
+      if (onFocus) {
+        onFocus(id, value);
+      }
+    }, [onFocus, id, value]);
 
   /** Handle blur events
    */
-  const handleBlur: React.FocusEventHandler<HTMLInputElement> = useCallback(() => {
-    if (onBlur) {
-      onBlur(id, value);
-    }
-  }, [onBlur, id, value]);
+  const handleBlur: React.FocusEventHandler<HTMLInputElement> =
+    useCallback(() => {
+      if (onBlur) {
+        onBlur(id, value);
+      }
+    }, [onBlur, id, value]);
 
   /** Handle change events
    *
@@ -70,7 +80,7 @@ export default function CheckboxWidget<
 
   const input = (
     <input
-      type='checkbox'
+      type="checkbox"
       id={id}
       name={htmlName || id}
       checked={value}
@@ -79,12 +89,12 @@ export default function CheckboxWidget<
       onChange={handleChange}
       onFocus={handleFocus}
       onBlur={handleBlur}
-      className='checkbox'
+      className="checkbox"
     />
   );
 
   return (
-    <div className='form-control'>
+    <div className="form-control">
       {!hideLabel && description && (
         <DescriptionFieldTemplate
           id={descriptionId(id)}
@@ -97,11 +107,11 @@ export default function CheckboxWidget<
       {hideLabel || !label ? (
         input
       ) : (
-        <label className='label cursor-pointer justify-start'>
-          <div className='mr-2'>{input}</div>
-          <span className='label-text'>
+        <label className="label cursor-pointer justify-start">
+          <div className="mr-2">{input}</div>
+          <span className="label-text">
             {label}
-            {required && <span className='text-error ml-1'>*</span>}
+            {required && <span className="text-error ml-1">*</span>}
           </span>
         </label>
       )}

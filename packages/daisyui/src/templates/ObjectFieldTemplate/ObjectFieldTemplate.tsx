@@ -9,7 +9,7 @@ import {
   StrictRJSFSchema,
   titleId,
   buttonId,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `ObjectFieldTemplate` component renders a layout for object fields in the form
  * with DaisyUI styling. It handles:
@@ -43,12 +43,17 @@ export default function ObjectFieldTemplate<
     registry,
   } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const TitleFieldTemplate = getTemplate<'TitleFieldTemplate', T, S, F>('TitleFieldTemplate', registry, uiOptions);
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
+  const TitleFieldTemplate = getTemplate<"TitleFieldTemplate", T, S, F>(
+    "TitleFieldTemplate",
     registry,
     uiOptions,
   );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, uiOptions);
   const showOptionalDataControlInTitle = !readonly && !disabled;
   // Button templates are not overridden in the uiSchema
   const {
@@ -56,10 +61,12 @@ export default function ObjectFieldTemplate<
   } = registry.templates;
 
   // Check if this is the root object
-  const isRoot = fieldPathId.$id === 'root';
+  const isRoot = fieldPathId.$id === "root";
 
   return (
-    <div className={`form-control ${isRoot ? 'bg-base-100 p-6 rounded-xl shadow-lg' : ''}`}>
+    <div
+      className={`form-control ${isRoot ? "bg-base-100 p-6 rounded-xl shadow-lg" : ""}`}
+    >
       {title && (
         <TitleFieldTemplate
           id={titleId(fieldPathId)}
@@ -68,7 +75,9 @@ export default function ObjectFieldTemplate<
           schema={schema}
           uiSchema={uiSchema}
           registry={registry}
-          optionalDataControl={showOptionalDataControlInTitle ? optionalDataControl : undefined}
+          optionalDataControl={
+            showOptionalDataControlInTitle ? optionalDataControl : undefined
+          }
         />
       )}
       {description && (
@@ -80,7 +89,9 @@ export default function ObjectFieldTemplate<
           registry={registry}
         />
       )}
-      <div className={`grid grid-cols-1 gap-${description ? 3 : 4} ${isRoot ? '' : 'mb-4'}`}>
+      <div
+        className={`grid grid-cols-1 gap-${description ? 3 : 4} ${isRoot ? "" : "mb-4"}`}
+      >
         {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
         {properties.map((element, index) =>
           element.hidden ? (
@@ -88,17 +99,21 @@ export default function ObjectFieldTemplate<
           ) : (
             <div
               key={`${fieldPathId.$id}-${element.name}-${index}`}
-              className={fieldPathId.$id === 'root' && element.name === 'tasks' ? 'mt-2' : ''}
+              className={
+                fieldPathId.$id === "root" && element.name === "tasks"
+                  ? "mt-2"
+                  : ""
+              }
             >
               {element.content}
             </div>
           ),
         )}
         {canExpand<T, S, F>(schema, uiSchema, formData) && (
-          <div className='flex justify-end'>
+          <div className="flex justify-end">
             <AddButton
-              id={buttonId(fieldPathId, 'add')}
-              className='rjsf-object-property-expand btn btn-primary btn-sm'
+              id={buttonId(fieldPathId, "add")}
+              className="rjsf-object-property-expand btn btn-primary btn-sm"
               onClick={onAddProperty}
               disabled={disabled || readonly}
               uiSchema={uiSchema}

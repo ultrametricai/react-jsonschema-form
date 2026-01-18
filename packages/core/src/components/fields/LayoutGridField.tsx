@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode } from 'react';
+import { ComponentType, ReactNode } from "react";
 import {
   ANY_OF_KEY,
   FieldProps,
@@ -24,38 +24,38 @@ import {
   UiSchema,
   ITEMS_KEY,
   useDeepCompareMemo,
-} from '@rjsf/utils';
-import each from 'lodash/each';
-import flatten from 'lodash/flatten';
-import get from 'lodash/get';
-import has from 'lodash/has';
-import includes from 'lodash/includes';
-import intersection from 'lodash/intersection';
-import isEmpty from 'lodash/isEmpty';
-import isFunction from 'lodash/isFunction';
-import isEqual from 'lodash/isEqual';
-import isObject from 'lodash/isObject';
-import isPlainObject from 'lodash/isPlainObject';
-import isString from 'lodash/isString';
-import isUndefined from 'lodash/isUndefined';
-import last from 'lodash/last';
-import set from 'lodash/set';
+} from "@rjsf/utils";
+import each from "lodash/each";
+import flatten from "lodash/flatten";
+import get from "lodash/get";
+import has from "lodash/has";
+import includes from "lodash/includes";
+import intersection from "lodash/intersection";
+import isEmpty from "lodash/isEmpty";
+import isFunction from "lodash/isFunction";
+import isEqual from "lodash/isEqual";
+import isObject from "lodash/isObject";
+import isPlainObject from "lodash/isPlainObject";
+import isString from "lodash/isString";
+import isUndefined from "lodash/isUndefined";
+import last from "lodash/last";
+import set from "lodash/set";
 
 /** The enumeration of the three different Layout GridTemplate type values
  */
 export enum GridType {
-  ROW = 'ui:row',
-  COLUMN = 'ui:col',
-  COLUMNS = 'ui:columns',
-  CONDITION = 'ui:condition',
+  ROW = "ui:row",
+  COLUMN = "ui:col",
+  COLUMNS = "ui:columns",
+  CONDITION = "ui:condition",
 }
 
 /** The enumeration of the different operators within a condition
  */
 export enum Operators {
-  ALL = 'all',
-  SOME = 'some',
-  NONE = 'none',
+  ALL = "all",
+  SOME = "some",
+  NONE = "none",
 }
 
 /** Type used to represent an object that contains anything */
@@ -83,8 +83,11 @@ export type GridSchemaType = {
  */
 export type LayoutGridSchemaType = GridSchemaType | ConfigObject | string;
 
-export interface LayoutGridFieldProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>
-  extends FieldProps<T, S, F> {
+export interface LayoutGridFieldProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+> extends FieldProps<T, S, F> {
   /** Optional string or object used to describe the current level of the `LayoutGridField`
    */
   layoutGridSchema?: LayoutGridSchemaType;
@@ -96,14 +99,17 @@ export const LOOKUP_REGEX = /^\$lookup=(.+)/;
 
 /** The constant representing the main layout grid schema option name in the `uiSchema`
  */
-export const LAYOUT_GRID_UI_OPTION = 'layoutGrid';
+export const LAYOUT_GRID_UI_OPTION = "layoutGrid";
 
 /** The constant representing the main layout grid schema option name in the `uiSchema`
  */
 export const LAYOUT_GRID_OPTION = `ui:${LAYOUT_GRID_UI_OPTION}`;
 
 /** Type used to return options list and whether it has a discriminator */
-type OneOfOptionsInfoType<S extends StrictRJSFSchema = RJSFSchema> = { options: S[]; hasDiscriminator: boolean };
+type OneOfOptionsInfoType<S extends StrictRJSFSchema = RJSFSchema> = {
+  options: S[];
+  hasDiscriminator: boolean;
+};
 
 /** Type used to represent a React-based rendering component */
 type RenderComponent = ComponentType<any>;
@@ -126,7 +132,10 @@ type UIComponentPropsType = {
  * @param [fallback] - The fallback value to return if `value` is nullish
  * @returns - `value` if it is non-nullish otherwise `fallback`
  */
-function getNonNullishValue<T = unknown>(value?: T, fallback?: T): T | undefined {
+function getNonNullishValue<T = unknown>(
+  value?: T,
+  fallback?: T,
+): T | undefined {
   return value ?? fallback;
 }
 
@@ -154,7 +163,11 @@ const LAYOUT_GRID_FIELD_TEST_IDS = getTestIds();
  * @param [schemaReadonly] - Optional flag indicating whether the schema indicates the field is readonly
  * @param [forceReadonly] - Optional flag indicating whether the Form itself is in readonly mode
  */
-export function computeFieldUiSchema<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
+export function computeFieldUiSchema<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
   field: string,
   uiProps: ConfigObject,
   uiSchema?: UiSchema<T, S, F>,
@@ -163,7 +176,11 @@ export function computeFieldUiSchema<T = any, S extends StrictRJSFSchema = RJSFS
 ) {
   const globalUiOptions = get(uiSchema, [UI_GLOBAL_OPTIONS_KEY], {});
   const localUiSchema = get(uiSchema, field);
-  const localUiOptions = { ...get(localUiSchema, [UI_OPTIONS_KEY], {}), ...uiProps, ...globalUiOptions };
+  const localUiOptions = {
+    ...get(localUiSchema, [UI_OPTIONS_KEY], {}),
+    ...uiProps,
+    ...globalUiOptions,
+  };
   const fieldUiSchema = { ...localUiSchema };
   if (!isEmpty(localUiOptions)) {
     set(fieldUiSchema, [UI_OPTIONS_KEY], localUiOptions);
@@ -173,7 +190,10 @@ export function computeFieldUiSchema<T = any, S extends StrictRJSFSchema = RJSFS
     set(fieldUiSchema, [UI_GLOBAL_OPTIONS_KEY], globalUiOptions);
   }
   let { readonly: uiReadonly } = getUiOptions<T, S, F>(fieldUiSchema);
-  if (forceReadonly === true || (isUndefined(uiReadonly) && schemaReadonly === true)) {
+  if (
+    forceReadonly === true ||
+    (isUndefined(uiReadonly) && schemaReadonly === true)
+  ) {
     // If we are forcing all widgets to be readonly, OR the schema indicates it is readonly AND the uiSchema does not
     // have an overriding value, then update the uiSchema to set readonly to true. Doing this will
     uiReadonly = true;
@@ -205,7 +225,7 @@ export function computeFieldUiSchema<T = any, S extends StrictRJSFSchema = RJSFS
 export function conditionMatches(
   operator?: Operators,
   datum?: unknown,
-  value: unknown = '$0m3tH1nG Un3xP3cT3d',
+  value: unknown = "$0m3tH1nG Un3xP3cT3d",
 ): boolean {
   const data = flatten([datum]).sort();
   const values = flatten([value]).sort();
@@ -233,7 +253,11 @@ export function conditionMatches(
  * @returns - An object containing the list of `LayoutGridSchemaType` `children` and any extra `gridProps`
  * @throws - A `TypeError` when the `children` is not an array
  */
-export function findChildrenAndProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
+export function findChildrenAndProps<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(
   layoutGridSchema: GridSchemaType,
   schemaKey: GridType,
   registry: Registry<T, S, F>,
@@ -241,18 +265,28 @@ export function findChildrenAndProps<T = any, S extends StrictRJSFSchema = RJSFS
   let gridProps: GridProps = {};
   let children = layoutGridSchema[schemaKey];
   if (isPlainObject(children)) {
-    const { children: elements, className: toMapClassNames, ...otherProps } = children as ConfigObject;
+    const {
+      children: elements,
+      className: toMapClassNames,
+      ...otherProps
+    } = children as ConfigObject;
     children = elements;
     if (toMapClassNames) {
-      const classes = toMapClassNames.split(' ');
-      const className = classes.map((ele: string) => lookupFromFormContext<T, S, F>(registry, ele, ele)).join(' ');
+      const classes = toMapClassNames.split(" ");
+      const className = classes
+        .map((ele: string) =>
+          lookupFromFormContext<T, S, F>(registry, ele, ele),
+        )
+        .join(" ");
       gridProps = { ...otherProps, className };
     } else {
       gridProps = otherProps;
     }
   }
   if (!Array.isArray(children)) {
-    throw new TypeError(`Expected array for "${schemaKey}" in ${JSON.stringify(layoutGridSchema)}`);
+    throw new TypeError(
+      `Expected array for "${schemaKey}" in ${JSON.stringify(layoutGridSchema)}`,
+    );
   }
   return { children: children as LayoutGridSchemaType[], gridProps };
 }
@@ -270,7 +304,9 @@ export function findChildrenAndProps<T = any, S extends StrictRJSFSchema = RJSFS
  * @param potentialIndex - A string containing a potential index
  * @returns - An object containing the `rawSchema` and `fieldPathId` of an array item, otherwise an undefined `rawSchema`
  */
-export function computeArraySchemasIfPresent<S extends StrictRJSFSchema = RJSFSchema>(
+export function computeArraySchemasIfPresent<
+  S extends StrictRJSFSchema = RJSFSchema,
+>(
   schema: S | undefined,
   fieldPathId: FieldPathId,
   potentialIndex: string,
@@ -279,7 +315,12 @@ export function computeArraySchemasIfPresent<S extends StrictRJSFSchema = RJSFSc
   fieldPathId: FieldPathId;
 } {
   let rawSchema: S | undefined;
-  if (isNumericIndex(potentialIndex) && schema && schema?.type === 'array' && has(schema, ITEMS_KEY)) {
+  if (
+    isNumericIndex(potentialIndex) &&
+    schema &&
+    schema?.type === "array" &&
+    has(schema, ITEMS_KEY)
+  ) {
     const index = Number(potentialIndex);
     const items = schema[ITEMS_KEY];
     if (Array.isArray(items)) {
@@ -320,7 +361,7 @@ export function getSchemaDetailsForField<
   registry: Registry<T, S, F>,
   dottedPath: string,
   initialSchema: S,
-  formData: FieldProps<T, S, F>['formData'],
+  formData: FieldProps<T, S, F>["formData"],
   initialFieldIdPath: FieldPathId,
 ): {
   schema?: S;
@@ -332,7 +373,7 @@ export function getSchemaDetailsForField<
   const { schemaUtils, globalFormOptions } = registry;
   let rawSchema: S = initialSchema;
   let fieldPathId = initialFieldIdPath;
-  const parts: string[] = dottedPath.split('.');
+  const parts: string[] = dottedPath.split(".");
   const leafPath: string | undefined = parts.pop(); // pop off the last element in the list as the leaf
   let schema: S | undefined = schemaUtils.retrieveSchema(rawSchema, formData); // always returns an object
   let innerData = formData;
@@ -347,7 +388,12 @@ export function getSchemaDetailsForField<
     } else if (schema && (has(schema, ONE_OF_KEY) || has(schema, ANY_OF_KEY))) {
       const xxx = has(schema, ONE_OF_KEY) ? ONE_OF_KEY : ANY_OF_KEY;
       // When the schema represents a oneOf/anyOf, find the selected schema for it and grab the inner part
-      const selectedSchema = schemaUtils.findSelectedOptionInXxxOf(schema, part, xxx, innerData);
+      const selectedSchema = schemaUtils.findSelectedOptionInXxxOf(
+        schema,
+        part,
+        xxx,
+        innerData,
+      );
       rawSchema = get(selectedSchema, [PROPERTIES_KEY, part], {}) as S;
     } else {
       const result = computeArraySchemasIfPresent<S>(schema, fieldPathId, part);
@@ -372,11 +418,23 @@ export function getSchemaDetailsForField<
     if (schema && (has(schema, ONE_OF_KEY) || has(schema, ANY_OF_KEY))) {
       const xxx = has(schema, ONE_OF_KEY) ? ONE_OF_KEY : ANY_OF_KEY;
       // Grab the selected schema for the oneOf/anyOf value for the leafPath using the innerData
-      schema = schemaUtils.findSelectedOptionInXxxOf(schema, leafPath, xxx, innerData);
+      schema = schemaUtils.findSelectedOptionInXxxOf(
+        schema,
+        leafPath,
+        xxx,
+        innerData,
+      );
     }
     fieldPathId = toFieldPathId(leafPath, globalFormOptions, fieldPathId);
-    isRequired = schema !== undefined && Array.isArray(schema.required) && includes(schema.required, leafPath);
-    const result = computeArraySchemasIfPresent<S>(schema, fieldPathId, leafPath);
+    isRequired =
+      schema !== undefined &&
+      Array.isArray(schema.required) &&
+      includes(schema.required, leafPath);
+    const result = computeArraySchemasIfPresent<S>(
+      schema,
+      fieldPathId,
+      leafPath,
+    );
     if (result.rawSchema) {
       schema = result.rawSchema;
       fieldPathId = result.fieldPathId;
@@ -391,7 +449,10 @@ export function getSchemaDetailsForField<
       const xxx = has(schema, ONE_OF_KEY) ? ONE_OF_KEY : ANY_OF_KEY;
       // Set the options if we have a schema with a oneOf/anyOf
       const discriminator = getDiscriminatorFieldFromSchema(schema);
-      optionsInfo = { options: schema[xxx] as S[], hasDiscriminator: !!discriminator };
+      optionsInfo = {
+        options: schema[xxx] as S[],
+        hasDiscriminator: !!discriminator,
+      };
     }
   }
 
@@ -410,7 +471,10 @@ export function getCustomRenderComponent<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
->(render: string | RenderComponent, registry: Registry<T, S, F>): RenderComponent | null {
+>(
+  render: string | RenderComponent,
+  registry: Registry<T, S, F>,
+): RenderComponent | null {
   let customRenderer = render;
   if (isString(customRenderer)) {
     customRenderer = lookupFromFormContext<T, S, F>(registry, customRenderer);
@@ -433,15 +497,18 @@ export function computeUIComponentPropsFromGridSchema<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
->(registry: Registry<T, S, F>, gridSchema?: string | ConfigObject): UIComponentPropsType {
+>(
+  registry: Registry<T, S, F>,
+  gridSchema?: string | ConfigObject,
+): UIComponentPropsType {
   let name: string;
   let UIComponent: RenderComponent | null = null;
   let uiProps: ConfigObject = {};
   let rendered: ReactNode | undefined;
   if (isString(gridSchema) || isUndefined(gridSchema)) {
-    name = gridSchema ?? '';
+    name = gridSchema ?? "";
   } else {
-    const { name: innerName = '', render, ...innerProps } = gridSchema;
+    const { name: innerName = "", render, ...innerProps } = gridSchema;
     name = innerName;
     uiProps = innerProps;
     if (!isEmpty(uiProps)) {
@@ -458,7 +525,12 @@ export function computeUIComponentPropsFromGridSchema<
     }
     UIComponent = getCustomRenderComponent<T, S, F>(render, registry);
     if (!innerName && UIComponent) {
-      rendered = <UIComponent {...innerProps} data-testid={LAYOUT_GRID_FIELD_TEST_IDS.uiComponent} />;
+      rendered = (
+        <UIComponent
+          {...innerProps}
+          data-testid={LAYOUT_GRID_FIELD_TEST_IDS.uiComponent}
+        />
+      );
     }
   }
   return { name, UIComponent, uiProps, rendered };
@@ -483,9 +555,11 @@ type LayoutGridFieldChildrenProps<
  *
  * @returns - The nested `LayoutGridField`s
  */
-function LayoutGridFieldChildren<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutGridFieldChildrenProps<T, S, F>,
-) {
+function LayoutGridFieldChildren<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutGridFieldChildrenProps<T, S, F>) {
   const { childrenLayoutGridSchemaId, ...layoutGridFieldProps } = props;
   const { registry, schema: rawSchema, formData } = layoutGridFieldProps;
   const { schemaUtils } = registry;
@@ -521,16 +595,27 @@ type LayoutFieldProps<
  *
  * @returns - The rendered the children for the `GridType.CONDITION` or null
  */
-function LayoutGridCondition<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutFieldProps<T, S, F>,
-) {
+function LayoutGridCondition<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutFieldProps<T, S, F>) {
   const { layoutGridSchema, ...layoutGridFieldProps } = props;
   const { formData, registry } = layoutGridFieldProps;
-  const { children, gridProps } = findChildrenAndProps<T, S, F>(layoutGridSchema, GridType.CONDITION, registry);
-  const { operator, field = '', value } = gridProps;
+  const { children, gridProps } = findChildrenAndProps<T, S, F>(
+    layoutGridSchema,
+    GridType.CONDITION,
+    registry,
+  );
+  const { operator, field = "", value } = gridProps;
   const fieldData = get(formData, field, null);
   if (conditionMatches(operator, fieldData, value)) {
-    return <LayoutGridFieldChildren {...layoutGridFieldProps} childrenLayoutGridSchemaId={children} />;
+    return (
+      <LayoutGridFieldChildren
+        {...layoutGridFieldProps}
+        childrenLayoutGridSchemaId={children}
+      />
+    );
   }
   return null;
 }
@@ -541,18 +626,35 @@ function LayoutGridCondition<T = any, S extends StrictRJSFSchema = RJSFSchema, F
  *
  * @returns - The rendered `GridTemplate` containing the children for the `GridType.COLUMN`
  */
-function LayoutGridCol<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutFieldProps<T, S, F>,
-) {
+function LayoutGridCol<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutFieldProps<T, S, F>) {
   const { layoutGridSchema, ...layoutGridFieldProps } = props;
   const { registry, uiSchema } = layoutGridFieldProps;
-  const { children, gridProps } = findChildrenAndProps<T, S, F>(layoutGridSchema, GridType.COLUMN, registry);
+  const { children, gridProps } = findChildrenAndProps<T, S, F>(
+    layoutGridSchema,
+    GridType.COLUMN,
+    registry,
+  );
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const GridTemplate = getTemplate<'GridTemplate', T, S, F>('GridTemplate', registry, uiOptions);
+  const GridTemplate = getTemplate<"GridTemplate", T, S, F>(
+    "GridTemplate",
+    registry,
+    uiOptions,
+  );
 
   return (
-    <GridTemplate column data-testid={LAYOUT_GRID_FIELD_TEST_IDS.col} {...gridProps}>
-      <LayoutGridFieldChildren {...layoutGridFieldProps} childrenLayoutGridSchemaId={children} />
+    <GridTemplate
+      column
+      data-testid={LAYOUT_GRID_FIELD_TEST_IDS.col}
+      {...gridProps}
+    >
+      <LayoutGridFieldChildren
+        {...layoutGridFieldProps}
+        childrenLayoutGridSchemaId={children}
+      />
     </GridTemplate>
   );
 }
@@ -563,15 +665,25 @@ function LayoutGridCol<T = any, S extends StrictRJSFSchema = RJSFSchema, F exten
  *
  * @returns - The rendered `GridTemplate` containing the children for the `GridType.COLUMNS`
  */
-function LayoutGridColumns<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutFieldProps<T, S, F>,
-) {
+function LayoutGridColumns<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutFieldProps<T, S, F>) {
   const { layoutGridSchema, ...layoutGridFieldProps } = props;
 
   const { registry, uiSchema } = layoutGridFieldProps;
-  const { children, gridProps } = findChildrenAndProps<T, S, F>(layoutGridSchema, GridType.COLUMNS, registry);
+  const { children, gridProps } = findChildrenAndProps<T, S, F>(
+    layoutGridSchema,
+    GridType.COLUMNS,
+    registry,
+  );
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const GridTemplate = getTemplate<'GridTemplate', T, S, F>('GridTemplate', registry, uiOptions);
+  const GridTemplate = getTemplate<"GridTemplate", T, S, F>(
+    "GridTemplate",
+    registry,
+    uiOptions,
+  );
 
   return children.map((child) => (
     <GridTemplate
@@ -580,7 +692,10 @@ function LayoutGridColumns<T = any, S extends StrictRJSFSchema = RJSFSchema, F e
       data-testid={LAYOUT_GRID_FIELD_TEST_IDS.col}
       {...gridProps}
     >
-      <LayoutGridFieldChildren {...layoutGridFieldProps} childrenLayoutGridSchemaId={[child]} />
+      <LayoutGridFieldChildren
+        {...layoutGridFieldProps}
+        childrenLayoutGridSchemaId={[child]}
+      />
     </GridTemplate>
   ));
 }
@@ -591,19 +706,32 @@ function LayoutGridColumns<T = any, S extends StrictRJSFSchema = RJSFSchema, F e
  *
  * @returns - The rendered `GridTemplate` containing the children for the `GridType.ROW`
  */
-function LayoutGridRow<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutFieldProps<T, S, F>,
-) {
+function LayoutGridRow<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutFieldProps<T, S, F>) {
   const { layoutGridSchema, ...layoutGridFieldProps } = props;
 
   const { registry, uiSchema } = layoutGridFieldProps;
-  const { children, gridProps } = findChildrenAndProps<T, S, F>(layoutGridSchema, GridType.ROW, registry);
+  const { children, gridProps } = findChildrenAndProps<T, S, F>(
+    layoutGridSchema,
+    GridType.ROW,
+    registry,
+  );
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const GridTemplate = getTemplate<'GridTemplate', T, S, F>('GridTemplate', registry, uiOptions);
+  const GridTemplate = getTemplate<"GridTemplate", T, S, F>(
+    "GridTemplate",
+    registry,
+    uiOptions,
+  );
 
   return (
     <GridTemplate {...gridProps} data-testid={LAYOUT_GRID_FIELD_TEST_IDS.row}>
-      <LayoutGridFieldChildren {...layoutGridFieldProps} childrenLayoutGridSchemaId={children} />
+      <LayoutGridFieldChildren
+        {...layoutGridFieldProps}
+        childrenLayoutGridSchemaId={children}
+      />
     </GridTemplate>
   );
 }
@@ -634,9 +762,11 @@ type LayoutGridFieldComponentProps<
  *
  * @returns - One of `LayoutMultiSchemaField`, `SchemaField`, a custom render component or null, depending
  */
-function LayoutGridFieldComponent<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: LayoutGridFieldComponentProps<T, S, F>,
-) {
+function LayoutGridFieldComponent<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: LayoutGridFieldComponentProps<T, S, F>) {
   const {
     gridSchema,
     schema: initialSchema,
@@ -655,7 +785,10 @@ function LayoutGridFieldComponent<T = any, S extends StrictRJSFSchema = RJSFSche
   const { fields } = registry;
   const { SchemaField, LayoutMultiSchemaField } = fields;
 
-  const uiComponentProps = computeUIComponentPropsFromGridSchema(registry, gridSchema);
+  const uiComponentProps = computeUIComponentPropsFromGridSchema(
+    registry,
+    gridSchema,
+  );
   const { name, UIComponent, uiProps } = uiComponentProps;
   const {
     schema,
@@ -663,7 +796,13 @@ function LayoutGridFieldComponent<T = any, S extends StrictRJSFSchema = RJSFSche
     isReadonly,
     optionsInfo,
     fieldPathId: fieldIdSchema,
-  } = getSchemaDetailsForField<T, S, F>(registry, name, initialSchema, formData, fieldPathId);
+  } = getSchemaDetailsForField<T, S, F>(
+    registry,
+    name,
+    initialSchema,
+    formData,
+    fieldPathId,
+  );
   const memoFieldPathId = useDeepCompareMemo<FieldPathId>(fieldIdSchema);
 
   if (uiComponentProps.rendered) {
@@ -671,13 +810,21 @@ function LayoutGridFieldComponent<T = any, S extends StrictRJSFSchema = RJSFSche
   }
 
   if (schema) {
-    const Field = optionsInfo?.hasDiscriminator ? LayoutMultiSchemaField : SchemaField;
+    const Field = optionsInfo?.hasDiscriminator
+      ? LayoutMultiSchemaField
+      : SchemaField;
     // Call this function to get the appropriate UISchema, which will always have its `readonly` state matching the
     // `uiReadonly` flag that it returns. This is done since the `SchemaField` will always defer to the `readonly`
     // state in the uiSchema over anything in the props or schema. Because we are implementing the "readonly" state of
     // the `Form` via the prop passed to `LayoutGridField` we need to make sure the uiSchema always has a true value
     // when it is needed
-    const { fieldUiSchema, uiReadonly } = computeFieldUiSchema<T, S, F>(name, uiProps, uiSchema, isReadonly, readonly);
+    const { fieldUiSchema, uiReadonly } = computeFieldUiSchema<T, S, F>(
+      name,
+      uiProps,
+      uiSchema,
+      isReadonly,
+      readonly,
+    );
 
     return (
       <Field
@@ -963,7 +1110,11 @@ export default function LayoutGridField<
   const { uiSchema } = props;
   let { layoutGridSchema } = props;
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  if (!layoutGridSchema && LAYOUT_GRID_UI_OPTION in uiOptions && isObject(uiOptions[LAYOUT_GRID_UI_OPTION])) {
+  if (
+    !layoutGridSchema &&
+    LAYOUT_GRID_UI_OPTION in uiOptions &&
+    isObject(uiOptions[LAYOUT_GRID_UI_OPTION])
+  ) {
     layoutGridSchema = uiOptions[LAYOUT_GRID_UI_OPTION];
   }
 
@@ -975,10 +1126,14 @@ export default function LayoutGridField<
       return <LayoutGridCol {...props} layoutGridSchema={layoutGridSchema} />;
     }
     if (GridType.COLUMNS in layoutGridSchema) {
-      return <LayoutGridColumns {...props} layoutGridSchema={layoutGridSchema} />;
+      return (
+        <LayoutGridColumns {...props} layoutGridSchema={layoutGridSchema} />
+      );
     }
     if (GridType.CONDITION in layoutGridSchema) {
-      return <LayoutGridCondition {...props} layoutGridSchema={layoutGridSchema} />;
+      return (
+        <LayoutGridCondition {...props} layoutGridSchema={layoutGridSchema} />
+      );
     }
   }
   return <LayoutGridFieldComponent {...props} gridSchema={layoutGridSchema} />;

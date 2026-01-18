@@ -1,5 +1,5 @@
-import { ID_KEY } from './constants';
-import { FieldPathId, FieldPathList, GlobalFormOptions } from './types';
+import { ID_KEY } from "./constants";
+import { FieldPathId, FieldPathList, GlobalFormOptions } from "./types";
 
 /** Constructs the `FieldPathId` for `fieldPath`. If `parentPathId` is provided, the `fieldPath` is appended to the end
  * of the parent path. Then the `ID_KEY` of the resulting `FieldPathId` is constructed from the `idPrefix` and
@@ -20,14 +20,20 @@ export default function toFieldPathId(
   isMultiValue?: boolean,
 ): FieldPathId {
   const basePath = Array.isArray(parentPath) ? parentPath : parentPath?.path;
-  const childPath = fieldPath === '' ? [] : [fieldPath];
+  const childPath = fieldPath === "" ? [] : [fieldPath];
   const path = basePath ? basePath.concat(...childPath) : childPath;
-  const id = [globalFormOptions.idPrefix, ...path].join(globalFormOptions.idSeparator);
+  const id = [globalFormOptions.idPrefix, ...path].join(
+    globalFormOptions.idSeparator,
+  );
 
   // Generate name attribute if nameGenerator is provided
   let name: string | undefined;
   if (globalFormOptions.nameGenerator && path.length > 0) {
-    name = globalFormOptions.nameGenerator(path, globalFormOptions.idPrefix, isMultiValue);
+    name = globalFormOptions.nameGenerator(
+      path,
+      globalFormOptions.idPrefix,
+      isMultiValue,
+    );
   }
 
   return { path, [ID_KEY]: id, ...(name !== undefined && { name }) };

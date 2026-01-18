@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, useCallback } from 'react';
+import { ChangeEvent, FocusEvent, useCallback } from "react";
 import {
   FormContextType,
   RJSFSchema,
@@ -6,16 +6,18 @@ import {
   WidgetProps,
   labelValue,
   ariaDescribedByIds,
-} from '@rjsf/utils';
-import { TimeInput } from '@mantine/dates';
+} from "@rjsf/utils";
+import { TimeInput } from "@mantine/dates";
 
 /** The `TimeWidget` component uses the `TimeInput` component from `@mantine/dates` for rendering.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function TimeWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     name,
@@ -34,11 +36,11 @@ export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSch
     onFocus,
   } = props;
 
-  const emptyValue = options.emptyValue || '';
+  const emptyValue = options.emptyValue || "";
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value === '' ? emptyValue : e.target.value);
+      onChange(e.target.value === "" ? emptyValue : e.target.value);
     },
     [onChange, emptyValue],
   );
@@ -65,7 +67,7 @@ export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSch
     <TimeInput
       id={id}
       name={name}
-      value={value || ''}
+      value={value || ""}
       placeholder={placeholder || undefined}
       required={required}
       disabled={disabled || readonly}
@@ -74,10 +76,14 @@ export default function TimeWidget<T = any, S extends StrictRJSFSchema = RJSFSch
       onChange={handleChange}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       {...options}
       aria-describedby={ariaDescribedByIds(id)}
-      classNames={typeof options?.classNames === 'object' ? options.classNames : undefined}
+      classNames={
+        typeof options?.classNames === "object" ? options.classNames : undefined
+      }
     />
   );
 }

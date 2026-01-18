@@ -5,8 +5,8 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
-import { Box, Flex, Group } from '@mantine/core';
+} from "@rjsf/utils";
+import { Box, Flex, Group } from "@mantine/core";
 
 /** The `ArrayFieldItemTemplate` component is the template used to render an items of an array.
  *
@@ -17,20 +17,33 @@ export default function ArrayFieldItemTemplate<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: ArrayFieldItemTemplateProps<T, S, F>) {
-  const { buttonsProps, className, hasToolbar, index, uiSchema, registry, children } = props;
-  const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  const ArrayFieldItemButtonsTemplate = getTemplate<'ArrayFieldItemButtonsTemplate', T, S, F>(
-    'ArrayFieldItemButtonsTemplate',
+  const {
+    buttonsProps,
+    className,
+    hasToolbar,
+    index,
+    uiSchema,
     registry,
-    uiOptions,
-  );
+    children,
+  } = props;
+  const uiOptions = getUiOptions<T, S, F>(uiSchema);
+  const ArrayFieldItemButtonsTemplate = getTemplate<
+    "ArrayFieldItemButtonsTemplate",
+    T,
+    S,
+    F
+  >("ArrayFieldItemButtonsTemplate", registry, uiOptions);
 
   return (
-    <Box key={`array-item-${index}`} className={className || 'rjsf-array-item'} mb='xs'>
-      <Flex gap='xs' align='end' justify='center'>
-        <Box w='100%'>{children}</Box>
+    <Box
+      key={`array-item-${index}`}
+      className={className || "rjsf-array-item"}
+      mb="xs"
+    >
+      <Flex gap="xs" align="end" justify="center">
+        <Box w="100%">{children}</Box>
         {hasToolbar && (
-          <Group wrap='nowrap' gap={2} mb={7}>
+          <Group wrap="nowrap" gap={2} mb={7}>
             <ArrayFieldItemButtonsTemplate {...buttonsProps} />
           </Group>
         )}

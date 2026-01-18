@@ -7,8 +7,8 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
-import { Flex, Grid, TextInput } from '@mantine/core';
+} from "@rjsf/utils";
+import { Flex, Grid, TextInput } from "@mantine/core";
 
 /** The `WrapIfAdditional` component is used by the `FieldTemplate` to rename, or remove properties that are
  * part of an `additionalProperties` part of a schema.
@@ -60,30 +60,30 @@ export default function WrapIfAdditionalTemplate<
 
   return (
     <div className={classNames} style={style}>
-      <Flex gap='xs' align='end' justify='center'>
-        <Grid w='100%' align='center'>
-          <Grid.Col span={6} className='form-additional'>
+      <Flex gap="xs" align="end" justify="center">
+        <Grid w="100%" align="center">
+          <Grid.Col span={6} className="form-additional">
             <TextInput
-              className='form-group'
+              className="form-group"
               label={displayLabel ? keyLabel : undefined}
               defaultValue={label}
               required={required}
-              description={rawDescription ? '\u00A0' : undefined}
+              description={rawDescription ? "\u00A0" : undefined}
               disabled={disabled || readonly}
               id={`${id}-key`}
               name={`${id}-key`}
               onBlur={!readonly ? onKeyRenameBlur : undefined}
             />
           </Grid.Col>
-          <Grid.Col span={6} className='form-additional'>
+          <Grid.Col span={6} className="form-additional">
             {children}
           </Grid.Col>
         </Grid>
         <div>
           <RemoveButton
-            id={buttonId(id, 'remove')}
-            iconType='sm'
-            className='rjsf-array-item-remove'
+            id={buttonId(id, "remove")}
+            iconType="sm"
+            className="rjsf-array-item-remove"
             disabled={disabled || readonly}
             onClick={onRemoveProperty}
             uiSchema={buttonUiOptions}

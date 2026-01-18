@@ -1,4 +1,4 @@
-import { FocusEvent } from 'react';
+import { FocusEvent } from "react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -9,15 +9,24 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Label, Radio, RadioGroup, RadioGroupOnChangeData } from '@fluentui/react-components';
+} from "@rjsf/utils";
+import {
+  Label,
+  Radio,
+  RadioGroup,
+  RadioGroupOnChangeData,
+} from "@fluentui/react-components";
 
 /** The `RadioWidget` is a widget for rendering a radio group.
  *  It is typically used with a string property constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>({
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>({
   id,
   htmlName,
   options,
@@ -36,11 +45,26 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const _onChange = (_: any, data: RadioGroupOnChangeData) =>
     onChange(enumOptionsValueForIndex<S>(data.value, enumOptions, emptyValue));
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
-  const selectedIndex = enumOptionsIndexForValue<S>(value, enumOptions) ?? undefined;
+  const selectedIndex =
+    enumOptionsIndexForValue<S>(value, enumOptions) ?? undefined;
 
   return (
     <>
@@ -53,7 +77,7 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
       <RadioGroup
         id={id}
         name={htmlName || id}
-        layout={inline ? 'horizontal' : 'vertical'}
+        layout={inline ? "horizontal" : "vertical"}
         value={selectedIndex as string | undefined}
         onChange={_onChange}
         onBlur={_onBlur}
@@ -62,7 +86,9 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
       >
         {Array.isArray(enumOptions) &&
           enumOptions.map((option, index) => {
-            const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+            const itemDisabled =
+              Array.isArray(enumDisabled) &&
+              enumDisabled.indexOf(option.value) !== -1;
             return (
               <Radio
                 id={optionId(id, index)}

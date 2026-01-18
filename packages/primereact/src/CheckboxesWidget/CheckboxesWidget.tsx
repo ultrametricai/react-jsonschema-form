@@ -1,4 +1,4 @@
-import { Checkbox, CheckboxChangeEvent } from 'primereact/checkbox';
+import { Checkbox, CheckboxChangeEvent } from "primereact/checkbox";
 import {
   ariaDescribedByIds,
   enumOptionsDeselectValue,
@@ -11,9 +11,9 @@ import {
   WidgetProps,
   descriptionId,
   getTemplate,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { Label } from '../util';
+import { Label } from "../util";
 
 /** The `CheckboxesWidget` is a widget for rendering checkbox groups.
  *  It is typically used to represent an array of enums.
@@ -49,15 +49,18 @@ export default function CheckboxesWidget<
     if (e.checked) {
       onChange(enumOptionsSelectValue<S>(index, checkboxesValues, enumOptions));
     } else {
-      onChange(enumOptionsDeselectValue<S>(index, checkboxesValues, enumOptions));
+      onChange(
+        enumOptionsDeselectValue<S>(index, checkboxesValues, enumOptions),
+      );
     }
   };
 
-  const DescriptionFieldTemplate = getTemplate<'DescriptionFieldTemplate', T, S, F>(
-    'DescriptionFieldTemplate',
-    registry,
-    options,
-  );
+  const DescriptionFieldTemplate = getTemplate<
+    "DescriptionFieldTemplate",
+    T,
+    S,
+    F
+  >("DescriptionFieldTemplate", registry, options);
 
   const _onBlur = () => onBlur(id, value);
   const _onFocus = () => onFocus(id, value);
@@ -67,7 +70,13 @@ export default function CheckboxesWidget<
   return (
     <div
       id={id}
-      style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '0.5rem', marginBottom: '0.5rem' }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        marginTop: "0.5rem",
+        marginBottom: "0.5rem",
+      }}
     >
       {!hideLabel && !!description && (
         <DescriptionFieldTemplate
@@ -80,10 +89,23 @@ export default function CheckboxesWidget<
       )}
       {Array.isArray(enumOptions) &&
         enumOptions.map((option, index) => {
-          const checked = enumOptionsIsSelected<S>(option.value, checkboxesValues);
-          const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+          const checked = enumOptionsIsSelected<S>(
+            option.value,
+            checkboxesValues,
+          );
+          const itemDisabled =
+            Array.isArray(enumDisabled) &&
+            enumDisabled.indexOf(option.value) !== -1;
           return (
-            <div key={index} style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}>
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                gap: "0.5rem",
+                alignItems: "center",
+              }}
+            >
               <Checkbox
                 inputId={optionId(id, index)}
                 name={htmlName || id}

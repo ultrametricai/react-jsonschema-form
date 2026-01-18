@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import { Input } from 'antd';
+import { ChangeEvent, FocusEvent } from "react";
+import { Input } from "antd";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -7,7 +7,7 @@ import {
   StrictRJSFSchema,
   WidgetProps,
   GenericObjectType,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `PasswordWidget` component uses the `BaseInputTemplate` changing the type to `password`.
  *
@@ -18,18 +18,31 @@ export default function PasswordWidget<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: WidgetProps<T, S, F>) {
-  const { disabled, registry, id, onBlur, onChange, onFocus, options, placeholder, readonly, value } = props;
+  const {
+    disabled,
+    registry,
+    id,
+    onBlur,
+    onChange,
+    onFocus,
+    options,
+    placeholder,
+    readonly,
+    value,
+  } = props;
   const { formContext } = registry;
   const { readonlyAsDisabled = true } = formContext as GenericObjectType;
 
-  const emptyValue = options.emptyValue || '';
+  const emptyValue = options.emptyValue || "";
 
   const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) =>
-    onChange(target.value === '' ? emptyValue : target.value);
+    onChange(target.value === "" ? emptyValue : target.value);
 
-  const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target.value);
+  const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target.value);
 
-  const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target.value);
+  const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target.value);
 
   return (
     <Input.Password
@@ -40,7 +53,7 @@ export default function PasswordWidget<
       onChange={!readonly ? handleChange : undefined}
       onFocus={!readonly ? handleFocus : undefined}
       placeholder={placeholder}
-      value={value || ''}
+      value={value || ""}
       aria-describedby={ariaDescribedByIds(id)}
     />
   );

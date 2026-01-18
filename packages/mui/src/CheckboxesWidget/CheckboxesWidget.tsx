@@ -1,8 +1,8 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
-import FormLabel from '@mui/material/FormLabel';
+import { ChangeEvent, FocusEvent } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormGroup from "@mui/material/FormGroup";
+import FormLabel from "@mui/material/FormLabel";
 import {
   ariaDescribedByIds,
   enumOptionsDeselectValue,
@@ -15,7 +15,7 @@ import {
   WidgetProps,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `CheckboxesWidget` is a widget for rendering checkbox groups.
  *  It is typically used to represent an array of enums.
@@ -50,14 +50,30 @@ export default function CheckboxesWidget<
       if (checked) {
         onChange(enumOptionsSelectValue(index, checkboxesValues, enumOptions));
       } else {
-        onChange(enumOptionsDeselectValue(index, checkboxesValues, enumOptions));
+        onChange(
+          enumOptionsDeselectValue(index, checkboxesValues, enumOptions),
+        );
       }
     };
 
   const _onBlur = ({ target }: FocusEvent<HTMLButtonElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
   const _onFocus = ({ target }: FocusEvent<HTMLButtonElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   return (
     <>
@@ -70,8 +86,13 @@ export default function CheckboxesWidget<
       <FormGroup id={id} row={!!inline}>
         {Array.isArray(enumOptions) &&
           enumOptions.map((option, index: number) => {
-            const checked = enumOptionsIsSelected<S>(option.value, checkboxesValues);
-            const itemDisabled = Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1;
+            const checked = enumOptionsIsSelected<S>(
+              option.value,
+              checkboxesValues,
+            );
+            const itemDisabled =
+              Array.isArray(enumDisabled) &&
+              enumDisabled.indexOf(option.value) !== -1;
             const checkbox = (
               <Checkbox
                 id={optionId(id, index)}
@@ -85,7 +106,13 @@ export default function CheckboxesWidget<
                 aria-describedby={ariaDescribedByIds(id)}
               />
             );
-            return <FormControlLabel control={checkbox} key={index} label={option.label} />;
+            return (
+              <FormControlLabel
+                control={checkbox}
+                key={index}
+                label={option.label}
+              />
+            );
           })}
       </FormGroup>
     </>

@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from 'react';
-import { Input, InputNumber } from 'antd';
+import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
+import { Input, InputNumber } from "antd";
 import {
   ariaDescribedByIds,
   BaseInputTemplateProps,
@@ -9,10 +9,10 @@ import {
   GenericObjectType,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 const INPUT_STYLE = {
-  width: '100%',
+  width: "100%",
 };
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the `core` theme.
@@ -53,23 +53,26 @@ export default function BaseInputTemplate<
 
   const handleTextChange = onChangeOverride
     ? onChangeOverride
-    : ({ target }: ChangeEvent<HTMLInputElement>) => onChange(target.value === '' ? options.emptyValue : target.value);
+    : ({ target }: ChangeEvent<HTMLInputElement>) =>
+        onChange(target.value === "" ? options.emptyValue : target.value);
 
-  const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) => onBlur(id, target && target.value);
+  const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onBlur(id, target && target.value);
 
-  const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) => onFocus(id, target && target.value);
+  const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
+    onFocus(id, target && target.value);
 
   const handleClear = useCallback(
     (e: MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
-      onChange(options.emptyValue ?? '');
+      onChange(options.emptyValue ?? "");
     },
     [onChange, options.emptyValue],
   );
 
   const input =
-    inputProps.type === 'number' || inputProps.type === 'integer' ? (
+    inputProps.type === "number" || inputProps.type === "integer" ? (
       <InputNumber
         disabled={disabled || (readonlyAsDisabled && readonly)}
         id={id}
@@ -110,7 +113,11 @@ export default function BaseInputTemplate<
       {Array.isArray(schema.examples) && (
         <datalist id={examplesId(id)}>
           {(schema.examples as string[])
-            .concat(schema.default && !schema.examples.includes(schema.default) ? ([schema.default] as string[]) : [])
+            .concat(
+              schema.default && !schema.examples.includes(schema.default)
+                ? ([schema.default] as string[])
+                : [],
+            )
             .map((example) => {
               return <option key={example} value={example} />;
             })}

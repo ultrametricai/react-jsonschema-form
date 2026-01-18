@@ -1,155 +1,166 @@
-import { gridTests } from '@rjsf/snapshot-tests';
+import { gridTests } from "@rjsf/snapshot-tests";
 
-import WrappedForm from './WrappedForm';
+import WrappedForm from "./WrappedForm";
 
 gridTests(WrappedForm, {
   ColumnWidthAll: {},
   ColumnWidth4: {},
   ColumnWidth6: {},
   ColumnWidth8: {},
-  Row2Columns: { templateColumns: 'repeat(2, 1fr)' },
-  Row3Columns: { templateColumns: 'repeat(3, 1fr)' },
+  Row2Columns: { templateColumns: "repeat(2, 1fr)" },
+  Row3Columns: { templateColumns: "repeat(3, 1fr)" },
   ComplexUiSchema: {
-    'ui:field': 'LayoutGridField',
-    'ui:layoutGrid': {
-      'ui:row': {
+    "ui:field": "LayoutGridField",
+    "ui:layoutGrid": {
+      "ui:row": {
         gap: 2,
         children: [
           {
-            'ui:row': {
+            "ui:row": {
               gap: 2,
-              templateColumns: 'repeat(1, 1fr)',
+              templateColumns: "repeat(1, 1fr)",
               children: [
                 {
-                  'ui:col': ['person'],
+                  "ui:col": ["person"],
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               gap: 2,
-              templateColumns: 'repeat(3, 1fr)',
+              templateColumns: "repeat(3, 1fr)",
               children: [
                 {
-                  'ui:columns': ['person.name.first', 'person.name.middle', 'person.name.last'],
+                  "ui:columns": [
+                    "person.name.first",
+                    "person.name.middle",
+                    "person.name.last",
+                  ],
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               gap: 2,
-              templateColumns: 'repeat(3, 1fr)',
+              templateColumns: "repeat(3, 1fr)",
               children: [
                 {
-                  'ui:col': {
+                  "ui:col": {
                     children: [
                       {
-                        name: 'person.birth_date',
-                        placeholder: '$lookup=PlaceholderText',
+                        name: "person.birth_date",
+                        placeholder: "$lookup=PlaceholderText",
                       },
                     ],
                   },
                 },
                 {
-                  'ui:col': {
+                  "ui:col": {
                     colSpan: 2,
-                    children: ['person.race'],
+                    children: ["person.race"],
                   },
                 },
               ],
             },
           },
           {
-            'ui:row': {
+            "ui:row": {
               gap: 2,
-              templateColumns: 'repeat(2, 1fr)',
+              templateColumns: "repeat(2, 1fr)",
               children: [
                 {
-                  'ui:col': {
-                    children: ['person.address'],
+                  "ui:col": {
+                    children: ["person.address"],
                   },
                 },
                 {
-                  'ui:col': {
+                  "ui:col": {
                     children: [
                       {
-                        'ui:row': {
+                        "ui:row": {
                           gap: 2,
-                          templateColumns: 'repeat(3, 1fr)',
+                          templateColumns: "repeat(3, 1fr)",
                           children: [
                             {
-                              'ui:col': {
+                              "ui:col": {
                                 colSpan: 3,
-                                style: { margin: '0 0 16px' },
-                                children: ['employment'],
+                                style: { margin: "0 0 16px" },
+                                children: ["employment"],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'company',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "company",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       colSpan: 3,
-                                      children: ['employment.business', 'employment.title'],
+                                      children: [
+                                        "employment.business",
+                                        "employment.title",
+                                      ],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       colSpan: 2,
-                                      children: ['employment.location.city'],
+                                      children: ["employment.location.city"],
                                     },
                                   },
                                   {
-                                    'ui:col': {
-                                      children: ['employment.location.state'],
+                                    "ui:col": {
+                                      children: ["employment.location.state"],
                                     },
                                   },
                                 ],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'education',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "education",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       colSpan: 3,
-                                      children: ['employment.district', 'employment.school', 'employment.title'],
+                                      children: [
+                                        "employment.district",
+                                        "employment.school",
+                                        "employment.title",
+                                      ],
                                     },
                                   },
                                   {
-                                    'ui:col': {
+                                    "ui:col": {
                                       colSpan: 2,
-                                      children: ['employment.location.city'],
+                                      children: ["employment.location.city"],
                                     },
                                   },
                                   {
-                                    'ui:col': {
-                                      children: ['employment.location.state'],
+                                    "ui:col": {
+                                      children: ["employment.location.state"],
                                     },
                                   },
                                 ],
                               },
                             },
                             {
-                              'ui:condition': {
-                                field: 'employment.job_type',
-                                value: 'other',
-                                operator: 'all',
+                              "ui:condition": {
+                                field: "employment.job_type",
+                                value: "other",
+                                operator: "all",
                                 children: [
                                   {
-                                    'ui:columns': {
+                                    "ui:columns": {
                                       colSpan: 3,
                                       children: [
                                         {
-                                          name: 'employment.description',
+                                          name: "employment.description",
                                           rows: 6,
                                         },
                                       ],
@@ -171,29 +182,29 @@ gridTests(WrappedForm, {
       },
     },
     person: {
-      'ui:field': 'LayoutHeaderField',
+      "ui:field": "LayoutHeaderField",
       race: {
-        'ui:options': {
-          widget: 'checkboxes',
+        "ui:options": {
+          widget: "checkboxes",
         },
       },
       address: {
-        'ui:field': 'LayoutGridField',
-        'ui:layoutGrid': {
-          'ui:row': {
+        "ui:field": "LayoutGridField",
+        "ui:layoutGrid": {
+          "ui:row": {
             gap: 2,
-            templateColumns: 'repeat(2, 1fr)',
+            templateColumns: "repeat(2, 1fr)",
             children: [
               {
-                'ui:columns': {
+                "ui:columns": {
                   colSpan: 2,
-                  children: ['line_1', 'line_2', 'city'],
+                  children: ["line_1", "line_2", "city"],
                 },
               },
               {
-                'ui:columns': {
+                "ui:columns": {
                   size: 6,
-                  children: ['state', 'postal_code'],
+                  children: ["state", "postal_code"],
                 },
               },
             ],
@@ -202,11 +213,11 @@ gridTests(WrappedForm, {
       },
     },
     employment: {
-      'ui:options': {
+      "ui:options": {
         inline: true,
       },
       description: {
-        'ui:widget': 'textarea',
+        "ui:widget": "textarea",
       },
     },
   },

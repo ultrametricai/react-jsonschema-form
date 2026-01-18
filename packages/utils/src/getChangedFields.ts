@@ -1,9 +1,9 @@
-import keys from 'lodash/keys';
-import pickBy from 'lodash/pickBy';
-import isPlainObject from 'lodash/isPlainObject';
-import get from 'lodash/get';
-import difference from 'lodash/difference';
-import deepEquals from './deepEquals';
+import keys from "lodash/keys";
+import pickBy from "lodash/pickBy";
+import isPlainObject from "lodash/isPlainObject";
+import get from "lodash/get";
+import difference from "lodash/difference";
+import deepEquals from "./deepEquals";
 
 /**
  * Compares two objects and returns the names of the fields that have changed.
@@ -33,7 +33,9 @@ export default function getChangedFields(a: unknown, b: unknown): string[] {
   } else if (!aIsPlainObject && bIsPlainObject) {
     return keys(b);
   } else {
-    const unequalFields = keys(pickBy(a as object, (value, key) => !deepEquals(value, get(b, key))));
+    const unequalFields = keys(
+      pickBy(a as object, (value, key) => !deepEquals(value, get(b, key))),
+    );
     const diffFields = difference(keys(b), keys(a));
     return [...unequalFields, ...diffFields];
   }

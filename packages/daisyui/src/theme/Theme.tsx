@@ -1,9 +1,15 @@
-import { createContext, ReactNode, useCallback, useContext, useState } from 'react';
-import { getDefaultRegistry, ThemeProps } from '@rjsf/core';
-import { FormContextType, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
+import { getDefaultRegistry, ThemeProps } from "@rjsf/core";
+import { FormContextType, RJSFSchema, StrictRJSFSchema } from "@rjsf/utils";
 
-import { generateTemplates } from '../templates/Templates';
-import { generateWidgets } from '../widgets/Widgets';
+import { generateTemplates } from "../templates/Templates";
+import { generateWidgets } from "../widgets/Widgets";
 
 /** Generates a complete theme configuration for RJSF with DaisyUI styling
  *
@@ -46,7 +52,7 @@ interface ThemeContextType {
 
 /** React context for sharing theme information throughout the application */
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: 'night',
+  theme: "night",
   setTheme: () => {},
 });
 
@@ -68,22 +74,26 @@ interface ThemeProviderProps {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem('daisyui-theme') || 'cupcake';
+      return localStorage.getItem("daisyui-theme") || "cupcake";
     } catch {
-      return 'cupcake';
+      return "cupcake";
     }
   });
 
   const handleSetTheme = useCallback((newTheme: string) => {
     try {
-      localStorage.setItem('daisyui-theme', newTheme);
+      localStorage.setItem("daisyui-theme", newTheme);
       setTheme(newTheme);
     } catch {
       // Ignore localStorage errors
     }
   }, []);
 
-  return <ThemeContext.Provider value={{ theme, setTheme: handleSetTheme }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme: handleSetTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
 /** Custom hook for accessing the current theme and theme setter function

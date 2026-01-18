@@ -5,17 +5,17 @@ import {
   englishStringTranslator,
   RJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { getDefaultRegistry } from '@rjsf/core';
-import validator from '@rjsf/validator-ajv8';
+} from "@rjsf/utils";
+import { getDefaultRegistry } from "@rjsf/core";
+import validator from "@rjsf/validator-ajv8";
 
-import Templates from '../../src/templates/Templates';
-import generateWidgets from '../../src/widgets/Widgets';
+import Templates from "../../src/templates/Templates";
+import generateWidgets from "../../src/widgets/Widgets";
 
 export const mockSchema: RJSFSchema = {
-  type: 'array',
+  type: "array",
   items: {
-    type: 'string',
+    type: "string",
   },
 };
 
@@ -39,7 +39,9 @@ export function mockRegistry() {
   };
 }
 
-export function makeWidgetMockProps(props: Partial<WidgetProps> = {}): WidgetProps {
+export function makeWidgetMockProps(
+  props: Partial<WidgetProps> = {},
+): WidgetProps {
   return {
     uiSchema: {},
     schema: mockSchema,
@@ -47,17 +49,17 @@ export function makeWidgetMockProps(props: Partial<WidgetProps> = {}): WidgetPro
     disabled: false,
     readonly: false,
     autofocus: true,
-    label: 'Sample Field Label',
+    label: "Sample Field Label",
     onChange: mockEventHandlers,
     onBlur: mockEventHandlers,
     onFocus: mockEventHandlers,
     multiple: false,
-    rawErrors: [''],
-    value: 'test-value',
+    rawErrors: [""],
+    value: "test-value",
     options: {},
-    id: 'test-id',
-    name: 'test-name',
-    placeholder: 'Enter value...',
+    id: "test-id",
+    name: "test-name",
+    placeholder: "Enter value...",
     registry: mockRegistry(),
     ...props,
   };

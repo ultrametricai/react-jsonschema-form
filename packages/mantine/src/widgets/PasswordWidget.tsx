@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, useCallback } from 'react';
+import { ChangeEvent, FocusEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   FormContextType,
@@ -6,10 +6,10 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { PasswordInput } from '@mantine/core';
+} from "@rjsf/utils";
+import { PasswordInput } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /**
  * The `PasswordWidget` component renders a password input element.
@@ -44,7 +44,7 @@ export default function PasswordWidget<
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value === '' ? emptyValue : e.target.value);
+      onChange(e.target.value === "" ? emptyValue : e.target.value);
     },
     [onChange, emptyValue],
   );
@@ -71,7 +71,7 @@ export default function PasswordWidget<
     <PasswordInput
       id={id}
       name={name}
-      value={value || ''}
+      value={value || ""}
       placeholder={placeholder || undefined}
       required={required}
       disabled={disabled || readonly}
@@ -80,7 +80,9 @@ export default function PasswordWidget<
       onChange={handleChange}
       onBlur={handleBlur}
       onFocus={handleFocus}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       {...themeProps}
       aria-describedby={ariaDescribedByIds(id)}
     />

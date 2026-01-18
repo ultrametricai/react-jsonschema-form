@@ -1,6 +1,11 @@
-import Box from '@mui/material/Box';
-import { FormContextType, MultiSchemaFieldTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
-import FormControl from '@mui/material/FormControl';
+import Box from "@mui/material/Box";
+import {
+  FormContextType,
+  MultiSchemaFieldTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
+import FormControl from "@mui/material/FormControl";
 
 export default function MultiSchemaFieldTemplate<
   T = any,

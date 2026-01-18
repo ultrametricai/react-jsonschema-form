@@ -1,4 +1,4 @@
-import { FocusEvent, useCallback } from 'react';
+import { FocusEvent, useCallback } from "react";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -8,19 +8,21 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { Radio, Flex } from '@mantine/core';
+} from "@rjsf/utils";
+import { Radio, Flex } from "@mantine/core";
 
-import { cleanupOptions } from '../utils';
+import { cleanupOptions } from "../utils";
 
 /** The `RadioWidget` is a widget for rendering a radio group.
  *  It is typically used with a string property constrained with enum options.
  *
  * @param props - The `WidgetProps` for this component
  */
-export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function RadioWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     htmlName,
@@ -44,7 +46,9 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const handleChange = useCallback(
     (nextValue: any) => {
       if (!disabled && !readonly && onChange) {
-        onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
+        onChange(
+          enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue),
+        );
       }
     },
     [onChange, disabled, readonly, enumOptions, emptyValue],
@@ -53,7 +57,14 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const handleBlur = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onBlur) {
-        onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+        onBlur(
+          id,
+          enumOptionsValueForIndex<S>(
+            target && target.value,
+            enumOptions,
+            emptyValue,
+          ),
+        );
       }
     },
     [onBlur, id, enumOptions, emptyValue],
@@ -62,7 +73,14 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
   const handleFocus = useCallback(
     ({ target }: FocusEvent<HTMLInputElement>) => {
       if (onFocus) {
-        onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+        onFocus(
+          id,
+          enumOptionsValueForIndex<S>(
+            target && target.value,
+            enumOptions,
+            emptyValue,
+          ),
+        );
       }
     },
     [onFocus, id, enumOptions, emptyValue],
@@ -79,19 +97,29 @@ export default function RadioWidget<T = any, S extends StrictRJSFSchema = RJSFSc
       onChange={handleChange}
       required={required}
       readOnly={disabled || readonly}
-      error={rawErrors && rawErrors.length > 0 ? rawErrors.join('\n') : undefined}
+      error={
+        rawErrors && rawErrors.length > 0 ? rawErrors.join("\n") : undefined
+      }
       aria-describedby={ariaDescribedByIds(id)}
       {...themeProps}
     >
       {Array.isArray(enumOptions) ? (
-        <Flex mt='xs' direction={inline ? 'row' : 'column'} gap='xs' wrap='wrap'>
+        <Flex
+          mt="xs"
+          direction={inline ? "row" : "column"}
+          gap="xs"
+          wrap="wrap"
+        >
           {enumOptions.map((option, i) => (
             <Radio
               key={i}
               id={optionId(id, i)}
               value={String(i)}
               label={option.label}
-              disabled={Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1}
+              disabled={
+                Array.isArray(enumDisabled) &&
+                enumDisabled.indexOf(option.value) !== -1
+              }
               autoFocus={i === 0 && autofocus}
               onBlur={handleBlur}
               onFocus={handleFocus}

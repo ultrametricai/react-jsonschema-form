@@ -1,5 +1,5 @@
-import { ChangeEvent, FocusEvent } from 'react';
-import { Textarea } from '@chakra-ui/react';
+import { ChangeEvent, FocusEvent } from "react";
+import { Textarea } from "@chakra-ui/react";
 import {
   ariaDescribedByIds,
   labelValue,
@@ -7,10 +7,10 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { Field } from '../components/ui/field';
-import { getChakra } from '../utils';
+import { Field } from "../components/ui/field";
+import { getChakra } from "../utils";
 
 export default function TextareaWidget<
   T = any,
@@ -35,9 +35,11 @@ export default function TextareaWidget<
   uiSchema,
 }: WidgetProps<T, S, F>) {
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
-    onChange(value === '' ? options.emptyValue : value);
-  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) => onBlur(id, target && target.value);
-  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) => onFocus(id, target && target.value);
+    onChange(value === "" ? options.emptyValue : value);
+  const _onBlur = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onBlur(id, target && target.value);
+  const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
+    onFocus(id, target && target.value);
 
   const chakraProps = getChakra({ uiSchema });
 
@@ -54,7 +56,7 @@ export default function TextareaWidget<
       <Textarea
         id={id}
         name={htmlName || id}
-        value={value ?? ''}
+        value={value ?? ""}
         placeholder={placeholder}
         autoFocus={autofocus}
         onChange={_onChange}

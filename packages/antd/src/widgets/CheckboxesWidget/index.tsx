@@ -1,5 +1,5 @@
-import { FocusEvent } from 'react';
-import { Checkbox } from 'antd';
+import { FocusEvent } from "react";
+import { Checkbox } from "antd";
 import {
   ariaDescribedByIds,
   enumOptionsIndexForValue,
@@ -10,7 +10,7 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   GenericObjectType,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
 /** The `CheckboxesWidget` is a widget for rendering checkbox groups.
  *  It is typically used to represent an array of enums.
@@ -39,13 +39,20 @@ export default function CheckboxesWidget<
 
   const { enumOptions, enumDisabled, inline, emptyValue } = options;
 
-  const handleChange = (nextValue: any) => onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
+  const handleChange = (nextValue: any) =>
+    onChange(enumOptionsValueForIndex<S>(nextValue, enumOptions, emptyValue));
 
   const handleBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue),
+    );
 
   const handleFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(target.value, enumOptions, emptyValue),
+    );
 
   // Antd's typescript definitions do not contain the following props that are actually necessary and, if provided,
   // they are used, so hacking them in via by spreading `extraProps` on the component to avoid typescript errors
@@ -55,7 +62,11 @@ export default function CheckboxesWidget<
     onFocus: !readonly ? handleFocus : undefined,
   };
 
-  const selectedIndexes = enumOptionsIndexForValue<S>(value, enumOptions, true) as string[];
+  const selectedIndexes = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    true,
+  ) as string[];
 
   return Array.isArray(enumOptions) && enumOptions.length > 0 ? (
     <>
@@ -74,7 +85,10 @@ export default function CheckboxesWidget<
                 id={optionId(id, i)}
                 name={htmlName || id}
                 autoFocus={i === 0 ? autofocus : false}
-                disabled={Array.isArray(enumDisabled) && enumDisabled.indexOf(option.value) !== -1}
+                disabled={
+                  Array.isArray(enumDisabled) &&
+                  enumDisabled.indexOf(option.value) !== -1
+                }
                 value={String(i)}
               >
                 {option.label}

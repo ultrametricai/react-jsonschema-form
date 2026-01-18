@@ -5,9 +5,9 @@ import {
   getUiOptions,
   RJSFSchema,
   StrictRJSFSchema,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import { cn } from '../lib/utils';
+import { cn } from "../lib/utils";
 
 /** The `FieldTemplate` component is the template used by `SchemaField` to render any field. It renders the field
  * content, (label, description, children, errors and help) inside a `WrapIfAdditional` component.
@@ -42,15 +42,16 @@ export default function FieldTemplate<
   registry,
 }: FieldTemplateProps<T, S, F>) {
   const uiOptions = getUiOptions(uiSchema);
-  const WrapIfAdditionalTemplate = getTemplate<'WrapIfAdditionalTemplate', T, S, F>(
-    'WrapIfAdditionalTemplate',
-    registry,
-    uiOptions,
-  );
+  const WrapIfAdditionalTemplate = getTemplate<
+    "WrapIfAdditionalTemplate",
+    T,
+    S,
+    F
+  >("WrapIfAdditionalTemplate", registry, uiOptions);
   if (hidden) {
-    return <div className='hidden'>{children}</div>;
+    return <div className="hidden">{children}</div>;
   }
-  const isCheckbox = uiOptions.widget === 'checkbox';
+  const isCheckbox = uiOptions.widget === "checkbox";
   return (
     <WrapIfAdditionalTemplate
       classNames={classNames}
@@ -69,23 +70,25 @@ export default function FieldTemplate<
       uiSchema={uiSchema}
       registry={registry}
     >
-      <div className='flex flex-col gap-2'>
+      <div className="flex flex-col gap-2">
         {displayLabel && !isCheckbox && (
           <label
             className={cn(
-              'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-              { ' text-destructive': rawErrors.length > 0 },
+              "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+              { " text-destructive": rawErrors.length > 0 },
             )}
             htmlFor={id}
           >
             {label}
-            {required ? '*' : null}
+            {required ? "*" : null}
           </label>
         )}
         {children}
         {displayLabel && rawDescription && !isCheckbox && (
           <span
-            className={cn('text-xs font-medium text-muted-foreground', { ' text-destructive': rawErrors.length > 0 })}
+            className={cn("text-xs font-medium text-muted-foreground", {
+              " text-destructive": rawErrors.length > 0,
+            })}
           >
             {description}
           </span>

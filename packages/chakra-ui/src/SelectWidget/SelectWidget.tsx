@@ -1,4 +1,4 @@
-import { FocusEvent, useMemo, useRef } from 'react';
+import { FocusEvent, useMemo, useRef } from "react";
 
 import {
   ariaDescribedByIds,
@@ -10,17 +10,27 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
   WidgetProps,
-} from '@rjsf/utils';
-import { OptionsOrGroups } from 'chakra-react-select';
-import { createListCollection, SelectValueChangeDetails, Select as ChakraSelect } from '@chakra-ui/react';
+} from "@rjsf/utils";
+import { OptionsOrGroups } from "chakra-react-select";
+import {
+  createListCollection,
+  SelectValueChangeDetails,
+  Select as ChakraSelect,
+} from "@chakra-ui/react";
 
-import { Field } from '../components/ui/field';
-import { SelectRoot, SelectTrigger, SelectValueText } from '../components/ui/select';
-import { getChakra } from '../utils';
+import { Field } from "../components/ui/field";
+import {
+  SelectRoot,
+  SelectTrigger,
+  SelectValueText,
+} from "../components/ui/select";
+import { getChakra } from "../utils";
 
-export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(
-  props: WidgetProps<T, S, F>,
-) {
+export default function SelectWidget<
+  T = any,
+  S extends StrictRJSFSchema = RJSFSchema,
+  F extends FormContextType = any,
+>(props: WidgetProps<T, S, F>) {
   const {
     id,
     htmlName,
@@ -44,19 +54,41 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
   const { enumOptions, enumDisabled, emptyValue } = options;
 
   const _onMultiChange = ({ value }: SelectValueChangeDetails) => {
-    return onChange(enumOptionsValueForIndex<S>(value, enumOptions, emptyValue));
+    return onChange(
+      enumOptionsValueForIndex<S>(value, enumOptions, emptyValue),
+    );
   };
 
   const _onSingleChange = ({ value }: SelectValueChangeDetails) => {
-    const selected = enumOptionsValueForIndex<S>(value, enumOptions, emptyValue);
-    return onChange(Array.isArray(selected) && selected.length === 1 ? selected[0] : selected);
+    const selected = enumOptionsValueForIndex<S>(
+      value,
+      enumOptions,
+      emptyValue,
+    );
+    return onChange(
+      Array.isArray(selected) && selected.length === 1 ? selected[0] : selected,
+    );
   };
 
   const _onBlur = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onBlur(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onBlur(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const _onFocus = ({ target }: FocusEvent<HTMLInputElement>) =>
-    onFocus(id, enumOptionsValueForIndex<S>(target && target.value, enumOptions, emptyValue));
+    onFocus(
+      id,
+      enumOptionsValueForIndex<S>(
+        target && target.value,
+        enumOptions,
+        emptyValue,
+      ),
+    );
 
   const showPlaceholderOption = !multiple && schema.default === undefined;
   const { valueLabelMap, displayEnumOptions } = useMemo((): {
@@ -66,24 +98,40 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
     const valueLabelMap: Record<string | number, string> = {};
     let displayEnumOptions: OptionsOrGroups<any, any> = [];
     if (Array.isArray(enumOptions)) {
-      displayEnumOptions = enumOptions.map((option: EnumOptionsType<S>, index: number) => {
-        const { value, label } = option;
-        valueLabelMap[index] = label || String(value);
-        return {
-          label,
-          value: String(index),
-          disabled: Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
-        };
-      });
+      displayEnumOptions = enumOptions.map(
+        (option: EnumOptionsType<S>, index: number) => {
+          const { value, label } = option;
+          valueLabelMap[index] = label || String(value);
+          return {
+            label,
+            value: String(index),
+            disabled:
+              Array.isArray(enumDisabled) && enumDisabled.indexOf(value) !== -1,
+          };
+        },
+      );
       if (showPlaceholderOption) {
-        (displayEnumOptions as any[]).unshift({ value: '', label: placeholder || '' });
+        (displayEnumOptions as any[]).unshift({
+          value: "",
+          label: placeholder || "",
+        });
       }
     }
-    return { valueLabelMap: valueLabelMap, displayEnumOptions: displayEnumOptions };
+    return {
+      valueLabelMap: valueLabelMap,
+      displayEnumOptions: displayEnumOptions,
+    };
   }, [enumDisabled, enumOptions, placeholder, showPlaceholderOption]);
 
-  const isMultiple = typeof multiple !== 'undefined' && multiple !== false && Boolean(enumOptions);
-  const selectedIndex = enumOptionsIndexForValue<S>(value, enumOptions, isMultiple);
+  const isMultiple =
+    typeof multiple !== "undefined" &&
+    multiple !== false &&
+    Boolean(enumOptions);
+  const selectedIndex = enumOptionsIndexForValue<S>(
+    value,
+    enumOptions,
+    isMultiple,
+  );
 
   const getMultiValue = () =>
     ((selectedIndex as string[]) || []).map((i: string) => {
@@ -94,16 +142,18 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
     });
 
   const getSingleValue = () =>
-    typeof selectedIndex !== 'undefined'
+    typeof selectedIndex !== "undefined"
       ? [
           {
-            label: valueLabelMap[selectedIndex as string] || '',
+            label: valueLabelMap[selectedIndex as string] || "",
             value: selectedIndex.toString(),
           },
         ]
       : [];
 
-  const formValue = (isMultiple ? getMultiValue() : getSingleValue()).map((item) => item.value);
+  const formValue = (isMultiple ? getMultiValue() : getSingleValue()).map(
+    (item) => item.value,
+  );
 
   const selectOptions = createListCollection({
     items: displayEnumOptions.filter((item) => item.value),
@@ -121,7 +171,7 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
       readOnly={readonly}
       invalid={rawErrors && rawErrors.length > 0}
       label={labelValue(label, hideLabel || !label)}
-      position='relative'
+      position="relative"
       {...chakraProps}
     >
       <SelectRoot
@@ -136,14 +186,18 @@ export default function SelectWidget<T = any, S extends StrictRJSFSchema = RJSFS
         autoFocus={autofocus}
         value={formValue}
         aria-describedby={ariaDescribedByIds(id)}
-        positioning={{ placement: 'bottom' }}
+        positioning={{ placement: "bottom" }}
       >
         <ChakraSelect.Control>
           <SelectTrigger>
             <SelectValueText placeholder={placeholder} />
           </SelectTrigger>
         </ChakraSelect.Control>
-        <ChakraSelect.Positioner minWidth='100% !important' zIndex='2 !important' top='calc(100% + 5px) !important'>
+        <ChakraSelect.Positioner
+          minWidth="100% !important"
+          zIndex="2 !important"
+          top="calc(100% + 5px) !important"
+        >
           <ChakraSelect.Content>
             {selectOptions.items.map((item) => (
               <ChakraSelect.Item item={item} key={item.value}>

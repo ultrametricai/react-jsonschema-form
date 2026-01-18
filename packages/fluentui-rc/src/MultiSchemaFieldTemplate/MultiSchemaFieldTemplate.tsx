@@ -1,9 +1,14 @@
-import { makeStyles } from '@fluentui/react-components';
-import { FormContextType, MultiSchemaFieldTemplateProps, RJSFSchema, StrictRJSFSchema } from '@rjsf/utils';
+import { makeStyles } from "@fluentui/react-components";
+import {
+  FormContextType,
+  MultiSchemaFieldTemplateProps,
+  RJSFSchema,
+  StrictRJSFSchema,
+} from "@rjsf/utils";
 
 const useStyles = makeStyles({
   root: {
-    '> div': { marginBottom: '4px' },
+    "> div": { marginBottom: "4px" },
   },
 });
 

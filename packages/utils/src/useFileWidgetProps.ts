@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from "react";
 
-import dataURItoBlob from './dataURItoBlob';
+import dataURItoBlob from "./dataURItoBlob";
 
 /** The information about files used by a FileWidget */
 export type FileInfoType = {
@@ -32,7 +32,7 @@ export interface UseFileWidgetPropsResult {
  * @returns - The `dataUrl` updated to include the name
  */
 function addNameToDataURL(dataURL: string, name: string) {
-  return dataURL.replace(';base64', `;name=${encodeURIComponent(name)};base64`);
+  return dataURL.replace(";base64", `;name=${encodeURIComponent(name)};base64`);
 }
 
 /** Returns a promise that will read the file from the browser and return it as the result of the promise.
@@ -46,7 +46,7 @@ function processFile(file: File): Promise<FileInfoType> {
     const reader = new window.FileReader();
     reader.onerror = reject;
     reader.onload = (event) => {
-      if (typeof event.target?.result === 'string') {
+      if (typeof event.target?.result === "string") {
         resolve({
           dataURL: addNameToDataURL(event.target.result, name),
           name,
@@ -124,14 +124,19 @@ export default function useFileWidgetProps(
     return [];
   }, [value, multiple]);
   const filesInfo = useMemo(
-    () => (Array.isArray(value) ? extractFileInfo(value) : extractFileInfo([value || ''])),
+    () =>
+      Array.isArray(value)
+        ? extractFileInfo(value)
+        : extractFileInfo([value || ""]),
     [value],
   );
 
   const handleChange = useCallback(
     (files: FileList) => {
       processFiles(files).then((filesInfoEvent) => {
-        const newValue = filesInfoEvent.map((fileInfo) => fileInfo.dataURL || null);
+        const newValue = filesInfoEvent.map(
+          (fileInfo) => fileInfo.dataURL || null,
+        );
         if (multiple) {
           onChange(values.concat(...newValue));
         } else {

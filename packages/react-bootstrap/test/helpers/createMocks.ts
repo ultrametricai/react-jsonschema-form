@@ -5,17 +5,17 @@ import {
   englishStringTranslator,
   WidgetProps,
   RJSFSchema,
-} from '@rjsf/utils';
-import { getDefaultRegistry } from '@rjsf/core';
-import validator from '@rjsf/validator-ajv8';
+} from "@rjsf/utils";
+import { getDefaultRegistry } from "@rjsf/core";
+import validator from "@rjsf/validator-ajv8";
 
-import Templates from '../../src/Templates';
-import BaseInputTemplate from '../../src/BaseInputTemplate';
+import Templates from "../../src/Templates";
+import BaseInputTemplate from "../../src/BaseInputTemplate";
 
 export const mockSchema: RJSFSchema = {
-  type: 'array',
+  type: "array",
   items: {
-    type: 'string',
+    type: "string",
   },
 };
 
@@ -32,11 +32,16 @@ export function mockRegistry() {
     rootSchema: {},
     schemaUtils: mockSchemaUtils,
     translateString: englishStringTranslator,
-    globalFormOptions: { idPrefix: DEFAULT_ID_PREFIX, idSeparator: DEFAULT_ID_SEPARATOR },
+    globalFormOptions: {
+      idPrefix: DEFAULT_ID_PREFIX,
+      idSeparator: DEFAULT_ID_SEPARATOR,
+    },
   };
 }
 
-export function makeWidgetMockProps(props: Partial<WidgetProps> = {}): WidgetProps {
+export function makeWidgetMockProps(
+  props: Partial<WidgetProps> = {},
+): WidgetProps {
   return {
     uiSchema: {},
     schema: mockSchema,
@@ -44,18 +49,18 @@ export function makeWidgetMockProps(props: Partial<WidgetProps> = {}): WidgetPro
     disabled: false,
     readonly: true,
     autofocus: true,
-    label: 'Some simple label',
+    label: "Some simple label",
     onChange: mockEventHandlers,
     onBlur: mockEventHandlers,
     onFocus: mockEventHandlers,
     multiple: false,
-    rawErrors: [''],
-    value: 'value',
+    rawErrors: [""],
+    value: "value",
     options: {},
     formContext: {},
-    id: '_id',
-    name: '_name',
-    placeholder: '',
+    id: "_id",
+    name: "_name",
+    placeholder: "",
     registry: mockRegistry(),
     ...props,
   };

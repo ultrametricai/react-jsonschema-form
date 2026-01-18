@@ -1,7 +1,7 @@
-import isPlainObject from 'lodash/isPlainObject';
+import isPlainObject from "lodash/isPlainObject";
 
-import { ERRORS_KEY } from './constants';
-import { ErrorSchema, GenericObjectType, RJSFValidationError } from './types';
+import { ERRORS_KEY } from "./constants";
+import { ErrorSchema, GenericObjectType, RJSFValidationError } from "./types";
 
 /** Converts an `errorSchema` into a list of `RJSFValidationErrors`
  *
@@ -20,7 +20,7 @@ export default function toErrorList<T = any>(
   if (ERRORS_KEY in errorSchema) {
     errorList = errorList.concat(
       errorSchema[ERRORS_KEY]!.map((message: string) => {
-        const property = `.${fieldPath.join('.')}`;
+        const property = `.${fieldPath.join(".")}`;
         return {
           property,
           message,

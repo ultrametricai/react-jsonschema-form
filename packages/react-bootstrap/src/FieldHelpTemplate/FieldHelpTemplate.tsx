@@ -1,6 +1,12 @@
-import { FieldHelpProps, FormContextType, RJSFSchema, StrictRJSFSchema, helpId } from '@rjsf/utils';
-import { RichHelp } from '@rjsf/core';
-import Form from 'react-bootstrap/Form';
+import {
+  FieldHelpProps,
+  FormContextType,
+  RJSFSchema,
+  StrictRJSFSchema,
+  helpId,
+} from "@rjsf/utils";
+import { RichHelp } from "@rjsf/core";
+import Form from "react-bootstrap/Form";
 
 /** The `FieldHelpTemplate` component renders any help desired for a field
  *
@@ -16,7 +22,10 @@ export default function FieldHelpTemplate<
     return null;
   }
   return (
-    <Form.Text id={helpId(fieldPathId)} className={hasErrors ? 'text-danger' : 'text-muted'}>
+    <Form.Text
+      id={helpId(fieldPathId)}
+      className={hasErrors ? "text-danger" : "text-muted"}
+    >
       <RichHelp help={help} registry={registry} uiSchema={uiSchema} />
     </Form.Text>
   );

@@ -1,33 +1,63 @@
-import { FieldProps, FieldTemplateProps, ID_KEY, FieldPathId, RJSFSchema, getTemplate } from '@rjsf/utils';
-import noop from 'lodash/noop';
+import {
+  FieldProps,
+  FieldTemplateProps,
+  ID_KEY,
+  FieldPathId,
+  RJSFSchema,
+  getTemplate,
+} from "@rjsf/utils";
+import noop from "lodash/noop";
 
-import { Sample } from './Sample';
+import { Sample } from "./Sample";
 
 function UiField(props: FieldProps) {
-  const { fieldPathId, formData, onChange, registry, schema, uiSchema, ...otherProps } = props;
+  const {
+    fieldPathId,
+    formData,
+    onChange,
+    registry,
+    schema,
+    uiSchema,
+    ...otherProps
+  } = props;
   const { fields, schemaUtils } = registry;
   const changeHandlerFactory = (fieldName: string) => (value: any) => {
     onChange(value, [fieldName]);
   };
 
   const { StringField, NumberField } = fields;
-  const FieldTemplate = getTemplate('FieldTemplate', registry);
+  const FieldTemplate = getTemplate("FieldTemplate", registry);
   const schema1 = (schema.anyOf?.[0] || {}) as RJSFSchema;
   const schema2 = (schema.anyOf?.[1] || {}) as RJSFSchema;
-  const cityLabel = 'City';
-  const latLabel = 'Latitude';
-  const lonLabel = 'Longitude';
-  const cityKey = 'city';
-  const latKey = 'lat';
-  const lonKey = 'lon';
-  const citySchema = schemaUtils.findFieldInSchema(schema1, cityKey, {} as RJSFSchema);
-  const latSchema = schemaUtils.findFieldInSchema(schema2, latKey, {} as RJSFSchema);
-  const lonSchema = schemaUtils.findFieldInSchema(schema2, lonKey, {} as RJSFSchema);
+  const cityLabel = "City";
+  const latLabel = "Latitude";
+  const lonLabel = "Longitude";
+  const cityKey = "city";
+  const latKey = "lat";
+  const lonKey = "lon";
+  const citySchema = schemaUtils.findFieldInSchema(
+    schema1,
+    cityKey,
+    {} as RJSFSchema,
+  );
+  const latSchema = schemaUtils.findFieldInSchema(
+    schema2,
+    latKey,
+    {} as RJSFSchema,
+  );
+  const lonSchema = schemaUtils.findFieldInSchema(
+    schema2,
+    lonKey,
+    {} as RJSFSchema,
+  );
   const cityFieldPathId: FieldPathId = { [ID_KEY]: cityKey, path: [cityKey] };
   const latFieldPathId: FieldPathId = { [ID_KEY]: latKey, path: [latKey] };
   const lonFieldPathId: FieldPathId = { [ID_KEY]: lonKey, path: [lonKey] };
 
-  const fieldTemplateProps: Omit<FieldTemplateProps, 'label' | 'id' | 'children'> = {
+  const fieldTemplateProps: Omit<
+    FieldTemplateProps,
+    "label" | "id" | "children"
+  > = {
     fieldPathId,
     registry,
     schema,
@@ -44,16 +74,20 @@ function UiField(props: FieldProps) {
   return (
     <>
       <h4>Location</h4>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: "flex" }}>
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '50%',
-            margin: '1rem',
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+            margin: "1rem",
           }}
         >
-          <FieldTemplate {...fieldTemplateProps} id={cityFieldPathId[ID_KEY]} label={cityLabel}>
+          <FieldTemplate
+            {...fieldTemplateProps}
+            id={cityFieldPathId[ID_KEY]}
+            label={cityLabel}
+          >
             <StringField
               schema={citySchema.field!}
               registry={registry}
@@ -68,13 +102,17 @@ function UiField(props: FieldProps) {
         </div>
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '50%',
-            margin: '1rem',
+            display: "flex",
+            flexDirection: "column",
+            width: "50%",
+            margin: "1rem",
           }}
         >
-          <FieldTemplate {...fieldTemplateProps} id={latFieldPathId[ID_KEY]} label={latLabel}>
+          <FieldTemplate
+            {...fieldTemplateProps}
+            id={latFieldPathId[ID_KEY]}
+            label={latLabel}
+          >
             <NumberField
               schema={latSchema.field!}
               registry={registry}
@@ -86,7 +124,11 @@ function UiField(props: FieldProps) {
               onChange={changeHandlerFactory(latKey)}
             />
           </FieldTemplate>
-          <FieldTemplate {...fieldTemplateProps} id={lonFieldPathId[ID_KEY]} label={lonLabel}>
+          <FieldTemplate
+            {...fieldTemplateProps}
+            id={lonFieldPathId[ID_KEY]}
+            label={lonLabel}
+          >
             <NumberField
               schema={lonSchema.field!}
               registry={registry}
@@ -106,35 +148,35 @@ function UiField(props: FieldProps) {
 
 const customFieldAnyOf: Sample = {
   schema: {
-    title: 'Location',
-    type: 'object',
+    title: "Location",
+    type: "object",
     anyOf: [
       {
-        title: 'City',
+        title: "City",
         properties: {
           city: {
-            type: 'string',
+            type: "string",
           },
         },
-        required: ['city'],
+        required: ["city"],
       },
       {
-        title: 'Coordinates',
+        title: "Coordinates",
         properties: {
           lat: {
-            type: 'number',
+            type: "number",
           },
           lon: {
-            type: 'number',
+            type: "number",
           },
         },
-        required: ['lat', 'lon'],
+        required: ["lat", "lon"],
       },
     ],
   },
   uiSchema: {
-    'ui:field': UiField,
-    'ui:fieldReplacesAnyOrOneOf': true,
+    "ui:field": UiField,
+    "ui:fieldReplacesAnyOrOneOf": true,
   },
   formData: {},
 };

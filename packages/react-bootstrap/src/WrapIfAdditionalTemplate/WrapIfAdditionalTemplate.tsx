@@ -6,11 +6,11 @@ import {
   StrictRJSFSchema,
   TranslatableString,
   WrapIfAdditionalTemplateProps,
-} from '@rjsf/utils';
+} from "@rjsf/utils";
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 export default function WrapIfAdditionalTemplate<
   T = any,
@@ -65,15 +65,19 @@ export default function WrapIfAdditionalTemplate<
             id={keyId}
             name={keyId}
             onBlur={!readonly ? onKeyRenameBlur : undefined}
-            type='text'
+            type="text"
           />
         </Form.Group>
       </Col>
       <Col xs={6}>{children}</Col>
-      <Col xs={1} className={`py-${padding} d-grid gap-2`} style={{ marginTop: `${margin}px`, maxHeight: `2.5rem` }}>
+      <Col
+        xs={1}
+        className={`py-${padding} d-grid gap-2`}
+        style={{ marginTop: `${margin}px`, maxHeight: `2.5rem` }}
+      >
         <RemoveButton
-          id={buttonId(id, 'remove')}
-          className='rjsf-object-property-remove w-100'
+          id={buttonId(id, "remove")}
+          className="rjsf-object-property-remove w-100"
           disabled={disabled || readonly}
           onClick={onRemoveProperty}
           uiSchema={uiSchema}
