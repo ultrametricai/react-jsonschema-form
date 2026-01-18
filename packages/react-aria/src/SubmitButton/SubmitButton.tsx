@@ -23,14 +23,12 @@ export default function SubmitButton<
     return null;
   }
   return (
-    <div className="rjsf-submit-button-wrapper">
-      <Button
-        type="submit"
-        {...submitButtonProps}
-        className={`rjsf-button rjsf-submit-button ${submitButtonProps?.className || ""}`}
-      >
-        {submitText}
-      </Button>
-    </div>
+    <Button
+      type="submit"
+      {...submitButtonProps}
+      className={undefined}
+    >
+      {submitText}
+    </Button>
   );
 }

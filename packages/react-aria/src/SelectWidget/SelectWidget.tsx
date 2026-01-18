@@ -118,7 +118,7 @@ export default function SelectWidget<
   );
 
   return (
-    <div className="rjsf-select-widget">
+    <div className={`rjsf-select-widget ${hasError ? "rjsf-select-error" : ""} ${className || ""}`}>
       <Select
         id={id}
         isRequired={required}
@@ -138,18 +138,17 @@ export default function SelectWidget<
         onBlur={_onBlur}
         aria-describedby={ariaDescribedByIds(id)}
         aria-label={label || id}
-        className={`rjsf-select ${hasError ? "rjsf-select-error" : ""} ${className || ""}`}
       >
-        <Button className="rjsf-select-button">
-          <SelectValue className="rjsf-select-value">
+        <Button>
+          <SelectValue>
             {({ selectedText }) => selectedText || placeholder || "Select..."}
           </SelectValue>
           <span aria-hidden="true" className="rjsf-select-arrow">
             ▼
           </span>
         </Button>
-        <Popover className="rjsf-select-popover">
-          <ListBox className="rjsf-select-listbox">
+        <Popover placement="bottom" offset={4}>
+          <ListBox>
             {Array.isArray(enumOptions) &&
               enumOptions.map((option, index) => {
                 const itemDisabled =
@@ -160,7 +159,6 @@ export default function SelectWidget<
                     key={index}
                     id={index.toString()}
                     isDisabled={itemDisabled}
-                    className="rjsf-select-option"
                   >
                     {option.label}
                   </ListBoxItem>

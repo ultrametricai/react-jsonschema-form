@@ -3,13 +3,32 @@
 exports[`TextareaWidget simple with errors 1`] = `
 <DocumentFragment>
   <div
-    class="rjsf-textarea-widget"
+    class="react-aria-TextField"
+    data-invalid="true"
+    data-rac=""
+    data-readonly="true"
+    data-required="true"
   >
+    <label
+      class="react-aria-Label"
+      for="_id"
+      id="react-aria-:r6:"
+    >
+      Some simple label
+      <span
+        class="rjsf-required"
+      >
+        *
+      </span>
+    </label>
     <textarea
       aria-describedby="_id__error _id__description _id__help"
-      class="rjsf-textarea "
+      aria-invalid="true"
+      aria-labelledby="react-aria-:r6:"
+      class="react-aria-TextArea"
       data-focus-visible="true"
       data-focused="true"
+      data-invalid="true"
       data-rac=""
       id="_id"
       name="_id"
@@ -17,6 +36,8 @@ exports[`TextareaWidget simple with errors 1`] = `
       readonly=""
       required=""
       rows="5"
+      tabindex="0"
+      title=""
     >
       value
     </textarea>
@@ -27,13 +48,32 @@ exports[`TextareaWidget simple with errors 1`] = `
 exports[`TextareaWidget simple without errors 1`] = `
 <DocumentFragment>
   <div
-    class="rjsf-textarea-widget"
+    class="react-aria-TextField"
+    data-invalid="true"
+    data-rac=""
+    data-readonly="true"
+    data-required="true"
   >
+    <label
+      class="react-aria-Label"
+      for="_id"
+      id="react-aria-:r1:"
+    >
+      Some simple label
+      <span
+        class="rjsf-required"
+      >
+        *
+      </span>
+    </label>
     <textarea
       aria-describedby="_id__error _id__description _id__help"
-      class="rjsf-textarea "
+      aria-invalid="true"
+      aria-labelledby="react-aria-:r1:"
+      class="react-aria-TextArea"
       data-focus-visible="true"
       data-focused="true"
+      data-invalid="true"
       data-rac=""
       id="_id"
       name="_id"
@@ -41,6 +81,8 @@ exports[`TextareaWidget simple without errors 1`] = `
       readonly=""
       required=""
       rows="5"
+      tabindex="0"
+      title=""
     >
       value
     </textarea>
@@ -51,19 +93,34 @@ exports[`TextareaWidget simple without errors 1`] = `
 exports[`TextareaWidget simple without required 1`] = `
 <DocumentFragment>
   <div
-    class="rjsf-textarea-widget"
+    class="react-aria-TextField"
+    data-invalid="true"
+    data-rac=""
+    data-readonly="true"
   >
+    <label
+      class="react-aria-Label"
+      for="_id"
+      id="react-aria-:rb:"
+    >
+      Some simple label
+    </label>
     <textarea
       aria-describedby="_id__error _id__description _id__help"
-      class="rjsf-textarea "
+      aria-invalid="true"
+      aria-labelledby="react-aria-:rb:"
+      class="react-aria-TextArea"
       data-focus-visible="true"
       data-focused="true"
+      data-invalid="true"
       data-rac=""
       id="_id"
       name="_id"
       placeholder=""
       readonly=""
       rows="5"
+      tabindex="0"
+      title=""
     >
       value
     </textarea>

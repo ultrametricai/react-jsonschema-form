@@ -6,7 +6,6 @@ import {
   RJSFSchema,
   StrictRJSFSchema,
 } from "@rjsf/utils";
-import { Label } from "react-aria-components";
 
 /** The `FieldTemplate` component is the template used by `SchemaField` to render any field. It renders the field
  * content, (label, description, children, errors and help) inside a `WrapIfAdditional` component.
@@ -21,7 +20,6 @@ export default function FieldTemplate<
   id,
   children,
   displayLabel,
-  rawErrors = [],
   errors,
   help,
   description,
@@ -51,7 +49,18 @@ export default function FieldTemplate<
     return <div className="rjsf-hidden">{children}</div>;
   }
   const isCheckbox = uiOptions.widget === "checkbox";
-  const hasError = rawErrors.length > 0;
+
+  // Check if the field uses a widget that renders its own label via TextField
+  // This includes BaseInputTemplate (string/number/integer without widget override) and TextareaWidget
+  const schemaType = schema.type;
+  const widgetOverride = uiOptions.widget;
+  const usesTextFieldLabel =
+    ((schemaType === "string" ||
+      schemaType === "number" ||
+      schemaType === "integer") &&
+      !widgetOverride) ||
+    widgetOverride === "textarea";
+
   return (
     <WrapIfAdditionalTemplate
       classNames={classNames}
@@ -70,27 +79,14 @@ export default function FieldTemplate<
       uiSchema={uiSchema}
       registry={registry}
     >
-      <div className="rjsf-field-wrapper">
-        {displayLabel && !isCheckbox && (
-          <Label
-            className={`rjsf-label ${hasError ? "rjsf-label-error" : ""}`}
-            htmlFor={id}
-          >
-            {label}
-            {required ? <span className="rjsf-required">*</span> : null}
-          </Label>
-        )}
-        {children}
-        {displayLabel && rawDescription && !isCheckbox && (
-          <span
-            className={`rjsf-description ${hasError ? "rjsf-description-error" : ""}`}
-          >
-            {description}
-          </span>
-        )}
-        {errors}
-        {help}
-      </div>
+      {children}
+      {displayLabel && rawDescription && !isCheckbox && !usesTextFieldLabel && (
+        <span className="rjsf-description">
+          {description}
+        </span>
+      )}
+      {errors}
+      {help}
     </WrapIfAdditionalTemplate>
   );
 }

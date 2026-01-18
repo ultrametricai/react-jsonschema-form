@@ -6,7 +6,7 @@ import {
   StrictRJSFSchema,
   WidgetProps,
 } from "@rjsf/utils";
-import { TextArea } from "react-aria-components";
+import { Label, TextArea, TextField } from "react-aria-components";
 
 type CustomWidgetProps<
   T = any,
@@ -38,6 +38,9 @@ export default function TextareaWidget<
   onChange,
   options,
   className,
+  label,
+  hideLabel,
+  rawErrors = [],
 }: CustomWidgetProps<T, S, F>) {
   const _onChange = ({ target: { value } }: ChangeEvent<HTMLTextAreaElement>) =>
     onChange(value === "" ? options.emptyValue : value);
@@ -46,24 +49,34 @@ export default function TextareaWidget<
   const _onFocus = ({ target }: FocusEvent<HTMLTextAreaElement>) =>
     onFocus(id, target && target.value);
 
+  const hasError = rawErrors.length > 0;
+
   return (
-    <div className="rjsf-textarea-widget">
+    <TextField
+      isRequired={required}
+      isDisabled={disabled}
+      isReadOnly={readonly}
+      isInvalid={hasError}
+      className={className || undefined}
+    >
+      {!hideLabel && label && (
+        <Label>
+          {label}
+          {required ? <span className="rjsf-required">*</span> : null}
+        </Label>
+      )}
       <TextArea
         id={id}
         name={htmlName || id}
         placeholder={placeholder}
-        disabled={disabled}
-        readOnly={readonly}
         value={value ?? ""}
-        required={required}
         autoFocus={autofocus}
         rows={options.rows || 5}
         onChange={_onChange}
         onBlur={_onBlur}
         onFocus={_onFocus}
         aria-describedby={ariaDescribedByIds(id)}
-        className={`rjsf-textarea ${className || ""}`}
       />
-    </div>
+    </TextField>
   );
 }

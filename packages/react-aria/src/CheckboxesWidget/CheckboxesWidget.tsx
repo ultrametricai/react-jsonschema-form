@@ -42,59 +42,59 @@ export default function CheckboxesWidget<
   const _onFocus = () => onFocus(id, checkboxesValues);
 
   return (
-    <CheckboxGroup
-      className={`rjsf-checkboxes-widget ${inline ? "rjsf-checkboxes-inline" : ""}`}
-      aria-describedby={ariaDescribedByIds(id)}
-      aria-label={label || id}
-    >
-      {Array.isArray(enumOptions) &&
-        enumOptions.map((option, index: number) => {
-          const checked = enumOptionsIsSelected<S>(
-            option.value,
-            checkboxesValues,
-          );
-          const itemDisabled =
-            Array.isArray(enumDisabled) &&
-            enumDisabled.indexOf(option.value) !== -1;
-          const indexOptionId = optionId(id, index);
+    <div className={`rjsf-checkboxes-widget ${inline ? "rjsf-checkboxes-inline" : ""} ${className || ""}`}>
+      <CheckboxGroup
+        aria-describedby={ariaDescribedByIds(id)}
+        aria-label={label || id}
+      >
+        {Array.isArray(enumOptions) &&
+          enumOptions.map((option, index: number) => {
+            const checked = enumOptionsIsSelected<S>(
+              option.value,
+              checkboxesValues,
+            );
+            const itemDisabled =
+              Array.isArray(enumDisabled) &&
+              enumDisabled.indexOf(option.value) !== -1;
+            const indexOptionId = optionId(id, index);
 
-          return (
-            <div className="rjsf-checkbox-item" key={indexOptionId}>
-              <Checkbox
-                id={indexOptionId}
-                name={htmlName || id}
-                isRequired={required}
-                isDisabled={disabled || itemDisabled || readonly}
-                onChange={(isSelected) => {
-                  if (isSelected) {
-                    onChange(
-                      enumOptionsSelectValue<S>(
-                        index,
-                        checkboxesValues,
-                        enumOptions,
-                      ),
-                    );
-                  } else {
-                    onChange(
-                      enumOptionsDeselectValue<S>(
-                        index,
-                        checkboxesValues,
-                        enumOptions,
-                      ),
-                    );
-                  }
-                }}
-                className={`rjsf-checkbox ${className || ""}`}
-                isSelected={checked}
-                autoFocus={autofocus && index === 0}
-                onBlur={_onBlur as any}
-                onFocus={_onFocus as any}
-              >
-                {option.label}
-              </Checkbox>
-            </div>
-          );
-        })}
-    </CheckboxGroup>
+            return (
+              <div className="rjsf-checkbox-item" key={indexOptionId}>
+                <Checkbox
+                  id={indexOptionId}
+                  name={htmlName || id}
+                  isRequired={required}
+                  isDisabled={disabled || itemDisabled || readonly}
+                  onChange={(isSelected) => {
+                    if (isSelected) {
+                      onChange(
+                        enumOptionsSelectValue<S>(
+                          index,
+                          checkboxesValues,
+                          enumOptions,
+                        ),
+                      );
+                    } else {
+                      onChange(
+                        enumOptionsDeselectValue<S>(
+                          index,
+                          checkboxesValues,
+                          enumOptions,
+                        ),
+                      );
+                    }
+                  }}
+                  isSelected={checked}
+                  autoFocus={autofocus && index === 0}
+                  onBlur={_onBlur as any}
+                  onFocus={_onFocus as any}
+                >
+                  {option.label}
+                </Checkbox>
+              </div>
+            );
+          })}
+      </CheckboxGroup>
+    </div>
   );
 }

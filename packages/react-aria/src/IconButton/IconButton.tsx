@@ -28,10 +28,9 @@ export default function IconButton<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: AriaIconButtonProps<T, S, F>) {
-  const { icon, className, disabled, onClick, title } = props;
+  const { icon, disabled, onClick, title } = props;
   return (
     <Button
-      className={`rjsf-icon-button ${className || ""}`}
       isDisabled={disabled}
       onPress={onClick as any}
       aria-label={title}
@@ -130,7 +129,6 @@ export function RemoveButton<
     <IconButton
       title={translateString(TranslatableString.RemoveButton)}
       {...props}
-      className={`rjsf-remove-button ${props.className || ""}`}
       icon={<span aria-hidden="true">&#x2715;</span>}
     />
   );

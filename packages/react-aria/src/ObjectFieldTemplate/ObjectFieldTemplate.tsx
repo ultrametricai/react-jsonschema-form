@@ -77,29 +77,24 @@ export default function ObjectFieldTemplate<
           registry={registry}
         />
       )}
-      <div className="rjsf-object-properties">
-        {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
-        {properties.map((element: any, index: number) => (
-          <div
-            key={index}
-            className={`rjsf-object-property ${element.hidden ? "rjsf-hidden" : ""}`}
-          >
-            <div className="rjsf-object-property-content">{element.content}</div>
-          </div>
-        ))}
-        {canExpand(schema, uiSchema, formData) ? (
-          <div className="rjsf-object-property-expand-wrapper">
-            <AddButton
-              id={buttonId(fieldPathId, "add")}
-              onClick={onAddProperty}
-              disabled={disabled || readonly}
-              className="rjsf-object-property-expand"
-              uiSchema={uiSchema}
-              registry={registry}
-            />
-          </div>
-        ) : null}
-      </div>
+      {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
+      {properties.map((element: any, index: number) => (
+        <div
+          key={index}
+          className={element.hidden ? "rjsf-hidden" : undefined}
+        >
+          {element.content}
+        </div>
+      ))}
+      {canExpand(schema, uiSchema, formData) ? (
+        <AddButton
+          id={buttonId(fieldPathId, "add")}
+          onClick={onAddProperty}
+          disabled={disabled || readonly}
+          uiSchema={uiSchema}
+          registry={registry}
+        />
+      ) : null}
     </>
   );
 }

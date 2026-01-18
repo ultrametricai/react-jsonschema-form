@@ -1,5 +1,5 @@
-import { SyntheticEvent, useCallback } from "react";
-import Form, { IChangeEvent } from "@rjsf/core";
+import { ComponentType, SyntheticEvent, useCallback } from "react";
+import Form, { FormProps, IChangeEvent } from "@rjsf/core";
 import { RJSFSchema, UiSchema } from "@rjsf/utils";
 import localValidator from "@rjsf/validator-ajv8";
 
@@ -9,6 +9,8 @@ export interface ThemesType {
   theme: any;
   stylesheet: string;
   subthemes?: SubthemesType;
+  /** Optional Form component to use instead of withTheme(theme) */
+  formComponent?: ComponentType<FormProps>;
 }
 
 interface ThemeSelectorProps {

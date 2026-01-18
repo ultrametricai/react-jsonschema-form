@@ -6,34 +6,15 @@ import {
   StrictRJSFSchema,
   WidgetProps,
 } from "@rjsf/utils";
-import _pick from "lodash/pick";
-import { Slider, SliderOutput, SliderThumb, SliderTrack } from "react-aria-components";
-
-const allowedProps = [
-  "name",
-  "min",
-  "max",
-  "step",
-  "orientation",
-  "disabled",
-  "defaultValue",
-  "value",
-  "onChange",
-  "className",
-];
+import {
+  Slider as AriaSlider,
+  SliderOutput,
+  SliderThumb,
+  SliderTrack,
+} from "react-aria-components";
 
 /**
  * A range widget component that renders a slider for number input
- * @param {object} props - The widget properties
- * @param {number} props.value - The current value of the range
- * @param {boolean} props.readonly - Whether the widget is read-only
- * @param {boolean} props.disabled - Whether the widget is disabled
- * @param {object} props.options - Additional options for the widget
- * @param props.schema - The JSON schema for this field
- * @param {(value: any) => void} props.onChange - Callback for when the value changes
- * @param {string} props.label - The label for the range input
- * @param {string} props.id - The unique identifier for the widget
- * @returns {JSX.Element} The rendered range widget
  */
 export default function RangeWidget<
   T = any,
@@ -43,38 +24,45 @@ export default function RangeWidget<
   value,
   readonly,
   disabled,
-  options,
   schema,
   onChange,
   label,
   id,
 }: WidgetProps<T, S, F>): JSX.Element {
-  const _onChange = (value: number) => onChange(value);
+  const { min = 0, max = 100, step } = rangeSpec<S>(schema);
+  const currentValue = (value as number) ?? min;
 
-  const sliderProps = { value, label, id, ...rangeSpec<S>(schema) };
-  const uiProps = {
-    id,
-    ..._pick((options.props as object) || {}, allowedProps),
-  };
   return (
     <div className="rjsf-range-widget">
-      <Slider
+      <AriaSlider
+        value={currentValue}
+        onChange={onChange}
+        minValue={min}
+        maxValue={max}
+        step={step}
         isDisabled={disabled || readonly}
-        minValue={sliderProps.min}
-        maxValue={sliderProps.max}
-        step={sliderProps.step}
-        value={value as number}
-        onChange={_onChange}
-        {...uiProps}
         aria-describedby={ariaDescribedByIds(id)}
         aria-label={label || id}
-        className="rjsf-slider"
       >
-        <SliderTrack className="rjsf-slider-track">
-          <SliderThumb className="rjsf-slider-thumb" />
+        <SliderOutput>
+          {({ state }) =>
+            state.values.map((_, i) => state.getThumbValueLabel(i)).join(' – ')}
+        </SliderOutput>
+        <SliderTrack>
+          {({ state, isDisabled }) => (<>
+            <div className="track inset" data-disabled={isDisabled || undefined}>
+              {state.values.length === 1
+                ? <div className="fill" style={{'--size': state.getThumbPercent(0) * 100 + '%'} as any} />
+                : state.values.length === 2
+                  ? <div className="fill" style={{'--start': state.getThumbPercent(0) * 100 + '%', '--size': (state.getThumbPercent(1) - state.getThumbPercent(0)) * 100 + '%'} as any} />
+                  : null}
+            </div>
+            {state.values.map((_, i) => (
+              <SliderThumb key={i} index={i} className="react-aria-SliderThumb indicator" />
+            ))}
+          </>)}
         </SliderTrack>
-        <SliderOutput className="rjsf-slider-output" />
-      </Slider>
+      </AriaSlider>
     </div>
   );
 }

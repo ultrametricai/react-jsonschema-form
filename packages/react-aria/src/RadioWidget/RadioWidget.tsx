@@ -1,5 +1,6 @@
 import {
   ariaDescribedByIds,
+  enumOptionsIndexForValue,
   enumOptionsValueForIndex,
   FormContextType,
   optionId,
@@ -39,11 +40,12 @@ export default function RadioWidget<
   const _onFocus = () => onFocus(id, value);
 
   const inline = Boolean(options && options.inline);
+  const selectedIndex = enumOptionsIndexForValue<S>(value, enumOptions);
 
   return (
-    <div className="rjsf-radio-widget">
+    <div className={`rjsf-radio-widget ${inline ? "rjsf-radio-inline" : ""} ${className || ""}`}>
       <RadioGroup
-        value={value?.toString()}
+        value={selectedIndex !== undefined ? String(selectedIndex) : undefined}
         isRequired={required}
         isDisabled={disabled || readonly}
         onChange={_onChange}
@@ -52,26 +54,26 @@ export default function RadioWidget<
         aria-describedby={ariaDescribedByIds(id)}
         aria-label={label || id}
         orientation={inline ? "horizontal" : "vertical"}
-        className={`rjsf-radio-group ${inline ? "rjsf-radio-inline" : ""} ${className || ""}`}
       >
-        {Array.isArray(enumOptions) &&
-          enumOptions.map((option, index) => {
-            const itemDisabled =
-              Array.isArray(enumDisabled) &&
-              enumDisabled.indexOf(option.value) !== -1;
-            return (
-              <div className="rjsf-radio-item" key={optionId(id, index)}>
+        <div className="radio-items">
+          {Array.isArray(enumOptions) &&
+            enumOptions.map((option, index) => {
+              const itemDisabled =
+                Array.isArray(enumDisabled) &&
+                enumDisabled.indexOf(option.value) !== -1;
+              return (
                 <Radio
                   value={index.toString()}
                   id={optionId(id, index)}
                   isDisabled={itemDisabled}
-                  className="rjsf-radio"
+                  key={optionId(id, index)}
                 >
+                  <div className="indicator" />
                   {option.label}
                 </Radio>
-              </div>
-            );
-          })}
+              );
+            })}
+        </div>
       </RadioGroup>
     </div>
   );

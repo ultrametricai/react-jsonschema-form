@@ -8,7 +8,7 @@ import {
   StrictRJSFSchema,
 } from "@rjsf/utils";
 import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
-import { Input } from "react-aria-components";
+import { Input, Label, TextField } from "react-aria-components";
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the react-aria theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -41,6 +41,8 @@ export default function BaseInputTemplate<
   extraProps,
   className,
   registry,
+  label,
+  hideLabel,
 }: BaseInputTemplateProps<T, S, F>) {
   const { ClearButton } = registry.templates.ButtonTemplates;
   const inputProps = {
@@ -65,17 +67,25 @@ export default function BaseInputTemplate<
   const hasError = rawErrors.length > 0;
 
   return (
-    <div className="rjsf-base-input-wrapper">
+    <TextField
+      isRequired={required}
+      isDisabled={disabled}
+      isReadOnly={readonly}
+      isInvalid={hasError}
+      className={className || undefined}
+    >
+      {!hideLabel && label && (
+        <Label>
+          {label}
+          {required ? <span className="rjsf-required">*</span> : null}
+        </Label>
+      )}
       <Input
         id={id}
         name={htmlName || id}
         type={type}
         placeholder={placeholder}
         autoFocus={autofocus}
-        required={required}
-        disabled={disabled}
-        readOnly={readonly}
-        className={`rjsf-input ${hasError ? "rjsf-input-error" : ""} ${className || ""}`}
         list={schema.examples ? examplesId(id) : undefined}
         {...inputProps}
         value={value || value === 0 ? value : ""}
@@ -83,7 +93,6 @@ export default function BaseInputTemplate<
         onBlur={_onBlur}
         onFocus={_onFocus}
         aria-describedby={ariaDescribedByIds(id, !!schema.examples)}
-        aria-invalid={hasError}
       />
       {options.allowClearTextInputs && !readonly && !disabled && value && (
         <ClearButton onClick={_onClear} registry={registry} />
@@ -102,6 +111,6 @@ export default function BaseInputTemplate<
             })}
         </datalist>
       ) : null}
-    </div>
+    </TextField>
   );
 }

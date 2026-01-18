@@ -3,37 +3,41 @@
 exports[`CheckboxesWidget inline 1`] = `
 <DocumentFragment>
   <div
-    aria-describedby="_id__error _id__description _id__help"
-    aria-label="Some simple label"
-    class="rjsf-checkboxes-widget rjsf-checkboxes-inline"
-    data-rac=""
-    id="react-aria-:r5:"
-    role="group"
+    class="rjsf-checkboxes-widget rjsf-checkboxes-inline "
   >
     <div
-      class="rjsf-checkbox-item"
+      aria-describedby="_id__error _id__description _id__help"
+      aria-label="Some simple label"
+      class="react-aria-CheckboxGroup"
+      data-rac=""
+      id="react-aria-:r5:"
+      role="group"
     >
-      <label
-        class="rjsf-checkbox "
-        data-disabled="true"
-        data-rac=""
-        data-react-aria-pressable="true"
-        data-required="true"
+      <div
+        class="rjsf-checkbox-item"
       >
-        <span
-          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        <label
+          class="react-aria-Checkbox"
+          data-disabled="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-required="true"
         >
-          <input
-            data-react-aria-pressable="true"
-            disabled=""
-            id="_id-0"
-            name="_id"
-            required=""
-            type="checkbox"
-          />
-        </span>
-        A
-      </label>
+          <span
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              data-react-aria-pressable="true"
+              disabled=""
+              id="_id-0"
+              name="_id"
+              required=""
+              type="checkbox"
+            />
+          </span>
+          A
+        </label>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -42,37 +46,41 @@ exports[`CheckboxesWidget inline 1`] = `
 exports[`CheckboxesWidget simple 1`] = `
 <DocumentFragment>
   <div
-    aria-describedby="_id__error _id__description _id__help"
-    aria-label="Some simple label"
-    class="rjsf-checkboxes-widget "
-    data-rac=""
-    id="react-aria-:r0:"
-    role="group"
+    class="rjsf-checkboxes-widget  "
   >
     <div
-      class="rjsf-checkbox-item"
+      aria-describedby="_id__error _id__description _id__help"
+      aria-label="Some simple label"
+      class="react-aria-CheckboxGroup"
+      data-rac=""
+      id="react-aria-:r0:"
+      role="group"
     >
-      <label
-        class="rjsf-checkbox "
-        data-disabled="true"
-        data-rac=""
-        data-react-aria-pressable="true"
-        data-required="true"
+      <div
+        class="rjsf-checkbox-item"
       >
-        <span
-          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+        <label
+          class="react-aria-Checkbox"
+          data-disabled="true"
+          data-rac=""
+          data-react-aria-pressable="true"
+          data-required="true"
         >
-          <input
-            data-react-aria-pressable="true"
-            disabled=""
-            id="_id-0"
-            name="_id"
-            required=""
-            type="checkbox"
-          />
-        </span>
-        A
-      </label>
+          <span
+            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          >
+            <input
+              data-react-aria-pressable="true"
+              disabled=""
+              id="_id-0"
+              name="_id"
+              required=""
+              type="checkbox"
+            />
+          </span>
+          A
+        </label>
+      </div>
     </div>
   </div>
 </DocumentFragment>

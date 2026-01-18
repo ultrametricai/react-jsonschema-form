@@ -20,6 +20,7 @@ import { isFunction } from "lodash";
 
 import { samples } from "../samples";
 import DemoFrame from "./DemoFrame";
+import ShadowRoot from "./ShadowRoot";
 import ErrorBoundary from "./ErrorBoundary";
 import GeoPosition from "./GeoPosition";
 import OptionsDrawer, { LiveSettings } from "./OptionsDrawer";
@@ -80,9 +81,10 @@ export default function Playground({ themes, validators }: PlaygroundProps) {
   );
 
   const onThemeSelected = useCallback(
-    (theme: string, { stylesheet, theme: themeObj }: ThemesType) => {
+    (theme: string, { stylesheet, theme: themeObj, formComponent }: ThemesType) => {
       setTheme(theme);
-      setFormComponent(withTheme(themeObj));
+      // Use the provided Form component if available, otherwise use withTheme
+      setFormComponent(formComponent ?? withTheme(themeObj));
       setStylesheet(stylesheet);
       if (uiSchemaGenerator) {
         setUiSchema(uiSchemaGenerator.generator(theme));
@@ -247,7 +249,38 @@ export default function Playground({ themes, validators }: PlaygroundProps) {
         />
         <Divider variant="fullWidth" sx={{ my: 1 }} />
         <ErrorBoundary>
-          {showForm && (
+          {showForm && theme === "react-aria" ? (
+            // react-aria needs to render outside iframe due to pointer capture issues with react-frame-component
+            // Using Shadow DOM for style isolation from bootstrap/MUI
+            <ShadowRoot stylesheet={stylesheet}>
+              <FormComponent
+                {...otherFormProps}
+                {...liveSettings}
+                extraErrors={extraErrors}
+                schema={schema}
+                uiSchema={uiSchema}
+                formData={formData}
+                fields={{
+                  ...otherFormProps.fields,
+                  geo: GeoPosition,
+                  "/schemas/specialString": SpecialInput,
+                }}
+                validator={validators[validator]}
+                onChange={onFormDataChange}
+                onSubmit={onFormDataSubmit}
+                onBlur={(id: string, value: string) =>
+                  console.log(`Blurred ${id} with value ${value}`)
+                }
+                onFocus={(id: string, value: string) =>
+                  console.log(`Focused ${id} with value ${value}`)
+                }
+                onError={(errorList: RJSFValidationError[]) =>
+                  console.log("errors", errorList)
+                }
+                ref={playGroundFormRef}
+              />
+            </ShadowRoot>
+          ) : showForm ? (
             <DemoFrame
               head={
                 <>
@@ -289,7 +322,7 @@ export default function Playground({ themes, validators }: PlaygroundProps) {
                 ref={playGroundFormRef}
               />
             </DemoFrame>
-          )}
+          ) : null}
         </ErrorBoundary>
       </Box>
       <OptionsDrawer

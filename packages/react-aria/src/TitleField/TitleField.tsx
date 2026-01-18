@@ -29,7 +29,9 @@ export default function TitleField<
   return (
     <div id={id} className="rjsf-title-field">
       {heading}
-      <Separator className="rjsf-title-separator" />
+      <div className="rjsf-title-separator">
+        <Separator />
+      </div>
     </div>
   );
 }

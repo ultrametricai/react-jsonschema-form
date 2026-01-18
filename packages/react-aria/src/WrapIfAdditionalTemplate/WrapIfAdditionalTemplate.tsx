@@ -42,11 +42,8 @@ export default function WrapIfAdditionalTemplate<
   const additional = ADDITIONAL_PROPERTY_FLAG in schema;
 
   if (!additional) {
-    return (
-      <div className={classNames} style={style}>
-        {children}
-      </div>
-    );
+    // Return children directly without wrapper for cleaner DOM structure
+    return <>{children}</>;
   }
 
   const keyId = `${id}-key`;
@@ -67,16 +64,17 @@ export default function WrapIfAdditionalTemplate<
                 {keyLabel}
               </label>
             )}
-            <Input
-              required={required}
-              defaultValue={label}
-              disabled={disabled || readonly}
-              id={keyId}
-              name={keyId}
-              onBlur={!readonly ? onKeyRenameBlur : undefined}
-              type="text"
-              className="rjsf-input"
-            />
+            <div className="rjsf-input-wrapper">
+              <Input
+                required={required}
+                defaultValue={label}
+                disabled={disabled || readonly}
+                id={keyId}
+                name={keyId}
+                onBlur={!readonly ? onKeyRenameBlur : undefined}
+                type="text"
+              />
+            </div>
             {!!rawDescription && (
               <span className="rjsf-additional-property-spacer">&nbsp;</span>
             )}
@@ -95,7 +93,9 @@ export default function WrapIfAdditionalTemplate<
           />
         </div>
       </div>
-      <Separator className="rjsf-separator" />
+      <div className="rjsf-separator-wrapper">
+        <Separator />
+      </div>
     </>
   );
 }

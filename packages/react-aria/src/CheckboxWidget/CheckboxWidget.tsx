@@ -69,7 +69,7 @@ export default function CheckboxWidget<
           registry={registry}
         />
       )}
-      <div className="rjsf-checkbox-wrapper">
+      <div className={`rjsf-checkbox-wrapper ${className || ""}`}>
         <Checkbox
           id={id}
           name={htmlName || id}
@@ -80,7 +80,6 @@ export default function CheckboxWidget<
           onChange={_onChange}
           onBlur={_onBlur}
           onFocus={_onFocus}
-          className={`rjsf-checkbox ${className || ""}`}
           aria-label={hideLabel || !label ? label || id : undefined}
         >
           {labelValue(label, hideLabel || !label)}
