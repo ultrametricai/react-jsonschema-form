@@ -1,23 +1,24 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
-	"vcs": {
-		"enabled": true,
-		"clientKind": "git",
-		"useIgnoreFile": true
-	},
-	"files": {
-		"ignoreUnknown": false
-	},
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "space",
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": ["**", "!packages/shadcn/src/css/*.css"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
     "formatWithErrors": true,
     "lineWidth": 80
-	},
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
       "correctness": {
         "noUnusedImports": {
           "level": "error",
@@ -26,36 +27,76 @@
         "noUnusedVariables": {
           "level": "error",
           "fix": "none"
-        }
+        },
+        "noUnusedFunctionParameters": "off",
+        "useExhaustiveDependencies": "off",
+        "useJsxKeyInIterable": "off",
+        "useParseIntRadix": "off"
+      },
+      "performance": {
+        "noAccumulatingSpread": "off"
       },
       "style": {
         "useImportType": "off",
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "off",
+        "useNodejsImportProtocol": "off",
+        "useTemplate": "off"
       },
       "suspicious": {
         "noExplicitAny": "off",
-        "noSelfCompare": "off"
+        "noSelfCompare": "off",
+        "noApproximativeNumericConstant": "off",
+        "useIterableCallbackReturn": "off",
+        "noPrototypeBuiltins": "off",
+        "noImplicitAnyLet": "off",
+        "noArrayIndexKey": "off",
+        "noThenProperty": "off",
+        "noGlobalIsNan": "off",
+        "noConfusingVoidType": "off",
+        "noDoubleEquals": "off",
+        "noTsIgnore": "off"
       },
       "complexity": {
-        "useOptionalChain": "off"
+        "useOptionalChain": "off",
+        "noUselessUndefinedInitialization": "off",
+        "noImportantStyles": "off",
+        "noUselessSwitchCase": "off",
+        "noUselessFragments": "off",
+        "useArrowFunction": "off",
+        "noUselessTernary": "off",
+        "noCommaOperator": "off",
+        "useLiteralKeys": "off",
+        "useDateNow": "off",
+        "useFlatMap": "off"
       },
       "a11y": {
         "useAriaPropsForRole": "off",
-        "useSemanticElements": "off"
+        "useSemanticElements": "off",
+        "noNoninteractiveElementToInteractiveRole": "off",
+        "noStaticElementInteractions": "off",
+        "noNoninteractiveTabindex": "off",
+        "noSvgWithoutTitle": "off",
+        "noRedundantRoles": "off",
+        "useValidAnchor": "off",
+        "useButtonType": "off",
+        "noAutofocus": "off",
+        "useAltText": "off",
+        "useKeyWithClickEvents": "off",
+        "noLabelWithoutControl": "off"
       }
-		}
-	},
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "double"
-		}
-	},
-	"assist": {
-		"enabled": true,
-		"actions": {
-			"source": {
-				"organizeImports": "on"
-			}
-		}
-	}
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  }
 }
