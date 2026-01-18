@@ -19,6 +19,7 @@ import { __createChakraFrameProvider } from "@rjsf/chakra-ui";
 import { StyleProvider as AntdStyleProvider } from "@ant-design/cssinjs";
 import { __createFluentUIRCFrameProvider } from "@rjsf/fluentui-rc";
 import { __createDaisyUIFrameProvider } from "@rjsf/daisyui";
+import { __createReactAriaFrameProvider } from "@rjsf/react-aria";
 import { MantineProvider } from "@mantine/core";
 import { ConfigProvider } from "antd";
 import { PrimeReactProvider } from "primereact/api";
@@ -278,7 +279,11 @@ export default function DemoFrame(props: DemoFrameProps) {
       </FrameContextConsumer>
     ) : null;
   } else if (theme === "react-aria") {
-    body = ready ? children : null;
+    body = ready ? (
+      <FrameContextConsumer>
+        {__createReactAriaFrameProvider(props)}
+      </FrameContextConsumer>
+    ) : null;
   }
 
   return (
