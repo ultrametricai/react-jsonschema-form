@@ -56,7 +56,7 @@
     "test:debug": "node --inspect-brk ../../node_modules/.bin/jest"
   },
   "peerDependencies": {
-    "react": "~18"
+    "react": "^18.0.0"
   },
   "dependencies": {
     "@x0k/json-schema-merge": "^1.0.2",
@@ -64,7 +64,7 @@
     "jsonpointer": "^5.0.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "react-is": "~18"
+    "react-is": "^18.0.0"
   },
   "devDependencies": {},
   "publishConfig": {
