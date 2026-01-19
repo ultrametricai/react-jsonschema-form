@@ -394,6 +394,7 @@ const themes: PlaygroundProps["themes"] = {
     },
   },
   "react-aria": {
+    stylesheet: "/react-aria-theme.css",
     theme: ReactAriaTheme,
     formComponent: ReactAriaForm,
   },
