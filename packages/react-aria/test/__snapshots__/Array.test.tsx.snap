@@ -486,31 +486,37 @@ exports[`array fields empty errors array 1`] = `
     <form
       class="react-aria-Form"
     >
-      <div>
+      <div
+        class="react-aria-object-properties"
+      >
         <div
-          class="react-aria-TextField"
-          data-rac=""
+          class="react-aria-object-property"
         >
-          <label
-            class="react-aria-Label"
-            for="root_name"
-            id="react-aria-:r1v:"
-          >
-            name
-          </label>
-          <input
-            aria-describedby="root_name__error root_name__description root_name__help"
-            aria-labelledby="react-aria-:r1v:"
-            class="react-aria-Input"
+          <div
+            class="react-aria-TextField"
             data-rac=""
-            id="root_name"
-            name="root_name"
-            placeholder=""
-            tabindex="0"
-            title=""
-            type="text"
-            value=""
-          />
+          >
+            <label
+              class="react-aria-Label"
+              for="root_name"
+              id="react-aria-:r1v:"
+            >
+              name
+            </label>
+            <input
+              aria-describedby="root_name__error root_name__description root_name__help"
+              aria-labelledby="react-aria-:r1v:"
+              class="react-aria-Input"
+              data-rac=""
+              id="root_name"
+              name="root_name"
+              placeholder=""
+              tabindex="0"
+              title=""
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <button
@@ -663,44 +669,50 @@ exports[`array fields has errors 1`] = `
           </li>
         </ul>
       </div>
-      <div>
+      <div
+        class="react-aria-object-properties"
+      >
         <div
-          class="react-aria-TextField"
-          data-invalid="true"
-          data-rac=""
+          class="react-aria-object-property"
         >
-          <label
-            class="react-aria-Label"
-            for="root_name"
-            id="react-aria-:r1h:"
-          >
-            name
-          </label>
-          <input
-            aria-describedby="root_name__error root_name__description root_name__help"
-            aria-invalid="true"
-            aria-labelledby="react-aria-:r1h:"
-            class="react-aria-Input"
+          <div
+            class="react-aria-TextField"
             data-invalid="true"
             data-rac=""
-            id="root_name"
-            name="root_name"
-            placeholder=""
-            tabindex="0"
-            title=""
-            type="text"
-            value=""
-          />
-        </div>
-        <div
-          class="react-aria-field-errors"
-          id="root_name__error"
-        >
-          <span
-            class="react-aria-field-error"
           >
-            Bad input
-          </span>
+            <label
+              class="react-aria-Label"
+              for="root_name"
+              id="react-aria-:r1h:"
+            >
+              name
+            </label>
+            <input
+              aria-describedby="root_name__error root_name__description root_name__help"
+              aria-invalid="true"
+              aria-labelledby="react-aria-:r1h:"
+              class="react-aria-Input"
+              data-invalid="true"
+              data-rac=""
+              id="root_name"
+              name="root_name"
+              placeholder=""
+              tabindex="0"
+              title=""
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="react-aria-field-errors"
+            id="root_name__error"
+          >
+            <span
+              class="react-aria-field-error"
+            >
+              Bad input
+            </span>
+          </div>
         </div>
       </div>
       <button
@@ -726,31 +738,37 @@ exports[`array fields no errors 1`] = `
     <form
       class="react-aria-Form"
     >
-      <div>
+      <div
+        class="react-aria-object-properties"
+      >
         <div
-          class="react-aria-TextField"
-          data-rac=""
+          class="react-aria-object-property"
         >
-          <label
-            class="react-aria-Label"
-            for="root_name"
-            id="react-aria-:r1o:"
-          >
-            name
-          </label>
-          <input
-            aria-describedby="root_name__error root_name__description root_name__help"
-            aria-labelledby="react-aria-:r1o:"
-            class="react-aria-Input"
+          <div
+            class="react-aria-TextField"
             data-rac=""
-            id="root_name"
-            name="root_name"
-            placeholder=""
-            tabindex="0"
-            title=""
-            type="text"
-            value=""
-          />
+          >
+            <label
+              class="react-aria-Label"
+              for="root_name"
+              id="react-aria-:r1o:"
+            >
+              name
+            </label>
+            <input
+              aria-describedby="root_name__error root_name__description root_name__help"
+              aria-labelledby="react-aria-:r1o:"
+              class="react-aria-Input"
+              data-rac=""
+              id="root_name"
+              name="root_name"
+              placeholder=""
+              tabindex="0"
+              title=""
+              type="text"
+              value=""
+            />
+          </div>
         </div>
       </div>
       <button
@@ -797,59 +815,67 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                   <div
                     class="react-aria-array-item-content"
                   >
-                    <div>
+                    <div
+                      class="react-aria-object-properties"
+                    >
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_0_name"
-                          id="react-aria-:r90:"
-                        >
-                          name
-                        </label>
-                        <input
-                          aria-describedby="root_0_name__error root_0_name__description root_0_name__help"
-                          aria-labelledby="react-aria-:r90:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_0_name"
-                          name="root[0][name]"
-                          placeholder=""
-                          tabindex="0"
-                          title=""
-                          type="text"
-                          value="Item 1"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_0_name"
+                            id="react-aria-:r90:"
+                          >
+                            name
+                          </label>
+                          <input
+                            aria-describedby="root_0_name__error root_0_name__description root_0_name__help"
+                            aria-labelledby="react-aria-:r90:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_0_name"
+                            name="root[0][name]"
+                            placeholder=""
+                            tabindex="0"
+                            title=""
+                            type="text"
+                            value="Item 1"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_0_value"
-                          id="react-aria-:r95:"
-                        >
-                          value
-                        </label>
-                        <input
-                          aria-describedby="root_0_value__error root_0_value__description root_0_value__help"
-                          aria-labelledby="react-aria-:r95:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_0_value"
-                          name="root[0][value]"
-                          placeholder=""
-                          step="any"
-                          tabindex="0"
-                          title=""
-                          type="number"
-                          value="10"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_0_value"
+                            id="react-aria-:r95:"
+                          >
+                            value
+                          </label>
+                          <input
+                            aria-describedby="root_0_value__error root_0_value__description root_0_value__help"
+                            aria-labelledby="react-aria-:r95:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_0_value"
+                            name="root[0][value]"
+                            placeholder=""
+                            step="any"
+                            tabindex="0"
+                            title=""
+                            type="number"
+                            value="10"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -944,59 +970,67 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                   <div
                     class="react-aria-array-item-content"
                   >
-                    <div>
+                    <div
+                      class="react-aria-object-properties"
+                    >
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_1_name"
-                          id="react-aria-:r9g:"
-                        >
-                          name
-                        </label>
-                        <input
-                          aria-describedby="root_1_name__error root_1_name__description root_1_name__help"
-                          aria-labelledby="react-aria-:r9g:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_1_name"
-                          name="root[1][name]"
-                          placeholder=""
-                          tabindex="0"
-                          title=""
-                          type="text"
-                          value="Item 2"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_1_name"
+                            id="react-aria-:r9g:"
+                          >
+                            name
+                          </label>
+                          <input
+                            aria-describedby="root_1_name__error root_1_name__description root_1_name__help"
+                            aria-labelledby="react-aria-:r9g:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_1_name"
+                            name="root[1][name]"
+                            placeholder=""
+                            tabindex="0"
+                            title=""
+                            type="text"
+                            value="Item 2"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_1_value"
-                          id="react-aria-:r9l:"
-                        >
-                          value
-                        </label>
-                        <input
-                          aria-describedby="root_1_value__error root_1_value__description root_1_value__help"
-                          aria-labelledby="react-aria-:r9l:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_1_value"
-                          name="root[1][value]"
-                          placeholder=""
-                          step="any"
-                          tabindex="0"
-                          title=""
-                          type="number"
-                          value="20"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_1_value"
+                            id="react-aria-:r9l:"
+                          >
+                            value
+                          </label>
+                          <input
+                            aria-describedby="root_1_value__error root_1_value__description root_1_value__help"
+                            aria-labelledby="react-aria-:r9l:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_1_value"
+                            name="root[1][value]"
+                            placeholder=""
+                            step="any"
+                            tabindex="0"
+                            title=""
+                            type="number"
+                            value="20"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2442,59 +2476,67 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                   <div
                     class="react-aria-array-item-content"
                   >
-                    <div>
+                    <div
+                      class="react-aria-object-properties"
+                    >
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_0_name"
-                          id="react-aria-:rdc:"
-                        >
-                          name
-                        </label>
-                        <input
-                          aria-describedby="root_0_name__error root_0_name__description root_0_name__help"
-                          aria-labelledby="react-aria-:rdc:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_0_name"
-                          name="root.0.name"
-                          placeholder=""
-                          tabindex="0"
-                          title=""
-                          type="text"
-                          value="Item 1"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_0_name"
+                            id="react-aria-:rdc:"
+                          >
+                            name
+                          </label>
+                          <input
+                            aria-describedby="root_0_name__error root_0_name__description root_0_name__help"
+                            aria-labelledby="react-aria-:rdc:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_0_name"
+                            name="root.0.name"
+                            placeholder=""
+                            tabindex="0"
+                            title=""
+                            type="text"
+                            value="Item 1"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_0_value"
-                          id="react-aria-:rdh:"
-                        >
-                          value
-                        </label>
-                        <input
-                          aria-describedby="root_0_value__error root_0_value__description root_0_value__help"
-                          aria-labelledby="react-aria-:rdh:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_0_value"
-                          name="root.0.value"
-                          placeholder=""
-                          step="any"
-                          tabindex="0"
-                          title=""
-                          type="number"
-                          value="10"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_0_value"
+                            id="react-aria-:rdh:"
+                          >
+                            value
+                          </label>
+                          <input
+                            aria-describedby="root_0_value__error root_0_value__description root_0_value__help"
+                            aria-labelledby="react-aria-:rdh:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_0_value"
+                            name="root.0.value"
+                            placeholder=""
+                            step="any"
+                            tabindex="0"
+                            title=""
+                            type="number"
+                            value="10"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2589,59 +2631,67 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                   <div
                     class="react-aria-array-item-content"
                   >
-                    <div>
+                    <div
+                      class="react-aria-object-properties"
+                    >
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_1_name"
-                          id="react-aria-:rds:"
-                        >
-                          name
-                        </label>
-                        <input
-                          aria-describedby="root_1_name__error root_1_name__description root_1_name__help"
-                          aria-labelledby="react-aria-:rds:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_1_name"
-                          name="root.1.name"
-                          placeholder=""
-                          tabindex="0"
-                          title=""
-                          type="text"
-                          value="Item 2"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_1_name"
+                            id="react-aria-:rds:"
+                          >
+                            name
+                          </label>
+                          <input
+                            aria-describedby="root_1_name__error root_1_name__description root_1_name__help"
+                            aria-labelledby="react-aria-:rds:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_1_name"
+                            name="root.1.name"
+                            placeholder=""
+                            tabindex="0"
+                            title=""
+                            type="text"
+                            value="Item 2"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
                       <div
-                        class="react-aria-TextField"
-                        data-rac=""
+                        class="react-aria-object-property"
                       >
-                        <label
-                          class="react-aria-Label"
-                          for="root_1_value"
-                          id="react-aria-:re1:"
-                        >
-                          value
-                        </label>
-                        <input
-                          aria-describedby="root_1_value__error root_1_value__description root_1_value__help"
-                          aria-labelledby="react-aria-:re1:"
-                          class="react-aria-Input"
+                        <div
+                          class="react-aria-TextField"
                           data-rac=""
-                          id="root_1_value"
-                          name="root.1.value"
-                          placeholder=""
-                          step="any"
-                          tabindex="0"
-                          title=""
-                          type="number"
-                          value="20"
-                        />
+                        >
+                          <label
+                            class="react-aria-Label"
+                            for="root_1_value"
+                            id="react-aria-:re1:"
+                          >
+                            value
+                          </label>
+                          <input
+                            aria-describedby="root_1_value__error root_1_value__description root_1_value__help"
+                            aria-labelledby="react-aria-:re1:"
+                            class="react-aria-Input"
+                            data-rac=""
+                            id="root_1_value"
+                            name="root.1.value"
+                            placeholder=""
+                            step="any"
+                            tabindex="0"
+                            title=""
+                            type="number"
+                            value="20"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3098,13 +3148,11 @@ exports[`with title and description array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a test description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a test description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -3190,13 +3238,11 @@ exports[`with title and description array icons 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a test description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a test description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -3607,13 +3653,11 @@ exports[`with title and description checkboxes 1`] = `
       <span
         class="react-aria-description"
       >
-        <div>
-          <div
-            class="react-aria-description-field"
-            id="root__description"
-          >
-            a test description
-          </div>
+        <div
+          class="react-aria-description-field"
+          id="root__description"
+        >
+          a test description
         </div>
       </span>
       <button
@@ -3666,13 +3710,11 @@ exports[`with title and description fixed array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a test description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a test description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -3826,13 +3868,11 @@ exports[`with title and description from both array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -3918,13 +3958,11 @@ exports[`with title and description from both array icons 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -4335,13 +4373,11 @@ exports[`with title and description from both checkboxes 1`] = `
       <span
         class="react-aria-description"
       >
-        <div>
-          <div
-            class="react-aria-description-field"
-            id="root__description"
-          >
-            a fancier description
-          </div>
+        <div
+          class="react-aria-description-field"
+          id="root__description"
+        >
+          a fancier description
         </div>
       </span>
       <button
@@ -4394,13 +4430,11 @@ exports[`with title and description from both fixed array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -4554,13 +4588,11 @@ exports[`with title and description from uiSchema array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -4646,13 +4678,11 @@ exports[`with title and description from uiSchema array icons 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"
@@ -5063,13 +5093,11 @@ exports[`with title and description from uiSchema checkboxes 1`] = `
       <span
         class="react-aria-description"
       >
-        <div>
-          <div
-            class="react-aria-description-field"
-            id="root__description"
-          >
-            a fancier description
-          </div>
+        <div
+          class="react-aria-description-field"
+          id="root__description"
+        >
+          a fancier description
         </div>
       </span>
       <button
@@ -5122,13 +5150,11 @@ exports[`with title and description from uiSchema fixed array 1`] = `
                 />
               </div>
             </div>
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root__description"
-              >
-                a fancier description
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root__description"
+            >
+              a fancier description
             </div>
             <div
               class="react-aria-array-item-list"

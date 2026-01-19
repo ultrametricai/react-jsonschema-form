@@ -366,13 +366,11 @@ exports[`Complex grid renders person and address and employment in a complex gri
             <span
               class="react-aria-description"
             >
-              <div>
-                <div
-                  class="react-aria-description-field"
-                  id="root_person_race__description"
-                >
-                  (Check all that apply)
-                </div>
+              <div
+                class="react-aria-description-field"
+                id="root_person_race__description"
+              >
+                (Check all that apply)
               </div>
             </span>
           </div>
@@ -1782,13 +1780,11 @@ exports[`Complex grid renders person and address and employment in a complex gri
             <span
               class="react-aria-description"
             >
-              <div>
-                <div
-                  class="react-aria-description-field"
-                  id="root_person_race__description"
-                >
-                  (Check all that apply)
-                </div>
+              <div
+                class="react-aria-description-field"
+                id="root_person_race__description"
+              >
+                (Check all that apply)
               </div>
             </span>
           </div>
@@ -3227,13 +3223,11 @@ exports[`Complex grid renders person and address and employment in a complex gri
             <span
               class="react-aria-description"
             >
-              <div>
-                <div
-                  class="react-aria-description-field"
-                  id="root_person_race__description"
-                >
-                  (Check all that apply)
-                </div>
+              <div
+                class="react-aria-description-field"
+                id="root_person_race__description"
+              >
+                (Check all that apply)
               </div>
             </span>
           </div>
@@ -4236,13 +4230,11 @@ exports[`Complex grid renders person and address and employment in a complex gri
             <span
               class="react-aria-description"
             >
-              <div>
-                <div
-                  class="react-aria-description-field"
-                  id="root_person_race__description"
-                >
-                  (Check all that apply)
-                </div>
+              <div
+                class="react-aria-description-field"
+                id="root_person_race__description"
+              >
+                (Check all that apply)
               </div>
             </span>
           </div>
@@ -5641,13 +5633,11 @@ exports[`Three even column grid renders person and address in three columns, no 
           <span
             class="react-aria-description"
           >
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root_person_race__description"
-              >
-                (Check all that apply)
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root_person_race__description"
+            >
+              (Check all that apply)
             </div>
           </span>
         </div>
@@ -6467,13 +6457,11 @@ exports[`Two even column grid renders person and address in two columns, no empl
           <span
             class="react-aria-description"
           >
-            <div>
-              <div
-                class="react-aria-description-field"
-                id="root_person_race__description"
-              >
-                (Check all that apply)
-              </div>
+            <div
+              class="react-aria-description-field"
+              id="root_person_race__description"
+            >
+              (Check all that apply)
             </div>
           </span>
         </div>

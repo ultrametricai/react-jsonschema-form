@@ -77,24 +77,26 @@ export default function ObjectFieldTemplate<
           registry={registry}
         />
       )}
-      {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
-      {properties.map((element: any, index: number) => (
-        <div
-          key={index}
-          className={element.hidden ? "react-aria-hidden" : undefined}
-        >
-          {element.content}
-        </div>
-      ))}
-      {canExpand(schema, uiSchema, formData) ? (
-        <AddButton
-          id={buttonId(fieldPathId, "add")}
-          onClick={onAddProperty}
-          disabled={disabled || readonly}
-          uiSchema={uiSchema}
-          registry={registry}
-        />
-      ) : null}
+      <div className="react-aria-object-properties">
+        {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
+        {properties.map((element: any, index: number) => (
+          <div
+            key={index}
+            className={element.hidden ? "react-aria-hidden" : "react-aria-object-property"}
+          >
+            {element.content}
+          </div>
+        ))}
+        {canExpand(schema, uiSchema, formData) ? (
+          <AddButton
+            id={buttonId(fieldPathId, "add")}
+            onClick={onAddProperty}
+            disabled={disabled || readonly}
+            uiSchema={uiSchema}
+            registry={registry}
+          />
+        ) : null}
+      </div>
     </>
   );
 }

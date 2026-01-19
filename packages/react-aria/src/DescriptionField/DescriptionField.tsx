@@ -20,14 +20,12 @@ export default function DescriptionField<
   }
 
   return (
-    <div>
-      <div id={id} className="react-aria-description-field">
-        <RichDescription
-          description={description}
-          registry={registry}
-          uiSchema={uiSchema}
-        />
-      </div>
+    <div id={id} className="react-aria-description-field">
+      <RichDescription
+        description={description}
+        registry={registry}
+        uiSchema={uiSchema}
+      />
     </div>
   );
 }
