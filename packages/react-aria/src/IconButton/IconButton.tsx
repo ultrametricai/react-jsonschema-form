@@ -5,8 +5,8 @@ import {
   StrictRJSFSchema,
   TranslatableString,
 } from "@rjsf/utils";
-import { Button as AriaButton } from "react-aria-components";
-import { ReactNode } from "react";
+import { Button as AriaButton, PressEvent } from "react-aria-components";
+import { ReactNode, useCallback } from "react";
 
 export type AriaIconButtonProps<
   T = any,
@@ -15,6 +15,22 @@ export type AriaIconButtonProps<
 > = IconButtonProps<T, S, F> & {
   icon?: ReactNode;
 };
+
+/** Creates a synthetic MouseEvent-like object from a PressEvent for RJSF compatibility.
+ * RJSF handlers expect MouseEvent with preventDefault(), but React Aria provides PressEvent.
+ */
+function createSyntheticMouseEvent(e: PressEvent) {
+  return {
+    preventDefault: () => {},
+    stopPropagation: () => e.continuePropagation?.(),
+    target: e.target,
+    currentTarget: e.target,
+    shiftKey: e.shiftKey,
+    ctrlKey: e.ctrlKey,
+    metaKey: e.metaKey,
+    altKey: e.altKey,
+  };
+}
 
 /** Base button component that renders a React Aria button with an icon for RJSF form actions.
  * This component serves as the foundation for other specialized buttons used in array operations.
@@ -28,12 +44,19 @@ export default function IconButton<
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
 >(props: AriaIconButtonProps<T, S, F>) {
-  const { icon, disabled, onClick, title } = props;
+  const { icon, disabled, onClick, title, id } = props;
+  const handlePress = useCallback(
+    (e: PressEvent) => {
+      onClick?.(createSyntheticMouseEvent(e) as any);
+    },
+    [onClick]
+  );
   return (
     <AriaButton
+      id={id}
       className="react-aria-Button react-aria-IconButton"
       isDisabled={disabled}
-      onPress={onClick as any}
+      onPress={handlePress}
       aria-label={title}
       type="button"
     >

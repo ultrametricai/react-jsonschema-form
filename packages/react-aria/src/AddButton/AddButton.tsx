@@ -5,7 +5,24 @@ import {
   StrictRJSFSchema,
   TranslatableString,
 } from "@rjsf/utils";
-import { Button as AriaButton } from "react-aria-components";
+import { Button as AriaButton, PressEvent } from "react-aria-components";
+import { useCallback } from "react";
+
+/** Creates a synthetic MouseEvent-like object from a PressEvent for RJSF compatibility.
+ * RJSF handlers expect MouseEvent with preventDefault(), but React Aria provides PressEvent.
+ */
+function createSyntheticMouseEvent(e: PressEvent) {
+  return {
+    preventDefault: () => {},
+    stopPropagation: () => e.continuePropagation?.(),
+    target: e.target,
+    currentTarget: e.target,
+    shiftKey: e.shiftKey,
+    ctrlKey: e.ctrlKey,
+    metaKey: e.metaKey,
+    altKey: e.altKey,
+  };
+}
 
 /**
  * A button component for adding new items in a form
@@ -18,13 +35,20 @@ export default function AddButton<
   T = any,
   S extends StrictRJSFSchema = RJSFSchema,
   F extends FormContextType = any,
->({ registry, disabled, onClick }: IconButtonProps<T, S, F>) {
+>({ registry, disabled, onClick, id }: IconButtonProps<T, S, F>) {
   const { translateString } = registry;
+  const handlePress = useCallback(
+    (e: PressEvent) => {
+      onClick?.(createSyntheticMouseEvent(e) as any);
+    },
+    [onClick]
+  );
   return (
     <AriaButton
+      id={id}
       className="react-aria-Button react-aria-AddButton"
       isDisabled={disabled}
-      onPress={onClick as any}
+      onPress={handlePress}
       type="button"
     >
       <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-AddButton-icon">
