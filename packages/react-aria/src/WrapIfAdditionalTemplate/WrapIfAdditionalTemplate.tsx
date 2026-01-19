@@ -51,20 +51,20 @@ export default function WrapIfAdditionalTemplate<
   return (
     <>
       <div
-        className={`rjsf-additional-property ${classNames || ""}`}
+        className={`react-aria-additional-property ${classNames || ""}`}
         style={style}
       >
-        <div className="rjsf-additional-property-key">
-          <div className="rjsf-additional-property-key-wrapper">
+        <div className="react-aria-additional-property-key">
+          <div className="react-aria-additional-property-key-wrapper">
             {displayLabel && (
               <label
                 htmlFor={keyId}
-                className="rjsf-additional-property-label"
+                className="react-aria-additional-property-label"
               >
                 {keyLabel}
               </label>
             )}
-            <div className="rjsf-input-wrapper">
+            <div className="react-aria-input-wrapper">
               <Input
                 required={required}
                 defaultValue={label}
@@ -76,16 +76,16 @@ export default function WrapIfAdditionalTemplate<
               />
             </div>
             {!!rawDescription && (
-              <span className="rjsf-additional-property-spacer">&nbsp;</span>
+              <span className="react-aria-additional-property-spacer">&nbsp;</span>
             )}
           </div>
         </div>
-        <div className="rjsf-additional-property-value">{children}</div>
-        <div className="rjsf-additional-property-remove">
+        <div className="react-aria-additional-property-value">{children}</div>
+        <div className="react-aria-additional-property-remove">
           <RemoveButton
             id={buttonId(id, "remove")}
             iconType="block"
-            className="rjsf-object-property-remove"
+            className="react-aria-object-property-remove"
             disabled={disabled || readonly}
             onClick={onRemoveProperty}
             uiSchema={uiSchema}
@@ -93,7 +93,7 @@ export default function WrapIfAdditionalTemplate<
           />
         </div>
       </div>
-      <div className="rjsf-separator-wrapper">
+      <div className="react-aria-separator-wrapper">
         <Separator />
       </div>
     </>

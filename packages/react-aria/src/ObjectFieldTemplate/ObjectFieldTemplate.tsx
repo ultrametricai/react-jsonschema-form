@@ -81,7 +81,7 @@ export default function ObjectFieldTemplate<
       {properties.map((element: any, index: number) => (
         <div
           key={index}
-          className={element.hidden ? "rjsf-hidden" : undefined}
+          className={element.hidden ? "react-aria-hidden" : undefined}
         >
           {element.content}
         </div>

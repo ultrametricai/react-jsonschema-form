@@ -7,7 +7,7 @@ import { GridTemplateProps } from "@rjsf/utils";
 export default function GridTemplate(props: GridTemplateProps) {
   const { children, column, className, ...rest } = props;
   return (
-    <div className={`rjsf-grid ${className || ""}`} {...rest}>
+    <div className={`react-aria-grid ${className || ""}`} {...rest}>
       {children}
     </div>
   );

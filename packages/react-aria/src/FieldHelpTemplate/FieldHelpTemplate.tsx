@@ -23,7 +23,7 @@ export default function FieldHelpTemplate<
 
   return (
     <span
-      className={`rjsf-field-help ${hasErrors ? "rjsf-field-help-error" : ""}`}
+      className={`react-aria-field-help ${hasErrors ? "react-aria-field-help-error" : ""}`}
       id={helpId(fieldPathId)}
     >
       <RichHelp help={help} registry={registry} uiSchema={uiSchema} />

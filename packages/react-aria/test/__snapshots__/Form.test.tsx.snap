@@ -10,25 +10,25 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
     >
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_tasks__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   tasks
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -37,28 +37,28 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
-                        class="rjsf-title-field"
+                        class="react-aria-title-field"
                         id="root_tasks_0__title"
                       >
                         <h5
-                          class="rjsf-title-heading"
+                          class="react-aria-title-heading"
                         >
                           tasks-1
                         </h5>
                         <div
-                          class="rjsf-title-separator"
+                          class="react-aria-title-separator"
                         >
                           <hr
                             class="react-aria-Separator"
@@ -133,10 +133,10 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                       >
                         <button
                           aria-label="Move up"
@@ -215,25 +215,25 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
-                        class="rjsf-title-field"
+                        class="react-aria-title-field"
                         id="root_tasks_1__title"
                       >
                         <h5
-                          class="rjsf-title-heading"
+                          class="react-aria-title-heading"
                         >
                           tasks-2
                         </h5>
                         <div
-                          class="rjsf-title-separator"
+                          class="react-aria-title-separator"
                         >
                           <hr
                             class="react-aria-Separator"
@@ -310,10 +310,10 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                       >
                         <button
                           aria-label="Move up"
@@ -392,7 +392,7 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -448,25 +448,25 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
     >
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_tags__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   tags
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -475,16 +475,16 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -520,10 +520,10 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -603,13 +603,13 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -645,10 +645,10 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -728,7 +728,7 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -916,16 +916,16 @@ exports[`nameGenerator bracketNameGenerator nested object 1`] = `
     >
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_person__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             person
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -989,16 +989,16 @@ exports[`nameGenerator bracketNameGenerator nested object 1`] = `
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_person_address__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               address
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -1431,25 +1431,25 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
     >
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_tasks__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   tasks
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -1458,28 +1458,28 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
-                        class="rjsf-title-field"
+                        class="react-aria-title-field"
                         id="root_tasks_0__title"
                       >
                         <h5
-                          class="rjsf-title-heading"
+                          class="react-aria-title-heading"
                         >
                           tasks-1
                         </h5>
                         <div
-                          class="rjsf-title-separator"
+                          class="react-aria-title-separator"
                         >
                           <hr
                             class="react-aria-Separator"
@@ -1554,10 +1554,10 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                       >
                         <button
                           aria-label="Move up"
@@ -1636,25 +1636,25 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
-                        class="rjsf-title-field"
+                        class="react-aria-title-field"
                         id="root_tasks_1__title"
                       >
                         <h5
-                          class="rjsf-title-heading"
+                          class="react-aria-title-heading"
                         >
                           tasks-2
                         </h5>
                         <div
-                          class="rjsf-title-separator"
+                          class="react-aria-title-separator"
                         >
                           <hr
                             class="react-aria-Separator"
@@ -1731,10 +1731,10 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                       >
                         <button
                           aria-label="Move up"
@@ -1813,7 +1813,7 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -1869,25 +1869,25 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
     >
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_tags__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   tags
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -1896,16 +1896,16 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -1941,10 +1941,10 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -2024,13 +2024,13 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -2066,10 +2066,10 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -2149,7 +2149,7 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -2205,16 +2205,16 @@ exports[`nameGenerator dotNotationNameGenerator nested object 1`] = `
     >
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_person__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             person
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -2278,16 +2278,16 @@ exports[`nameGenerator dotNotationNameGenerator nested object 1`] = `
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_person_address__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               address
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -2650,7 +2650,7 @@ exports[`single fields checkbox field with description in schema and FieldTempla
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             This is a checkbox description
@@ -2776,7 +2776,7 @@ exports[`single fields checkbox field with label and description 1`] = `
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             test description
@@ -2843,7 +2843,7 @@ exports[`single fields checkbox field with label and rich text description 1`] =
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             <span>
@@ -3181,11 +3181,11 @@ exports[`single fields checkboxes widget with custom options and labels 1`] = `
         </div>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             A group of checkboxes
@@ -3193,7 +3193,7 @@ exports[`single fields checkboxes widget with custom options and labels 1`] = `
         </div>
       </span>
       <span
-        class="rjsf-field-help "
+        class="react-aria-field-help "
         id="root__help"
       >
         Select all that apply
@@ -3329,11 +3329,11 @@ exports[`single fields checkboxes widget with required field 1`] = `
         </div>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             At least one option must be selected
@@ -3724,19 +3724,19 @@ exports[`single fields help and error display 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-error-list"
+        class="react-aria-error-list"
         role="alert"
       >
         <div
-          class="rjsf-error-list-title"
+          class="react-aria-error-list-title"
         >
           Errors
         </div>
         <ul
-          class="rjsf-error-list-items"
+          class="react-aria-error-list-items"
         >
           <li
-            class="rjsf-error-list-item"
+            class="react-aria-error-list-item"
           >
             . an error
           </li>
@@ -3763,17 +3763,17 @@ exports[`single fields help and error display 1`] = `
         />
       </div>
       <div
-        class="rjsf-field-errors"
+        class="react-aria-field-errors"
         id="root__error"
       >
         <span
-          class="rjsf-field-error"
+          class="react-aria-field-error"
         >
           an error
         </span>
       </div>
       <span
-        class="rjsf-field-help rjsf-field-help-error"
+        class="react-aria-field-help react-aria-field-help-error"
         id="root__help"
       >
         help me!
@@ -3802,10 +3802,10 @@ exports[`single fields hidden field 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-hidden"
+        class="react-aria-hidden"
       >
         <div
-          class="rjsf-hidden"
+          class="react-aria-hidden"
         >
           <input
             id="root_my-field"
@@ -3984,16 +3984,16 @@ exports[`single fields optional data controls does not show optional controls wh
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -4003,16 +4003,16 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObjectOptional
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -4049,16 +4049,16 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObjectOptional__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObjectOptional
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -4096,16 +4096,16 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObject__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObject
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -4143,25 +4143,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -4170,10 +4170,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -4206,25 +4206,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional2__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional2
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -4233,10 +4233,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -4269,25 +4269,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArray__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArray
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -4296,10 +4296,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -4333,25 +4333,25 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArrayOptional
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -4360,10 +4360,10 @@ exports[`single fields optional data controls does not show optional controls wh
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -4396,16 +4396,16 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -4443,25 +4443,25 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -4470,10 +4470,10 @@ exports[`single fields optional data controls does not show optional controls wh
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -4506,10 +4506,10 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           >
             <template
               data-react-aria-hidden="true"
@@ -4582,16 +4582,16 @@ exports[`single fields optional data controls does not show optional controls wh
             </div>
           </div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               optionalObjectWithOneofs
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -4632,10 +4632,10 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           >
             <template
               data-react-aria-hidden="true"
@@ -4708,25 +4708,25 @@ exports[`single fields optional data controls does not show optional controls wh
             </div>
           </div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     optionalArrayWithAnyofs
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -4735,10 +4735,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -4794,16 +4794,16 @@ exports[`single fields optional data controls does not show optional controls wh
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -4813,16 +4813,16 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObjectOptional
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -4861,16 +4861,16 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObjectOptional__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObjectOptional
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -4910,16 +4910,16 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObject__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObject
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -4959,25 +4959,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -4986,10 +4986,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -5023,25 +5023,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional2__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional2
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5050,10 +5050,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -5087,25 +5087,25 @@ exports[`single fields optional data controls does not show optional controls wh
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArray__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArray
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5114,10 +5114,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -5152,25 +5152,25 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArrayOptional
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -5179,10 +5179,10 @@ exports[`single fields optional data controls does not show optional controls wh
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -5216,16 +5216,16 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -5265,25 +5265,25 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -5292,10 +5292,10 @@ exports[`single fields optional data controls does not show optional controls wh
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -5329,10 +5329,10 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           >
             <template
               data-react-aria-hidden="true"
@@ -5407,16 +5407,16 @@ exports[`single fields optional data controls does not show optional controls wh
             </div>
           </div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               optionalObjectWithOneofs
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -5457,10 +5457,10 @@ exports[`single fields optional data controls does not show optional controls wh
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           >
             <template
               data-react-aria-hidden="true"
@@ -5535,25 +5535,25 @@ exports[`single fields optional data controls does not show optional controls wh
             </div>
           </div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     optionalArrayWithAnyofs
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5562,10 +5562,10 @@ exports[`single fields optional data controls does not show optional controls wh
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -5622,16 +5622,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -5641,23 +5641,23 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <div
-            class="rjsf-title-with-control"
+            class="react-aria-title-with-control"
           >
             <div
-              class="rjsf-title-heading-wrapper"
+              class="react-aria-title-heading-wrapper"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 nestedObjectOptional
               </h5>
             </div>
             <div
-              class="rjsf-title-control"
+              class="react-aria-title-control"
             >
               <button
                 aria-label="Remove data for optional field"
@@ -5685,7 +5685,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
             </div>
           </div>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -5722,23 +5722,23 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObjectOptional__title"
           >
             <div
-              class="rjsf-title-with-control"
+              class="react-aria-title-with-control"
             >
               <div
-                class="rjsf-title-heading-wrapper"
+                class="react-aria-title-heading-wrapper"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   deepObjectOptional
                 </h5>
               </div>
               <div
-                class="rjsf-title-control"
+                class="react-aria-title-control"
               >
                 <button
                   aria-label="Add data for optional field"
@@ -5758,7 +5758,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
               </div>
             </div>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -5769,16 +5769,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObject__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObject
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -5816,25 +5816,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5843,10 +5843,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -5879,32 +5879,32 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional2__title"
                 >
                   <div
-                    class="rjsf-title-with-control"
+                    class="react-aria-title-with-control"
                   >
                     <div
-                      class="rjsf-title-heading-wrapper"
+                      class="react-aria-title-heading-wrapper"
                     >
                       <h5
-                        class="rjsf-title-heading"
+                        class="react-aria-title-heading"
                       >
                         deepArrayOptional2
                       </h5>
                     </div>
                     <div
-                      class="rjsf-title-control"
+                      class="react-aria-title-control"
                     >
                       <button
                         aria-label="Add data for optional field"
@@ -5924,7 +5924,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                     </div>
                   </div>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5933,7 +5933,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 />
               </div>
             </div>
@@ -5941,25 +5941,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArray__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArray
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -5968,10 +5968,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -6005,32 +6005,32 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <div
-                  class="rjsf-title-with-control"
+                  class="react-aria-title-with-control"
                 >
                   <div
-                    class="rjsf-title-heading-wrapper"
+                    class="react-aria-title-heading-wrapper"
                   >
                     <h5
-                      class="rjsf-title-heading"
+                      class="react-aria-title-heading"
                     >
                       nestedArrayOptional
                     </h5>
                   </div>
                   <div
-                    class="rjsf-title-control"
+                    class="react-aria-title-control"
                   >
                     <button
                       aria-label="Remove data for optional field"
@@ -6058,7 +6058,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -6067,16 +6067,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -6112,10 +6112,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -6146,7 +6146,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -6179,16 +6179,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -6226,25 +6226,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -6253,10 +6253,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -6289,29 +6289,29 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <div
-              class="rjsf-title-with-control"
+              class="react-aria-title-with-control"
             >
               <div
-                class="rjsf-title-heading-wrapper"
+                class="react-aria-title-heading-wrapper"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   optionalObjectWithOneofs
                 </h5>
               </div>
               <div
-                class="rjsf-title-control"
+                class="react-aria-title-control"
               >
                 <button
                   aria-label="Add data for optional field"
@@ -6331,7 +6331,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
               </div>
             </div>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -6343,38 +6343,38 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <div
-                    class="rjsf-title-with-control"
+                    class="react-aria-title-with-control"
                   >
                     <div
-                      class="rjsf-title-heading-wrapper"
+                      class="react-aria-title-heading-wrapper"
                     >
                       <h5
-                        class="rjsf-title-heading"
+                        class="react-aria-title-heading"
                       >
                         optionalArrayWithAnyofs
                       </h5>
                     </div>
                     <div
-                      class="rjsf-title-control"
+                      class="react-aria-title-control"
                     >
                       <button
                         aria-label="Add data for optional field"
@@ -6394,7 +6394,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                     </div>
                   </div>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -6403,7 +6403,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 />
               </div>
             </div>
@@ -6434,16 +6434,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -6453,16 +6453,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObjectOptional
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -6501,16 +6501,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObjectOptional__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObjectOptional
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -6519,7 +6519,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
             </div>
           </div>
           <em
-            class="rjsf-no-data"
+            class="react-aria-no-data"
             id="root_nestedObjectOptional_deepObjectOptional__optionalMsg"
           >
             No data for optional field
@@ -6527,16 +6527,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_nestedObjectOptional_deepObject__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               deepObject
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -6576,25 +6576,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -6603,10 +6603,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -6640,25 +6640,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArrayOptional2__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArrayOptional2
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -6667,10 +6667,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <em
-                    class="rjsf-no-data"
+                    class="react-aria-no-data"
                     id="root_nestedObjectOptional_deepArrayOptional2__optionalMsg"
                   >
                     No data for optional field
@@ -6682,25 +6682,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
         </div>
         <div>
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_nestedObjectOptional_deepArray__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     deepArray
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -6709,10 +6709,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <div
-                    class="rjsf-array-item-add-wrapper"
+                    class="react-aria-array-item-add-wrapper"
                   >
                     <button
                       class="react-aria-Button react-aria-AddButton"
@@ -6747,25 +6747,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArrayOptional
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -6774,16 +6774,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -6821,10 +6821,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -6856,7 +6856,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -6890,16 +6890,16 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -6939,25 +6939,25 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -6966,10 +6966,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -7003,22 +7003,22 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               optionalObjectWithOneofs
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -7027,7 +7027,7 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
             </div>
           </div>
           <em
-            class="rjsf-no-data"
+            class="react-aria-no-data"
             id="root_optionalObjectWithOneofs__optionalMsg"
           >
             No data for optional field
@@ -7036,31 +7036,31 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     optionalArrayWithAnyofs
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -7069,10 +7069,10 @@ exports[`single fields optional data controls shows "add" and "remove" optional 
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <em
-                    class="rjsf-no-data"
+                    class="react-aria-no-data"
                     id="root_optionalArrayWithAnyofs__optionalMsg"
                   >
                     No data for optional field
@@ -7107,16 +7107,16 @@ exports[`single fields optional data controls shows "add" optional controls when
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -7126,23 +7126,23 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <div
-            class="rjsf-title-with-control"
+            class="react-aria-title-with-control"
           >
             <div
-              class="rjsf-title-heading-wrapper"
+              class="react-aria-title-heading-wrapper"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 nestedObjectOptional
               </h5>
             </div>
             <div
-              class="rjsf-title-control"
+              class="react-aria-title-control"
             >
               <button
                 aria-label="Add data for optional field"
@@ -7162,7 +7162,7 @@ exports[`single fields optional data controls shows "add" optional controls when
             </div>
           </div>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -7173,32 +7173,32 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <div
-                  class="rjsf-title-with-control"
+                  class="react-aria-title-with-control"
                 >
                   <div
-                    class="rjsf-title-heading-wrapper"
+                    class="react-aria-title-heading-wrapper"
                   >
                     <h5
-                      class="rjsf-title-heading"
+                      class="react-aria-title-heading"
                     >
                       nestedArrayOptional
                     </h5>
                   </div>
                   <div
-                    class="rjsf-title-control"
+                    class="react-aria-title-control"
                   >
                     <button
                       aria-label="Add data for optional field"
@@ -7218,7 +7218,7 @@ exports[`single fields optional data controls shows "add" optional controls when
                   </div>
                 </div>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -7227,7 +7227,7 @@ exports[`single fields optional data controls shows "add" optional controls when
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               />
             </div>
           </div>
@@ -7235,16 +7235,16 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -7282,25 +7282,25 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -7309,10 +7309,10 @@ exports[`single fields optional data controls shows "add" optional controls when
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -7345,29 +7345,29 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <div
-              class="rjsf-title-with-control"
+              class="react-aria-title-with-control"
             >
               <div
-                class="rjsf-title-heading-wrapper"
+                class="react-aria-title-heading-wrapper"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   optionalObjectWithOneofs
                 </h5>
               </div>
               <div
-                class="rjsf-title-control"
+                class="react-aria-title-control"
               >
                 <button
                   aria-label="Add data for optional field"
@@ -7387,7 +7387,7 @@ exports[`single fields optional data controls shows "add" optional controls when
               </div>
             </div>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -7399,38 +7399,38 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <div
-                    class="rjsf-title-with-control"
+                    class="react-aria-title-with-control"
                   >
                     <div
-                      class="rjsf-title-heading-wrapper"
+                      class="react-aria-title-heading-wrapper"
                     >
                       <h5
-                        class="rjsf-title-heading"
+                        class="react-aria-title-heading"
                       >
                         optionalArrayWithAnyofs
                       </h5>
                     </div>
                     <div
-                      class="rjsf-title-control"
+                      class="react-aria-title-control"
                     >
                       <button
                         aria-label="Add data for optional field"
@@ -7450,7 +7450,7 @@ exports[`single fields optional data controls shows "add" optional controls when
                     </div>
                   </div>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -7459,7 +7459,7 @@ exports[`single fields optional data controls shows "add" optional controls when
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 />
               </div>
             </div>
@@ -7490,16 +7490,16 @@ exports[`single fields optional data controls shows "add" optional controls when
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           test
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -7509,16 +7509,16 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObjectOptional__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObjectOptional
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -7527,7 +7527,7 @@ exports[`single fields optional data controls shows "add" optional controls when
           </div>
         </div>
         <em
-          class="rjsf-no-data"
+          class="react-aria-no-data"
           id="root_nestedObjectOptional__optionalMsg"
         >
           No data for optional field
@@ -7535,25 +7535,25 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArrayOptional__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArrayOptional
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -7562,10 +7562,10 @@ exports[`single fields optional data controls shows "add" optional controls when
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <em
-                  class="rjsf-no-data"
+                  class="react-aria-no-data"
                   id="root_nestedArrayOptional__optionalMsg"
                 >
                   No data for optional field
@@ -7577,16 +7577,16 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_nestedObject__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             nestedObject
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -7625,25 +7625,25 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_nestedArray__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   nestedArray
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -7652,10 +7652,10 @@ exports[`single fields optional data controls shows "add" optional controls when
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -7689,22 +7689,22 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_optionalObjectWithOneofs__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               optionalObjectWithOneofs
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -7713,7 +7713,7 @@ exports[`single fields optional data controls shows "add" optional controls when
             </div>
           </div>
           <em
-            class="rjsf-no-data"
+            class="react-aria-no-data"
             id="root_optionalObjectWithOneofs__optionalMsg"
           >
             No data for optional field
@@ -7722,31 +7722,31 @@ exports[`single fields optional data controls shows "add" optional controls when
       </div>
       <div>
         <div
-          class="rjsf-multi-schema-field"
+          class="react-aria-multi-schema-field"
         >
           <div
-            class="rjsf-multi-schema-selector"
+            class="react-aria-multi-schema-selector"
           />
           <div
-            class="rjsf-array-field"
+            class="react-aria-array-field"
           >
             <div
-              class="rjsf-array-field-inner"
+              class="react-aria-array-field-inner"
             >
               <div
-                class="rjsf-array-field-content"
+                class="react-aria-array-field-content"
               >
                 <div
-                  class="rjsf-title-field"
+                  class="react-aria-title-field"
                   id="root_optionalArrayWithAnyofs__title"
                 >
                   <h5
-                    class="rjsf-title-heading"
+                    class="react-aria-title-heading"
                   >
                     optionalArrayWithAnyofs
                   </h5>
                   <div
-                    class="rjsf-title-separator"
+                    class="react-aria-title-separator"
                   >
                     <hr
                       class="react-aria-Separator"
@@ -7755,10 +7755,10 @@ exports[`single fields optional data controls shows "add" optional controls when
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-list"
+                  class="react-aria-array-item-list"
                 >
                   <em
-                    class="rjsf-no-data"
+                    class="react-aria-no-data"
                     id="root_optionalArrayWithAnyofs__optionalMsg"
                   >
                     No data for optional field
@@ -7974,11 +7974,11 @@ exports[`single fields radio widget with description in schema and FieldTemplate
         </div>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             This is a radio description
@@ -9024,11 +9024,11 @@ exports[`single fields select widget with description in schema and FieldTemplat
         </div>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             This is a select description
@@ -9164,7 +9164,7 @@ exports[`single fields string field field with markdown help and description 1`]
         />
       </div>
       <span
-        class="rjsf-field-help "
+        class="react-aria-field-help "
         id="root__help"
       >
         <span>
@@ -9229,7 +9229,7 @@ exports[`single fields string field field with markdown help text 1`] = `
         />
       </div>
       <span
-        class="rjsf-field-help "
+        class="react-aria-field-help "
         id="root__help"
       >
         <span>
@@ -9294,7 +9294,7 @@ exports[`single fields string field field with markdown help text without enabli
         />
       </div>
       <span
-        class="rjsf-field-help "
+        class="react-aria-field-help "
         id="root__help"
       >
         This is **markdown** help text with [a link](https://example.com)
@@ -9510,7 +9510,7 @@ exports[`single fields string field required field with markdown help 1`] = `
         />
       </div>
       <span
-        class="rjsf-field-help "
+        class="react-aria-field-help "
         id="root__help"
       >
         <span>
@@ -9729,16 +9729,16 @@ exports[`single fields title field 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           Titre 1
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"

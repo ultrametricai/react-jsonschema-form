@@ -9,19 +9,19 @@ exports[`array fields array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -75,25 +75,25 @@ exports[`array fields array icons 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -116,10 +116,10 @@ exports[`array fields array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -235,13 +235,13 @@ exports[`array fields array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -264,10 +264,10 @@ exports[`array fields array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -383,7 +383,7 @@ exports[`array fields array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -537,25 +537,25 @@ exports[`array fields fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -578,18 +578,18 @@ exports[`array fields fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -613,7 +613,7 @@ exports[`array fields fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
@@ -645,19 +645,19 @@ exports[`array fields has errors 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-error-list"
+        class="react-aria-error-list"
         role="alert"
       >
         <div
-          class="rjsf-error-list-title"
+          class="react-aria-error-list-title"
         >
           Errors
         </div>
         <ul
-          class="rjsf-error-list-items"
+          class="react-aria-error-list-items"
         >
           <li
-            class="rjsf-error-list-item"
+            class="react-aria-error-list-item"
           >
             .name Bad input
           </li>
@@ -693,11 +693,11 @@ exports[`array fields has errors 1`] = `
           />
         </div>
         <div
-          class="rjsf-field-errors"
+          class="react-aria-field-errors"
           id="root_name__error"
         >
           <span
-            class="rjsf-field-error"
+            class="react-aria-field-error"
           >
             Bad input
           </span>
@@ -777,25 +777,25 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div>
                       <div
@@ -854,10 +854,10 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -936,13 +936,13 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div>
                       <div
@@ -1001,10 +1001,10 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -1083,7 +1083,7 @@ exports[`nameGenerator bracketNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -1137,25 +1137,25 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -1178,10 +1178,10 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -1261,13 +1261,13 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -1290,10 +1290,10 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -1373,7 +1373,7 @@ exports[`nameGenerator bracketNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -1477,25 +1477,25 @@ exports[`nameGenerator bracketNameGenerator fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -1518,18 +1518,18 @@ exports[`nameGenerator bracketNameGenerator fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -1553,18 +1553,18 @@ exports[`nameGenerator bracketNameGenerator fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       aria-describedby="root_2__error root_2__description root_2__help"
@@ -1606,7 +1606,7 @@ exports[`nameGenerator bracketNameGenerator fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
@@ -1638,46 +1638,46 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
-                      class="rjsf-array-field"
+                      class="react-aria-array-field"
                     >
                       <div
-                        class="rjsf-array-field-inner"
+                        class="react-aria-array-field-inner"
                       >
                         <div
-                          class="rjsf-array-field-content"
+                          class="react-aria-array-field-content"
                         >
                           <div
-                            class="rjsf-array-item-list"
+                            class="react-aria-array-item-list"
                           >
                             <div
-                              class="rjsf-array-item"
+                              class="react-aria-array-item"
                             >
                               <div
-                                class="rjsf-array-item-inner"
+                                class="react-aria-array-item-inner"
                               >
                                 <div
-                                  class="rjsf-array-item-content"
+                                  class="react-aria-array-item-content"
                                 >
                                   <div
                                     class="react-aria-TextField"
@@ -1700,10 +1700,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="rjsf-array-item-buttons"
+                                  class="react-aria-array-item-buttons"
                                 >
                                   <div
-                                    class="rjsf-array-item-buttons-inner"
+                                    class="react-aria-array-item-buttons-inner"
                                     style="margin-top: 22px;"
                                   >
                                     <button
@@ -1783,13 +1783,13 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                               </div>
                             </div>
                             <div
-                              class="rjsf-array-item"
+                              class="react-aria-array-item"
                             >
                               <div
-                                class="rjsf-array-item-inner"
+                                class="react-aria-array-item-inner"
                               >
                                 <div
-                                  class="rjsf-array-item-content"
+                                  class="react-aria-array-item-content"
                                 >
                                   <div
                                     class="react-aria-TextField"
@@ -1812,10 +1812,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="rjsf-array-item-buttons"
+                                  class="react-aria-array-item-buttons"
                                 >
                                   <div
-                                    class="rjsf-array-item-buttons-inner"
+                                    class="react-aria-array-item-buttons-inner"
                                     style="margin-top: 22px;"
                                   >
                                     <button
@@ -1895,7 +1895,7 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                               </div>
                             </div>
                             <div
-                              class="rjsf-array-item-add-wrapper"
+                              class="react-aria-array-item-add-wrapper"
                             >
                               <button
                                 class="react-aria-Button react-aria-AddButton"
@@ -1927,10 +1927,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -2009,34 +2009,34 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
-                      class="rjsf-array-field"
+                      class="react-aria-array-field"
                     >
                       <div
-                        class="rjsf-array-field-inner"
+                        class="react-aria-array-field-inner"
                       >
                         <div
-                          class="rjsf-array-field-content"
+                          class="react-aria-array-field-content"
                         >
                           <div
-                            class="rjsf-array-item-list"
+                            class="react-aria-array-item-list"
                           >
                             <div
-                              class="rjsf-array-item"
+                              class="react-aria-array-item"
                             >
                               <div
-                                class="rjsf-array-item-inner"
+                                class="react-aria-array-item-inner"
                               >
                                 <div
-                                  class="rjsf-array-item-content"
+                                  class="react-aria-array-item-content"
                                 >
                                   <div
                                     class="react-aria-TextField"
@@ -2059,10 +2059,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="rjsf-array-item-buttons"
+                                  class="react-aria-array-item-buttons"
                                 >
                                   <div
-                                    class="rjsf-array-item-buttons-inner"
+                                    class="react-aria-array-item-buttons-inner"
                                     style="margin-top: 22px;"
                                   >
                                     <button
@@ -2142,13 +2142,13 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                               </div>
                             </div>
                             <div
-                              class="rjsf-array-item"
+                              class="react-aria-array-item"
                             >
                               <div
-                                class="rjsf-array-item-inner"
+                                class="react-aria-array-item-inner"
                               >
                                 <div
-                                  class="rjsf-array-item-content"
+                                  class="react-aria-array-item-content"
                                 >
                                   <div
                                     class="react-aria-TextField"
@@ -2171,10 +2171,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                                   </div>
                                 </div>
                                 <div
-                                  class="rjsf-array-item-buttons"
+                                  class="react-aria-array-item-buttons"
                                 >
                                   <div
-                                    class="rjsf-array-item-buttons-inner"
+                                    class="react-aria-array-item-buttons-inner"
                                     style="margin-top: 22px;"
                                   >
                                     <button
@@ -2254,7 +2254,7 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                               </div>
                             </div>
                             <div
-                              class="rjsf-array-item-add-wrapper"
+                              class="react-aria-array-item-add-wrapper"
                             >
                               <button
                                 class="react-aria-Button react-aria-AddButton"
@@ -2286,10 +2286,10 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -2368,7 +2368,7 @@ exports[`nameGenerator bracketNameGenerator nested arrays 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -2422,25 +2422,25 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div>
                       <div
@@ -2499,10 +2499,10 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -2581,13 +2581,13 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div>
                       <div
@@ -2646,10 +2646,10 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -2728,7 +2728,7 @@ exports[`nameGenerator dotNotationNameGenerator array of objects 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -2782,25 +2782,25 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -2823,10 +2823,10 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -2906,13 +2906,13 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -2935,10 +2935,10 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: 22px;"
                     >
                       <button
@@ -3018,7 +3018,7 @@ exports[`nameGenerator dotNotationNameGenerator array of strings 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -3072,25 +3072,25 @@ exports[`with title and description array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 Test field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -3100,17 +3100,17 @@ exports[`with title and description array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a test description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -3164,25 +3164,25 @@ exports[`with title and description array icons 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 Test field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -3192,23 +3192,23 @@ exports[`with title and description array icons 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a test description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -3244,10 +3244,10 @@ exports[`with title and description array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -3363,13 +3363,13 @@ exports[`with title and description array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -3405,10 +3405,10 @@ exports[`with title and description array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -3524,7 +3524,7 @@ exports[`with title and description array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -3605,11 +3605,11 @@ exports[`with title and description checkboxes 1`] = `
         </select>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             a test description
@@ -3640,25 +3640,25 @@ exports[`with title and description fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 Test field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -3668,23 +3668,23 @@ exports[`with title and description fixed array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a test description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -3720,18 +3720,18 @@ exports[`with title and description fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -3768,7 +3768,7 @@ exports[`with title and description fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
@@ -3800,25 +3800,25 @@ exports[`with title and description from both array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -3828,17 +3828,17 @@ exports[`with title and description from both array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -3892,25 +3892,25 @@ exports[`with title and description from both array icons 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -3920,23 +3920,23 @@ exports[`with title and description from both array icons 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -3972,10 +3972,10 @@ exports[`with title and description from both array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -4091,13 +4091,13 @@ exports[`with title and description from both array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -4133,10 +4133,10 @@ exports[`with title and description from both array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -4252,7 +4252,7 @@ exports[`with title and description from both array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -4333,11 +4333,11 @@ exports[`with title and description from both checkboxes 1`] = `
         </select>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             a fancier description
@@ -4368,25 +4368,25 @@ exports[`with title and description from both fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -4396,23 +4396,23 @@ exports[`with title and description from both fixed array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -4448,18 +4448,18 @@ exports[`with title and description from both fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -4496,7 +4496,7 @@ exports[`with title and description from both fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
@@ -4528,25 +4528,25 @@ exports[`with title and description from uiSchema array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -4556,17 +4556,17 @@ exports[`with title and description from uiSchema array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -4620,25 +4620,25 @@ exports[`with title and description from uiSchema array icons 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -4648,23 +4648,23 @@ exports[`with title and description from uiSchema array icons 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -4700,10 +4700,10 @@ exports[`with title and description from uiSchema array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -4819,13 +4819,13 @@ exports[`with title and description from uiSchema array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -4861,10 +4861,10 @@ exports[`with title and description from uiSchema array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                       style="margin-top: -6px;"
                     >
                       <button
@@ -4980,7 +4980,7 @@ exports[`with title and description from uiSchema array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -5061,11 +5061,11 @@ exports[`with title and description from uiSchema checkboxes 1`] = `
         </select>
       </div>
       <span
-        class="rjsf-description"
+        class="react-aria-description"
       >
         <div>
           <div
-            class="rjsf-description-field"
+            class="react-aria-description-field"
             id="root__description"
           >
             a fancier description
@@ -5096,25 +5096,25 @@ exports[`with title and description from uiSchema fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 My Field
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -5124,23 +5124,23 @@ exports[`with title and description from uiSchema fixed array 1`] = `
             </div>
             <div>
               <div
-                class="rjsf-description-field"
+                class="react-aria-description-field"
                 id="root__description"
               >
                 a fancier description
               </div>
             </div>
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5176,18 +5176,18 @@ exports[`with title and description from uiSchema fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5224,7 +5224,7 @@ exports[`with title and description from uiSchema fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
@@ -5256,19 +5256,19 @@ exports[`with title and description with global label off array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -5322,25 +5322,25 @@ exports[`with title and description with global label off array icons 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5363,10 +5363,10 @@ exports[`with title and description with global label off array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -5481,13 +5481,13 @@ exports[`with title and description with global label off array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5510,10 +5510,10 @@ exports[`with title and description with global label off array icons 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   >
                     <div
-                      class="rjsf-array-item-buttons-inner"
+                      class="react-aria-array-item-buttons-inner"
                     >
                       <button
                         aria-label="Move up"
@@ -5628,7 +5628,7 @@ exports[`with title and description with global label off array icons 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-add-wrapper"
+                class="react-aria-array-item-add-wrapper"
               >
                 <button
                   class="react-aria-Button react-aria-AddButton"
@@ -5732,25 +5732,25 @@ exports[`with title and description with global label off fixed array 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-array-field"
+        class="react-aria-array-field"
       >
         <div
-          class="rjsf-array-field-inner"
+          class="react-aria-array-field-inner"
         >
           <div
-            class="rjsf-array-field-content"
+            class="react-aria-array-field-content"
           >
             <div
-              class="rjsf-array-item-list"
+              class="react-aria-array-item-list"
             >
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5773,18 +5773,18 @@ exports[`with title and description with global label off fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>
               <div
-                class="rjsf-array-item"
+                class="react-aria-array-item"
               >
                 <div
-                  class="rjsf-array-item-inner"
+                  class="react-aria-array-item-inner"
                 >
                   <div
-                    class="rjsf-array-item-content"
+                    class="react-aria-array-item-content"
                   >
                     <div
                       class="react-aria-TextField"
@@ -5808,7 +5808,7 @@ exports[`with title and description with global label off fixed array 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-buttons"
+                    class="react-aria-array-item-buttons"
                   />
                 </div>
               </div>

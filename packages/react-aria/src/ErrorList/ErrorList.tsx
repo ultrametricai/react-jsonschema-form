@@ -17,14 +17,14 @@ export default function ErrorList<
 >({ errors, registry }: ErrorListProps<T, S, F>) {
   const { translateString } = registry;
   return (
-    <div className="rjsf-error-list" role="alert">
-      <div className="rjsf-error-list-title">
+    <div className="react-aria-error-list" role="alert">
+      <div className="react-aria-error-list-title">
         {translateString(TranslatableString.ErrorsLabel)}
       </div>
-      <ul className="rjsf-error-list-items">
+      <ul className="react-aria-error-list-items">
         {errors.map((error, i: number) => {
           return (
-            <li key={i} className="rjsf-error-list-item">
+            <li key={i} className="react-aria-error-list-item">
               {error.stack}
             </li>
           );

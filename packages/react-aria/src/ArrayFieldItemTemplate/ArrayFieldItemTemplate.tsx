@@ -33,13 +33,13 @@ export default function ArrayFieldItemTemplate<
     F
   >("ArrayFieldItemButtonsTemplate", registry, uiOptions);
   return (
-    <div className="rjsf-array-item">
-      <div className="rjsf-array-item-inner">
-        <div className="rjsf-array-item-content">{children}</div>
-        <div className="rjsf-array-item-buttons">
+    <div className="react-aria-array-item">
+      <div className="react-aria-array-item-inner">
+        <div className="react-aria-array-item-content">{children}</div>
+        <div className="react-aria-array-item-buttons">
           {hasToolbar && (
             <div
-              className="rjsf-array-item-buttons-inner"
+              className="react-aria-array-item-buttons-inner"
               style={{
                 marginTop: displayLabel
                   ? hasDescription

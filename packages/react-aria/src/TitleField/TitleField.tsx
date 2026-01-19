@@ -17,19 +17,19 @@ export default function TitleField<
   F extends FormContextType = any,
 >({ id, title, uiSchema, optionalDataControl }: TitleFieldProps<T, S, F>) {
   const uiOptions = getUiOptions<T, S, F>(uiSchema);
-  let heading = <h5 className="rjsf-title-heading">{uiOptions.title || title}</h5>;
+  let heading = <h5 className="react-aria-title-heading">{uiOptions.title || title}</h5>;
   if (optionalDataControl) {
     heading = (
-      <div className="rjsf-title-with-control">
-        <div className="rjsf-title-heading-wrapper">{heading}</div>
-        <div className="rjsf-title-control">{optionalDataControl}</div>
+      <div className="react-aria-title-with-control">
+        <div className="react-aria-title-heading-wrapper">{heading}</div>
+        <div className="react-aria-title-control">{optionalDataControl}</div>
       </div>
     );
   }
   return (
-    <div id={id} className="rjsf-title-field">
+    <div id={id} className="react-aria-title-field">
       {heading}
-      <div className="rjsf-title-separator">
+      <div className="react-aria-title-separator">
         <Separator />
       </div>
     </div>

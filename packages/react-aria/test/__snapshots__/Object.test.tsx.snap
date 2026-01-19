@@ -10,16 +10,16 @@ exports[`nameGenerator bracketNameGenerator nested object 1`] = `
     >
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_person__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             person
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -56,16 +56,16 @@ exports[`nameGenerator bracketNameGenerator nested object 1`] = `
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_person_address__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               address
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -208,22 +208,22 @@ exports[`nameGenerator bracketNameGenerator object with additionalProperties 1`]
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_customField-key"
               >
                 customField Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -237,7 +237,7 @@ exports[`nameGenerator bracketNameGenerator object with additionalProperties 1`]
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -266,7 +266,7 @@ exports[`nameGenerator bracketNameGenerator object with additionalProperties 1`]
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -294,7 +294,7 @@ exports[`nameGenerator bracketNameGenerator object with additionalProperties 1`]
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -445,25 +445,25 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_tags__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   tags
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -472,16 +472,16 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -517,10 +517,10 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -600,13 +600,13 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -642,10 +642,10 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -725,7 +725,7 @@ exports[`nameGenerator bracketNameGenerator object with mixed types 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -886,16 +886,16 @@ exports[`nameGenerator dotNotationNameGenerator nested object 1`] = `
     >
       <div>
         <div
-          class="rjsf-title-field"
+          class="react-aria-title-field"
           id="root_person__title"
         >
           <h5
-            class="rjsf-title-heading"
+            class="react-aria-title-heading"
           >
             person
           </h5>
           <div
-            class="rjsf-title-separator"
+            class="react-aria-title-separator"
           >
             <hr
               class="react-aria-Separator"
@@ -932,16 +932,16 @@ exports[`nameGenerator dotNotationNameGenerator nested object 1`] = `
         </div>
         <div>
           <div
-            class="rjsf-title-field"
+            class="react-aria-title-field"
             id="root_person_address__title"
           >
             <h5
-              class="rjsf-title-heading"
+              class="react-aria-title-heading"
             >
               address
             </h5>
             <div
-              class="rjsf-title-separator"
+              class="react-aria-title-separator"
             >
               <hr
                 class="react-aria-Separator"
@@ -1085,25 +1085,25 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-array-field"
+          class="react-aria-array-field"
         >
           <div
-            class="rjsf-array-field-inner"
+            class="react-aria-array-field-inner"
           >
             <div
-              class="rjsf-array-field-content"
+              class="react-aria-array-field-content"
             >
               <div
-                class="rjsf-title-field"
+                class="react-aria-title-field"
                 id="root_items__title"
               >
                 <h5
-                  class="rjsf-title-heading"
+                  class="react-aria-title-heading"
                 >
                   items
                 </h5>
                 <div
-                  class="rjsf-title-separator"
+                  class="react-aria-title-separator"
                 >
                   <hr
                     class="react-aria-Separator"
@@ -1112,16 +1112,16 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
                 </div>
               </div>
               <div
-                class="rjsf-array-item-list"
+                class="react-aria-array-item-list"
               >
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -1157,10 +1157,10 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -1240,13 +1240,13 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item"
+                  class="react-aria-array-item"
                 >
                   <div
-                    class="rjsf-array-item-inner"
+                    class="react-aria-array-item-inner"
                   >
                     <div
-                      class="rjsf-array-item-content"
+                      class="react-aria-array-item-content"
                     >
                       <div
                         class="react-aria-TextField"
@@ -1282,10 +1282,10 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
                       </div>
                     </div>
                     <div
-                      class="rjsf-array-item-buttons"
+                      class="react-aria-array-item-buttons"
                     >
                       <div
-                        class="rjsf-array-item-buttons-inner"
+                        class="react-aria-array-item-buttons-inner"
                         style="margin-top: 22px;"
                       >
                         <button
@@ -1365,7 +1365,7 @@ exports[`nameGenerator dotNotationNameGenerator object with mixed types 1`] = `
                   </div>
                 </div>
                 <div
-                  class="rjsf-array-item-add-wrapper"
+                  class="react-aria-array-item-add-wrapper"
                 >
                   <button
                     class="react-aria-Button react-aria-AddButton"
@@ -1526,22 +1526,22 @@ exports[`object fields additionalProperties 1`] = `
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -1555,7 +1555,7 @@ exports[`object fields additionalProperties 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -1584,7 +1584,7 @@ exports[`object fields additionalProperties 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -1612,7 +1612,7 @@ exports[`object fields additionalProperties 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -1668,22 +1668,22 @@ exports[`object fields additionalProperties, array type 1`] = `
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-array"
+          class="react-aria-additional-property rjsf-field rjsf-field-array"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -1697,28 +1697,28 @@ exports[`object fields additionalProperties, array type 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
-              class="rjsf-array-field"
+              class="react-aria-array-field"
             >
               <div
-                class="rjsf-array-field-inner"
+                class="react-aria-array-field-inner"
               >
                 <div
-                  class="rjsf-array-field-content"
+                  class="react-aria-array-field-content"
                 >
                   <div
-                    class="rjsf-title-field"
+                    class="react-aria-title-field"
                     id="root_foo__title"
                   >
                     <h5
-                      class="rjsf-title-heading"
+                      class="react-aria-title-heading"
                     >
                       foo
                     </h5>
                     <div
-                      class="rjsf-title-separator"
+                      class="react-aria-title-separator"
                     >
                       <hr
                         class="react-aria-Separator"
@@ -1727,10 +1727,10 @@ exports[`object fields additionalProperties, array type 1`] = `
                     </div>
                   </div>
                   <div
-                    class="rjsf-array-item-list"
+                    class="react-aria-array-item-list"
                   >
                     <div
-                      class="rjsf-array-item-add-wrapper"
+                      class="react-aria-array-item-add-wrapper"
                     >
                       <button
                         class="react-aria-Button react-aria-AddButton"
@@ -1762,7 +1762,7 @@ exports[`object fields additionalProperties, array type 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -1790,7 +1790,7 @@ exports[`object fields additionalProperties, array type 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -1846,22 +1846,22 @@ exports[`object fields additionalProperties, description 1`] = `
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -1873,14 +1873,14 @@ exports[`object fields additionalProperties, description 1`] = `
                 />
               </div>
               <span
-                class="rjsf-additional-property-spacer"
+                class="react-aria-additional-property-spacer"
               >
                  
               </span>
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -1909,7 +1909,7 @@ exports[`object fields additionalProperties, description 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -1937,7 +1937,7 @@ exports[`object fields additionalProperties, description 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -1993,22 +1993,22 @@ exports[`object fields additionalProperties, label off 1`] = `
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -2022,7 +2022,7 @@ exports[`object fields additionalProperties, label off 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -2051,7 +2051,7 @@ exports[`object fields additionalProperties, label off 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -2079,7 +2079,7 @@ exports[`object fields additionalProperties, label off 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -2135,22 +2135,22 @@ exports[`object fields additionalProperties, object type 1`] = `
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-object"
+          class="react-aria-additional-property rjsf-field rjsf-field-object"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -2164,19 +2164,19 @@ exports[`object fields additionalProperties, object type 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
-              class="rjsf-title-field"
+              class="react-aria-title-field"
               id="root_foo__title"
             >
               <h5
-                class="rjsf-title-heading"
+                class="react-aria-title-heading"
               >
                 foo
               </h5>
               <div
-                class="rjsf-title-separator"
+                class="react-aria-title-separator"
               >
                 <hr
                   class="react-aria-Separator"
@@ -2213,7 +2213,7 @@ exports[`object fields additionalProperties, object type 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -2241,7 +2241,7 @@ exports[`object fields additionalProperties, object type 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -2375,22 +2375,22 @@ exports[`object fields show add button and fields if additionalProperties is tru
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_additionalProperty-key"
               >
                 additionalProperty Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -2404,7 +2404,7 @@ exports[`object fields show add button and fields if additionalProperties is tru
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -2433,7 +2433,7 @@ exports[`object fields show add button and fields if additionalProperties is tru
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -2461,7 +2461,7 @@ exports[`object fields show add button and fields if additionalProperties is tru
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -2516,16 +2516,16 @@ exports[`object fields with title and description additionalProperties 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           Test field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -2535,7 +2535,7 @@ exports[`object fields with title and description additionalProperties 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a test description
@@ -2543,22 +2543,22 @@ exports[`object fields with title and description additionalProperties 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -2572,7 +2572,7 @@ exports[`object fields with title and description additionalProperties 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -2601,7 +2601,7 @@ exports[`object fields with title and description additionalProperties 1`] = `
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -2629,7 +2629,7 @@ exports[`object fields with title and description additionalProperties 1`] = `
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -2684,16 +2684,16 @@ exports[`object fields with title and description from both additionalProperties
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           My Field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -2703,7 +2703,7 @@ exports[`object fields with title and description from both additionalProperties
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a fancier description
@@ -2711,22 +2711,22 @@ exports[`object fields with title and description from both additionalProperties
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -2740,7 +2740,7 @@ exports[`object fields with title and description from both additionalProperties
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -2769,7 +2769,7 @@ exports[`object fields with title and description from both additionalProperties
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -2797,7 +2797,7 @@ exports[`object fields with title and description from both additionalProperties
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -2852,16 +2852,16 @@ exports[`object fields with title and description from both object 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           My Field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -2871,7 +2871,7 @@ exports[`object fields with title and description from both object 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a fancier description
@@ -2956,16 +2956,16 @@ exports[`object fields with title and description from uiSchema additionalProper
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           My Field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -2975,7 +2975,7 @@ exports[`object fields with title and description from uiSchema additionalProper
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a fancier description
@@ -2983,22 +2983,22 @@ exports[`object fields with title and description from uiSchema additionalProper
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_foo-key"
               >
                 foo Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -3012,7 +3012,7 @@ exports[`object fields with title and description from uiSchema additionalProper
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -3041,7 +3041,7 @@ exports[`object fields with title and description from uiSchema additionalProper
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -3069,7 +3069,7 @@ exports[`object fields with title and description from uiSchema additionalProper
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -3124,16 +3124,16 @@ exports[`object fields with title and description from uiSchema object 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           My Field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -3143,7 +3143,7 @@ exports[`object fields with title and description from uiSchema object 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a fancier description
@@ -3228,16 +3228,16 @@ exports[`object fields with title and description from uiSchema show add button 
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           My Field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -3247,7 +3247,7 @@ exports[`object fields with title and description from uiSchema show add button 
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a fancier description
@@ -3255,22 +3255,22 @@ exports[`object fields with title and description from uiSchema show add button 
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_additionalProperty-key"
               >
                 additionalProperty Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -3284,7 +3284,7 @@ exports[`object fields with title and description from uiSchema show add button 
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -3313,7 +3313,7 @@ exports[`object fields with title and description from uiSchema show add button 
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -3341,7 +3341,7 @@ exports[`object fields with title and description from uiSchema show add button 
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -3396,16 +3396,16 @@ exports[`object fields with title and description object 1`] = `
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           Test field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -3415,7 +3415,7 @@ exports[`object fields with title and description object 1`] = `
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a test description
@@ -3500,16 +3500,16 @@ exports[`object fields with title and description show add button and fields if 
       class="react-aria-Form"
     >
       <div
-        class="rjsf-title-field"
+        class="react-aria-title-field"
         id="root__title"
       >
         <h5
-          class="rjsf-title-heading"
+          class="react-aria-title-heading"
         >
           Test field
         </h5>
         <div
-          class="rjsf-title-separator"
+          class="react-aria-title-separator"
         >
           <hr
             class="react-aria-Separator"
@@ -3519,7 +3519,7 @@ exports[`object fields with title and description show add button and fields if 
       </div>
       <div>
         <div
-          class="rjsf-description-field"
+          class="react-aria-description-field"
           id="root__description"
         >
           a test description
@@ -3527,22 +3527,22 @@ exports[`object fields with title and description show add button and fields if 
       </div>
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <label
-                class="rjsf-additional-property-label"
+                class="react-aria-additional-property-label"
                 for="root_additionalProperty-key"
               >
                 additionalProperty Key
               </label>
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -3556,7 +3556,7 @@ exports[`object fields with title and description show add button and fields if 
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -3585,7 +3585,7 @@ exports[`object fields with title and description show add button and fields if 
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -3613,7 +3613,7 @@ exports[`object fields with title and description show add button and fields if 
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -3669,16 +3669,16 @@ exports[`object fields with title and description with global label off addition
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -3692,7 +3692,7 @@ exports[`object fields with title and description with global label off addition
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -3713,7 +3713,7 @@ exports[`object fields with title and description with global label off addition
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -3741,7 +3741,7 @@ exports[`object fields with title and description with global label off addition
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"
@@ -3859,16 +3859,16 @@ exports[`object fields with title and description with global label off show add
     >
       <div>
         <div
-          class="rjsf-additional-property rjsf-field rjsf-field-string"
+          class="react-aria-additional-property rjsf-field rjsf-field-string"
         >
           <div
-            class="rjsf-additional-property-key"
+            class="react-aria-additional-property-key"
           >
             <div
-              class="rjsf-additional-property-key-wrapper"
+              class="react-aria-additional-property-key-wrapper"
             >
               <div
-                class="rjsf-input-wrapper"
+                class="react-aria-input-wrapper"
               >
                 <input
                   class="react-aria-Input"
@@ -3882,7 +3882,7 @@ exports[`object fields with title and description with global label off show add
             </div>
           </div>
           <div
-            class="rjsf-additional-property-value"
+            class="react-aria-additional-property-value"
           >
             <div
               class="react-aria-TextField"
@@ -3903,7 +3903,7 @@ exports[`object fields with title and description with global label off show add
             </div>
           </div>
           <div
-            class="rjsf-additional-property-remove"
+            class="react-aria-additional-property-remove"
           >
             <button
               aria-label="Remove"
@@ -3931,7 +3931,7 @@ exports[`object fields with title and description with global label off show add
           </div>
         </div>
         <div
-          class="rjsf-separator-wrapper"
+          class="react-aria-separator-wrapper"
         >
           <hr
             class="react-aria-Separator"

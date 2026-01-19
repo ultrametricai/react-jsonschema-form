@@ -46,7 +46,7 @@ export default function FieldTemplate<
     F
   >("WrapIfAdditionalTemplate", registry, uiOptions);
   if (hidden) {
-    return <div className="rjsf-hidden">{children}</div>;
+    return <div className="react-aria-hidden">{children}</div>;
   }
   const isCheckbox = uiOptions.widget === "checkbox";
 
@@ -81,7 +81,7 @@ export default function FieldTemplate<
     >
       {children}
       {displayLabel && rawDescription && !isCheckbox && !usesTextFieldLabel && (
-        <span className="rjsf-description">
+        <span className="react-aria-description">
           {description}
         </span>
       )}

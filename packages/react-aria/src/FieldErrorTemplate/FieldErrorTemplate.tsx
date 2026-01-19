@@ -22,10 +22,10 @@ export default function FieldErrorTemplate<
   const id = errorId(fieldPathId);
 
   return (
-    <div className="rjsf-field-errors" id={id}>
+    <div className="react-aria-field-errors" id={id}>
       {errors.map((error, i: number) => {
         return (
-          <span className="rjsf-field-error" key={i}>
+          <span className="react-aria-field-error" key={i}>
             {error}
           </span>
         );

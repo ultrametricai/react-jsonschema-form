@@ -11,8 +11,8 @@ export default function MultiSchemaFieldTemplate<
   F extends FormContextType = any,
 >({ selector, optionSchemaField }: MultiSchemaFieldTemplateProps<T, S, F>) {
   return (
-    <div className="rjsf-multi-schema-field">
-      <div className="rjsf-multi-schema-selector">{selector}</div>
+    <div className="react-aria-multi-schema-field">
+      <div className="react-aria-multi-schema-selector">{selector}</div>
       {optionSchemaField}
     </div>
   );

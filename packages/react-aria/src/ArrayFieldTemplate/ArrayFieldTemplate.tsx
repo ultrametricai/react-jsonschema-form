@@ -50,9 +50,9 @@ export default function ArrayFieldTemplate<
     ButtonTemplates: { AddButton },
   } = registry.templates;
   return (
-    <div className="rjsf-array-field">
-      <div className="rjsf-array-field-inner">
-        <div className="rjsf-array-field-content">
+    <div className="react-aria-array-field">
+      <div className="react-aria-array-field-inner">
+        <div className="react-aria-array-field-content">
           <ArrayFieldTitleTemplate
             fieldPathId={fieldPathId}
             title={uiOptions.title || title}
@@ -73,15 +73,15 @@ export default function ArrayFieldTemplate<
           />
           <div
             key={`array-item-list-${fieldPathId.$id}`}
-            className="rjsf-array-item-list"
+            className="react-aria-array-item-list"
           >
             {!showOptionalDataControlInTitle ? optionalDataControl : undefined}
             {items}
             {canAdd && (
-              <div className="rjsf-array-item-add-wrapper">
+              <div className="react-aria-array-item-add-wrapper">
                 <AddButton
                   id={buttonId(fieldPathId, "add")}
-                  className="rjsf-array-item-add"
+                  className="react-aria-array-item-add"
                   onClick={onAddClick}
                   disabled={disabled || readonly}
                   uiSchema={uiSchema}

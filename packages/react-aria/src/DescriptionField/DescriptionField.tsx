@@ -21,7 +21,7 @@ export default function DescriptionField<
 
   return (
     <div>
-      <div id={id} className="rjsf-description-field">
+      <div id={id} className="react-aria-description-field">
         <RichDescription
           description={description}
           registry={registry}

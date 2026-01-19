@@ -26,7 +26,7 @@ export default function OptionalDataControlsTemplate<
       <IconButton
         id={id}
         registry={registry}
-        className="rjsf-add-optional-data"
+        className="react-aria-add-optional-data"
         onClick={onAddClick}
         title={label}
         icon={<span aria-hidden="true">+</span>}
@@ -37,14 +37,14 @@ export default function OptionalDataControlsTemplate<
       <RemoveButton
         id={id}
         registry={registry}
-        className="rjsf-remove-optional-data"
+        className="react-aria-remove-optional-data"
         onClick={onRemoveClick}
         title={label}
       />
     );
   }
   return (
-    <em id={id} className="rjsf-no-data">
+    <em id={id} className="react-aria-no-data">
       {label}
     </em>
   );
