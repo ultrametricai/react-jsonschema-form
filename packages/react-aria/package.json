@@ -32,8 +32,14 @@
       "require": "./dist/*.cjs",
       "import": "./lib/*.js"
     },
-    "./css/default.css": "./src/css/default.css",
-    "./css/*.css": "./src/css/*.css"
+    "./css/default.css": {
+      "import": "./src/css/default.css",
+      "default": "./src/css/default.css"
+    },
+    "./css/*.css": {
+      "import": "./src/css/*.css",
+      "default": "./src/css/*.css"
+    }
   },
   "files": [
     "dist",
@@ -60,8 +66,8 @@
   "peerDependencies": {
     "@rjsf/core": "^6.2.x",
     "@rjsf/utils": "^6.2.x",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "engineStrict": false,
   "engines": {

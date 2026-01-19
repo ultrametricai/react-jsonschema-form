@@ -68,7 +68,7 @@
     "@rjsf/core": "^6.2.x",
     "@rjsf/utils": "^6.2.x",
     "daisyui": "^5.0.29",
-    "react": "^18.0.0"
+    "react": ">=18"
   },
   "devDependencies": {
     "@rjsf/core": "*",

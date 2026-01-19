@@ -50,17 +50,6 @@ export default function FieldTemplate<
   }
   const isCheckbox = uiOptions.widget === "checkbox";
 
-  // Check if the field uses a widget that renders its own label via TextField
-  // This includes BaseInputTemplate (string/number/integer without widget override) and TextareaWidget
-  const schemaType = schema.type;
-  const widgetOverride = uiOptions.widget;
-  const usesTextFieldLabel =
-    ((schemaType === "string" ||
-      schemaType === "number" ||
-      schemaType === "integer") &&
-      !widgetOverride) ||
-    widgetOverride === "textarea";
-
   return (
     <WrapIfAdditionalTemplate
       classNames={classNames}
@@ -80,7 +69,7 @@ export default function FieldTemplate<
       registry={registry}
     >
       {children}
-      {displayLabel && rawDescription && !isCheckbox && !usesTextFieldLabel && (
+      {displayLabel && rawDescription && !isCheckbox && (
         <span className="react-aria-description">
           {description}
         </span>
