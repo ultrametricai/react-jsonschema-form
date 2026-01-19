@@ -16,7 +16,7 @@ exports[`TextareaWidget simple with errors 1`] = `
     >
       Some simple label
       <span
-        class="rjsf-required"
+        class="react-aria-required"
       >
         *
       </span>
@@ -61,7 +61,7 @@ exports[`TextareaWidget simple without errors 1`] = `
     >
       Some simple label
       <span
-        class="rjsf-required"
+        class="react-aria-required"
       >
         *
       </span>

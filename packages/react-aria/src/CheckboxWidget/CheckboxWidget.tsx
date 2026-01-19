@@ -9,7 +9,7 @@ import {
   StrictRJSFSchema,
   WidgetProps,
 } from "@rjsf/utils";
-import { Checkbox } from "react-aria-components";
+import { Checkbox } from "../components/Checkbox";
 
 /** The `CheckBoxWidget` is a widget for rendering boolean properties.
  *  It is typically used to represent a boolean.
@@ -37,7 +37,6 @@ export default function CheckboxWidget<
     onFocus,
     registry,
     uiSchema,
-    className,
   } = props;
   // Because an unchecked checkbox will cause html5 validation to fail, only add
   // the "required" attribute if the field value must be "true", due to the
@@ -57,8 +56,9 @@ export default function CheckboxWidget<
   const description = options.description || schema.description;
   return (
     <div
-      className={`rjsf-checkbox-widget ${disabled || readonly ? "rjsf-disabled" : ""}`}
+      className="react-aria-CheckboxWidget"
       aria-describedby={ariaDescribedByIds(id)}
+      data-disabled={disabled || readonly || undefined}
     >
       {!hideLabel && description && (
         <DescriptionFieldTemplate
@@ -69,22 +69,20 @@ export default function CheckboxWidget<
           registry={registry}
         />
       )}
-      <div className={`rjsf-checkbox-wrapper ${className || ""}`}>
-        <Checkbox
-          id={id}
-          name={htmlName || id}
-          isSelected={typeof value === "undefined" ? false : Boolean(value)}
-          isRequired={required}
-          isDisabled={disabled || readonly}
-          autoFocus={autofocus}
-          onChange={_onChange}
-          onBlur={_onBlur}
-          onFocus={_onFocus}
-          aria-label={hideLabel || !label ? label || id : undefined}
-        >
-          {labelValue(label, hideLabel || !label)}
-        </Checkbox>
-      </div>
+      <Checkbox
+        id={id}
+        name={htmlName || id}
+        isSelected={typeof value === "undefined" ? false : Boolean(value)}
+        isRequired={required}
+        isDisabled={disabled || readonly}
+        autoFocus={autofocus}
+        onChange={_onChange}
+        onBlur={_onBlur}
+        onFocus={_onFocus}
+        aria-label={hideLabel || !label ? label || id : undefined}
+      >
+        {labelValue(label, hideLabel || !label)}
+      </Checkbox>
     </div>
   );
 }

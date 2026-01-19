@@ -8,7 +8,8 @@ import {
   StrictRJSFSchema,
 } from "@rjsf/utils";
 import { ChangeEvent, FocusEvent, MouseEvent, useCallback } from "react";
-import { Input, Label, TextField } from "react-aria-components";
+import { Input, TextField as AriaTextField } from "react-aria-components";
+import { Label } from "../components/Form";
 
 /** The `BaseInputTemplate` is the template to use to render the basic `<input>` component for the react-aria theme.
  * It is used as the template for rendering many of the <input> based widgets that differ by `type` and callbacks only.
@@ -39,7 +40,6 @@ export default function BaseInputTemplate<
   rawErrors = [],
   children,
   extraProps,
-  className,
   registry,
   label,
   hideLabel,
@@ -67,22 +67,23 @@ export default function BaseInputTemplate<
   const hasError = rawErrors.length > 0;
 
   return (
-    <TextField
+    <AriaTextField
+      className="react-aria-TextField"
       isRequired={required}
       isDisabled={disabled}
       isReadOnly={readonly}
       isInvalid={hasError}
-      className={className || undefined}
     >
       {!hideLabel && label && (
         <Label>
           {label}
-          {required ? <span className="rjsf-required">*</span> : null}
+          {required ? <span className="react-aria-required">*</span> : null}
         </Label>
       )}
       <Input
         id={id}
         name={htmlName || id}
+        className="react-aria-Input"
         type={type}
         placeholder={placeholder}
         autoFocus={autofocus}
@@ -111,6 +112,6 @@ export default function BaseInputTemplate<
             })}
         </datalist>
       ) : null}
-    </TextField>
+    </AriaTextField>
   );
 }

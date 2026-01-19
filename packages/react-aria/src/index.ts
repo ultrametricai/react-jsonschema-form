@@ -6,4 +6,7 @@ export { default as Theme, generateTheme } from "./Theme";
 export { default as Widgets, generateWidgets } from "./Widgets";
 export { __createReactAriaFrameProvider } from "./ReactAriaFrameProvider";
 
+// Export base components for customization
+export * from "./components";
+
 export default Form;

@@ -12,6 +12,7 @@ import {
   SliderThumb,
   SliderTrack,
 } from "react-aria-components";
+import { Label } from "../components/Form";
 
 /**
  * A range widget component that renders a slider for number input
@@ -33,36 +34,56 @@ export default function RangeWidget<
   const currentValue = (value as number) ?? min;
 
   return (
-    <div className="rjsf-range-widget">
-      <AriaSlider
-        value={currentValue}
-        onChange={onChange}
-        minValue={min}
-        maxValue={max}
-        step={step}
-        isDisabled={disabled || readonly}
-        aria-describedby={ariaDescribedByIds(id)}
-        aria-label={label || id}
-      >
-        <SliderOutput>
-          {({ state }) =>
-            state.values.map((_, i) => state.getThumbValueLabel(i)).join(' – ')}
-        </SliderOutput>
-        <SliderTrack>
-          {({ state, isDisabled }) => (<>
-            <div className="track inset" data-disabled={isDisabled || undefined}>
-              {state.values.length === 1
-                ? <div className="fill" style={{'--size': state.getThumbPercent(0) * 100 + '%'} as any} />
-                : state.values.length === 2
-                  ? <div className="fill" style={{'--start': state.getThumbPercent(0) * 100 + '%', '--size': (state.getThumbPercent(1) - state.getThumbPercent(0)) * 100 + '%'} as any} />
-                  : null}
+    <AriaSlider
+      className="react-aria-Slider"
+      value={currentValue}
+      onChange={onChange}
+      minValue={min}
+      maxValue={max}
+      step={step}
+      isDisabled={disabled || readonly}
+      aria-describedby={ariaDescribedByIds(id)}
+      aria-label={label || id}
+    >
+      {label && <Label>{label}</Label>}
+      <SliderOutput className="react-aria-SliderOutput">
+        {({ state }) =>
+          state.values.map((_, i) => state.getThumbValueLabel(i)).join(" – ")
+        }
+      </SliderOutput>
+      <SliderTrack className="react-aria-SliderTrack">
+        {({ state, isDisabled }) => (
+          <>
+            <div
+              className="react-aria-SliderTrack-rail"
+              data-disabled={isDisabled || undefined}
+            >
+              {state.values.length === 1 ? (
+                <div
+                  className="react-aria-SliderTrack-fill"
+                  style={
+                    { "--fill-size": state.getThumbPercent(0) * 100 + "%" } as React.CSSProperties
+                  }
+                />
+              ) : state.values.length === 2 ? (
+                <div
+                  className="react-aria-SliderTrack-fill"
+                  style={
+                    {
+                      "--fill-start": state.getThumbPercent(0) * 100 + "%",
+                      "--fill-size":
+                        (state.getThumbPercent(1) - state.getThumbPercent(0)) * 100 + "%",
+                    } as React.CSSProperties
+                  }
+                />
+              ) : null}
             </div>
             {state.values.map((_, i) => (
-              <SliderThumb key={i} index={i} className="react-aria-SliderThumb indicator" />
+              <SliderThumb key={i} index={i} className="react-aria-SliderThumb" />
             ))}
-          </>)}
-        </SliderTrack>
-      </AriaSlider>
-    </div>
+          </>
+        )}
+      </SliderTrack>
+    </AriaSlider>
   );
 }

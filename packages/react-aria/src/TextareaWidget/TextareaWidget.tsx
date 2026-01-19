@@ -6,7 +6,8 @@ import {
   StrictRJSFSchema,
   WidgetProps,
 } from "@rjsf/utils";
-import { Label, TextArea, TextField } from "react-aria-components";
+import { TextArea, TextField as AriaTextField } from "react-aria-components";
+import { Label } from "../components/Form";
 
 type CustomWidgetProps<
   T = any,
@@ -37,7 +38,6 @@ export default function TextareaWidget<
   onFocus,
   onChange,
   options,
-  className,
   label,
   hideLabel,
   rawErrors = [],
@@ -52,22 +52,23 @@ export default function TextareaWidget<
   const hasError = rawErrors.length > 0;
 
   return (
-    <TextField
+    <AriaTextField
+      className="react-aria-TextField"
       isRequired={required}
       isDisabled={disabled}
       isReadOnly={readonly}
       isInvalid={hasError}
-      className={className || undefined}
     >
       {!hideLabel && label && (
         <Label>
           {label}
-          {required ? <span className="rjsf-required">*</span> : null}
+          {required ? <span className="react-aria-required">*</span> : null}
         </Label>
       )}
       <TextArea
         id={id}
         name={htmlName || id}
+        className="react-aria-TextArea"
         placeholder={placeholder}
         value={value ?? ""}
         autoFocus={autofocus}
@@ -77,6 +78,6 @@ export default function TextareaWidget<
         onFocus={_onFocus}
         aria-describedby={ariaDescribedByIds(id)}
       />
-    </TextField>
+    </AriaTextField>
   );
 }

@@ -5,7 +5,7 @@ import {
   StrictRJSFSchema,
   SubmitButtonProps,
 } from "@rjsf/utils";
-import { Button } from "react-aria-components";
+import { Button as AriaButton } from "react-aria-components";
 
 /** The `SubmitButton` renders a button that represent the `Submit` action on a form
  */
@@ -23,12 +23,12 @@ export default function SubmitButton<
     return null;
   }
   return (
-    <Button
+    <AriaButton
+      className="react-aria-Button react-aria-SubmitButton"
       type="submit"
       {...submitButtonProps}
-      className={undefined}
     >
       {submitText}
-    </Button>
+    </AriaButton>
   );
 }

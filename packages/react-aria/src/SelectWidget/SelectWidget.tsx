@@ -11,10 +11,10 @@ import {
   Button,
   ListBox,
   ListBoxItem,
-  Popover,
-  Select,
+  Select as AriaSelect,
   SelectValue,
 } from "react-aria-components";
+import { Popover } from "../components/Popover";
 
 /** The `SelectWidget` is a widget for rendering dropdowns.
  *  It is typically used with string properties constrained with enum options.
@@ -41,7 +41,6 @@ export default function SelectWidget<
   defaultValue,
   placeholder,
   rawErrors = [],
-  className,
 }: WidgetProps<T, S, F>) {
   const { enumOptions, enumDisabled, emptyValue: optEmptyValue } = options;
 
@@ -55,12 +54,10 @@ export default function SelectWidget<
 
   const hasError = rawErrors.length > 0;
 
-  // For multiple select, we would need a different approach
-  // React Aria doesn't have a built-in multi-select component
-  // For now, we'll use native select for multiple
+  // For multiple select, we use native select (React Aria doesn't have built-in multi-select)
   if (multiple) {
     return (
-      <div className="rjsf-select-widget rjsf-select-multiple">
+      <div className="react-aria-Select" data-multiple>
         <select
           id={id}
           multiple
@@ -88,8 +85,9 @@ export default function SelectWidget<
           }}
           onFocus={_onFocus}
           onBlur={_onBlur}
-          className={`rjsf-select ${hasError ? "rjsf-select-error" : ""} ${className || ""}`}
+          className="react-aria-Select-native"
           aria-describedby={ariaDescribedByIds(id)}
+          data-invalid={hasError || undefined}
         >
           {Array.isArray(enumOptions) &&
             enumOptions.map((option, index) => {
@@ -118,55 +116,60 @@ export default function SelectWidget<
   );
 
   return (
-    <div className={`rjsf-select-widget ${hasError ? "rjsf-select-error" : ""} ${className || ""}`}>
-      <Select
-        id={id}
-        isRequired={required}
-        isDisabled={disabled || readonly}
-        autoFocus={autofocus}
-        selectedKey={selectedIndex !== undefined ? selectedIndex.toString() : null}
-        onSelectionChange={(key) => {
-          onChange(
-            enumOptionsValueForIndex<S>(
-              key as string,
-              enumOptions,
-              optEmptyValue,
-            ),
-          );
-        }}
-        onFocus={_onFocus}
-        onBlur={_onBlur}
-        aria-describedby={ariaDescribedByIds(id)}
-        aria-label={label || id}
-      >
-        <Button>
-          <SelectValue>
-            {({ selectedText }) => selectedText || placeholder || "Select..."}
-          </SelectValue>
-          <span aria-hidden="true" className="rjsf-select-arrow">
-            ▼
-          </span>
-        </Button>
-        <Popover placement="bottom" offset={4}>
-          <ListBox>
-            {Array.isArray(enumOptions) &&
-              enumOptions.map((option, index) => {
-                const itemDisabled =
-                  Array.isArray(enumDisabled) &&
-                  enumDisabled.includes(option.value);
-                return (
-                  <ListBoxItem
-                    key={index}
-                    id={index.toString()}
-                    isDisabled={itemDisabled}
-                  >
-                    {option.label}
-                  </ListBoxItem>
-                );
-              })}
-          </ListBox>
-        </Popover>
-      </Select>
-    </div>
+    <AriaSelect
+      className="react-aria-Select"
+      id={id}
+      isRequired={required}
+      isDisabled={disabled || readonly}
+      isInvalid={hasError}
+      autoFocus={autofocus}
+      selectedKey={selectedIndex !== undefined ? selectedIndex.toString() : null}
+      onSelectionChange={(key) => {
+        onChange(
+          enumOptionsValueForIndex<S>(
+            key as string,
+            enumOptions,
+            optEmptyValue,
+          ),
+        );
+      }}
+      onFocus={_onFocus}
+      onBlur={_onBlur}
+      aria-describedby={ariaDescribedByIds(id)}
+      aria-label={label || id}
+    >
+      <Button className="react-aria-Select-button">
+        <SelectValue className="react-aria-SelectValue">
+          {({ selectedText }) => selectedText || placeholder || "Select..."}
+        </SelectValue>
+        <svg
+          viewBox="0 0 12 12"
+          aria-hidden="true"
+          className="react-aria-Select-chevron"
+        >
+          <path d="M2 4 L6 8 L10 4" />
+        </svg>
+      </Button>
+      <Popover hideArrow className="react-aria-Select-popover">
+        <ListBox className="react-aria-ListBox">
+          {Array.isArray(enumOptions) &&
+            enumOptions.map((option, index) => {
+              const itemDisabled =
+                Array.isArray(enumDisabled) &&
+                enumDisabled.includes(option.value);
+              return (
+                <ListBoxItem
+                  key={index}
+                  id={index.toString()}
+                  isDisabled={itemDisabled}
+                  className="react-aria-ListBoxItem"
+                >
+                  {option.label}
+                </ListBoxItem>
+              );
+            })}
+        </ListBox>
+      </Popover>
+    </AriaSelect>
   );
 }

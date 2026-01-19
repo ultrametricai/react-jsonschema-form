@@ -3,41 +3,50 @@
 exports[`CheckboxesWidget inline 1`] = `
 <DocumentFragment>
   <div
-    class="rjsf-checkboxes-widget rjsf-checkboxes-inline "
+    aria-describedby="_id__error _id__description _id__help"
+    aria-label="Some simple label"
+    class="react-aria-CheckboxGroup"
+    data-orientation="horizontal"
+    data-rac=""
+    id="react-aria-:r5:"
+    role="group"
   >
     <div
-      aria-describedby="_id__error _id__description _id__help"
-      aria-label="Some simple label"
-      class="react-aria-CheckboxGroup"
-      data-rac=""
-      id="react-aria-:r5:"
-      role="group"
+      class="react-aria-CheckboxGroup-items"
     >
-      <div
-        class="rjsf-checkbox-item"
+      <label
+        class="react-aria-Checkbox"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-required="true"
       >
-        <label
-          class="react-aria-Checkbox"
-          data-disabled="true"
-          data-rac=""
-          data-react-aria-pressable="true"
-          data-required="true"
+        <span
+          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
         >
-          <span
-            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          <input
+            data-react-aria-pressable="true"
+            disabled=""
+            id="_id-0"
+            name="_id"
+            required=""
+            type="checkbox"
+          />
+        </span>
+        <div
+          class="react-aria-Checkbox-indicator"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 18 18"
           >
-            <input
-              data-react-aria-pressable="true"
-              disabled=""
-              id="_id-0"
-              name="_id"
-              required=""
-              type="checkbox"
+            <polyline
+              points="2 9 7 14 16 4"
             />
-          </span>
-          A
-        </label>
-      </div>
+          </svg>
+        </div>
+        A
+      </label>
     </div>
   </div>
 </DocumentFragment>
@@ -46,41 +55,50 @@ exports[`CheckboxesWidget inline 1`] = `
 exports[`CheckboxesWidget simple 1`] = `
 <DocumentFragment>
   <div
-    class="rjsf-checkboxes-widget  "
+    aria-describedby="_id__error _id__description _id__help"
+    aria-label="Some simple label"
+    class="react-aria-CheckboxGroup"
+    data-orientation="vertical"
+    data-rac=""
+    id="react-aria-:r0:"
+    role="group"
   >
     <div
-      aria-describedby="_id__error _id__description _id__help"
-      aria-label="Some simple label"
-      class="react-aria-CheckboxGroup"
-      data-rac=""
-      id="react-aria-:r0:"
-      role="group"
+      class="react-aria-CheckboxGroup-items"
     >
-      <div
-        class="rjsf-checkbox-item"
+      <label
+        class="react-aria-Checkbox"
+        data-disabled="true"
+        data-rac=""
+        data-react-aria-pressable="true"
+        data-required="true"
       >
-        <label
-          class="react-aria-Checkbox"
-          data-disabled="true"
-          data-rac=""
-          data-react-aria-pressable="true"
-          data-required="true"
+        <span
+          style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
         >
-          <span
-            style="border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap;"
+          <input
+            data-react-aria-pressable="true"
+            disabled=""
+            id="_id-0"
+            name="_id"
+            required=""
+            type="checkbox"
+          />
+        </span>
+        <div
+          class="react-aria-Checkbox-indicator"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 18 18"
           >
-            <input
-              data-react-aria-pressable="true"
-              disabled=""
-              id="_id-0"
-              name="_id"
-              required=""
-              type="checkbox"
+            <polyline
+              points="2 9 7 14 16 4"
             />
-          </span>
-          A
-        </label>
-      </div>
+          </svg>
+        </div>
+        A
+      </label>
     </div>
   </div>
 </DocumentFragment>

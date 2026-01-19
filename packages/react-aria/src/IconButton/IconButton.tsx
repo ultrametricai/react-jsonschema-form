@@ -5,7 +5,7 @@ import {
   StrictRJSFSchema,
   TranslatableString,
 } from "@rjsf/utils";
-import { Button } from "react-aria-components";
+import { Button as AriaButton } from "react-aria-components";
 import { ReactNode } from "react";
 
 export type AriaIconButtonProps<
@@ -30,14 +30,15 @@ export default function IconButton<
 >(props: AriaIconButtonProps<T, S, F>) {
   const { icon, disabled, onClick, title } = props;
   return (
-    <Button
+    <AriaButton
+      className="react-aria-Button react-aria-IconButton"
       isDisabled={disabled}
       onPress={onClick as any}
       aria-label={title}
       type="button"
     >
       {icon}
-    </Button>
+    </AriaButton>
   );
 }
 
@@ -59,7 +60,12 @@ export function CopyButton<
     <IconButton
       title={translateString(TranslatableString.CopyButton)}
       {...props}
-      icon={<span aria-hidden="true">&#x2398;</span>}
+      icon={
+        <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-IconButton-icon">
+          <rect x="6" y="6" width="10" height="10" rx="1" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <rect x="2" y="2" width="10" height="10" rx="1" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        </svg>
+      }
     />
   );
 }
@@ -82,7 +88,11 @@ export function MoveDownButton<
     <IconButton
       title={translateString(TranslatableString.MoveDownButton)}
       {...props}
-      icon={<span aria-hidden="true">&#x25BC;</span>}
+      icon={
+        <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-IconButton-icon">
+          <path d="M4 7 L9 12 L14 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      }
     />
   );
 }
@@ -105,7 +115,11 @@ export function MoveUpButton<
     <IconButton
       title={translateString(TranslatableString.MoveUpButton)}
       {...props}
-      icon={<span aria-hidden="true">&#x25B2;</span>}
+      icon={
+        <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-IconButton-icon">
+          <path d="M4 11 L9 6 L14 11" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      }
     />
   );
 }
@@ -129,7 +143,11 @@ export function RemoveButton<
     <IconButton
       title={translateString(TranslatableString.RemoveButton)}
       {...props}
-      icon={<span aria-hidden="true">&#x2715;</span>}
+      icon={
+        <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-IconButton-icon">
+          <path d="M4 4 L14 14 M14 4 L4 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      }
     />
   );
 }
@@ -146,7 +164,11 @@ export function ClearButton<
     <IconButton
       title={translateString(TranslatableString.ClearButton)}
       {...props}
-      icon={<span aria-hidden="true">&#x2715;</span>}
+      icon={
+        <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-IconButton-icon">
+          <path d="M4 4 L14 14 M14 4 L4 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      }
     />
   );
 }

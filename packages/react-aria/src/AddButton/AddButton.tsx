@@ -5,7 +5,7 @@ import {
   StrictRJSFSchema,
   TranslatableString,
 } from "@rjsf/utils";
-import { Button } from "react-aria-components";
+import { Button as AriaButton } from "react-aria-components";
 
 /**
  * A button component for adding new items in a form
@@ -21,13 +21,16 @@ export default function AddButton<
 >({ registry, disabled, onClick }: IconButtonProps<T, S, F>) {
   const { translateString } = registry;
   return (
-    <Button
+    <AriaButton
+      className="react-aria-Button react-aria-AddButton"
       isDisabled={disabled}
       onPress={onClick as any}
       type="button"
     >
-      <span aria-hidden="true">+</span>{" "}
+      <svg viewBox="0 0 18 18" aria-hidden="true" className="react-aria-AddButton-icon">
+        <path d="M9 3 L9 15 M3 9 L15 9" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
       {translateString(TranslatableString.AddItemButton)}
-    </Button>
+    </AriaButton>
   );
 }
