@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "react-aria-components";
 import { Popover } from "../components/Popover";
+import { Label } from "../components/Form";
 
 /** The `SelectWidget` is a widget for rendering dropdowns.
  *  It is typically used with string properties constrained with enum options.
@@ -58,6 +59,7 @@ export default function SelectWidget<
   if (multiple) {
     return (
       <div className="react-aria-Select" data-multiple>
+        {label && <Label>{label}</Label>}
         <select
           id={id}
           multiple
@@ -136,8 +138,8 @@ export default function SelectWidget<
       onFocus={_onFocus}
       onBlur={_onBlur}
       aria-describedby={ariaDescribedByIds(id)}
-      aria-label={label || id}
     >
+      {label && <Label>{label}</Label>}
       <Button className="react-aria-Select-button">
         <SelectValue className="react-aria-SelectValue">
           {({ selectedText }) => selectedText || placeholder || "Select..."}
