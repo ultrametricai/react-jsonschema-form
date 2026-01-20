@@ -1,0 +1,43 @@
+import { FormContextType, IconButtonProps, RJSFSchema, StrictRJSFSchema } from "@rjsf/utils";
+import { ReactNode } from "react";
+export type AriaIconButtonProps<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any> = IconButtonProps<T, S, F> & {
+    icon?: ReactNode;
+};
+/** Base button component that renders a React Aria button with an icon for RJSF form actions.
+ * This component serves as the foundation for other specialized buttons used in array operations.
+ * It combines RJSF's IconButtonProps with React Aria's Button to provide consistent styling
+ * and behavior across the form.
+ *
+ * @param props - The combined props from RJSF IconButtonProps, including icon and event handlers
+ */
+export default function IconButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+/** Renders a copy button for RJSF array fields that allows users to duplicate array items.
+ * The button includes a copy icon and uses the RJSF translation system for the tooltip text.
+ * This is used within ArrayField to provide item duplication functionality.
+ *
+ * @param props - The RJSF icon button properties, including registry for translations and event handlers
+ */
+export declare function CopyButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+/** Renders a move down button for RJSF array fields that allows reordering of array items.
+ * The button includes a chevron-down icon and uses the RJSF translation system for the tooltip text.
+ * This is used within ArrayField to allow moving items to a lower index in the array.
+ *
+ * @param props - The RJSF icon button properties, including registry for translations and event handlers
+ */
+export declare function MoveDownButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+/** Renders a move up button for RJSF array fields that allows reordering of array items.
+ * The button includes a chevron-up icon and uses the RJSF translation system for the tooltip text.
+ * This is used within ArrayField to allow moving items to a higher index in the array.
+ *
+ * @param props - The RJSF icon button properties, including registry for translations and event handlers
+ */
+export declare function MoveUpButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+/** Renders a remove button for RJSF array fields that allows deletion of array items.
+ * The button includes a trash icon and uses the RJSF translation system for the tooltip text.
+ * It has special styling with destructive colors to indicate its dangerous action.
+ * This is used within ArrayField to provide item removal functionality.
+ *
+ * @param props - The RJSF icon button properties, including registry for translations and event handlers
+ */
+export declare function RemoveButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
+export declare function ClearButton<T = any, S extends StrictRJSFSchema = RJSFSchema, F extends FormContextType = any>(props: AriaIconButtonProps<T, S, F>): import("react/jsx-runtime").JSX.Element;
