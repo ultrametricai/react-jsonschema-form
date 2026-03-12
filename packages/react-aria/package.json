@@ -64,8 +64,6 @@
     "test:update": "jest --u"
   },
   "peerDependencies": {
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
     "react": ">=18",
     "react-dom": ">=18"
   },
@@ -73,12 +71,7 @@
   "engines": {
     "node": ">=20"
   },
-  "devDependencies": {
-    "@rjsf/core": "*",
-    "@rjsf/snapshot-tests": "*",
-    "@rjsf/utils": "*",
-    "@rjsf/validator-ajv8": "*"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@react-aria/overlays": "^3.24.0",
     "react-aria-components": "^1.0.0",

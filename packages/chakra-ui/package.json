@@ -58,8 +58,8 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": ">=3.16.1",
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "chakra-react-select": ">=6",
     "react": ">=18",
     "react-dom": ">=18"

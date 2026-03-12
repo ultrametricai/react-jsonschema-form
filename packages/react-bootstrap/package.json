@@ -55,8 +55,8 @@
     "test:update": "jest --u"
   },
   "peerDependencies": {
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "react": ">=18",
     "react-bootstrap": "^2.x"
   },

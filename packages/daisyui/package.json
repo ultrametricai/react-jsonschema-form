@@ -65,8 +65,8 @@
     "tailwindcss": "^4.1.18"
   },
   "peerDependencies": {
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "daisyui": "^5.0.29",
     "react": ">=18"
   },

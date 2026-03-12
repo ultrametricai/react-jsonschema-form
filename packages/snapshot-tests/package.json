@@ -22,8 +22,8 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "react": ">=18"

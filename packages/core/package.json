@@ -60,7 +60,6 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "@rjsf/utils": "workspace:*",
     "react": ">=18"
   },
   "dependencies": {
@@ -70,9 +69,6 @@
     "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@rjsf/snapshot-tests": "*",
-    "@rjsf/utils": "*",
-    "@rjsf/validator-ajv8": "*",
     "@types/react-portal": "^4.0.7",
     "react-portal": "^4.3.0"
   },

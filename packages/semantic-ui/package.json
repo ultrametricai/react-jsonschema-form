@@ -55,8 +55,8 @@
     "test:update": "jest --u"
   },
   "peerDependencies": {
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "react": ">=18",
     "semantic-ui-react": "^2.1.3"
   },

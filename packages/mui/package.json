@@ -58,8 +58,8 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^7.0.0",
     "@mui/material": "^7.0.0",
-    "@rjsf/core": "workspace:*",
-    "@rjsf/utils": "workspace:*",
+    "@rjsf/core": "*",
+    "@rjsf/utils": "*",
     "react": ">=18"
   },
   "devDependencies": {
