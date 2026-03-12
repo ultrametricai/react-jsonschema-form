@@ -58,8 +58,8 @@
     "test:update": "jest --u"
   },
   "peerDependencies": {
-    "@rjsf/core": "^6.2.x",
-    "@rjsf/utils": "^6.2.x",
+    "@rjsf/core": "workspace:*",
+    "@rjsf/utils": "workspace:*",
     "react": ">=18"
   },
   "engineStrict": false,

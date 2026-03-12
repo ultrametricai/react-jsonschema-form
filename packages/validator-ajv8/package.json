@@ -77,7 +77,7 @@
     "lodash-es": "^4.17.21"
   },
   "peerDependencies": {
-    "@rjsf/utils": "^6.2.x"
+    "@rjsf/utils": "workspace:*"
   },
   "devDependencies": {
     "@rjsf/utils": "*"
